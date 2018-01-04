@@ -1,0 +1,44 @@
+{% extends "layout.html" %}
+
+{% block page_title %}
+GOV.UK prototype kit
+{% endblock %}
+
+{% block content %}
+
+<main id="content">
+  <p class="error-summary js-hidden">You need to sign in or sign up before continuing.</p>
+
+  <h1 class="heading-xlarge">Sign in</h1>
+
+  <form class="new_user" id="new_user" action="/users/sign_in" accept-charset="UTF-8" method="get"><input name="utf8" type="hidden" value="✓"><input type="hidden" name="authenticity_token" value="Rqh3xweX/m9EoEQBP+Ym9mYCQKc95FnaTWq2FM1QQ4c7csdZKuhYIktp85f2gngsMR/vUObxnXHHt1C1ZvRiEA==">
+
+    <div class="form-group"><label class="form-label" for="user_email">Email</label><input class="form-control" type="email" value="" name="user[email]" id="user_email"></div>
+
+    <div class="form-group">
+      <label class="form-label" for="user_password">Password</label>
+      <input autocomplete="off" class="form-control" type="password" name="user[password]" id="user_password">
+      <label class="form-checkbox" for="user_remember_me">
+        <input name="user[remember_me]" type="hidden" value="0"><input type="checkbox" value="1" name="user[remember_me]" id="user_remember_me">
+        Remember me
+      </label>  </div>
+
+
+
+      <div class="form-group actions">
+        <a class="button" href="sign_in_faux_logic" role="button">Sign in</a>
+      </div>
+
+    </form>
+
+
+    <a href=#>Forgot your password?</a><br>
+
+
+    <a href=#>Didn't receive unlock instructions?</a><br>
+
+
+
+  </main>
+
+  {% endblock %}

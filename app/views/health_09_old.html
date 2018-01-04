@@ -1,0 +1,62 @@
+0{% extends "layout.html" %}
+
+{% block page_title %}
+Question page
+{% endblock %}
+
+{% block content %}
+
+<main id="content" role="main">
+
+  {% include "includes/breadcrumb_health.html" %}
+
+  <div class="grid-row">
+    <div class="column-full">
+      <p><a href="health_08.html">Back</a>&emsp;8 of 8&emsp;</p>
+    </div>
+    <div class="column-two-thirds">
+
+      <form action="check-your-answers-health" method="get" class="form">
+
+        <h1 class="heading-xlarge">
+          Medical contact details
+        </h1>
+        <form action="risk_02" method="get" class="form">
+          <div class="form-group">
+            <fieldset>
+
+              <legend class="visuallyhidden">
+              </legend>
+
+              <label for="radio-part-1" class="block-label">
+                <input id="radio-part-1" type="radio" name="radio-inline-group" value="contact" checked="true">
+                01234 567 890 <span style="color:#666"> (Bedford Healthcare)</span>
+              </label>
+
+              <label for="radio-part-2" class="block-label" data-target="contact-info">
+                <input id="radio-part-2" type="radio" name="radio-inline-group" value="contact">
+                Other number
+              </label>
+
+            </fieldset>
+          </div>
+
+          <div class="panel panel-border-narrow js-hidden" id="contact-info">
+            <div class="form-group">
+              <label class="form-label" for="manualcontact">Enter medical contact number to be used</label>
+              <input class="form-control" id="manualcontact" name="manualcontact" type="text">
+            </div>
+          </div>
+
+
+          <!-- button -->
+          <div class="form-group">
+            <input class="button" type="submit" value="Save and continue">
+          </div>
+        </form>
+
+      </div>
+    </div>
+  </main>
+
+  {% endblock %}

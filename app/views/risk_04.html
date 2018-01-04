@@ -1,0 +1,150 @@
+{% extends "layout.html" %}
+
+{% block page_title %}
+Question page
+{% endblock %}
+
+{% block content %}
+
+<main id="content" role="main">
+
+  {% include "includes/breadcrumb_examples.html" %}
+
+  <div class="grid-row">
+    <div class="column-full"><p><a href="risk_03.html">Back</a>&emsp;4 of 12&emsp;<a href="risk_05.html">Skip</a></p>
+    </div>
+    <div class="column-two-thirds">
+
+      <form action="risk_05" method="get" class="form">
+
+        <!-- <div class="notice">
+        <i class="icon icon-important">
+      </i>
+      <strong class="bold-small">
+      NOMIS alerts and comments that can be safely automated have been. You need to check and complete the rest.
+      <br><span style="font-weight:normal;">Last updated from NOMIS: 02:23 | DD Month YYYY</span>
+    </strong>
+  </div> -->
+
+  <h1 class="heading-secondary">
+    Harassment and gangs
+  </h1>
+
+  <!-- question -->
+  <h2 class="heading-medium">
+    Are they a known harasser, intimidator or bully?
+  </h2>
+  <p class="form-hint">
+    In NOMIS, check the header section of the prisoner’s record for relevant alerts. Check alert comments and case notes for details and and <em>Security> Non-association</em> for known risks to named prisoners.
+  </p>
+  <div class="form-group">
+    <fieldset class="inline">
+
+      <legend class="visually-hidden"></legend>
+
+      <div class="multiple-choice" data-target="intimidator-checkboxes">
+        <input id="radio-inline-5" type="radio" name="intimidator" value="Yes" {{ checked("intimidator", "Yes") }}>
+        <label for="radio-inline-5">Yes</label>
+      </div>
+
+      <div class="multiple-choice">
+        <input id="radio-inline-6" type="radio" name="intimidator" value="No" {{ checked("intimidator", "No") }}>
+        <label for="radio-inline-6">No</label>
+      </dic>
+
+    </fieldset>
+  </div>
+
+  <!-- conditionals -->
+  <div class="panel panel-border-narrow js-hidden" id="intimidator-checkboxes">
+    <!-- Give details -->
+    <div class="form-group">
+      <fieldset>
+        <legend class="visuallyhidden">Intimidator/bully</legend>
+        <!-- checkbox -->
+        <P class="form-label">Targets (select all that apply):</P>
+        <label class="block-label" for="public" data-target="intimidator_public_info">
+          <input type="checkbox" name="intimidator_public" value="Yes" id="public">
+          Public
+        </label>
+        <!-- conditional -->
+        <div class="panel panel-border-narrow js-hidden" id="intimidator_public_info">
+          <label class="form-label" for="textarea-a">
+            Give details, including any relevant court orders
+          </label>
+          <textarea class="form-control" id="textarea-a" cols="30" rows="3" name="intimidator_public_info"></textarea>
+        </div>
+        <!-- checkbox -->
+        <label class="block-label" for="prisoners" data-target="intimidator_prisoners_info">
+          <input type="checkbox" name="intimidator_prisoners" value="Yes" id="prisoners">
+          Prisoners
+        </label>
+        <!-- conditional -->
+        <div class="panel panel-border-narrow js-hidden" id="intimidator_prisoners_info">
+          <label class="form-label" for="textarea-a">
+            Give details, including any relevant court orders
+          </label>
+          <textarea class="form-control" id="textarea-a" cols="30" rows="3" name="intimidator_prisoners_info"></textarea>
+        </div>
+        <!-- checkbox -->
+        <label class="block-label" for="witnesses" data-target="intimidator_witnesses_info">
+          <input type="checkbox" name="intimidator_witnesses" value="Yes" id="witnesses">
+          Witnesses
+        </label>
+        <!-- conditional -->
+        <div class="panel panel-border-narrow js-hidden" id="intimidator_witnesses_info">
+          <label class="form-label" for="textarea-a">
+            Give details, including any relevant court orders
+          </label>
+          <textarea class="form-control" id="textarea-a" cols="30" rows="3" name="intimidator_witnesses_info"></textarea>
+        </div>
+      </fieldset>
+    </div>
+  </div>
+
+  <h2 class="heading-medium">
+    Are they a gang member?
+  </h2>
+  <p class="form-hint">In NOMIS, check the header section of the prisoner’s record for relevant alerts. Check alert comments and case notes for details and and Security > Non-association for known risks to named prisoners.</p>
+  <div class="form-group">
+    <span class="nomis-verified"></span>
+    <fieldset class="inline">
+
+      <legend class="visually-hidden"></legend>
+
+      <div class="multiple-choice" data-target="gangs-info">
+        <input id="radio-inline-7" type="radio" name="gangs" value="Yes"{{ checked("gangs", "Yes") }} >
+        <label for="radio-inline-7">Yes</label>
+      </div>
+      <div class="multiple-choice">
+        <input id="radio-inline-8" type="radio" name="gangs" value="No" {{ checked("gangs", "No") }} onclick="clearDetails('textarea-b');">
+        <label for="radio-inline-8">No</label>
+      </div>
+
+    </fieldset>
+  </div>
+
+  <div class="panel panel-border-narrow js-hidden" id="gangs-info">
+    <div class="form-group">
+      <label class="form-label" for="textarea-b">
+        Give details
+      </label>
+      <textarea class="form-control" id="textarea-b" cols="30" rows="3" name="gangs_info"></textarea>
+    </div>
+  </div>
+
+</div>
+</div>
+
+<!-- button -->
+<div class="form-group">
+  {% include "includes/risk-screen-buttons.html" %}
+
+</div>
+</form>
+
+</div>
+</div>
+</main>
+
+{% endblock %}

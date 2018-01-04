@@ -1,0 +1,81 @@
+{% extends "layout.html" %}
+
+{% block page_title %}
+Question page
+{% endblock %}
+
+{% block content %}
+<style media="screen">
+.panel{
+  margin-bottom: 30px;
+}
+</style>
+
+<main id="content" role="main">
+
+  <div class="grid-row">
+    <form action="health_02" method="get" class="column-two-thirds" class="form">
+
+      <h1 class="heading-large">
+        Where do you work?
+      </h1>
+      <div class="form-group">
+        <fieldset>
+          <legend class="visuallyhidden">
+          </legend>
+          <label for="radio-part-1" class="block-label selected" data-target="court-crown-info">
+            <input id="radio-part-1" type="radio" name="radio-inline-group" value="Crown Court">
+            Crown Court
+          </label>
+
+          <div class="panel panel-border-narrow" id="court-crown-info">
+            <div class="form-group">
+              <label class="form-label" for="input-court-name">
+                Enter court name:
+              </label>
+              <input class="form-control" id="input-court-name" type="text" name="input-court-name" value="Luton Crown Court">
+            </div>
+          </div>
+
+          <label for="radio-part-2" class="block-label" data-target="court-mag-info">
+            <input id="radio-part-2" type="radio" name="radio-inline-group" value="Magistrates Court">
+            Magistrates Court
+          </label>
+
+          <div class="panel panel-border-narrow js-hidden" id="court-mag-info">
+            <div class="form-group">
+
+              <label class="form-label" for="input-mag-name">
+                Enter court name:
+              </label>
+              <input class="form-control" id="input-mag-name" type="text" name="input-mag-name">
+            </div>
+          </div>
+        </div>
+        <!--
+        <div class="form-group">
+        <label class="form-label-bold" for="datedummy">
+        Date of travel
+        <p class="form-hint">
+        DD/MM/YYYY
+      </p>
+    </label>
+    <input class="form-control" id="datedummy" type="text" name="datedummy">
+  </div> -->
+
+
+
+  <div class="form-group">
+    <a class="button" href="dashboard_receiver_court" role="button" >Save and continue</a>
+    <a href="dashboard_receiver_court" class="linkstylebutton">Cancel</a>
+    <!-- <input class="button" type="submit" value="Continue"> -->
+  </div>
+</form>
+
+</div>
+</div>
+
+</div>
+</main>
+
+{% endblock %}

@@ -1,0 +1,81 @@
+{% extends "layout.html" %}
+
+{% block page_title %}
+Question page
+{% endblock %}
+
+{% block content %}
+
+<main id="content" role="main">
+  {% include "includes/breadcrumb_health.html" %}
+
+  <div class="grid-row">
+    <div class="column-full">
+      <p><a href="health_01.html">Back</a>&emsp;1 of 8&emsp;<a href="health_03.html">Skip</a></p>
+    </div>
+    <div class="column-two-thirds">
+
+      <form action="health_03" method="get" class="form">
+        <h1 class="heading-secondary">
+          Physical health issues
+        </h1>
+
+        <!-- question -->
+        <h2 class="heading-medium">
+          Are there any physical health issues that may affect this journey?
+        </h2>
+        <p>
+          For example, issues that mean they can’t:
+          <ul class="list list-bullet">
+            <li>be handcuffed </li>
+            <li>travel in a standard van cell</li>
+            <li>sit for long periods of time</li>
+          </ul>
+
+          <div class="form-group">
+            <fieldset class="inline">
+
+              <legend class="visually-hidden"></legend>
+
+              <label class="block-label selection-button-radio" for="radio-inline-1" data-target="physical-health-info">
+                <input id="radio-inline-1" type="radio" name="physical_health" value="Yes">
+                Yes
+              </label>
+              <label class="block-label selection-button-radio" for="radio-inline-2">
+                <input id="radio-inline-2" type="radio" name="physical_health" value="No">
+                No
+              </label>
+
+            </fieldset>
+          </div>
+
+          <div class="panel panel-border-narrow js-hidden" id="physical-health-info">
+            <div class="form-group">
+              <label class="form-label" for="textarea-b">
+                Please explain how these issues might affect the journey and how they should be managed:
+              </label>
+              <textarea class="form-control" id="textarea-b" cols="30" rows="3" name="physical_health_info"></textarea>
+            </div>
+          </div>
+
+          <!-- button -->
+          <div class="form-group">
+            <input class="button" type="submit" value="Save and continue">
+          </div>
+        </form>
+
+      </div>
+      <div class="column-one-third side-profile">
+        <h1><span class="namebold"> <a href="/profile.html"> A1234AB</a><br/>BARKER</span> RONNIE</h1>
+        <img src="/public/images/ronnie.jpg"/>
+        <p class="font-xsmall info-start">Date of travel</p>
+        <h2>13 Apr 2017</h2>
+        <p class="font-xsmall">From</p>
+        <h2>HMP Bedford</h2>
+        <p class="font-xsmall">To</p>
+        <h2>St Albans Crown Court</h2>
+      </div>
+    </div>
+  </main>
+
+  {% endblock %}

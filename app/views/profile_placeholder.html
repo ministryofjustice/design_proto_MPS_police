@@ -1,0 +1,28 @@
+{% extends "layout.html" %}
+
+{% block page_title %}
+Check your answers
+{% endblock %}
+
+{% block content %}
+
+<main id="content" role="main">
+
+  {% include "includes/breadcrumb_profile.html" %}
+
+  <div class="column-two-thirds">
+    <img src="/public/images/profile.jpg"/>
+  </div>
+  <div class="column-one-third side-profile">
+    <h1><span class="namebold"> <a href="/profile.html"> A1234AB</a><br/>BARKER</span> RONNIE</h1>
+    <img src="/public/images/ronnie.jpg"/>
+    <p class="font-xsmall info-start">Date of travel</p>
+    <h2>13 Apr 2017</h2>
+    <p class="font-xsmall">From</p>
+    <h2>HMP Bedford</h2>
+    <p class="font-xsmall">To</p>
+    <h2>St Albans Crown Court</h2>
+  </div>
+</main>
+
+{% endblock %}

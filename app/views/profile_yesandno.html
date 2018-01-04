@@ -1,0 +1,389 @@
+{% extends "layout.html" %}
+
+{% block page_title %}
+Check your answers
+{% endblock %}
+
+{% block content %}
+<style media="screen">
+section{
+  margin-bottom:30px;
+  /*margin-top: 40px*/
+}
+.column-two-thirds{
+  padding: 0px 0px;
+  width: 75%;
+}
+.panel{
+  display: block;
+  position: relative;
+  margin: 0px 0px 0px 0px;
+}
+
+.panel .heading-medium{
+  margin: 0px 0px;
+}
+.panel p{
+  font-size: 16px;
+  margin: 5px 0px;
+}
+.amend_link{
+  position: absolute;
+  right: 20px;
+  top: 10px;
+}
+.tile {
+  box-sizing:border-box;
+  /*float: left;*/
+  display:inline-block;
+  padding:20px 0px 0px 0px;
+}
+.tile h6{
+  font-size: 16px;
+}
+.tile p{
+  font-weight: bold;
+  font-size: 19px;
+  margin: 0px 0px;
+}
+.col-3{
+  width: 32%;
+}
+.col-4{
+  width: 24%;
+}
+.col-8{
+  width: 12.5%;
+}
+.col-clear{
+  clear:both;
+}
+.alert{
+  box-sizing: border-box;;
+  float: left;
+  margin: 0px 5px 10px 0px;
+  font-weight: bold;;
+}
+.flag{
+  box-sizing: border-box;
+  text-transform: uppercase;
+  font-family: 'arial narrow', sans-serif;
+  display: inline-block;
+  font-weight: bold;
+  color: white;
+  background-color: #DF3034;
+  padding: 6px 12px;
+  margin-right: 10px;
+}
+.flag-inactive{
+  box-sizing: border-box;;
+  text-decoration: line-through;
+font-weight: lighter;
+  background-color: white;
+  border: solid 1px #0b0c0c;
+  color: #0b0c0c;
+}
+.unbold{
+  font-weight:100;
+}
+.status{
+  display: inline-block;
+  font-weight: bold;
+  color: #DF3034;
+  border: solid 2px red;
+  padding: 4px 8px;
+  margin-left: 10px;
+}
+.check-your-answers td:first-child + td{
+  font-weight: bold;
+}
+/*.check-your-answers td{
+font-weight: bold;
+}*/
+.check-your-answers tr:last-child td {
+  border:0 ;
+}
+</style>
+<main id="content" role="main">
+
+  <!-- {% include "includes/breadcrumb_profile.html" %} -->
+  <h2 class="heading-large">A1234AB: BARKER <span class="unbold">RONNIE</span></h2>
+  <div class="column-two-thirds">
+    <div class="alert">
+      <span class="flag">
+        Not for release
+      </span>
+    </div>
+    <div class="alert">
+      <span class="flag flag-inactive">
+        ACCT
+      </span>
+    </div>
+    <div class="alert">
+      <span class="flag">
+        RULE 45
+      </span>
+    </div>
+    <div class="alert">
+      <span class="flag flag-inactive">
+        ESCAPE RISK
+      </span>
+    </div>
+    <div class="alert">
+      <span class="flag flag-inactive">
+        CSRA
+      </span>
+    </div>
+    <div class="alert">
+      <span class="flag flag-inactive">
+        CAT A
+      </span>
+    </div>
+    <br><br><br>
+    <section>
+      <div class="panel panel-border-wide alert-success">
+        <h2 class="heading-medium">Move information</h2>
+        <!-- <p>
+        Last confirmed: Firstname Surname, 15:32 | 12 Apr 2017
+      </p> -->
+      <a href="#" class="amend_link">Edit</a>
+    </div>
+    <div class="tile col-3">
+      <h6>
+        Date of travel
+      </h6>
+      <p>
+        13 April 2017
+      </p>
+    </div>
+    <div class="tile col-3">
+      <h6>
+        From
+      </h6>
+      <p>
+        HMP Bedford
+      </p>
+    </div>
+    <div class="tile col-3">
+      <h6>
+        To
+      </h6>
+      <p>
+        St Albans Crown Court
+      </p>
+    </div>
+    <div class="tile col-3">
+      <h6>
+        Not for release
+      </h6>
+      <p>
+        Further charges
+      </p>
+    </div>
+  </section>
+  <section>
+    <div class="panel panel-border-wide alert-success">
+      <h2 class="heading-medium">Personal details</h2>
+      <!-- <p>
+      Last confirmed: Firstname Surname, 15:32 | 12 Apr 2017
+    </p> -->
+    <!-- <a href="#" class="amend_link">Edit</a> -->
+  </div>
+  <div class="tile col-4">
+    <h6>
+      CRO number
+    </h6>
+    <p>
+      596835/08K
+    </p>
+  </div>
+  <div class="tile col-4">
+    <h6>
+      PNC Number
+    </h6>
+    <p>
+      08/783296E
+    </p>
+  </div>
+  <div class="tile col-4">
+    <h6>
+      Nationality
+    </h6>
+    <p>
+      Jamaican
+    </p>
+  </div>
+  <div class="tile col-4">
+    <h6>
+      Date of birth
+    </h6>
+    <p>
+      24 May 1973
+    </p>
+  </div>
+  <div class="tile col-4">
+    <h6>
+      Aliases
+    </h6>
+    <p>
+      FLETCH
+    </p>
+  </div>
+  <div class="tile col-8">
+    <h6>
+      Age
+    </h6>
+    <p>
+      53
+    </p>
+  </div>
+  <div class="tile col-8">
+    <h6>
+      Sex
+    </h6>
+    <p>
+      M
+    </p>
+  </div>
+</section>
+<section>
+  <div class="panel panel-border-wide alert-success">
+    <h2 class="heading-medium">Offences</h2>
+    <p>
+      Last confirmed: Firstname Surname, 15:32 | 12 Apr 2017
+    </p>
+    <div class="status">Completed</div>
+    <a href="#" class="amend_link">View</a>
+  </div>
+  <table class="check-your-answers">
+    <col width="30%">
+    <col width="70%">
+    <tr>
+      <td>Current Offences</td>
+      <td>Sexual assault on a female (T20167200) <br>
+        Assault a person thereby occasioning them actual bodily harm (T20167200)</td>
+      </tr>
+    </table>
+    <!-- <div class="tile">
+    <h6>
+    Current Offences
+  </h6>
+  <p>
+  Sexual assault on a female (T20167200)</p>
+  <p>Assault a person thereby occasioning them actual bodily harm (T20167200)</p>
+</div> -->
+</section>
+<section>
+  <div class="panel panel-border-wide alert-warning">
+    <h2 class="heading-medium">Risk</h2>
+    <p>
+      Last confirmed: Firstname Surname, 15:32 | 12 Apr 2017
+    </p>
+    <div class="status" style="position:absolute">Review</div>
+    <a href="/check-your-answers.html" class="amend_link">Edit</a>
+  </div>
+  <table class="check-your-answers">
+    <col width="30%">
+    <col width="70%">
+    <tr>
+      <td>Rule 45</td>
+      <td>Yes</td>
+    </tr>
+    <tr>
+      <td>
+        Risk to females
+      </td>
+      <td>
+        Sexual offence female victim of current offences is according to mg5 case summary
+      </td>
+    </tr>
+    <tr>
+      <td>Risk to other groups</td>
+      <td>Risk to females</td>
+    </tr>
+    <tr>
+      <td>
+        Violent to staff
+      </td>
+      <td>
+        Risk to female officer
+      </td>
+    </tr>
+    <tr>
+      <td>
+        Public
+      </td>
+      <td>
+        Victim of current offences is named person according to mg5 case summary
+      </td>
+    </tr>
+    <tr>
+      <td>
+        Other known conflicts
+      </td>
+      <td>
+        Bully & fights other prisoners
+      </td>
+    </tr>
+    <tr>
+      <td>
+        Currently on E list
+      </td>
+      <td>
+        E-List-Escort
+      </td>
+    </tr>
+    <tr>
+      <td>Conceals weapons</td>
+      <td>Found ip a screw during search in trainers during afcs mr
+        lombo produced a mobile phone while on the toilet and
+        handed it to the wing officer</td>
+      </tr>
+      <tr>
+        <td>Conceals mobile phones</td>
+        <td>Yes</td>
+      </tr>
+    </table>
+  </section>
+  <section>
+    <div class="panel panel-border-wide alert-success">
+      <h2 class="heading-medium">Healthcare</h2>
+      <p>
+        Last confirmed: Firstname Surname, 15:32 | 12 Apr 2017
+      </p>
+      <div class="status">Completed</div>
+      <a href="/check-your-answers-health.html" class="amend_link">View</a>
+    </div>
+    <table class="check-your-answers">
+      <col width="30%">
+      <col width="70%">
+      <tr>
+        <td>Allergies and intolerances</td>
+        <td>Calcitonin (pork)</td>
+      </tr>
+      <tr>
+        <td>Medical contact</td>
+        <td>01234373138</td>
+      </tr>
+    </table>
+  </section>
+
+  <section style="margin-top: 60px">
+    <a class="button" href="#" role="" >Cancel PER</a>
+    <a style="margin-left: 20px" href="/dashboard">Return to home</a>
+  </section>
+
+</div>
+<div class="column-one-third side-profile">
+  <h1><span class="namebold"> <a href="/profile.html"> A1234AB</a><br/>BARKER</span> RONNIE</h1>
+  <img src="/public/images/ronnie.jpg"/>
+  <p class="font-xsmall info-start">Date of travel</p>
+  <h2>13 Apr 2017</h2>
+  <p class="font-xsmall">From</p>
+  <h2>HMP Bedford</h2>
+  <p class="font-xsmall">To</p>
+  <h2>St Albans Crown Court</h2>
+</div>
+</main>
+
+{% endblock %}

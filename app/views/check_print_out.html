@@ -1,0 +1,751 @@
+{% extends "layout.html" %}
+
+{% block page_title %}
+Check your answers
+{% endblock %}
+
+{% block content %}
+
+<style media="screen">
+td:first-child {
+  padding-left: 20px;
+}
+.heading-medium{
+  text-align:right;
+  font-size:48px;
+  color: rgba(0,0,0,0.3);
+  border-top: 2px solid black;
+  border-bottom: 0px solid black;
+  margin-bottom: -50px;
+  padding-top: 0px;
+}
+</style>
+
+<main id="content" role="main">
+
+  <h1 class="heading-medium">
+    Risk
+  </h1>
+  <table class="check-your-answers">
+    <col width="30%">
+    <col width="20%">
+    <col width="auto">
+
+
+    <th>Risk to self</th>
+    <th> {{ session.risktoself }} </th>
+    <th></th>
+
+    <tr id="section_risktoself">
+      <td>
+        ACCT status
+      </td>
+      <td>
+        {{ session.acct }}
+      </td>
+      <td>
+        {{ session.acctday }} {{ session.acctmonth }} {{ session.acctyear }} {{ session.acctsixmonths_info }}
+      </td>
+    </tr>
+
+    <tr>
+      <th>Risk from others</th>
+      <th> {{ session.riskFromOthers }} </th>
+      <th></th>
+    </tr>
+    <tr id="rule45">
+      <td>
+        Rule 45
+      </td>
+      <td>
+        {{ session.rule45 }}
+      </td>
+      <td>
+      </td>
+    </tr>
+    <tr id="publicInterest">
+      <td>
+        High public interest
+      </td>
+      <td>
+        {{ session.publicInterest }}
+      </td>
+      <td>
+        {{ session.publicInterest_info }}
+      </td>
+    </tr>
+
+    <tr>
+      <th>Discrimination against others</th>
+      <th>{{ session.discrimination }}</th>
+      <th></th>
+    </tr>
+    <tr id="risktofemales">
+      <td>
+        Risk to females
+      </td>
+      <td>
+        {{ session.risktofemales }}
+      </td>
+      <td>
+        {{ session.risktofemales_info }}
+      </td>
+    </tr>
+    <tr id="homosexuals">
+      <td>
+        Risk to LGBT people
+      </td>
+      <td>
+        {{ session.homosexuals }}
+      </td>
+      <td>
+        {{ session.homosexuals_info }}
+      </td>
+    </tr>
+    <tr id="racist">
+      <td>
+        Racist
+      </td>
+      <td>
+        {{ session.racist }}
+      </td>
+      <td>
+        {{ session.racist_info }}
+      </td>
+    </tr>
+    <tr id="religions">
+      <td>
+        Religions
+      </td>
+      <td>
+        {{ session.religions }}
+      </td>
+      <td>
+        {{ session.religions_info }}
+      </td>
+    </tr>
+    <tr id="violent_risk_to_othergroups">
+      <td>
+        Other groups
+      </td>
+      <td>
+        {{ session.violent_risk_to_othergroups }}
+      </td>
+      <td>
+        {{ session.violent_risk_to_othergroups_info }}
+      </td>
+    </tr>
+
+    <tr id="section_violent_risk_to_others">
+      <th>Violent to others</th>
+      <th>{{ session.violent_risk_to_others }}</th>
+      <th></th>
+    </tr>
+    <tr id="csra">
+      <td>
+        CSRA
+      </td>
+      <td>
+        {{ session.csra }}
+      </td>
+      <td>
+      </td>
+    </tr>
+    <tr id="violent_to_staff">
+      <td>
+        Violent to staff
+      </td>
+      <td>
+        {{ session.violent_to_staff }}
+      </td>
+      <td>
+        {{ session.violent_to_staff_info }}
+      </td>
+    </tr>
+
+    <tbody id="section_violent_to_detainees">
+      <tr >
+        <th>Violent to other prisoners</th>
+        <th> {{ session.violent_to_detainees }} </th>
+        <th></th>
+      </tr>
+      <tr>
+        <td>
+          Co-defendant
+        </td>
+        <td>
+          {{ session.co_defendant }}
+        </td>
+        <td>
+          {{ session.co_defendant_info }}
+        </td>
+      </tr>
+      <tr>
+        <td>
+          Gang member
+        </td>
+        <td>
+          {{ session.gang_member }}
+        </td>
+        <td>
+          {{ session.gang_member_info }}
+        </td>
+      </tr>
+      <tr>
+        <td>
+          Other known conflicts
+        </td>
+        <td>
+          {{ session.other_known_conflicts }}
+        </td>
+        <td>
+          {{ session.other_known_conflicts_info }}
+        </td>
+      </tr>
+    </tbody>
+
+    <tbody id="section_violent_general_public">
+      <tr>
+        <th>Violent to anyone else</th>
+        <th>{{session.violent_general_public}}</th>
+        <th>
+        </th>
+      </tr>
+      <tr>
+        <td>
+          Violent to anyone else
+        </td>
+        <td>
+          {{ session.violent_general_public }}
+        </td>
+        <td>
+          {{ session.violent_general_public_info }}
+        </td>
+      </tr>
+    </tbody>
+    <tbody id="section_controlledunlock">
+      <tr>
+        <th>Controlled unlock</th>
+        <th>{{ session.controlledunlock }}</th>
+        <th></th>
+      </tr>
+      <tr>
+        <td>
+          Controlled unlock
+        </td>
+        <td>
+          {{ session.controlledunlock }}
+        </td>
+        <td>
+          {{ session.controlledunlock_state }} {{ session.controlledunlock_info }}
+        </td>
+      </tr>
+    </tbody>
+  </div>
+
+  <tr>
+    <th>Hostage taker</th>
+    <th> {{ session.hostage_taker }}</th>
+    <th></th>
+  </tr>
+  <tr id="hostage_staff">
+    <td>
+      Staff
+    </td>
+    <td>
+      {{ session.hostage_staff }}
+    </td>
+    <td>
+      {{ session.hostage_staff_day }}{{ session.hostage_staff_month }}{{ session.hostage_staff_year }}
+    </td>
+  </tr>
+  <tr id="hostage_prisoners">
+    <td>
+      Prisoners
+    </td>
+    <td>
+      {{ session.hostage_prisoners }}
+    </td>
+    <td>
+      {{ session.hostage_prisoners_day }}{{ session.hostage_prisoners_month }}{{ session.hostage_prisoners_year }}
+    </td>
+  </tr>
+  <tr id="hostage_public">
+    <td>
+      Public
+    </td>
+    <td>
+      {{ session.hostage_public }}
+    </td>
+    <td>
+      {{ session.hostage_public_day }}{{ session.hostage_public_month }}{{ session.hostage_public_year }}
+    </td>
+  </tr>
+
+  <tr>
+    <th>Harassment and bullying</th>
+    <th> {{ session.intimidator }}</th>
+    <th></th>
+  </tr>
+  <tbody id="intimidator">
+    <tr>
+      <td>
+        Staff
+      </td>
+      <td>
+        {{ session.intimidator_staff }}
+      </td>
+      <td>
+        {{ session.intimidator_staff_info }}
+      </td>
+    </tr>
+    <tr>
+      <td>
+        Public
+      </td>
+      <td>
+        {{ session.intimidator_public}}
+      </td>
+      <td>
+        {{ session.intimidator_public_info }}
+      </td>
+    </tr>
+    <tr>
+      <td>
+        Prisoners
+      </td>
+      <td>
+        {{ session.intimidator_prisoners}}
+      </td>
+      <td>
+        {{ session.intimidator_prisoners_info }}
+      </td>
+    </tr>
+    <tr>
+      <td>
+        Witnesses
+      </td>
+      <td>
+        {{ session.intimidator_witnesses}}
+      </td>
+      <td>
+        {{ session.intimidator_witnesses_info }}
+      </td>
+    </tr>
+  </tbody>
+
+  <tr>
+    <th>Sex offender</th>
+    <th> {{ session.sex_offender }} </th>
+    <th></th>
+  </tr>
+  <tr id="adult_male">
+    <td>
+      Adult male
+    </td>
+    <td>
+      {{ session.adult_male }}
+    </td>
+    <td>
+    </td>
+  </tr>
+  <tr id="adult_female">
+    <td>
+      Adult female
+    </td>
+    <td>
+      {{ session.adult_female }}
+    </td>
+    <td>
+    </td>
+  </tr>
+  <tr id="under18">
+    <td>
+      Under 18
+    </td>
+    <td>
+      {{ session.under18 }}
+    </td>
+    <td>
+      {{ session.under18_info }}
+    </td>
+  </tr>
+  <tr id="sex_offence_date">
+    <td>
+      Most recent sex offence
+    </td>
+    <td>
+      {{ session.sex_offence_day }} {{ session.sex_offence_month }} {{ session.sex_offence_year }}
+    </td>
+    <td>
+      {{ session.under18_info }}
+    </td>
+  </tr>
+</tbody>
+
+<tr>
+  <th>Escape status/history</th>
+  <th> {{ session.escape_history }} </th>
+  <th></th>
+</tr>
+<tr id="elist">
+  <td>
+    Currently on E list
+  </td>
+  <td>
+    {{ session.elist }}
+  </td>
+  <td>
+    {{ session.elist_state }}
+  </td>
+</tr>
+<tr id="escape_attempts">
+  <th>Escape risk</th>
+  <th> {{session.escape_attempts}} </th>
+  <th></th>
+</tr>
+<tr>
+  <td>Escape risk</td>
+  <td> {{session.escape_attempts}} </td>
+  <td> {{ session.escape_risk_info }}</td>
+</tr>
+<tr id="cata_th">
+  <th>Category A, potential Category A or Restricted Status</th>
+  <th></th>
+  <th></th>
+</tr>
+<tr id="cata">
+  <td>
+    Category A, potential Category A or Restricted Status
+  </td>
+  <td>
+    {{ session.cata }}
+  </td>
+  <td>
+  </td>
+</tr>
+
+<tr id="further_security_docs">
+  <th>Further security information</th>
+  <th> {{ session.further_security_docs }} </th>
+  <th></th>
+</tr>
+<tr id="escort_risk_assessment">
+  <td>
+    Escort Risk Assessment needed
+  </td>
+  <td>
+    {{ session.escort_risk_assessment }}
+  </td>
+  <td>
+    {{ session.escort_risk_assessment_day }}{{ session.escort_risk_assessment_month }}{{ session.escort_risk_assessment_year }}
+  </td>
+</tr>
+<tr id="escape_pack">
+  <td>
+    Escort Pack needed
+  </td>
+  <td>
+    {{ session.escape_pack }}
+  </td>
+  <td>
+    {{ session.escape_pack_day }}{{ session.escape_pack_month }}{{ session.escape_pack_month }}
+  </td>
+</tr>
+
+<tr>
+  <th>Drug trafficking risk</th>
+  <th> {{ session.trafficdrugs }}</th>
+  <th></th>
+</tr>
+<tr id="trafficdrugs">
+  <td>
+    Drug trafficking risk
+  </td>
+  <td>
+    {{ session.trafficdrugs }}
+  </td>
+  <td>
+  </td>
+</tr>
+
+<tr>
+  <th>Weapons, drugs or other items</th>
+  <th> {{ session.weapons_drugs }} </th>
+  <th></th>
+</tr>
+<tr id="creates_uses_weapons">
+  <td>
+    Creates or uses weapons
+  </td>
+  <td>
+    {{ session.creates_uses_weapons }}
+  </td>
+  <td>
+    {{ session.creates_uses_weapons_info }}
+  </td>
+</tr>
+<tr id="conceals_weapons">
+  <td>
+    Conceals weapons
+  </td>
+  <td>
+    {{ session.conceals_weapons }}
+  </td>
+  <td>
+    {{ session.conceals_weapons_info }}
+  </td>
+</tr>
+<tr id="conceals_drugs">
+  <td>
+    Conceals drugs
+  </td>
+  <td>
+    {{ session.conceals_drugs }}
+  </td>
+  <td>
+    {{ session.conceals_drugs_info }}
+  </td>
+</tr>
+<tr id="conceals_mobile_phones">
+  <td>
+    Conceals mobile phones
+  </td>
+  <td>
+    {{ session.conceals_mobile_phones }}
+  </td>
+  <td>
+  </td>
+</tr>
+<tr id="conceals_SIM_cards">
+  <td>
+    Conceals SIM cards
+  </td>
+  <td>
+    {{ session.conceals_SIM_cards }}
+  </td>
+  <td>
+  </td>
+</tr>
+<tr id="conceals_other">
+  <td>
+    Conceals other items
+  </td>
+  <td>
+    {{ session.conceals_other }}
+  </td>
+  <td>
+    {{ session.conceals_other_info }}
+  </td>
+</tr>
+
+<tr>
+  <th>Arson</th>
+  <th> {{ session.arson }} </th>
+  <th></th>
+</tr>
+<tr id="arsonist">
+  <td>
+    Arsonist
+  </td>
+  <td>
+    {{ session.arson }}
+  </td>
+  <td>
+  </td>
+</tr>
+
+<tr>
+  <th>Return instructions
+    <th> {{ session.returnToPrison }} </th>
+    <th>
+    </th>
+  </tr>
+  <tbody id="returnToPrison">
+    <tr>
+      <td>
+        Must return to
+      </td>
+      <td>
+        {{ session.mustreturn }}
+      </td>
+      <td>
+        {{ session.mustreturn_name }}{{ session.mustreturn_info }}
+      </td>
+    </tr>
+    <tr>
+      <td>
+        Must not be sent to
+      </td>
+      <td>
+        {{ session.mustnotreturn}}
+      </td>
+      <td>
+        {{ session.mustnotreturn_name }}{{ session.mustnotreturn_info }}
+      </td>
+    </tr>
+  </tbody>
+
+  <tr>
+    <th>Other risk information</th>
+    <th>{{ session.other_final }}</th>
+    <th>
+    </th>
+  </tr>
+  <tbody id="other_final">
+    <tr>
+      <td>
+        Other risk information
+      </td>
+      <td>
+        {{ session.other_final }}
+      </td>
+      <td>
+        {{ session.other_final_info }}
+      </td>
+    </tr>
+
+  </tbody>
+
+</table>
+
+
+</main>
+
+<script type="text/javascript">
+window.onload = function() {
+  //alert({{session.risktoself}})
+
+  if( {{session.risktoself == 'No'}})
+  document.getElementById('section_risktoself').style.display = 'none';
+
+  // riskFromOthers
+  if( {{session.rule45 == 'No'}})
+  document.getElementById('rule45').style.display = 'none';
+  if( {{session.publicInterest == 'No'}})
+  document.getElementById('publicInterest').style.display = 'none';
+
+  // discrimination
+  if( {{session.risktofemales == 'No'}})
+  document.getElementById('risktofemales').style.display = 'none';
+  if( {{session.homosexuals == 'No'}})
+  document.getElementById('homosexuals').style.display = 'none';
+  if( {{session.racist == 'No'}})
+  document.getElementById('racist').style.display = 'none';
+  if( {{session.religions == 'No'}})
+  document.getElementById('religions').style.display = 'none';
+  if( {{session.violent_risk_to_othergroups == 'No'}})
+  document.getElementById('violent_risk_to_othergroups').style.display = 'none';
+
+  // risk to others
+  if( {{session.csra == 'Standard'}})
+  document.getElementById('csra').style.display = 'none';
+
+  if( {{session.violent_to_staff == 'No'}})
+  document.getElementById('violent_to_staff').style.display = 'none';
+
+  if( {{session.violent_to_detainees == 'No'}})
+  document.getElementById('section_violent_to_detainees').style.display = 'none';
+
+  if( {{session.violent_general_public == 'No'}})
+  document.getElementById('section_violent_general_public').style.display = 'none';
+
+  if( {{session.controlledunlock == 'No'}})
+  document.getElementById('section_controlledunlock').style.display = 'none';
+
+  // hostage taker
+  if( {{session.hostage_staff == 'No'}})
+  document.getElementById('hostage_staff').style.display = 'none';
+
+  if( {{session.hostage_prisoners == 'No'}})
+  document.getElementById('hostage_prisoners').style.display = 'none';
+
+  if( {{session.hostage_public == 'No'}})
+  document.getElementById('hostage_public').style.display = 'none';
+
+  // intimidator
+  if( {{session.intimidator == 'No'}})
+  document.getElementById('intimidator').style.display = 'none';
+
+  // sex_offender
+  if( {{session.adult_male == 'No'}})
+  document.getElementById('adult_male').style.display = 'none';
+  if( {{session.adult_female == 'No'}})
+  document.getElementById('adult_female').style.display = 'none';
+  if( {{session.under18 == 'No'}})
+  document.getElementById('under18').style.display = 'none';
+  if( {{session.sex_offender == 'No'}})
+  document.getElementById('sex_offence_date').style.display = 'none';
+
+  // escape history
+  if( {{session.elist == 'No'}})
+  document.getElementById('elist').style.display = 'none';
+
+  if( {{session.escape_attempts == 'No'}})
+  document.getElementById('escape_attempts').style.display = 'none';
+
+  if( {{session.escape_attempt_prison == 'No'}})
+  document.getElementById('escape_attempt_prison').style.display = 'none';
+
+  if( {{session.escape_attempt_police == 'No'}})
+  document.getElementById('escape_attempt_police').style.display = 'none';
+
+  if( {{session.escape_attempt_court == 'No'}})
+  document.getElementById('escape_attempt_court').style.display = 'none';
+
+  if( {{session.escape_attempt_other == 'No'}})
+  document.getElementById('escape_attempt_other').style.display = 'none';
+
+  if( {{session.cata == 'No'}})
+  document.getElementById('cata').style.display = 'none';
+  document.getElementById('cata_th').style.display = 'none';
+
+  if( {{session.cata == 'No'}})
+  document.getElementById('cata').style.display = 'none';
+
+  if( {{session.further_security_docs == 'No'}})
+  document.getElementById('further_security_docs').style.display = 'none';
+
+  if( {{session.escort_risk_assessment == 'No'}})
+  document.getElementById('escort_risk_assessment').style.display = 'none';
+
+  if( {{session.escape_pack == 'No'}})
+  document.getElementById('escape_pack').style.display = 'none';
+
+  // trafficdrugs
+  if( {{session.trafficdrugs == 'No'}})
+  document.getElementById('trafficdrugs').style.display = 'none';
+
+  // weapons_drugs
+  if( {{session.creates_uses_weapons == 'No'}})
+  document.getElementById('creates_uses_weapons').style.display = 'none';
+
+  if( {{session.conceals_weapons == 'No'}})
+  document.getElementById('conceals_weapons').style.display = 'none';
+
+  if( {{session.conceals_drugs == 'No'}})
+  document.getElementById('conceals_drugs').style.display = 'none';
+
+  if( {{session.conceals_mobile_phones == 'No'}})
+  document.getElementById('conceals_mobile_phones').style.display = 'none';
+
+  if( {{session.conceals_SIM_cards == 'No'}})
+  document.getElementById('conceals_SIM_cards').style.display = 'none';
+
+  if( {{session.conceals_other == 'No'}})
+  document.getElementById('conceals_other').style.display = 'none';
+
+  // arson
+  if( {{session.arson == 'No'}})
+  document.getElementById('arsonist').style.display = 'none';
+
+  // returnToPrison
+  if( {{session.returnToPrison == 'No'}})
+  document.getElementById('returnToPrison').style.display = 'none';
+
+  // final question
+  if( {{session.other_final == 'No'}})
+  document.getElementById('other_final').style.display = 'none';
+};
+
+</script>                                                    {% endblock %}

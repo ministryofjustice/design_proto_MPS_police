@@ -1,0 +1,607 @@
+{% extends "layout.html" %}
+
+{% block page_title %}
+Check your answers
+{% endblock %}
+
+{% block content %}
+<style media="screen">
+.column-two-thirds{
+  width: 75%;
+  td:first-child {
+    padding-left: 20px;
+  }
+}
+</style>
+
+<main id="content" role="main">
+  <a href="check_print_out.html" style="font-weight:bold;">View Print out (for testing only)</a>
+  <h1 class="heading-large">
+    Check all answers, then confirm and save
+  </h1>
+  <p>
+    <span class="status" style="margin-right:10px;">
+      Review
+    </span>
+    Last confirmed: Firstname Surname, 15:32 | 12 Apr 2017
+  </p>
+  <div class="notice column-two-thirds">
+    <i class="icon icon-important">
+    </i>
+    <strong class="bold-small">
+      This information was last saved 23 hours ago.
+      <br><span style="font-weight:normal;">Make sure all answers are up to date and check history and events in the last PER for any relevant updates.</span>
+    </strong>
+  </div>
+  <table class="check-your-answers column-two-thirds">
+    <col width="35%">
+    <col width="20%">
+    <col width="auto">
+    <th>Risk to self</th>
+    <th></th>
+    <th class="change-answer">
+      <a href="risk_01.html">
+        Change <span class="visuallyhidden">change question 2</span>
+      </th>
+      <tbody>
+        <tr>
+          <td>
+            ACCT status
+          </td>
+          <td>
+            {{ session.acct }}
+          </td>
+          <td>
+            {{ session.acctday }} {{ session.acctmonth }} {{ session.acctyear }} {{ session.acctsixmonths_info }}
+          </td>
+        </tr>
+        <tr>
+          <td>
+            Risk of self harm
+          </td>
+          <td>
+            {{ session.selfharm }}
+          </td>
+          <td>
+            {{ session.selfharm_info }}
+          </td>
+        </tr>
+      </tbody>
+      <th>Segregation</th>
+      <th></th>
+      <th class="change-answer">
+        <a href="risk_02.html">
+          Change <span class="visuallyhidden">change question 2</span>
+        </a>
+      </th>
+      <tbody>
+        <tr>
+          <td>
+            CSRA level
+          </td>
+          <td>
+            {{ session.csra }}
+          </td>
+          <td>
+          </td>
+        </tr>
+        <tr>
+          <td>
+            Rule 45
+          </td>
+          <td>
+            {{ session.rule45 }}
+          </td>
+          <td>
+          </td>
+        </tr>
+        <tr>
+          <td>Vulnerable prisoner</td>
+          <td>{{session.vulnerable}}</td>
+          <td>{{session.vulnerable_info}}</td>
+        </tr>
+      </tbody>
+
+      <th>Security</th>
+      <th></th>
+      <th class="change-answer">
+        <a href="risk_03.html">
+          Change <span class="visuallyhidden">change question 2</span>
+        </a>
+      </th>
+      <tbody>
+        <tr>
+          <td>
+            Controlled unlock
+          </td>
+          <td>
+            {{ session.controlledunlock}}
+          </td>
+          <td>
+            {{ session.controlledunlock_state }} {{ session.controlledunlock_info }}
+          </td>
+        </tr>
+        <tr>
+          <td>
+            Cat A or potential Cat A
+          </td>
+          <td>
+            {{ session.cata }}
+          </td>
+          <td>
+          </td>
+        </tr>
+        <tr>
+          <td>
+            High public interest
+          </td>
+          <td>
+            {{ session.publicInterest }}
+          </td>
+          <td>
+            {{ session.publicInterest_info }}
+          </td>
+        </tr>
+        <tr>
+          <td>PNC warnings</td>
+          <td>{{session.pnc}}</td>
+          <td>{{session.pnc_info}}</td>
+        </tr>
+      </tbody>
+
+
+      <th>Harassment and gangs</th>
+      <th></th>
+      <th class="change-answer">
+        <a href="risk_04.html">
+          Change <span class="visuallyhidden">change question 3</span>
+        </th>
+        <tbody>
+          <tr>
+            <td>
+              Staff harasser
+            </td>
+            <td>
+              {{ session.intimidator_staff }}
+            </td>
+            <td>
+              {{ session.intimidator_staff_info }}
+            </td>
+          </tr>
+          <tr>
+            <td>
+              Public harasser
+            </td>
+            <td>
+              {{ session.intimidator_public}}
+            </td>
+            <td>
+              {{ session.intimidator_public_info }}
+            </td>
+          </tr>
+          <tr>
+            <td>
+              Prisoner harasser
+            </td>
+            <td>
+              {{ session.intimidator_prisoners}}
+            </td>
+            <td>
+              {{ session.intimidator_prisoners_info }}
+            </td>
+          </tr>
+          <tr>
+            <td>
+              Witness harasser
+            </td>
+            <td>
+              {{ session.intimidator_witnesses}}
+            </td>
+            <td>
+              {{ session.intimidator_witnesses_info }}
+            </td>
+          </tr>
+          <tr>
+            <td>Gang member</td>
+            <td>{{ session.gangs }}</td>
+            <td>{{ session.gangs_info }}</td>
+          </tr>
+        </tbody>
+
+        <th>Discrimination against others</th>
+        <th></th>
+        <th class="change-answer">
+          <a href="risk_05.html">
+            Change <span class="visuallyhidden">change question 4</span>
+          </th>
+          <tbody>
+            <tr>
+              <td>
+                Violent to staff
+              </td>
+              <td>
+                {{ session.violent_to_staff }}
+              </td>
+              <td>
+                {{ session.violent_to_staff_info }}
+              </td>
+            </tr>
+            <tr>
+              <td>
+                Risk to females
+              </td>
+              <td>
+                {{ session.risktofemales }}
+              </td>
+              <td>
+                {{ session.risktofemales_info }}
+              </td>
+            </tr>
+            <tr>
+              <td>
+                Risk to LGBT people
+              </td>
+              <td>
+                {{ session.homosexuals }}
+              </td>
+              <td>
+                {{ session.homosexuals_info }}
+              </td>
+            </tr>
+            <tr>
+              <td>
+                Racist
+              </td>
+              <td>
+                {{ session.racist }}
+              </td>
+              <td>
+                {{ session.racist_info }}
+              </td>
+            </tr>
+            <tr>
+              <td>
+                Risk to other religions
+              </td>
+              <td>
+                {{ session.religions }}
+              </td>
+              <td>
+                {{ session.religions_info }}
+              </td>
+            </tr>
+            <tr>
+              <td>
+                Risk to other groups
+              </td>
+              <td>
+                {{ session.violent_risk_to_othergroups }}
+              </td>
+              <td>
+                {{ session.violent_risk_to_othergroups_info }}
+              </td>
+            </tr>
+          </tbody>
+
+          <th>Escape status/history</th>
+          <th></th>
+          <th class="change-answer">
+            <a href="risk_06.html">
+              Change <span class="visuallyhidden">change question 5</span>
+            </th>
+            <tbody>
+              <tr>
+                <td>
+                  Currently on E list
+                </td>
+                <td>
+                  {{ session.elist }}
+                </td>
+                <td>
+                  {{ session.elist_state }}
+                </td>
+              </tr>
+            </tbody>
+            <tbody>
+              <tr>
+                <td>
+                  Escape risk
+                </td>
+                <td>
+                  {{ session.escape_attempts }}
+                </td>
+                <td>
+                  {{ session.escape_risk_info }}
+                </td>
+              </tr>
+            </tbody>
+            <tbody>
+              <tr>
+                <td>
+                  Escort Risk Assessment needed
+                </td>
+                <td>
+                  {{ session.escort_risk_assessment }}
+                </td>
+                <td>
+                </td>
+              </tr>
+              <tr>
+                <td>
+                  Escort Pack needed
+                </td>
+                <td>
+                  {{ session.escape_pack }}
+                </td>
+                <td>
+                </td>
+              </tr>
+            </tbody>
+
+            <th>Hostage taker</th>
+            <th></th>
+            <th class="change-answer">
+              <a href="risk_07.html">
+                Change <span class="visuallyhidden">change question 6</span>
+              </th>
+              <tbody>
+                <tr>
+                  <td>
+                    Staff hostage taker
+                  </td>
+                  <td>
+                    {{ session.hostage_staff }}
+                  </td>
+                  <td>
+                    {{ session.hostage_staff_day }}{{ session.hostage_staff_month }}{{ session.hostage_staff_year }}
+                  </td>
+                </tr>
+                <tr>
+                  <td>
+                    Prisoner hostage taker
+                  </td>
+                  <td>
+                    {{ session.hostage_prisoners }}
+                  </td>
+                  <td>
+                    {{ session.hostage_prisoners_day }}{{ session.hostage_prisoners_month }}{{ session.hostage_prisoners_year }}
+                  </td>
+                </tr>
+                <tr>
+                  <td>
+                    Public hostage taker
+                  </td>
+                  <td>
+                    {{ session.hostage_public }}
+                  </td>
+                  <td>
+                    {{ session.hostage_public_day }}{{ session.hostage_public_month }}{{ session.hostage_public_year }}
+                  </td>
+                </tr>
+              </tbody>
+
+
+              <th>Sex offender</th>
+              <th></th>
+              <th class="change-answer">
+                <a href="risk_08.html">
+                  Change <span class="visuallyhidden">change question 7</span>
+                </th>
+                <tbody>
+                  <tr>
+                    <td>
+                      Sex offender victim adult male
+                    </td>
+                    <td>
+                      {{ session.adult_male }}
+                    </td>
+                    <td>
+                    </td>
+                  </tr>
+                  <tr>
+                    <td>
+                      Sex offender victim adult female
+                    </td>
+                    <td>
+                      {{ session.adult_female }}
+                    </td>
+                    <td>
+                    </td>
+                  </tr>
+                  <tr>
+                    <td>
+                      Sex offender victim under 18
+                    </td>
+                    <td>
+                      {{ session.under18 }}
+                    </td>
+                    <td>
+                      {{ session.under18_info }}
+                    </td>
+                  </tr>
+                </tbody>
+
+                <th>Weapons, drugs or other items</th>
+                <th></th>
+                <th class="change-answer">
+                  <a href="risk_09.html">
+                    Change <span class="visuallyhidden">change question 09</span>
+                  </th>
+                  <tbody>
+                    <tr>
+                      <td>
+                        Creates or uses weapons
+                      </td>
+                      <td>
+                        {{ session.creates_uses_weapons }}
+                      </td>
+                      <td>
+                        {{ session.creates_uses_weapons_info }}
+                      </td>
+                    </tr>
+                    <tr>
+                      <td>
+                        Conceals weapons
+                      </td>
+                      <td>
+                        {{ session.conceals_weapons }}
+                      </td>
+                      <td>
+                        {{ session.conceals_weapons_info }}
+                      </td>
+                    </tr>
+                    <tr>
+                      <td>
+                        Conceals drugs
+                      </td>
+                      <td>
+                        {{ session.conceals_drugs }}
+                      </td>
+                      <td>
+                        {{ session.conceals_drugs_info }}
+                      </td>
+                    </tr>
+                    <tr>
+                      <td>
+                        Conceals mobile phones
+                      </td>
+                      <td>
+                        {{ session.conceals_mobile_phones }}
+                      </td>
+                      <td>
+                      </td>
+                    </tr>
+                    <tr>
+                      <td>
+                        Conceals SIM cards
+                      </td>
+                      <td>
+                        {{ session.conceals_SIM_cards }}
+                      </td>
+                      <td>
+                      </td>
+                    </tr>
+                    <tr>
+                      <td>
+                        Conceals other items
+                      </td>
+                      <td>
+                        {{ session.conceals_other }}
+                      </td>
+                      <td>
+                        {{ session.conceals_other_info }}
+                      </td>
+                    </tr>
+                    <tr>
+                      <td>
+                        Drug trafficking risk
+                      </td>
+                      <td>
+                        {{ session.trafficdrugs }}
+                      </td>
+                      <td>
+                      </td>
+                    </tr>
+                  </tbody>
+
+                  <th>Arson</th>
+                  <th></th>
+                  <th class="change-answer">
+                    <a href="risk_10.html">
+                      Change <span class="visuallyhidden">change question 10</span>
+                    </th>
+                    <tbody>
+                      <tr>
+                        <td>
+                          Arsonist
+                        </td>
+                        <td>
+                          {{ session.arson }}
+                        </td>
+                        <td>
+                        </td>
+                      </tr>
+                    </tbody>
+
+                    <th>Return instructions
+                      <th></th>
+                      <th class="change-answer">
+                        <a href="risk_11.html">
+                          Change <span class="visuallyhidden">change question 11</span>
+                        </th>
+                        <tbody>
+                          <tr>
+                            <td>
+                              Must return to
+                            </td>
+                            <td>
+                              {{ session.mustreturn }}
+                            </td>
+                            <td>
+                              {{ session.mustreturn_name }}{{ session.mustreturn_info }}
+                            </td>
+                          </tr>
+                          <tr>
+                            <td>
+                              Must not be sent to
+                            </td>
+                            <td>
+                              {{ session.mustnotreturn}}
+                            </td>
+                            <td>
+                              {{ session.mustnotreturn_name }}{{ session.mustnotreturn_info }}
+                            </td>
+                          </tr>
+                        </tbody>
+
+                        <th>Other risk information</th>
+                        <th></th>
+                        <th class="change-answer">
+                          <a href="risk_12.html">
+                            Change <span class="visuallyhidden">change question 12</span>
+                          </th>
+                          <tbody>
+                            <tr>
+                              <td>
+                                Other risk information
+                              </td>
+                              <td>
+                                {{ session.other_final }}
+                              </td>
+                              <td>
+                                {{ session.other_final_info }}
+                              </td>
+                            </tr>
+
+                          </tbody>
+
+                        </table>
+
+                      </div>
+                    </div>
+
+                    <div class="column-one-third side-profile">
+                      <h1><span class="namebold"> <a href="/profile.html"> A1234AB</a><br/>BARKER</span> RONNIE</h1>
+                      <img src="/public/images/ronnie.jpg"/>
+                      <p class="font-xsmall info-start">Date of travel</p>
+                      <h2>13 Apr 2017</h2>
+                      <p class="font-xsmall">From</p>
+                      <h2>HMP Bedford</h2>
+                      <p class="font-xsmall">To</p>
+                      <h2>St Albans Crown Court</h2>
+                    </div>
+
+                    <div style="background-color:rgba(255, 191, 71, 0.3); padding:20px; margin: 60px 0px; border:1px solid rgba(255, 191, 71, 1);" class="column-two-thirds">
+                      <p style="font-weight:bold;">
+                        Click 'confirm and save' to confirm that, to the best of your knowledge all information in this section is correct.
+                      </p>
+
+                      <div class="">
+                        <a href="profile" class="button">Confirm and save</a>
+                      </div>
+                    </div>
+
+
+                  </main>
+
+                  {% endblock %}

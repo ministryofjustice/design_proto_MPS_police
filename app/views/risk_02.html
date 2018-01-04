@@ -1,0 +1,122 @@
+{% extends "layout.html" %}
+
+{% block page_title %}
+Question page
+{% endblock %}
+
+{% block content %}
+
+<main id="content" role="main">
+
+  {% include "includes/breadcrumb_examples.html" %}
+
+  <div class="grid-row">
+    <div class="column-full"><p><a href="risk_01.html">Back</a>&emsp;2 of 12&emsp;<a href="risk_03.html">Skip</a></p>
+    </div>
+    <div class="column-two-thirds">
+
+      <form action="risk_03" method="post" class="form">
+
+        <h1 class="heading-secondary">Segregation</h1>
+
+        <!-- question -->
+        <h2 class="heading-medium">
+          What is their Cell Sharing Risk Assessment (CSRA) risk level?
+        </h2>
+        <p class="form-hint">In NOMIS, check the header section of the prisoner’s record for the CSRA risk level.</p>
+        <span class="nomis-verified"></span>
+        <div class="form-group">
+          <fieldset class="inline">
+
+            <legend class="visually-hidden"></legend>
+
+            <div class="multiple-choice">
+              <input id="radio-inline-11" type="radio" name="csra" value="High" {{ checked("csra", "High") }}>
+              <label for="radio-inline-11">High</label>
+            </div>
+
+            <div class="multiple-choice">
+              <input id="radio-inline-12" type="radio" name="csra" value="Standard" {{ checked("csra", "Standard") }}>
+              <label for="radio-inline-12">Standard</label>
+            </div>
+
+          </fieldset>
+        </div>
+
+
+        <!-- question -->
+        <h2 class="heading-medium">Are they held under Rule 45?</h2>
+        <p class="form-hint">In NOMIS, check the header section of the prisoner’s record for the Rule 45 alert.</p>
+        <span class="nomis-verified"></span>
+        <div class="form-group">
+          <fieldset class="inline">
+
+            <legend class="visually-hidden"></legend>
+
+            <div class="multiple-choice">
+              <input id="radio-inline-1" type="radio" name="rule45" value="Yes" {{ checked("rule45", "Yes") }}>
+              <label for="radio-inline-1">Yes</label>
+            </div>
+
+            <div class="multiple-choice">
+              <input id="radio-inline-2" type="radio" name="rule45" value="No" {{ checked("rule45", "No") }}>
+              <label for="radio-inline-2">No</label>
+            </div>
+
+          </fieldset>
+        </div>
+
+        <!-- question -->
+        <h2 class="heading-medium">
+          Are they a vulnerable prisoner?
+        </h2>
+        <p class="form-hint">In NOMIS, check the header section of the prisoner’s record for the Rule 46, Rule 49, Victim, Isolated prisoner or Poor Coper alerts. Include any other reasons you think they may be vulnerable (for example, transgender prisoners or young adults in an adult establishment).</p>
+        <div class="form-group">
+          <span class="nomis-verified"></span>
+          <fieldset class="inline">
+
+            <legend class="visually-hidden"></legend>
+
+            <div class="multiple-choice" data-target="vulnerable-info">
+              <input id="radio-inline-17" type="radio" name="vulnerable" value="Yes" {{ checked("vulnerable", "Yes") }}>
+              <label for="radio-inline-17">Yes</label>
+            </div>
+            <div class="multiple-choice">
+              <input id="radio-inline-18" type="radio" name="vulnerable" value="No" {{ checked("vulnerable", "No") }} onclick="clearDetails('textarea-b');">
+              <label for="radio-inline-18">No</label>
+            </div>
+
+          </fieldset>
+        </div>
+
+        <div class="panel panel-border-narrow js-hidden" id="vulnerable-info">
+          <div class="form-group">
+            <label class="form-label" for="textarea-b">
+              Give details
+            </label>
+            <textarea class="form-control form-control-3-4" id="textarea-b" cols="30" rows="3" name="vulnerable_info">{{data['vulnerable_info']}}</textarea>
+          </div>
+        </div>
+
+        <!-- button -->
+        <div class="form-group">
+          {% include "includes/risk-screen-buttons.html" %}
+
+        </div>
+      </form>
+
+    </div>
+    <div class="column-one-third side-profile">
+      <h1><span class="namebold"> <a href="/profile.html"> A1234AB</a><br/>BARKER</span> RONNIE</h1>
+      <img src="/public/images/ronnie.jpg"/>
+      <p class="font-xsmall info-start">Date of travel</p>
+      <h2>13 Apr 2017</h2>
+      <p class="font-xsmall">From</p>
+      <h2>HMP Bedford</h2>
+      <p class="font-xsmall">To</p>
+      <h2>St Albans Crown Court</h2>
+    </div>
+  </div>
+</main>
+
+{% endblock %}

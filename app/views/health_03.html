@@ -1,0 +1,69 @@
+{% extends "layout.html" %}
+
+{% block page_title %}
+Question page
+{% endblock %}
+
+{% block content %}
+
+<main id="content" role="main">
+
+  {% include "includes/breadcrumb_health.html" %}
+
+  <div class="grid-row">
+    <div class="column-full">
+      <p><a href="health_02.html">Back</a>&emsp;2 of 8&emsp;<a href="health_04.html">Skip</a></p>
+    </div>
+    <div class="column-two-thirds">
+
+      <form action="health_04" method="get" class="form">
+
+        <h1 class="heading-secondary">
+          Mental health issues
+        </h1>
+
+        <!-- question -->
+        <h2 class="heading-medium">
+          Are there any mental health issues that may affect this journey?
+        </h2>
+        <p>
+          For example, if they become anxious in certain situations.
+        </p>
+
+        <div class="form-group">
+          <fieldset class="inline">
+
+            <legend class="visually-hidden"></legend>
+
+            <label class="block-label selection-button-radio" for="radio-inline-1" data-target="mental-health-info">
+              <input id="radio-inline-1" type="radio" name="mental_health" value="Yes">
+              Yes
+            </label>
+            <label class="block-label selection-button-radio" for="radio-inline-2">
+              <input id="radio-inline-2" type="radio" name="mental_health" value="No">
+              No
+            </label>
+
+          </fieldset>
+        </div>
+
+        <div class="panel panel-border-narrow js-hidden" id="mental-health-info">
+          <div class="form-group">
+            <label class="form-label" for="textarea-b">
+              Please explain how these issues might affect the journey and how they should be managed. Do not give details of medical conditions:
+            </label>
+            <textarea class="form-control" id="textarea-b" cols="30" rows="3" name="mental_health_info"></textarea>
+          </div>
+        </div>
+
+
+        <!-- button -->
+        <div class="form-group">
+          <input class="button" type="submit" value="Save and continue">
+        </div>
+      </form>
+    </div>
+  </div>
+</main>
+
+{% endblock %}

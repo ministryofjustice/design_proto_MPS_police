@@ -1,0 +1,198 @@
+{% extends "layout.html" %}
+
+{% block page_title %}
+Question page
+{% endblock %}
+
+{% block content %}
+
+<main id="content" role="main">
+
+  {% include "includes/breadcrumb_examples.html" %}
+
+  <div class="grid-row">
+    <div class="column-full"><p><a href="risk_08.html">Back</a>&emsp;9 of 12&emsp;<a href="risk_10.html">Skip</a></p>
+    </div>
+    <div class="column-two-thirds">
+      <form action="risk_10" method="post" class="form">
+
+        <h1 class="heading-secondary">
+          Weapons, drugs or other items
+        </h1>
+        <!-- question -->
+        <h2 class="heading-medium">
+          Have they created or used weapons in custody?
+        </h2>
+        <p class="form-hint">
+          Check Mercury for intelligence or NOMIS adjudications for details.
+        </p>
+        <div class="form-group">
+          <fieldset class="inline">
+
+            <legend class="visually-hidden"></legend>
+
+            <div class="multiple-choice" data-target="use_weapons_info">
+              <input id="radio-inline-01" type="radio" name="creates_uses_weapons" value="Yes" {{ checked("creates_uses_weapons", "Yes") }}>
+              <label for="radio-inline-01">Yes</label>
+            </div>
+            <div class="multiple-choice">
+              <input id="radio-inline-02" type="radio" name="creates_uses_weapons" value="No" {{ checked("creates_uses_weapons", "No") }} onclick="clearDetails('textarea-a');">
+              <label for="radio-inline-02">No</label>
+            </div>
+
+          </fieldset>
+        </div>
+
+        <div class="panel panel-border-narrow js-hidden" id="use_weapons_info">
+          <!-- Give details -->
+          <div class="form-group">
+            <label class="form-label" for="textarea-a">
+              Give details of previous incidents:
+            </label>
+            <textarea class="form-control form-control-3-4" id="textarea-a" rows="3" name="creates_uses_weapons_info">{{ data['creates_uses_weapons_info'] }}</textarea>
+          </div>
+        </div>
+
+
+        <!-- question -->
+        <h2 class="heading-medium">
+          Have they concealed weapons in custody?
+        </h2>
+        <p class="form-hint">
+          Check Mercury for intelligence or NOMIS adjudications for details.
+        </p>
+        <div class="form-group">
+          <fieldset class="inline">
+
+            <legend class=""></legend>
+
+            <div class="multiple-choice" data-target="conceals_weapons_info">
+              <input id="radio-inline-11" type="radio" name="conceals_weapons" value="Yes" {{ checked("conceals_weapons", "Yes") }}>
+              <label for="radio-inline-11">Yes</label>
+            </div>
+            <div class="multiple-choice">
+              <input id="radio-inline-12" type="radio" name="conceals_weapons" value="No" {{ checked("conceals_weapons", "No") }} onclick="clearDetails('textarea-b');">
+              <label for="radio-inline-12">No</label>
+            </div>
+
+          </fieldset>
+        </div>
+
+        <div class="panel panel-border-narrow js-hidden" id="conceals_weapons_info">
+          <!-- Give details -->
+          <div class="form-group">
+            <label class="form-label" for="textarea-b">
+              Give details of previous incidents:
+            </label>
+            <textarea class="form-control form-control-3-4" id="textarea-b" rows="3" name="conceals_weapons_info">{{ data['conceals_weapons_info'] }}</textarea>
+          </div>
+        </div>
+
+
+        <!-- question -->
+        <h2 class="heading-medium">
+          Have they concealed drugs in custody?
+        </h2>
+        <p class="form-hint">
+          Check Mercury for intelligence or NOMIS adjudications for details.
+        </p>
+        <div class="form-group">
+          <fieldset class="inline">
+
+            <legend class="visually-hidden"></legend>
+
+            <div class="multiple-choice" data-target="conceals_drugs_info">
+              <input id="radio-inline-3" type="radio" name="conceals_drugs" value="Yes"  {{ checked("conceals_drugs", "Yes") }}>
+              <label for="radio-inline-3">Yes</label>
+            </div>
+
+            <div class="multiple-choice">
+              <input id="radio-inline-4" type="radio" name="conceals_drugs" value="No"  {{ checked("conceals_drugs", "No") }} onclick="clearDetails('textarea-c');">
+              <label for="radio-inline-4">No</label>
+            </div>
+
+          </fieldset>
+        </div>
+
+        <div class="panel panel-border-narrow js-hidden" id="conceals_drugs_info">
+          <!-- Give details -->
+          <div class="form-group">
+            <label class="form-label" for="textarea-c">
+              Give details of previous incidents:
+            </label>
+            <textarea class="form-control form-control-3-4" id="textarea-c" rows="3" name="conceals_drugs_info">{{ data['conceals_drugs_info'] }}</textarea>
+          </div>
+        </div>
+
+        <!-- question -->
+        <h2 class="heading-medium">
+          Have they concealed mobile phones, SIMs or other items in custody?
+        </h2>
+        <p class="form-hint">
+          Check Mercury for intelligence or NOMIS adjudications for details.
+        </p>
+        <div class="form-group">
+          <fieldset class="inline">
+
+            <legend class="visually-hidden"></legend>
+
+            <div class="multiple-choice" data-target="conceals_mobiles_et_al_info">
+              <input id="radio-inline-5" type="radio" name="conceals_mobiles_et_al" value="Yes" {{ checked("conceals_mobiles_et_al", "Yes") }}>
+              <label for="radio-inline-5">Yes</label>
+            </div>
+            <div class="multiple-choice">
+              <input id="radio-inline-6" type="radio" name="conceals_mobiles_et_al" value="No" {{ checked("conceals_mobiles_et_al", "No") }} onclick="clearDetails('textarea-z');">
+              <label for="radio-inline-6">No</label>
+            </div>
+
+          </fieldset>
+        </div>
+
+        <div class="panel panel-border-narrow js-hidden" id="conceals_mobiles_et_al_info">
+          <!-- Give details -->
+          <div class="form-group">
+            <label class="form-label" for="textarea-z">
+              Give details of previous incidents:
+            </label>
+            <textarea class="form-control form-control-3-4" id="textarea-z" rows="3" name="conceals_mobiles_et_al_info">{{ data['conceals_mobiles_et_al_info'] }}</textarea>
+          </div>
+        </div>
+
+
+        <!-- question -->
+        <h2 class="heading-medium">
+          Is there a risk that they might traffic drugs on this journey?
+        </h2>
+        <p class="form-hint">
+          Check Mercury for intelligence or NOMIS adjudications for past history of trafficking drugs.
+        </p>
+        <div class="form-group">
+          <fieldset class="inline">
+
+            <legend class="visually-hidden"></legend>
+
+            <div class="multiple-choice">
+              <input id="radio-inline-1" type="radio" name="trafficdrugs" value="Yes"  {{ checked("trafficdrugs", "Yes") }}>
+              <label for="radio-inline-1">Yes</label>
+            </div>
+            <div class="multiple-choice">
+              <input id="radio-inline-2" type="radio" name="trafficdrugs" value="No"  {{ checked("trafficdrugs", "No") }}>
+              <label for="radio-inline-2">No</label>
+            </div>
+
+          </fieldset>
+        </div>
+      </div>
+    </div>
+
+    <!-- button -->
+    <div class="form-group">
+      {% include "includes/risk-screen-buttons.html" %}
+    </div>
+  </form>
+
+</div>
+</div>
+</main>
+
+{% endblock %}

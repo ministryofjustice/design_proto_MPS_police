@@ -1,0 +1,67 @@
+{% extends "layout.html" %}
+
+{% block page_title %}
+Question page
+{% endblock %}
+
+{% block content %}
+
+<main id="content" role="main">
+
+  {% include "includes/breadcrumb_health.html" %}
+
+  <div class="grid-row">
+    <div class="column-full">
+      <p><a href="health_05.html">Back</a>&emsp;5 of 8&emsp;<a href="health_07.html">Skip</a></p>
+    </div>
+    <div class="column-two-thirds">
+
+      <form action="health_07" method="get" class="form">
+
+        <h1 class="heading-secondary">
+          Dependencies
+        </h1>
+
+        <!-- question -->
+        <h2 class="heading-medium">
+          Do they have any addictions or dependencies that may affect this journey?
+        </h2>
+
+        <div class="form-group">
+          <fieldset class="inline">
+
+            <legend class="visually-hidden"></legend>
+
+            <label class="block-label selection-button-radio" for="radio-inline-1" data-target="dependencies-info">
+              <input id="radio-inline-1" type="radio" name="dependencies" value="Yes">
+              Yes
+            </label>
+            <label class="block-label selection-button-radio" for="radio-inline-2">
+              <input id="radio-inline-2" type="radio" name="dependencies" value="No">
+              No
+            </label>
+
+          </fieldset>
+        </div>
+
+        <div class="panel panel-border-narrow js-hidden" id="dependencies-info">
+          <div class="form-group">
+            <label class="form-label" for="textarea-b">
+              Please explain how these issues might affect the journey and how they should be managed:
+            </label>
+            <textarea class="form-control" id="textarea-b" cols="30" rows="3" name="dependencies_info"></textarea>
+          </div>
+        </div>
+
+
+        <!-- button -->
+        <div class="form-group">
+          <input class="button" type="submit" value="Save and continue">
+        </div>
+      </form>
+
+    </div>
+  </div>
+</main>
+
+{% endblock %}

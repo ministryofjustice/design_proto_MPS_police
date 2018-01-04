@@ -1,0 +1,69 @@
+{% extends "layout.html" %}
+
+{% block page_title %}
+Question page
+{% endblock %}
+
+{% block content %}
+
+<main id="content" role="main">
+
+  {% include "includes/breadcrumb_health.html" %}
+
+  <div class="grid-row">
+    <div class="column-full">
+      <p><a href="health_07.html">Back</a>&emsp;7 of 8&emsp;<a href="health_09.html">Skip</a></p>
+    </div>
+    <div class="column-two-thirds">
+
+      <form action="health_09" method="get" class="form">
+
+        <h1 class="heading-secondary">
+          Personal care
+        </h1>
+
+        <!-- question -->
+        <h2 class="heading-medium">
+          Will they need help with personal tasks on this journey?
+        </h2>
+        <p>
+          For example, going to the toilet, eating or drinking
+        </p>
+        <div class="form-group">
+          <fieldset class="inline">
+
+            <legend class="visually-hidden"></legend>
+
+            <label class="block-label selection-button-radio" for="radio-inline-1" data-target="personalcare-info">
+              <input id="radio-inline-1" type="radio" name="personalcare" value="Yes">
+              Yes
+            </label>
+            <label class="block-label selection-button-radio" for="radio-inline-2">
+              <input id="radio-inline-2" type="radio" name="personalcare" value="No">
+              No
+            </label>
+
+          </fieldset>
+        </div>
+
+        <div class="panel panel-border-narrow js-hidden" id="personalcare-info">
+          <div class="form-group">
+            <label class="form-label" for="textarea-b">
+              Please explain what they may need help with:
+            </label>
+            <textarea class="form-control" id="textarea-b" cols="30" rows="3" name="personalcare_info"></textarea>
+          </div>
+        </div>
+
+
+        <!-- button -->
+        <div class="form-group">
+          <input class="button" type="submit" value="Save and continue">
+        </div>
+      </form>
+
+    </div>
+  </div>
+</main>
+
+{% endblock %}

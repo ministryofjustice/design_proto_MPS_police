@@ -1,0 +1,409 @@
+{% extends "layout.html" %}
+
+{% block page_title %}
+Dashboard receiver
+{% endblock %}
+
+{% block content %}
+<style media="screen">
+.person {
+  display: block;
+  width: 86px;
+  height: auto;
+  padding: 2px 0px 2px 2px;
+  margin: 0px;
+}
+table tr td{
+  /*border: 0px;*/
+  padding: 0px;
+}
+
+tr td {
+  border: none;
+}
+tr:nth-child(odd){
+  border-top: 1px solid #6F777B;
+  /*background-color: #F8F8F8;*/
+}
+tr {
+  border: 0px;
+}
+thead, th, td{
+  border-top: 1px solid #6F777B;
+}
+tr:nth-child(even) {
+  vertical-align:top;
+}
+th {
+  background-color: white;
+  font-weight: normal;
+}
+
+tbody:hover {
+  background-color: #FFFFD4;
+  cursor: pointer;
+}
+tbody.no-hover:hover {
+  background-color: white !important;
+}
+.flag-inactive{
+  display: none;
+}
+.column-one-quarter{
+  padding: 0px;
+}
+.column-data {
+  width: 15%;
+}
+.message_number{
+  text-align: center;
+  color: white;
+  background-color: #B10E1E;
+  width: 20px;
+  position: relative;
+  left: 25px;
+  font-size: 16px;
+  /*font-weight: bold;*/
+}
+</style>
+
+<main id="content" role="main">
+
+  {% include "includes/phase_banner_alpha.html" %}
+
+  <div style="margin-top:40px; margin-bottom:160px">
+    <div class="data column-one-third">
+      <span class="data-item bold-large">27/09/2017</span>
+      <span class="data-item bold-small">Luton Crown Court</span>
+      <a class="" href="receiver_filter_prepop" role="">Change court</a>
+    </div>
+    <div class="data column-one-third">
+      <span class="data-item bold-large">12</span>
+      <span class="data-item bold-small">Total custodies</span>
+    </div>
+    <!-- <div class="data column-one-quarter column-data">
+    <span class="data-item bold-large">12</span>
+    <span class="data-item bold-xsmall">Adult males</span>
+  </div>
+  <div class="data column-one-quarter column-data">
+  <span class="data-item bold-large">12</span>
+  <span class="data-item bold-xsmall">Females</span>
+</div>
+<div class="data column-one-quarter column-data">
+<span class="data-item bold-large">12</span>
+<span class="data-item bold-xsmall">Young adults</span>
+</div>
+<div class="data column-one-quarter column-data">
+<span class="data-item bold-large">12</span>
+<span class="data-item bold-xsmall">Young persons</span>
+</div> -->
+</div>
+
+<table class="">
+  <thead>
+    <tr>
+      <th style="width:80px;"></th>
+      <th style="width:85px;">Prisoner no</th>
+      <th>Name</th>
+      <th>From</th>
+      <th style="width:100px">Date of birth</th>
+      <th>Age</th>
+      <th style="width:5px">Messages</th>
+    </tr>
+  </thead>
+
+  <div class="unit">
+    <tbody onclick="window.document.location='profile_done_court.html';">
+      <tr>
+        <td rowspan="2"><img class="person" src="/public/images/ronnie.jpg" alt="" /></td>
+        <td class="prisonnumber"><a href="profile_done_court.html">A1234AB</a></td>
+        <td><span class="surname">BARKER</span> RONNIE</td>
+        <td>HMP Bedford</td>
+        <td>22/02/1967</td>
+        <td>60</td>
+        <td>
+          <div class="message_number">
+            2
+          </div>
+        </td>
+      </tr>
+      <tr class="">
+        <td colspan="6">
+          <li class="flag">Not for release</li>
+          <li class="flag flag-inactive">ACCT</li>
+          <li class="flag flag-inactive">Self harm</li>
+          <li class="flag">Rule 45</li>
+          <li class="flag flag-inactive">Escape risk</li>
+          <li class="flag flag-inactive">CSRA</li>
+          <li class="flag flag-inactive">Cat A</li>
+        </td>
+      </tr>
+    </tbody>
+  </div>
+  <div class="unit">
+    <tbody class="no_hover">
+      <tr>
+        <td rowspan="2"><img class="person" src="/public/images/lennie.jpg" alt="" /></td>
+        <td>D9358DX</td>
+        <td><span class="surname">GODBER</span> LENNIE</td>
+        <td>HMP Bedford</td>
+        <td>24/03/1978</td>
+        <td>39</td>
+        <td></td>
+      </tr>
+      <tr class="">
+        <td colspan="6">
+          <!-- <li class="flag">Not for release</li>
+          <li class="flag flag-inactive">ACCT</li>
+          <li class="flag flag-inactive">Self harm</li>
+          <li class="flag flag-inactive">Rule 45</li>
+          <li class="flag flag-inactive">Escape risk</li>
+          <li class="flag flag-inactive">CSRA</li>
+          <li class="flag flag-inactive">Cat A</li> -->
+          <div><span class="cancelled">Cancelled</span> by: Joe Bloggs, at 08.58 on 27/09/2017. Prisoner refused to leave prison.</div>
+        </td>
+      </tr>
+    </tbody>
+  </div>
+  <div class="unit">
+    <tbody onclick="window.document.location='profile_done_court.html';">
+      <tr>
+        <td rowspan="2"><img class="person" src="/public/images/hans.jpg" alt="" /></td>
+        <td class="prisonnumber"><a href="profile_done_court.html">Z6997DV</a></td>
+        <td><span class="surname">GRUBER</span> HANS</td>
+        <td>HMP Bedford</td>
+        <td>28/06/1995</td>
+        <td>22</td>
+        <td>
+          <div class="message_number">
+            1
+          </div>
+        </td>
+      </tr>
+      <tr class="">
+        <td colspan="6">
+          <li class="flag">Not for release</li>
+          <li class="flag">ACCT</li>
+          <li class="flag">Self harm</li>
+          <li class="flag flag-inactive">Rule 45</li>
+          <li class="flag flag-inactive">Escape risk</li>
+          <li class="flag flag-inactive">CSRA</li>
+          <li class="flag flag-inactive">Cat A</li>
+        </td>
+      </tr>
+    </tbody>
+  </div>
+  <div class="unit">
+    <tbody onclick="window.document.location='profile_done_court.html';">
+      <tr>
+        <td rowspan="2"><img class="person" src="/public/images/keyser.jpg" alt="" /></td>
+        <td class="prisonnumber"><a href="profile_done_court.html">A1904DV</a></td>
+        <td><span class="surname">SOZE</span> KEYSER</td>
+        <td>HMP Bedford</td>
+        <td>13/01/1963</td>
+        <td>54</td>
+      </tr>
+      <tr class="">
+        <td colspan="6">
+          <li class="flag">Not for release</li>
+          <li class="flag flag-inactive">ACCT</li>
+          <li class="flag flag-inactive">Self harm</li>
+          <li class="flag flag-inactive">Rule 45</li>
+          <li class="flag flag-inactive">Escape risk</li>
+          <li class="flag ">CSRA High</li>
+          <li class="flag flag-inactive">Cat A</li>
+        </td>
+      </tr>
+    </tbody>
+  </div>
+  <div class="unit">
+    <tbody onclick="window.document.location='profile_done_court.html';">
+      <tr>
+        <td rowspan="2"><img class="person" src="/public/images/HICKINBOTHAM.jpg" alt="" /></td>
+        <td class="prisonnumber"><a href="profile_done_court.html">A1404AE</a></td>
+        <td><span class="surname">HICKINBOTHAM</span> DAVE JAMES</td>
+        <td>HMP Bedford</td>
+        <td>04/09/1995</td>
+        <td>22</td>
+      </tr>
+      <tr class="">
+        <td colspan="6">
+          <li class="flag">Not for release</li>
+          <li class="flag flag-inactive">ACCT</li>
+          <li class="flag flag-inactive">Self harm</li>
+          <li class="flag flag-inactive">Rule 45</li>
+          <li class="flag flag-inactive">Escape risk</li>
+          <li class="flag flag-inactive">CSRA High</li>
+          <li class="flag flag-inactive">Cat A</li>
+        </td>
+      </tr>
+    </tbody>
+  </div>
+  <div class="unit">
+    <tbody onclick="window.document.location='profile_done_court.html';">
+      <tr>
+        <td rowspan="2"><img class="person" src="/public/images/SMITH.jpg" alt="" /></td>
+        <td class="prisonnumber"><a href="profile_done_court.html">A1401AE</a></td>
+        <td><span class="surname">SMITH</span> JOHNY</td>
+        <td>HMP Bedford</td>
+        <td>01/01/1988</td>
+        <td>39</td>
+      </tr>
+      <tr class="">
+        <td colspan="6">
+          <li class="flag">Not for release</li>
+          <li class="flag flag-inactive">ACCT</li>
+          <li class="flag flag-inactive">Self harm</li>
+          <li class="flag flag-inactive">Rule 45</li>
+          <li class="flag flag-inactive">Escape risk</li>
+          <li class="flag flag-inactive">CSRA High</li>
+          <li class="flag flag-inactive">Cat A</li>
+        </td>
+      </tr>
+    </tbody>
+  </div>
+  <div class="unit">
+    <tbody onclick="window.document.location='profile_done_court.html';">
+      <tr>
+        <td rowspan="2"><img class="person" src="/public/images/HALL.jpg" alt="" /></td>
+        <td class="prisonnumber"><a href="profile_done_court.html">A1401AE</a></td>
+        <td><span class="surname">HALL</span> JILLY</td>
+        <td>HMP Petersborough</td>
+        <td>01/01/1970</td>
+        <td>47</td>
+      </tr>
+      <tr class="">
+        <td colspan="6">
+          <li class="flag ">Not for release</li>
+          <li class="flag ">ACCT</li>
+          <li class="flag ">Self harm</li>
+          <li class="flag flag-inactive">Rule 45</li>
+          <li class="flag ">Escape risk</li>
+          <li class="flag flag-inactive">CSRA High</li>
+          <li class="flag flag-inactive">Cat A</li>
+        </td>
+      </tr>
+    </tbody>
+    <div/>
+    <div class="unit">
+      <tbody onclick="window.document.location='profile_done_court.html';">
+        <tr>
+          <td rowspan="2"><img class="person" src="/public/images/ALDERTON.jpg" alt="" /></td>
+          <td class="prisonnumber"><a href="profile_done_court.html">A1476AE</a></td>
+          <td><span class="surname">ALDERTON</span> JOHN</td>
+          <td>HMP/YOI Wormwood Scrubs</td>
+          <td>28/11/1989</td>
+          <td>27</td>
+        </tr>
+        <tr class="">
+          <td colspan="6">
+            <li class="flag">Not for release</li>
+            <li class="flag flag-inactive">ACCT</li>
+            <li class="flag flag-inactive">Self harm</li>
+            <li class="flag">Rule 45</li>
+            <li class="flag flag-inactive">Escape risk</li>
+            <li class="flag">CSRA High</li>
+            <li class="flag flag-inactive">Cat A</li>
+          </td>
+        </tr>
+      </tbody>
+    </div>
+    <div class="unit">
+      <tbody onclick="window.document.location='profile_done_court.html';">
+        <tr>
+          <td rowspan="2"><img class="person" src="/public/images/GULLMORE.jpg" alt="" /></td>
+          <td class="prisonnumber"><a href="profile_done_court.html">A1471AE</a></td>
+          <td><span class="surname">GULLMORE</span> RICHARD</td>
+          <td>HMP/YOI Wormwood Scrubs</td>
+          <td>21/07/1981</td>
+          <td>36</td>
+        </tr>
+        <tr class="">
+          <td colspan="6">
+            <li class="flag flag-inactive">Not for release</li>
+            <li class="flag flag-inactive">ACCT</li>
+            <li class="flag flag-inactive">Self harm</li>
+            <li class="flag">Rule 45</li>
+            <li class="flag flag-inactive">Escape risk</li>
+            <li class="flag">CSRA High</li>
+            <li class="flag flag-inactive">Cat A</li>
+          </td>
+        </tr>
+      </tbody>
+    </div>
+    <div class="unit">
+      <tbody onclick="window.document.location='profile_done_court.html';">
+        <tr>
+          <td rowspan="2"><img class="person" src="/public/images/FINKELSTEIN.jpg" alt="" /></td>
+          <td class="prisonnumber"><a href="profile_done_court.html">F7415EG</a></td>
+          <td><span class="surname">FINKELSTEIN</span> DAVID</td>
+          <td>HMP Bedford</td>
+          <td>23/06/1990</td>
+          <td>27</td>
+        </tr>
+        <tr class="">
+          <td colspan="6">
+            <li class="flag ">Not for release</li>
+            <li class="flag ">ACCT</li>
+            <li class="flag flag-inactive">Self harm</li>
+            <li class="flag flag-inactive">Rule 45</li>
+            <li class="flag flag-inactive">Escape risk</li>
+            <li class="flag flag-inactive">CSRA High</li>
+            <li class="flag flag-inactive">Cat A</li>
+          </td>
+        </tr>
+      </tbody>
+    </div>
+    <div class="unit">
+      <tbody onclick="window.document.location='profile_done_court.html';">
+        <tr>
+          <td rowspan="2"><img class="person" src="/public/images/SWAN.jpg" alt="" /></td>
+          <td class="prisonnumber"><a href="profile_done_court.html">M2109DE</a></td>
+          <td><span class="surname">SWAN</span> MICHAEL</td>
+          <td>HMP Bedford</td>
+          <td>28/021970</td>
+          <td>48</td>
+        </tr>
+        <tr class="">
+          <td colspan="6">
+            <li class="flag ">Not for release</li>
+            <li class="flag flag-inactive">ACCT</li>
+            <li class="flag flag-inactive">Self harm</li>
+            <li class="flag flag-inactive">Rule 45</li>
+            <li class="flag flag-inactive">Escape risk</li>
+            <li class="flag flag-inactive">CSRA High</li>
+            <li class="flag flag-inactive">Cat A</li>
+          </td>
+        </tr>
+      </tbody>
+    </div>
+
+    <div class="unit">
+      <tbody onclick="window.document.location='profile_done_court.html';">
+        <tr>
+          <td rowspan="2"><img class="person" src="/public/images/GRADE.jpg" alt="" /></td>
+          <td class="prisonnumber"><a href="profile_done_court.html">T8881GF</a></td>
+          <td><span class="surname">GRADE</span> JUAN</td>
+          <td>HMP Bedford</td>
+          <td>28/04/1997</td>
+          <td>20</td>
+        </tr>
+        <tr class="">
+          <td colspan="6">
+            <li class="flag ">Not for release</li>
+            <li class="flag flag-inactive">ACCT</li>
+            <li class="flag flag-inactive">Self harm</li>
+            <li class="flag flag-inactive">Rule 45</li>
+            <li class="flag flag-inactive">Escape risk</li>
+            <li class="flag flag-inactive">CSRA High</li>
+            <li class="flag flag-inactive">Cat A</li>
+          </td>
+        </tr>
+      </tbody>
+    </div>
+
+  </table>
+
+</main>
+
+{% endblock %}

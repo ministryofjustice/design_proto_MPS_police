@@ -1,0 +1,103 @@
+{% extends "layout.html" %}
+
+{% block page_title %}
+GOV.UK prototype kit
+{% endblock %}
+
+{% block content %}
+
+<main id="content">
+
+  <h1 class="heading-large">
+    Personal details</h1>
+    <div class="form-group">
+      <img src="/public/images/ronnie.jpg" alt="" style="width:128px; height:auto"/>
+    </div>
+    <div class="form-group">
+      <label class="form-label-bold">Prisoner number</label>A1234AB
+    </div>
+    <div class="form-group">
+      <label class="form-label-bold" for="datedummy">
+        Surname
+      </label>
+      <input class="form-control" id="datedummy" type="text" name="datedummy" value="Barker">
+    </div>
+    <div class="form-group">
+      <label class="form-label-bold" for="datedummy">
+        First name(s)
+      </label>
+      <input class="form-control" id="datedummy" type="text" name="datedummy" value="Ronnie">
+    </div>
+    <div class="form-group">
+      <label class="form-label-bold" for="datedummy">
+        Date of birth
+        <p class="form-hint">
+          DD/MM/YYYY
+        </p>
+      </label>
+      <input class="form-control" id="datedummy" type="text" name="datedummy" value="11/09/74">
+    </div>
+    <div class="form-group">
+      <label class="form-label-bold" for="datedummy">
+        Nationalities
+      </label>
+      <input class="form-control" id="datedummy" type="text" name="datedummy" value="English">
+    </div>
+    <!-- question -->
+    <h2 class="form-label-bold">
+      Gender
+    </h2>
+    <div class="form-group">
+      <fieldset class="inline">
+
+        <legend class="visually-hidden"></legend>
+
+        <label class="block-label selection-button-radio" for="radio-inline-211">
+          <input id="radio-inline-211" type="radio" name="gender" value="Yes" checked="checked">
+          Male
+        </label>
+        <label class="block-label selection-button-radio" for="radio-inline-221">
+          <input id="radio-inline-221" type="radio" name="gender" value="No">
+          Female
+        </label>
+
+      </fieldset>
+    </div>
+    <div class="form-group">
+      <label class="form-label-bold" for="datedummy">
+        Ethnicity
+      </label>
+      <input class="form-control" id="datedummy" type="text" name="datedummy" value="">
+    </div>
+    <div class="form-group">
+      <label class="form-label-bold" for="datedummy">
+        Religion
+      </label>
+      <input class="form-control" id="datedummy" type="text" name="datedummy" value="">
+    </div>
+    <div class="form-group">
+      <label class="form-label-bold" for="datedummy">
+        PNC number
+      </label>
+      <input class="form-control" id="datedummy" type="text" name="datedummy" value="">
+    </div>
+    <div class="form-group">
+      <label class="form-label-bold" for="datedummy">
+        CRO number
+      </label>
+      <input class="form-control" id="datedummy" type="text" name="datedummy" value="">
+    </div>
+    <div class="form-group">
+      <label class="form-label-bold" for="datedummy">
+        Aliases
+      </label>
+        <input class="form-control" id="datedummy" type="text-area" name="datedummy" value="">
+    </div>
+  </div>
+  <div class="form-group">
+    <a class="button" href="move.html" role="button" >Save and continue</a>
+    <!-- <input class="button" type="submit" value="Continue"> -->
+  </div>
+</main>
+
+{% endblock %}

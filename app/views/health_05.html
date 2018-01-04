@@ -1,0 +1,102 @@
+{% extends "layout.html" %}
+
+{% block page_title %}
+Question page
+{% endblock %}
+
+{% block content %}
+
+<main id="content" role="main">
+
+  {% include "includes/breadcrumb_health.html" %}
+
+  <div class="grid-row">
+    <div class="column-full">
+      <p><a href="health_04.html">Back</a>&emsp;4 of 8&emsp;<a href="health_06.html">Skip</a></p>
+    </div>
+    <div class="column-two-thirds">
+
+      <form action="health_06" method="get" class="form">
+
+        <h1 class="heading-secondary">
+          Essential medication
+        </h1>
+
+        <!-- question -->
+        <h2 class="heading-medium">
+          Will they need to be given medication during this journey?
+        </h2>
+        <p>
+          This is any regular medication that will need to be administered while they are out of prison.
+          Full medication history can be given in a sealed envelope to be opened by a healthcare professional in case of an emergency.
+        </p>
+
+        <div class="form-group">
+          <fieldset class="inline">
+
+            <legend class="visually-hidden"></legend>
+
+            <label class="block-label selection-button-radio" for="radio-inline-1" data-target="medicine-info">
+              <input id="radio-inline-1" type="radio" name="medicine" value="Yes">
+              Yes
+            </label>
+            <label class="block-label selection-button-radio" for="radio-inline-2">
+              <input id="radio-inline-2" type="radio" name="medicine" value="No">
+              No
+            </label>
+
+          </fieldset>
+        </div>
+
+        <div class="js-hidden" id="medicine-info">
+          <div>
+            <h2 class="heading-medium">
+              Medicine
+            </h2>
+            <div class="form-group">
+              <label class="form-label" for="medicine-name">Medicine name</label>
+              <input class="form-control" id="medicine-name" name="medicine_name" type="text">
+            </div>
+            <div class="form-group">
+              <label class="form-label" for="howgiven">How is it given?</label>
+              <input class="form-control" id="howgiven" name="medicine_howgiven" type="text">
+            </div>
+            <div class="form-group">
+              <label class="form-label" for="dosage">Dosage</label>
+              <input class="form-control" id="dosage" name="medicine_dosage" type="text">
+            </div>
+            <div class="form-group">
+              <label class="form-label" for="dosagefrequency">When is it given?</label>
+              <input class="form-control" id="dosagefrequency" name="medicine_dosagefrequency" type="text">
+            </div>
+            <p>
+              Who will carry the medicine?
+            </p>
+            <fieldset class="inline">
+              <label for="radio-part-1" class="block-label">
+                <input id="radio-part-1" type="radio" name="medicine_carriedby" value="Escort">
+                Escort
+              </label>
+
+              <label for="radio-part-2" class="block-label">
+                <input id="radio-part-2" type="radio" name="medicine_carriedby" value="Prisoner">
+                Prisoner
+              </label>
+            </fieldset>
+            <hr>
+            <input class="button button-add-another-vertical" type="" value="Add another medicine">
+          </div>
+        </div>
+
+
+        <!-- button -->
+        <div class="form-group">
+          <input class="button" type="submit" value="Save and continue">
+        </div>
+      </form>
+
+    </div>
+  </div>
+</main>
+
+{% endblock %}

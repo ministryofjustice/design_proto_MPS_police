@@ -1,0 +1,169 @@
+{% extends "layout.html" %}
+
+{% block page_title %}
+Question page
+{% endblock %}
+
+{% block content %}
+
+<main id="content" role="main">
+
+  {% include "includes/breadcrumb_examples.html" %}
+
+  <div class="grid-row">
+    <div class="column-full"><p><a href="risk_02.html">Back</a>&emsp;3 of 12&emsp;<a href="risk_04.html">Skip</a></p>
+    </div>
+    <div class="column-two-thirds">
+
+      <form action="risk_04" method="post" class="form">
+
+
+  <h1 class="heading-secondary">Security</h1>
+
+  <!-- question -->
+  <h2 class="heading-medium">
+    Are they on a controlled unlock?
+  </h2>
+  <p class="form-hint">
+    In NOMIS, check the header section of the prisoner’s record for the Controlled Unlock alert.
+  </p>
+  <span class="nomis-verified"></span>
+  <div class="form-group">
+    <fieldset class="inline">
+
+      <legend class="visually-hidden"></legend>
+
+      <div class="multiple-choice" data-target="controlledunlock-info">
+        <input id="radio-inline-21" type="radio" name="controlledunlock" value="Yes" {{ checked("controlledunlock", "Yes") }}>
+        <label for="radio-inline-21">Yes</label>
+      </div>
+
+      <div class="multiple-choice">
+        <input id="radio-inline-22" type="radio" name="controlledunlock" value="No" {{ checked("controlledunlock", "No") }} onclick="clearDetails('textarea-a');">
+        <label for="radio-inline-22">No</label>
+      </div>
+
+    </fieldset>
+  </div>
+
+
+  <div class="panel panel-border-narrow js-hidden" id="controlledunlock-info">
+    <div class="form-group">
+      <label class="form-label" for="textarea-a">
+        Give details number of officers required and personal protection equipment (PPE) required:
+      </label>
+      <textarea class="form-control form-control-3-4" id="textarea-a" cols="30" rows="3" name="controlledunlock_info">{{data['controlledunlock_info']}}</textarea>
+    </div>
+  </div>
+
+  <!-- question -->
+  <h2 class="heading-medium">
+    Are they Category A, potential Category A or Restricted Status?
+  </h2>
+  <p class="form-hint">In NOMIS, check the header section of the prisoner’s record for category information.</p>
+  <div class="form-group">
+    <fieldset class="inline">
+
+      <legend class="visually-hidden">Category A or Restricted status</legend>
+
+
+      <div class="multiple-choice">
+        <input id="radio-inline-5" type="radio" name="cata" value="Yes" {{ checked("cata", "Yes") }}>
+        <label for="radio-inline-5">Yes</label>
+      </div>
+
+      <div class="multiple-choice">
+        <input id="radio-inline-6" type="radio" name="cata" value="No" {{ checked("cata", "No") }}>
+        <label for="radio-inline-6">No</label>
+      </div>
+
+    </fieldset>
+  </div>
+
+  <!-- question -->
+  <h2 class="heading-medium">
+    Are they of high public interest?
+  </h2>
+  <p class="form-hint">  In NOMIS, check the header section of the prisoner’s record for the High public interest alert and case notes for details.</p>
+  <span class="nomis-verified"></span>
+  <div class="form-group">
+    <fieldset class="inline">
+
+      <legend class="visually-hidden"></legend>
+
+      <div class="multiple-choice" data-target="high-public-interest-info">
+        <input id="radio-inline-7" type="radio" name="publicInterest" value="Yes" {{ checked("publicInterest", "Yes") }}>
+        <label for="radio-inline-7">Yes</label>
+      </div>
+
+      <div class="multiple-choice">
+        <input id="radio-inline-8" type="radio" name="publicInterest" value="No" {{ checked("publicInterest", "No") }} onclick="clearDetails('textarea-b');">
+        <label for="radio-inline-8">No</label>
+      </div>
+
+    </fieldset>
+  </div>
+
+  <div class="panel panel-border-narrow" id="high-public-interest-info">
+    <div class="form-group">
+      <label class="form-label" for="textarea-b">
+        Give details
+      </label>
+      <textarea class="form-control form-control-3-4" id="textarea-b" cols="30" rows="3" name="publicInterest_info"
+      >{{ data["publicInterest_info"] }}</textarea>
+    </div>
+  </div>
+
+  <!-- question -->
+  <h2 class="heading-medium">
+    PNC warnings
+  </h2>
+  <p class="form-hint">Do they have PNC warnings that you think are relevant to risk on this journey?</p>
+  <div class="form-group">
+    <fieldset class="inline">
+
+      <legend class="visually-hidden"></legend>
+
+      <div class="multiple-choice" data-target="pnc-info">
+        <input id="radio-inline-17" type="radio" name="pnc" value="Yes" {{ checked("pnc", "Yes") }}>
+        <label for="radio-inline-17">Yes</label>
+      </div>
+
+      <div class="multiple-choice">
+        <input id="radio-inline-18" type="radio" name="pnc" value="No" {{ checked("pnc", "No") }} onclick="clearDetails('textarea-c');">
+        <label for="radio-inline-18">No</label>
+      </div>
+
+    </fieldset>
+  </div>
+
+  <div class="panel panel-border-narrow js-hidden" id="pnc-info">
+    <div class="form-group">
+      <label class="form-label" for="textarea-c">
+        Give details
+      </label>
+      <textarea class="form-control form-control-3-4" id="textarea-c" cols="30" rows="3" name="pnc_info">{{data['pnc_info']}}</textarea>
+    </div>
+  </div>
+
+  <!-- button -->
+  <div class="form-group">
+    {% include "includes/risk-screen-buttons.html" %}
+  </div>
+</form>
+
+</div>
+<div class="column-one-third side-profile">
+  <h1><span class="namebold"> <a href="/profile.html"> A1234AB</a><br/>BARKER</span> RONNIE</h1>
+  <img src="/public/images/ronnie.jpg"/>
+  <p class="font-xsmall info-start">Date of travel</p>
+  <h2>13 Apr 2017</h2>
+  <p class="font-xsmall">From</p>
+  <h2>HMP Bedford</h2>
+  <p class="font-xsmall">To</p>
+  <h2>St Albans Crown Court</h2>
+</div>
+</div>
+</main>
+
+{% endblock %}

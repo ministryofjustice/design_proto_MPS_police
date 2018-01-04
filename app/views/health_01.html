@@ -1,0 +1,53 @@
+{% extends "layout.html" %}
+
+{% block page_title %}
+Question page
+{% endblock %}
+
+{% block content %}
+
+<main id="content" role="main">
+
+  {% include "includes/breadcrumb_health.html" %}
+
+  <div class="grid-row">
+    <form action="health_02" method="get" class="column-two-thirds" class="form">
+
+      <h1 class="heading-large">
+        Before you start
+      </h1>
+      <p>
+        The following questions are designed to ensure the safety of the person moving and anyone they come into contact with during their time out of prison.
+      </p>
+      <p>
+        In line with the <b>Caldicott principles</b>, you will not be asked to give details of any specific medical conditions, but rather, provide information that will help keep the prisoner and anyone around them safe on their journey.
+      </p>
+      <div class="panel panel-border-wide">
+        <p>
+          You can include any other personal medical details in a sealed envelope to be opened by a healthcare professional in case of an emergency.
+        </p>
+      </div>
+      <br>
+
+      <!-- button -->
+      <div class="form-group">
+        <!-- <a class="button" href="check-your-answers.html" role="button" >Save and continue</a> -->
+        <input class="button" type="submit" value="Continue">
+      </div>
+    </form>
+    <div class="column-one-third side-profile">
+      <h1><span class="namebold"> <a href="/profile.html"> A1234AB</a><br/>BARKER</span> RONNIE</h1>
+      <img src="/public/images/ronnie.jpg"/>
+      <p class="font-xsmall info-start">Date of travel</p>
+      <h2>13 Apr 2017</h2>
+      <p class="font-xsmall">From</p>
+      <h2>HMP Bedford</h2>
+      <p class="font-xsmall">To</p>
+      <h2>St Albans Crown Court</h2>
+    </div>
+  </div>
+
+</div>
+</main>
+
+{% endblock %}

@@ -1,0 +1,165 @@
+{% extends "layout.html" %}
+
+{% block page_title %}
+Check your answers
+{% endblock %}
+
+{% block content %}
+<style media="screen">
+.column-data{
+  position: relative;
+  left:15px;
+  display: inline-block;
+  width: 15%
+}
+.button-start{
+  /*float: right;*/
+}
+.red{
+  color: #B10E1E;
+}
+.green{
+  color:#00823B;
+}
+th{
+  font-size: 19px !important;
+  font-weight: bold !important;*/
+}
+.newpanel {
+  border-top: solid 2px #0B0C0C;
+  border-bottom: solid 1px #0B0C0C;
+  padding: 15px 10px 20px 0px;
+  margin-bottom: 0px;
+  margin-top: 30px;
+  background-color: white;
+}
+.xsmall{
+  padding-bottom: 5px !important;
+}
+</style>
+
+<main id="content" role="main">
+
+  {% include "includes/phase_banner_alpha.html" %}
+  <h1 class="heading-xlarge" style="margin-bottom:40px;"><span class="heading-secondary">PERs from</span>HMP Bedford
+    <a class="button button-start" href="search" role="button" style="margin-left:20px">Start a PER</a></h1>
+    <!-- <hr style="margin:30px 0px 20px;"> -->
+    <div class="newpanel">
+      <div class="">
+        <!-- <span class="heading-secondary" style="">Movements on</span> -->
+      </div>
+      <div class="data column-one-quarter" style="margin-left:-15px !important;">
+        <span class="data-item xsmall">Movements on</span>
+        <span class="data-item bold-large">24/12/2017</span>
+        <a class="button" href="" role="button" style="background-color:#dee0e2; color:#0b0c0c; margin-top:5px; font-size:16px">Change date</a></h1>
+      </div>
+      <div class="data column-one-quarter">
+        <span class="data-item xsmall">Total persons</span>
+        <span class="data-item bold-large">5</span>
+        <!-- <span class="data-item small">due to move</span> -->
+        <!-- <span class="data-item small">Total persons<br>due to move</span> -->
+      </div>
+      <div class="data column-data">
+        <span class="data-item xsmall">Risk</span>
+        <span class="data-item bold-large red">3</span>
+        <span class="data-item xsmall red">incomplete</span>
+        <!-- <span class="data-item xsmall red">Risk <br>incomplete</span> -->
+      </div>
+      <div class="data column-data">
+        <span class="data-item xsmall">Health</span>
+        <span class="data-item bold-large red">2</span>
+        <span class="data-item xsmall red">incomplete</span>
+      </div>
+      <div class="data column-data">
+  <span class="data-item xsmall">Offences</span>
+        <span class="data-item bold-large green">✔</span>
+        <span class="data-item xsmall green">completed</span>
+      </div>
+    </div>
+  </div>
+
+  <table class="">
+    <thead>
+      <tr>
+        <th>
+          Prison no
+        </th>
+        <th>
+          Name
+        </th>
+        <th>
+          Destination
+        </th>
+        <th>
+          Risk
+        </th>
+        <th>
+          Health
+        </th>
+        <th>
+          Offences
+        </th>
+        <th>
+        </th>
+      </tr>
+    </thead>
+
+    <tbody>
+      <tr>
+        <td class="prisonnumber"><a href="profile.html">A1234AB</a></td>
+        <td><span class="surname">Barker</span> Ronnie</td>
+        <td>St Alban's Crown Court</td>
+        <td class="todo"><a href="risk_01.html">Start</a></td>
+        <td class="todo"><a href="health_01">Start</a></td>
+        <td class="done"><a href="#">Completed</a></td>
+        <td class="print change-answer"> <a href="#"></a></td>
+      </tr>
+      <tr>
+        <td class="prisonnumber"><a href="profile.html">A1234AB</a></td>
+        <td><span class="surname">Barker</span> Ronnie</td>
+        <td>St Alban's Crown Court</td>
+        <td class="review"><a href="check-your-answers-risk-review.html">Review</a></td>
+        <td class="review"><a href="check-your-answers-health-review.html">Review</a></td>
+        <td class="done"><a href="#">Completed</a></td>
+        <td class="print change-answer"> <a href="#"></a></td>
+      </tr>
+      <tr>
+        <td class="prisonnumber"><a href="profile_done.html">A1234AB</a></td>
+        <td><span class="surname">Barker</span> Ronnie</td>
+        <td>St Alban's Crown Court</td>
+        <td class="review"><a href="check-your-answers-risk-check.html">Confirm</a></td>
+        <td class="done"><a href="check-your-answers-health-done.html">Completed</a></td>
+        <td class="done"><a href="#">Completed</a></td>
+        <td class="print change-answer"> <a href="profile_done.html"></a></td>
+      </tr>
+      <tr>
+        <td class="prisonnumber"><a href="profile_done.html">A1234AB</a></td>
+        <td><span class="surname">Barker</span> Ronnie</td>
+        <td>St Alban's Crown Court</td>
+        <td class="done"><a href="check-your-answers-risk-done.html">Completed</a></td>
+        <td class="done"><a href="check-your-answers-health-done.html">Completed</a></td>
+        <td class="done"><a href="#">Completed</a></td>
+        <td class="print change-answer"> <a href="profile_done.html">Print</a></td>
+      </tr>
+      <tr>
+        <td class="prisonnumber"><a href="profile_done.html">A1234AB</a></td>
+        <td><span class="surname">Barker</span> Ronnie</td>
+        <td>St Alban's Crown Court</td>
+        <td colspan="4">
+          <span class="issued">----------------------------------- Issued -----------------------------------</span>
+        </td>
+      </tr>
+      <tr>
+        <td>A1234AB</td>
+        <td><span class="surname">Barker</span> Ronnie</td>
+        <td>St Alban's Crown Court</td>
+        <td colspan="4">
+          <span class="cancelled">Cancelled</span> by: Joe Bloggs. Changed to video link.
+        </td>
+      </tr>
+    </tbody>
+  </table>
+
+</main>
+
+{% endblock %}

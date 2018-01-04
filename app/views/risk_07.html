@@ -1,0 +1,65 @@
+{% extends "layout.html" %}
+
+{% block page_title %}
+Question page
+{% endblock %}
+
+{% block content %}
+
+<main id="content" role="main">
+
+  {% include "includes/breadcrumb_examples.html" %}
+
+  <div class="grid-row">
+    <div class="column-full"><p><a href="risk_06.html">Back</a>&emsp;7 of 12&emsp;<a href="risk_08.html">Skip</a></p>
+    </div>
+    <div class="column-two-thirds">
+
+      <form action="risk_08" method="get" class="form">
+
+        <h1 class="heading-secondary">Hostage taker</h1>
+
+        <!-- question -->
+        <h2 class="heading-medium">
+          Do they have a history of taking hostages?
+        </h2>
+        <p class="form-hint">
+          In NOMIS, check the header section of the prisoner’s record for the Hostage taker alert. Check alert comments, case notes and adjudications for details.
+        </p>
+        <div class="form-group">
+          <span class="nomis-verified"></span>
+          <fieldset class="inline">
+
+            <legend class="visually-hidden"></legend>
+
+            <div class="multiple-choice" data-target="hostage-info">
+              <input id="radio-inline-1" type="radio" name="hostage_taker" value="Yes" {{ checked("hostage_taker", "Yes") }}>
+              <label for="radio-inline-1">Yes</label>
+            </div>
+            <div class="multiple-choice">
+              <input id="radio-inline-2" type="radio" name="hostage_taker" value="No" {{ checked("hostage_taker", "No") }} onclick="clearDetails('textarea-b');">
+              <label for="radio-inline-2">No</label>
+            </div>
+
+          </fieldset>
+        </div>
+
+        <div class="panel panel-border-narrow js-hidden" id="hostage-info">
+          <div class="form-group">
+            <label class="form-label" for="textarea-b">
+              Give details of targets (staff, prisoner or public) and dates of incidents
+            </label>
+            <textarea class="form-control form-control-3-4" id="textarea-b" rows="3" name="hostage_taker_info">{{ data['hostage_taker_info'] }}</textarea>
+          </div>
+        </div>
+
+        <!-- button -->
+        <div class="form-group">
+          {% include "includes/risk-screen-buttons.html" %}
+        </form>
+      </div>
+    </div>
+  </div>
+</main>
+
+{% endblock %}

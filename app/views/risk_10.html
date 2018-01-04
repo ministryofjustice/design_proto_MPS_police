@@ -1,0 +1,56 @@
+{% extends "layout.html" %}
+
+{% block page_title %}
+Question page
+{% endblock %}
+
+{% block content %}
+
+<main id="content" role="main">
+
+  {% include "includes/breadcrumb_examples.html" %}
+
+  <div class="grid-row">
+    <div class="column-full"><p><a href="risk_09.html">Back</a>&emsp;10 of 12&emsp;<a href="risk_11.html">Skip</a></p>
+    </div>
+    <div class="column-two-thirds">
+      <form action="risk_11" method="get" class="form">
+        <h1 class="heading-secondary">
+          Arson <!-- and damage to property -->
+        </h1>
+        <!-- question -->
+        <h2 class="heading-medium">
+          Are they an arsonist?
+        </h2>
+        <p class="form-hint">
+          In NOMIS, check the header section of the prisoner’s record for the Arsonist alert.
+        </p>
+        <span class="nomis-verified"></span>
+        <div class="form-group">
+          <fieldset class="inline">
+
+            <legend class="visually-hidden"></legend>
+
+            <div class="multiple-choice">
+              <input id="radio-inline-1" type="radio" name="arson" value="Yes" {{ checked("arson", "Yes") }}>
+              <label for="radio-inline-1">Yes</label>
+            </div>
+            <div class="multiple-choice">
+              <input id="radio-inline-2" type="radio" name="arson" value="No" {{ checked("arson", "No") }}>
+              <label for="radio-inline-2">No</label>
+            </div>
+
+          </fieldset>
+        </div>
+
+        <!-- button -->
+        <div class="form-group">
+          {% include "includes/risk-screen-buttons.html" %}
+        </div>
+      </form>
+
+    </div>
+  </div>
+</main>
+
+{% endblock %}

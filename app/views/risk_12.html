@@ -1,0 +1,65 @@
+0{% extends "layout.html" %}
+
+{% block page_title %}
+Question page
+{% endblock %}
+
+{% block content %}
+
+<main id="content" role="main">
+
+  {% include "includes/breadcrumb_examples.html" %}
+
+  <div class="grid-row">
+    <div class="column-full"><p><a href="risk_11.html">Back</a>&emsp;12 of 12</p>
+    </div>
+    <div class="column-two-thirds">
+      <form action="check-your-answers-risk-check" method="post" class="form">
+        <h1 class="heading-secondary">
+          Other risk on this journey
+        </h1>
+        <!-- question -->
+        <h2 class="heading-medium">
+          Is there any other information related to risk on this journey you would like to include?
+        </h2>
+        <p class="form-hint">
+          Include relevant adjudications or case notes not already included
+        </p>
+        <div class="form-group">
+          <fieldset class="inline">
+
+            <legend class="visually-hidden"></legend>
+
+            <div class="multiple-choice" data-target="other-final-info">
+              <input id="other_final_01" name="other_final" type="radio" value="Yes" {{ checked("other_final", "Yes") }}>
+              <label for="other_final_01">Yes</label>
+            </div>
+
+            <div class="multiple-choice">
+              <input id="other_final_02" name="other_final" type="radio" value="No" {{ checked("other_final", "No") }} onclick="clearDetails('textarea');">
+              <label for="other_final_02">No</label>
+            </div>
+
+          </fieldset>
+        </div>
+        <div class="panel panel-border-narrow js-hidden" id="other-final-info" >
+          <!-- Give details -->
+          <div class="form-group">
+            <label class="form-label" for="textarea">
+              Give details
+            </label>
+            <textarea class="form-control form-control-3-4" name="other_final_info" id="textarea" rows="5">{{data['other_final_info']}}</textarea>
+          </div>
+        </div>
+
+        <!-- button -->
+        <div class="form-group">
+          {% include "includes/risk-screen-buttons.html" %}
+        </div>
+      </form>
+
+    </div>
+  </div>
+</main>
+
+{% endblock %}

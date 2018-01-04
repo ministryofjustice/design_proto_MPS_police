@@ -1,0 +1,207 @@
+{% extends "layout.html" %}
+
+{% block page_title %}
+Check your answers
+{% endblock %}
+
+{% block content %}
+
+<main id="content" role="main">
+<style media="screen">
+.column-two-thirds{
+  width: 75%;
+}
+</style>
+
+{% include "includes/breadcrumb_health_summary.html" %}
+
+<h1 class="heading-large">
+  Check all answers, then confirm and save
+</h1>
+<table class="check-your-answers column-two-thirds">
+  <col width="30%">
+  <col width="20%">
+  <col width="auto">
+  <th>Physical health issues</th>
+  <th></th>
+  <th class="change-answer">
+    <a href="health_02.html">
+      Change <span class="visuallyhidden">change question 1</span>
+    </th>
+    <tbody>
+      <tr>
+        <td>
+          Physical health issues
+        </td>
+        <td>
+          {{ session.physical_health }}
+        </td>
+        <td>
+          {{ session.physical_health_info }}
+        </td>
+      </tr>
+
+      <th>Mental health issues</th>
+      <th></th>
+      <th class="change-answer">
+        <a href="health_03.html">
+          Change <span class="visuallyhidden">change question 2</span>
+        </th>
+        <tbody>
+          <tr>
+            <td>
+              Mental health issues
+            </td>
+            <td>
+              {{ session.mental_health }}
+            </td>
+            <td>
+              {{ session.mental_health_info }}
+            </td>
+          </tr>
+
+          <th>Special vehicles</th>
+          <th></th>
+          <th class="change-answer">
+            <a href="health_04.html">
+              Change <span class="visuallyhidden">change question 3</span>
+            </th>
+            <tbody>
+              <tr>
+                <td>
+                  Special vehicles
+                </td>
+                <td>
+                  {{ session.special_vehicle }}
+                </td>
+                <td>
+                  {{ session.special_vehicle_info }}
+                </td>
+              </tr>
+
+              <th>Essential medication</th>
+              <th></th>
+              <th class="change-answer">
+                <a href="health_05.html">
+                  Change <span class="visuallyhidden">change question 4</span>
+                </th>
+                <tbody>
+                  <tr>
+                    <td>
+                      Essential medication
+                    </td>
+                    <td>
+                      {{ session.medicine }}
+                    </td>
+                    <td>
+                      {{ session.medicine_name }} |
+                      {{ session.medicine_howgiven }} |
+                      {{ session.medicine_dosage }} |
+                      {{ session.medicine_dosagefrequency }}
+                      {{ session.medicine_carriedby }}
+                    </td>
+                  </tr>
+
+                  <th>Dependencies</th>
+                  <th></th>
+                  <th class="change-answer">
+                    <a href="health_06.html">
+                      Change <span class="visuallyhidden">change question 5</span>
+                    </th>
+                    <tbody>
+                      <tr>
+                        <td>
+                          Dependencies
+                        </td>
+                        <td>
+                          {{ session.dependencies }}
+                        </td>
+                        <td>
+                          {{ session.dependencies_info }}
+                        </td>
+                      </tr>
+
+                      <th>Allergies and intolerances</th>
+                      <th></th>
+                      <th class="change-answer">
+                        <a href="health_07.html">
+                          Change <span class="visuallyhidden">change question 6</span>
+                        </th>
+                        <tbody>
+                          <tr>
+                            <td>
+                              Allergies and intolerances
+                            </td>
+                            <td>
+                              {{ session.allergies }}
+                            </td>
+                            <td>
+                              {{ session.allergies_info }}
+                            </td>
+                          </tr>
+
+                          <th>Personal care</th>
+                          <th></th>
+                          <th class="change-answer">
+                            <a href="health_08.html">
+                              Change <span class="visuallyhidden">change question 7</span>
+                            </th>
+                            <tbody>
+                              <tr>
+                                <td>
+                                  Personal care
+                                </td>
+                                <td>
+                                  {{ session.personalcare }}
+                                </td>
+                                <td>
+                                  {{ session.personalcare_info }}
+                                </td>
+                              </tr>
+
+                              <th>Medical contact details</th>
+                              <th></th>
+                              <th class="change-answer">
+                                <a href="health_09.html">
+                                  Change <span class="visuallyhidden">change question 8</span>
+                                </th>
+                                <tbody>
+                                  <tr>
+                                    <td>
+                                      Medical contact
+                                    </td>
+                                    <td>
+                                    </td>
+                                    <td>
+                                      {{ session.contact_details }}
+                                    </td>
+                                  </tr>
+
+                                </tbody>
+
+                              </table>
+                              <div class="column-one-third side-profile">
+                                <h1><span class="namebold"> <a href="/profile.html"> A1234AB</a><br/>BARKER</span> RONNIE</h1>
+                                <img src="/public/images/ronnie.jpg"/>
+                                <p class="font-xsmall info-start">Date of travel</p>
+                                <h2>13 Apr 2017</h2>
+                                <p class="font-xsmall">From</p>
+                                <h2>HMP Bedford</h2>
+                                <p class="font-xsmall">To</p>
+                                <h2>St Albans Crown Court</h2>
+                              </div>
+
+                              <div style="background-color:rgba(255, 191, 71, 0.3); padding:20px; margin: 60px 0px; border:1px solid rgba(255, 191, 71, 1);" class="column-two-thirds">
+                                <p style="font-weight:bold;">
+                                  Click 'confirm and save' to confirm that, to the best of your knowledge all information in this section is correct.
+                                </p>
+
+                                <div class="">
+                                  <a href="profile" class="button">Confirm and save</a>
+                                </div>
+                              </div>
+
+
+                            </main>
+
+                            {% endblock %}

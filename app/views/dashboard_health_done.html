@@ -1,0 +1,67 @@
+{% extends "layout.html" %}
+
+{% block page_title %}
+Check your answers
+{% endblock %}
+
+{% block content %}
+
+<main id="content" role="main">
+
+{% include "includes/phase_banner_alpha.html" %}
+
+<h1 class="heading-large">
+  Scheduled PERs
+</h1>
+<table class="">
+
+  <thead>
+    <tr>
+      <th>
+        Prison no
+      </th>
+      <th>
+        Name
+      </th>
+      <th>
+        Destination
+      </th>
+      <th>
+        Risk
+      </th>
+      <th>
+        Health
+      </th>
+      <th>
+        Offences
+      </th>
+      <th>
+      </th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <tr>
+      <td class="prisonnumber"><a href="#">A1234AB</a></td>
+      <td><span class="surname">Barker</span> Ronnie</td>
+      <td>St Alban's Crown Court</td>
+      <td class="todo"><a href="risk_01.html">To do</a></td>
+      <td class="done"></td>
+      <td class="done"></td>
+      <td></td>
+    </tr>
+    <tr>
+      <td class="prisonnumber"><a href="#">A1234AB</a></td>
+      <td><span class="surname">Godber</span> Lennie</td>
+      <td>St Alban's Crown Court</td>
+      <td class="done"></td>
+      <td class="done"></td>
+      <td class="done"></td>
+      <td class="print change-answer"> <a href="#">Print</a></td>
+    </tr>
+  </tbody>
+</table>
+
+</main>
+
+{% endblock %}

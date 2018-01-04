@@ -1,0 +1,408 @@
+{% extends "layout.html" %}
+
+{% block page_title %}
+Check your answers
+{% endblock %}
+
+{% block content %}
+<style media="screen">
+section{
+  margin-bottom:20px;
+  /*background-color: #DEE0E2;*/
+  /*margin-top: 40px*/
+}
+.column-two-thirds{
+  padding: 0px 0px;
+  width: 75%;
+}
+
+.panel .heading-medium{
+  margin: 0px 0px;
+}
+.panel p{
+  font-size: 16px;
+  margin: 5px 0px;
+}
+.amend_link{
+  position: absolute;
+  right: 20px;
+  top: 10px;
+}
+.data_container{
+  width: 66%;
+  display: inline-block;
+}
+.tile {
+  vertical-align: top;
+  box-sizing:border-box;
+  /*float: left;*/
+  display:inline-block;
+  padding:10px 0px 15px 0px;
+}
+.tile h6{
+  font-size: 16px;
+}
+.tile p{
+  font-weight: bold;
+  font-size: 19px;
+  margin: 0px 0px;
+}
+.col-3{
+  width: 32%;
+}
+.col-4{
+  width: 32%;
+}
+.col-8{
+  width: 12%;
+}
+.col-clear{
+  clear:both;
+}
+.alert{
+  box-sizing: border-box;;
+  float: left;
+  margin: 0px 5px 10px 0px;
+  font-weight: bold;;
+}
+
+.unbold{
+  font-weight:100;
+}
+
+.check-your-answers tr:last-child td {
+  border:0 ;
+}
+.newpanel {
+  border-top: solid 3px #0B0C0C;
+  border-bottom: solid 1px #0B0C0C;
+  padding: 15px 10px 0px 0px;
+  margin-bottom: 0px;
+  margin-top: 40px;
+  background-color: white;
+}
+.newpanel_link:hover {
+  background-color: #FFFFD4;
+  cursor: pointer;
+}
+.newpanel p {
+  margin: 0px 0px 15px;
+  font-size: 16px;
+}
+.newpanel .heading-medium{
+  font-size: 28px;
+  /*font-weight:500;*/
+}
+.status{
+  color: green;
+  border-color: green;
+}
+.statusReview{
+  color: #B10E1E;
+  border-color: #B10E1E;
+}
+.reviewLink{
+  color: #B10E1E;
+}
+td:first-child {
+  /*padding-left: 10px;*/
+}
+.check-your-answers td:first-child + td {
+  font-weight: bold;
+}
+.flag-inactive{
+  display: none;
+}
+
+</style>
+<main id="content" role="main">
+
+  <!-- {% include "includes/breadcrumb_profile.html" %} -->
+  <h2 class="heading-large">A1234AB: BARKER <span class="unbold">RONNIE</span></h2>
+  <div class="column-two-thirds">
+    <li class="flag">Not for release</li>
+    <li class="flag flag-inactive">ACCT</li>
+    <li class="flag flag-inactive">Self harm</li>
+    <li class="flag">Rule 45</li>
+    <li class="flag flag-inactive">Escape risk</li>
+    <li class="flag flag-inactive">CSRA</li>
+    <li class="flag flag-inactive">Cat A</li>
+    <!-- <hr style="margin: 0px 0px 0px 0px"> -->
+    <section>
+      <div class="newpanel">
+        <span class="heading-medium">Move information</span>
+        <span style="float:right">
+          <!-- <span class="status" style="display:inline-block">Completed</span> -->
+          &nbsp;
+          <a href="move.html" class="" style="display:inline-block"></a>
+        </span>
+        <p>
+          Last confirmed: Joes Bloggs, 15:32 | 12 Apr 2017
+        </p>
+      </div>
+      <div class="tile col-3">
+        <h6>
+          Date of travel
+        </h6>
+        <p>
+          13 April 2017
+        </p>
+      </div>
+      <div class="tile col-3">
+        <h6>
+          From
+        </h6>
+        <p>
+          HMP Bedford
+        </p>
+      </div>
+      <div class="tile col-3">
+        <h6>
+          To
+        </h6>
+        <p>
+          St Albans Crown Court
+        </p>
+      </div>
+      <div class="tile col-3">
+        <h6>
+          Not for release
+        </h6>
+        <p>
+          Further charges
+        </p>
+      </div>
+    </section>
+    <section>
+      <div class="newpanel">
+        <span class="heading-medium">Personal details</span>
+        <span style="float:right">
+          <!-- <span class="status" style="display:inline-block">Completed</span>
+          &nbsp; -->
+          <a href="#" class="" style="display:inline-block"></a>
+        </span>
+        <p>
+          Last confirmed: Joes Bloggs, 15:32 | 12 Apr 2017
+        </p>
+      </div>
+      <div class="data_container">
+        <div class="tile col-4">
+          <h6>
+            Prison Number
+          </h6>
+          <p>
+            A1234AB
+          </p>
+        </div>
+        <div class="tile col-4">
+          <h6>
+            CRO number
+          </h6>
+          <p>
+            596835/08K
+          </p>
+        </div>
+        <div class="tile col-4">
+          <h6>
+            PNC Number
+          </h6>
+          <p>
+            08/783296E
+          </p>
+        </div>
+        <div class="tile col-4">
+          <h6>
+            Date of birth
+          </h6>
+          <p>
+            24 May 1973
+          </p>
+        </div>
+        <div class="tile col-4">
+          <h6>
+            Age
+          </h6>
+          <p>
+            53
+          </p>
+        </div>
+        <div class="tile col-4">
+          <h6>
+            Sex
+          </h6>
+          <p>
+            M
+          </p>
+        </div>
+        <!-- <div class="tile col-4"></div> -->
+        <div class="tile col-4">
+          <h6>
+            Nationality
+          </h6>
+          <p>
+            Jamaican
+          </p>
+        </div>
+        <div class="tile col-4">
+          <h6>
+            Religion
+          </h6>
+          <p>
+            Hindu
+          </p>
+        </div>
+        <div class="tile col-4">
+          <h6>
+            Ethnicity
+          </h6>
+          <p>
+            W1
+          </p>
+        </div>
+      </div>
+      <div class="tile col-4">
+        <h6>
+          Aliases
+        </h6>
+        <p>
+          FLETCH,<br>
+          ARKWRIGHT,<br>
+          Norman Stanley Fletcher
+        </p>
+      </div>
+    </section>
+    <section>
+      <div class="newpanel">
+        <span class="heading-medium">Offences</span>
+        <span style="float:right">
+          <!-- <span class="status" style="display:inline-block">Completed</span> -->
+          <!-- &nbsp; -->
+          <a href="#" class="" style="display:inline-block"></a>
+        </span>
+        <p>
+          Last confirmed: Joes Bloggs, 15:32 | 12 Apr 2017
+        </p>
+      </div>
+      <table class="check-your-answers">
+        <col width="30%">
+        <col width="70%">
+        <tr>
+          <td>Current Offences</td>
+          <td>Sexual assault on a female (T20167200) <br>
+            Assault a person thereby occasioning them actual bodily harm (T20167200)</td>
+          </tr>
+        </table>
+
+      </section>
+      <section>
+        <div class="newpanel newpanel_link" onclick="window.document.location='check-your-answers-risk-done.html';">
+          <span class="heading-medium">Risk</span>
+          <span style="float:right">
+            <span class="status"style="display:inline-block">Completed</span>
+            &nbsp;
+            <a href="check-your-answers-risk-done.html" class="reviewLink" style="display:inline-block">View</a>
+          </span>
+          <p>
+            Last confirmed: Joes Bloggs, 15:32 | 12 Apr 2017
+          </p>
+        </div>
+        <table class="check-your-answers">
+          <col width="30%">
+          <col width="70%">
+          <tr>
+            <td>Rule 45</td>
+            <td>Yes</td>
+          </tr>
+          <tr>
+            <td>
+              Risk to females
+            </td>
+            <td>
+              Sexual offence female victim of current offences is according to mg5 case summary
+            </td>
+          </tr>
+          <tr>
+            <td>Risk to other groups</td>
+            <td>Risk to females</td>
+          </tr>
+          <tr>
+            <td>
+              Violent to staff
+            </td>
+            <td>
+              Risk to female officer
+            </td>
+          </tr>
+          <tr>
+            <td>
+              Public hostage taker
+            </td>
+            <td>
+              Victim of current offences is named person according to mg5 case summary
+            </td>
+          </tr>
+
+          <tr>
+            <td>
+              Currently on E list
+            </td>
+            <td>
+              E-List-Escort
+            </td>
+          </tr>
+          <tr>
+            <td>Conceals weapons</td>
+            <td>Found ip a screw during search in trainers during afcs mr
+              lombo produced a mobile phone while on the toilet and
+              handed it to the wing officer</td>
+            </tr>
+            <tr>
+              <td>Conceals mobile phones</td>
+              <td>Yes</td>
+            </tr>
+          </table>
+        </section>
+        <section>
+          <div class="newpanel newpanel_link" onclick="window.document.location='check-your-answers-health-done.html';">
+            <span class="heading-medium">Healthcare</span>
+            <span style="float:right">
+              <span class="status" style="display:inline-block">Completed</span>
+              &nbsp;
+              <a href="check-your-answers-health-done.html" class="" style="display:inline-block">View</a>
+            </span>
+            <p>
+              Last confirmed: Joes Bloggs, 15:32 | 12 Apr 2017
+            </p>
+          </div>
+          <table class="check-your-answers">
+            <col width="30%">
+            <col width="70%">
+            <tr>
+              <td>Allergies and intolerances</td>
+              <td>Calcitonin (pork)</td>
+            </tr>
+            <tr>
+              <td>Medical contact</td>
+              <td>01234373138</td>
+            </tr>
+          </table>
+        </section>
+        &nbsp;
+        <section style="background-color:white">
+          <a href="/dashboard_receiver_court">Return to home</a>
+        </section>
+
+      </div>
+      <div class="column-one-third side-profile">
+        <h1><span class="namebold">A1234AB<br/>BARKER</span> RONNIE</h1>
+        <img src="/public/images/ronnie.jpg"/>
+        <p class="font-xsmall info-start">Date of travel</p>
+        <h2>13 Apr 2017</h2>
+        <p class="font-xsmall">From</p>
+        <h2>HMP Bedford</h2>
+        <p class="font-xsmall">To</p>
+        <h2>St Albans Crown Court</h2>
+      </div>
+    </main>
+
+    {% endblock %}

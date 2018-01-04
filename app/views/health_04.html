@@ -1,0 +1,70 @@
+{% extends "layout.html" %}
+
+{% block page_title %}
+Question page
+{% endblock %}
+
+{% block content %}
+
+<main id="content" role="main">
+
+  {% include "includes/breadcrumb_health.html" %}
+
+  <div class="grid-row">
+    <div class="column-full">
+      <p><a href="health_03.html">Back</a>&emsp;3 of 8&emsp;<a href="health_05.html">Skip</a></p>
+    </div>
+    <div class="column-two-thirds">
+
+      <form action="health_05" method="get" class="form">
+
+        <h1 class="heading-secondary">
+          Special vehicles
+        </h1>
+
+        <!-- question -->
+        <h2 class="heading-medium">
+          Do they need to travel in a special vehicle on this journey?
+        </h2>
+        <p>
+          This could be a specially-adapted prison van (for example, to accommodate wheelchairs) or a taxi.
+        </p>
+
+        <div class="form-group">
+          <fieldset class="inline">
+
+            <legend class="visually-hidden"></legend>
+
+            <label class="block-label selection-button-radio" for="radio-inline-1" data-target="special-vehicle-info">
+              <input id="radio-inline-1" type="radio" name="special_vehicle" value="Yes">
+              Yes
+            </label>
+            <label class="block-label selection-button-radio" for="radio-inline-2">
+              <input id="radio-inline-2" type="radio" name="special_vehicle" value="No">
+              No
+            </label>
+
+          </fieldset>
+        </div>
+
+        <div class="panel panel-border-narrow js-hidden" id="special-vehicle-info">
+          <div class="form-group">
+            <label class="form-label" for="textarea-b">
+              Please explain why you feel they need a special vehicle:
+            </label>
+            <textarea class="form-control" id="textarea-b" cols="30" rows="3" name="special_vehicle_info"></textarea>
+          </div>
+        </div>
+
+
+        <!-- button -->
+        <div class="form-group">
+          <input class="button" type="submit" value="Save and continue">
+        </div>
+      </form>
+
+    </div>
+  </div>
+</main>
+
+{% endblock %}

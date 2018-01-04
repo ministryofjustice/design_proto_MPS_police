@@ -1,0 +1,93 @@
+{% extends "layout.html" %}
+
+{% block page_title %}
+Question page
+{% endblock %}
+
+{% block content %}
+<style media="screen">
+.panel{
+  margin-bottom: 30px;
+}
+.removelink{
+float:right;
+/*background-color: red;*/
+}
+</style>
+
+<main id="content" role="main">
+
+  {% include "includes/breadcrumb_move.html" %}
+  <div class="grid-row">
+    <form action="health_02" method="get" class="column-two-thirds" class="form">
+
+      <h1 class="heading-large">
+                  Current offences
+      </h1>
+
+      <div>
+        <!-- offence -->
+        <div>
+          <hr class="column-full">
+          <div class="removelink">
+            <a href="#">Remove</a>
+          </div>
+          <h2 class="heading-medium">Offence</h2>
+          <div class="form-group">
+            <label class="form-label" for="offence-name">Offence name</label>
+            <textarea class="form-control form-control-3-4" name="textarea" id="textarea" rows="2">Possessing ammunition without certificate</textarea>
+          </div>
+          <div class="form-group">
+            <label class="form-label" for="casenumber">Case reference</label>
+            <input class="form-control" style="width:30%" id="casenumber" name="casenumber" type="text" value="T12345678">
+          </div>
+        </div>
+        <!-- offence -->
+        <div>
+          <hr class="column-full">
+          <div class="removelink">
+            <a href="#">Remove</a>
+          </div>
+          <h2 class="heading-small">Offence</h2>
+          <div class="form-group">
+            <label class="form-label" for="offence-name">Offence name</label>
+            <textarea class="form-control form-control-3-4" name="textarea" id="textarea" rows="2">Possess with intent to supply a controlled drug of Class B - cannabis </textarea>
+          </div>
+          <div class="form-group">
+            <label class="form-label" for="casenumber">Case reference</label>
+            <input class="form-control" style="width:30%" id="casenumber" name="casenumber" type="text" value="T87654321">
+          </div>
+        </div>
+
+        <!-- offence -->
+        <!-- <hr>
+        <div class="form-group">
+        <label class="form-label" for="offence-name">Offence </label>
+        <input class="form-control" id="offence-name" name="offence_name" type="text">
+      </div>
+      <div class="form-group">
+      <label class="form-label" for="casenumber">Case reference</label>
+      <input class="form-control" id="casenumber" name="casenumber" type="text">
+    </div> -->
+    <!-- button -->
+    <hr class="column-full" style="margin:0 0 inherit 0">
+    <input class="button button-add-another-vertical" style="width:140px" type="" value="Add another">
+  </div>
+  <div class="form-group">
+    <a class="button" href="dashboard_02.html" role="button" >Save and continue</a>
+  </div>
+</form>
+
+<div class="column-one-third side-profile">
+  <h1><span class="namebold"> <a href="/profile.html"> A1234AB</a><br/>BARKER</span> RONNIE</h1>
+  <img src="/public/images/ronnie.jpg"/>
+  <p class="font-xsmall info-start">Date of travel</p>
+  <h2>13 Apr 2017</h2>
+  <p class="font-xsmall">From</p>
+  <h2>HMP Bedford</h2>
+  <p class="font-xsmall">To</p>
+  <h2>St Albans Crown Court</h2>
+</div>
+</main>
+
+{% endblock %}

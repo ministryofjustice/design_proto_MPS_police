@@ -1,0 +1,47 @@
+{% extends "layout.html" %}
+
+{% block page_title %}
+moving people safely contact us
+{% endblock %}
+
+{% block content %}
+
+<main id="content" role="main">
+
+  <!-- <div class="breadcrumbs">
+  <ol>
+  <li><a href="">Home</a></li>
+</ol>
+</div> -->
+
+<div class="grid-row">
+  <div class="column-two-thirds">
+
+    <!-- <h1 class="heading-xlarge">
+    {% if serviceName %} {{ serviceName }} {% endif %}
+  </h1> -->
+
+  <h1 class="heading-xlarge" style="margin:70px 0px 40px 0px">Contact us</h1>
+
+<h2 class="heading-medium">Get in touch if you need help using the service.</h2>
+
+  <div class="form-group">
+    <label class="form-label" for="first-name-2">Your email address</label>
+    <input class="form-control" id="first-name-2" name="first-name-2" type="text">
+  </div>
+  <div class="form-group">
+    <label class="form-label" for="textarea-a">Your message</label>
+    <p class="form-hint">
+      Describe the issue you are having, including what you were doing before it happened
+    </p>
+    <textarea class="form-control" id="textarea-a" cols="30" rows="3" name="acctsixmonths_info"></textarea>  </div>
+
+    <p>
+      <a class="button" href="thankyou" role="button">Send</a>
+    </p>
+
+  </div>
+
+</main>
+
+{% endblock %}
