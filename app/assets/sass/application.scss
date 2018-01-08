@@ -107,7 +107,7 @@ td.answer p .casenum{
 }
 //
 .missing{
-color: $red;
+  color: $red;
 }
 // Dashboard styles
 .cancelled {
@@ -165,7 +165,8 @@ thead th{
   border: solid 2px #B10E1E;
 }
 .flag:after{
-  content:"✔";
+  content: "\2714";
+  // content:"✔";
   // text-align: center;
   // color: #B10E1E;
   // background-color: white;
@@ -181,7 +182,7 @@ thead th{
   color: #0b0c0c;
 }
 .flag-inactive:after{
-  content:" ✘ No";
+  content:"\2718  No";
   /*font-weight: bold;*/
 }
 //
@@ -200,7 +201,7 @@ thead th{
   content: "NOMIS alerts verified";
 }
 .alert-description{
-font-style: italic;
+  font-style: italic;
 }
 .col-strong{
   font-weight:bold !important;
@@ -288,13 +289,14 @@ font-style: italic;
   margin:10px 20px;
 }
 #global-header .header-wrapper{
-margin-left: 40px;
+  margin-left: 40px;
 }
 #global-header #logo {
+  width: 40px;
+  height: 35px;
+  overflow: hidden;
   background-image: url("/public/images/crest.png");
   background-size: 36px 31px;
-  // width:330px;
-  font-weight: normal;
 }
 #proposition-name{
   position: relative;

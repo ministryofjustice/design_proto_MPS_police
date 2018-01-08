@@ -38,7 +38,7 @@ function getColumn(table_id, col) {
   if (col < 0) {
     return null;
   }
-
+  var count = 0;
   for (i = 0; i < n; i++) {
     tr = tab.rows[i];
     if (tr.cells.length > col) { // Check that cell exists before you try
@@ -47,6 +47,7 @@ function getColumn(table_id, col) {
         td.innerHTML = 'Missing';
         td.className="missing"
         td.style="font-weight:normal;"
+        count = count + 1;
       } else {
         td.style="font-weight:bold;"
       }
@@ -54,4 +55,5 @@ function getColumn(table_id, col) {
     } // Here you could say else { return null; } if you want it to fail
     // when requested column is out of bounds. It depends.
   }
+        console.log("count = " + count);
 }

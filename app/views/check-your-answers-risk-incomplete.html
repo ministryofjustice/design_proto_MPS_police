@@ -181,10 +181,10 @@ table th{
                 Public harasser
               </td>
               <td>
-                ??{{ session.intimidator_public}}
+                {{ data['intimidator_public'] }}
               </td>
               <td>
-                {{ session.intimidator_public_info }}
+                {{ data['intimidator_public_info'] }}
               </td>
             </tr>
             <tr>
@@ -192,21 +192,10 @@ table th{
                 Prisoner harasser
               </td>
               <td>
-                ??{{ session.intimidator_prisoners}}
+                {{ data['intimidator_prisoners'] }}
               </td>
               <td>
-                {{ session.intimidator_prisoners_info }}
-              </td>
-            </tr>
-            <tr>
-              <td>
-                Witness harasser
-              </td>
-              <td>
-                ??{{ session.intimidator_witnesses}}
-              </td>
-              <td>
-                {{ session.intimidator_witnesses_info }}
+                {{ data['intimidator_prisoners_info'] }}
               </td>
             </tr>
             <tr>
