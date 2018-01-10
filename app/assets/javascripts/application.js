@@ -32,7 +32,9 @@ function clearDetails2(target1,target2){
 function getColumn(table_id, col) {
   var tab = document.getElementById(table_id);
   var n = tab.rows.length;
+  console.log('n = ' + n);
   var i, s = null, tr, td;
+  var miss = true;
 
   // First check that col is not less then 0
   if (col < 0) {
@@ -48,12 +50,71 @@ function getColumn(table_id, col) {
         td.className="missing"
         td.style="font-weight:normal;"
         count = count + 1;
-      } else {
-        td.style="font-weight:bold;"
+        miss = false;
       }
-      // s += ' ' + td.innerText;
-    } // Here you could say else { return null; } if you want it to fail
-    // when requested column is out of bounds. It depends.
+      // console.log('window should open count = ' + count);
+      // console.log('miss = ' + miss);
+    }
   }
-        console.log("count = " + count);
+  console.log('n = ' + n);
+  console.log('i = ' + i);
+  console.log('miss = ' + miss);
+  if (i == n && miss == true) {
+    console.log('---------------------- miss is true = ' + miss);
+    window.location = "check-your-answers-risk-check.html";
+  }
+}
+//
+function onlyShowMissing(table_id){
+  var tab = document.getElementById(table_id);
+  var bodies = tab.tBodies;
+  var body;
+  var th;
+  for (i = 0; i < bodies.length; i++) {
+    body = bodies[i];
+    // console.log('previous = ' + body.previousSibling.);
+    if (body.rows[0].cells[0].tagName == 'TH') {
+      th = body.rows[0];
+      // console.log(th.cells[0].tagName);
+    }
+    var hide = false;
+    for (var k = 0; k < body.rows.length; k++) {
+      var td = body.rows[k].cells[1]
+      // console.log('K = ' + body.rows[k].cells[0].innerText);
+      if (td.innerText == 'Missing') {
+        console.log('K = ' + td);
+        body.rows[k].style = "background-color:white;"
+        hide = true;
+      } else {
+        body.rows[k].style = "background-color:blue; display:none;"
+      }
+      console.log('hide = ' + hide);
+      console.log(th.cells[0].innerText + ' ------------ HIDE')
+      if (hide) {
+        th.style = "background-color:white;"
+      } else {
+        th.style = "background-color:lightblue; display:none;"
+      }
+    }
+  }
+}
+//
+function setState(elname, val){
+  console.log('setState');
+  var al = document.getElementsByName(elname);
+  console.log(al.length);
+  // check if user has manually checke
+  for(var i=0; i< al.length; i++){
+    if(al[i].checked == true) return;
+  }
+  // set if user has not overridden
+  for(var i=0; i< al.length; i++)
+  {
+    console.log(al[i].value);
+    if (al[i].value == val) {
+      al[i].checked = true;
+      console.log('This is the Open acct');
+    }
+
+  }
 }

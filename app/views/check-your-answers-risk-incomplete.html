@@ -7,9 +7,38 @@ Check your answers
 {% block content %}
 
 <script>
-window.addEventListener("load", myFunction);
-function myFunction() {
+window.addEventListener("load", loadFunction);
+function loadFunction() {
+  if( {{ data['missing'] == "Yes" }}) {
+    showMissing();
+    // console.log('loadFunction showMissing');
+  } else {
+    showAll();
+    setState('missing', 'No');
+    // console.log('loadFunction showAll');
+  }
+}
+function showAll() {
+  console.log('showAll');
   getColumn("myTable", "1");
+}
+function showMissing(){
+  console.log('showMissing');
+  getColumn("myTable", "1");
+  onlyShowMissing("myTable");
+}
+function formSubmit(radioObj){
+  if(radioObj.checked){
+    document.getElementById("radioForm").submit();
+  }
+  if (radioObj.value == "Yes") {
+    //showMissing();
+    console.log('showMissing');
+  } else {
+    console.log('showAll');
+    // showAll();
+  }
+  console.log(radioObj.value);
 }
 </script>
 
@@ -25,11 +54,9 @@ table th{
 }
 </style>
 
-<main id="content" role="main">
-  <a href="check_print_out.html" style="font-weight:bold;">View Print out (for testing only)</a>
-  <p id="bridey">
-
-  </p>
+<main id="content" role="main" >
+  <!-- <a href="check_print_out.html" style="font-weight:bold;">View Print out (for testing only)</a> -->
+  {% include "includes/breadcrumb_risk_summary.html" %}
   <h1 class="heading-large">
     Please complete the missing answers</h1>
     <p>
@@ -50,16 +77,28 @@ table th{
         NOMIS alerts and comments that can be safely automated have been. Check and complete all questions.
       </strong>
     </div>
-    <table id="myTable" class="check-your-answers column-two-thirds">
+    &nbsp;
+    <form id="radioForm">
+      <div class="form-group">
+        <fieldset class="inline">
+          <div class="multiple-choice">
+            <input id="radio-inline-1" type="radio" name="missing" value="No" {{ checked("missing", "No") }} onchange="formSubmit(this)">
+            <label for="radio-inline-1">Show all answers</label>
+          </div>
+          <div class="multiple-choice">
+            <input id="radio-inline-2" type="radio" name="missing" value="Yes" {{ checked("missing", "Yes") }} onchange="formSubmit(this)">
+            <label for="radio-inline-2">Show missing answers only</label>
+          </div>
+        </fieldset>
+      </div>
+    </form>
+    <table id="myTable" class="check-your-answers column-two-thirds" style="">
       <col width="35%">
       <col width="20%">
       <col width="auto">
       <th>Risk to self</th>
       <th></th>
-      <th class="change-answer">
-        <a href="risk_01.html">
-          Change <span class="visuallyhidden">change question 2</span>
-        </th>
+      <th class="change-answer"><a href="risk_01.html">Change <span class="visuallyhidden">change question 2</span></th>
         <tbody>
           <tr>
             <td>
@@ -298,8 +337,7 @@ table th{
                     {{ data['elist_info'] }}
                   </td>
                 </tr>
-              </tbody>
-              <tbody>
+
                 <tr>
                   <td>
                     Escape risk
@@ -311,8 +349,6 @@ table th{
                     {{ data['escape_risk_info'] }}
                   </td>
                 </tr>
-              </tbody>
-              <tbody>
                 <tr>
                   <td>
                     Escort Risk Assessment needed
@@ -534,17 +570,13 @@ table th{
                     <h2>St Albans Crown Court</h2>
                   </div>
 
-                  <div style="background-color:rgba(255, 191, 71, 0.3); padding:20px; margin: 60px 0px; border:1px solid rgba(255, 191, 71, 1);" class="column-two-thirds">
-                    <p style="font-weight:bold;">
-                      Click 'confirm and save' to confirm that, to the best of your knowledge all information in this section is correct.
-                    </p>
-
-                    <div class="">
-                      <a href="profile" class="button">Confirm and save</a>
-                    </div>
+                  <div class="column-two-thirds" style="padding:50px 0px">
+                    <a href="profile_done" class="button">View PER</a>
+                    <a href="dashboard_automation" class="linkstylebutton">Return to home</a>
                   </div>
+                </div>
 
 
-                </main>
+              </main>
 
-                {% endblock %}
+              {% endblock %}

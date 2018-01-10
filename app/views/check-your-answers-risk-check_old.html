@@ -5,7 +5,6 @@ Check your answers
 {% endblock %}
 
 {% block content %}
-
 <style media="screen">
 .column-two-thirds{
   width: 75%;
@@ -16,20 +15,24 @@ Check your answers
 table th{
   font-weight: bold;
 }
+table tr td ul li {
+  display: inline;
+  /*padding: 0 -10px !important;*/
+  margin: 0 -1px !important;
+  /*background-color: red !important;*/
+}
 </style>
 
-<main id="content" role="main" >
+<main id="content" role="main">
   <a href="check_print_out.html" style="font-weight:bold;">View Print out (for testing only)</a>
-
-    <h1 class="heading-large">
-      Check all answers, then confirm and save
-    </h1>
-    <p>
-      <span class="status" style="margin-right:10px;">
-        Confirm
-      </span>
-      Last confirmed: Firstname Surname, 15:32 | 12 Apr 2017
-
+  <h1 class="heading-large">
+    Check all answers, then confirm and save
+  </h1>
+  <p>
+    <span class="status" style="margin-right:10px;">
+      Confirm
+    </span>
+    Last confirmed: Firstname Surname, 15:32 | 12 Apr 2017
     <table id="myTable" class="check-your-answers column-two-thirds" style="">
       <col width="35%">
       <col width="20%">
@@ -496,7 +499,6 @@ table th{
 
                     </div>
                   </div>
-
                   <div class="column-one-third side-profile">
                     <h1><span class="namebold"> <a href="/profile.html"> A1234AB</a><br/>BARKER</span> RONNIE</h1>
                     <img src="/public/images/ronnie.jpg"/>
@@ -517,9 +519,8 @@ table th{
                       <a href="profile" class="button">Confirm and save</a>
                     </div>
                   </div>
-                </div>
 
 
-              </main>
+                </main>
 
-              {% endblock %}
+                {% endblock %}
