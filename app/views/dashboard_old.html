@@ -11,8 +11,8 @@ Check your answers
   text-decoration: none;
 }
 .disabled a {
-  color: grey !important;
-  text-decoration: none;
+  /*color: grey !important;
+  text-decoration: none;*/
 }
 table th {
   font-size: 19px;
@@ -62,7 +62,7 @@ table th {
     </tr>
     <tr>
       <td class="prisonnumber"><a href="profile.html">A1234AB</a></td>
-      <td><span class="surname">To start first MPS PER</span></td>
+      <td><span class="surname">Not started first MPS PER</span></td>
       <td>St Alban's Crown Court</td>
       <td class="todo"><a href="check-your-answers-risk-incomplete.html">Start</a></td>
       <td class="todo disabled">To start</td>
@@ -74,7 +74,7 @@ table th {
       <td><span class="surname">Incomplete</span></td>
       <td>St Alban's Crown Court</td>
       <td class="review"><a href="check-your-answers-risk-incomplete.html">Review</a></td>
-      <td class="disabled">On review</td>
+      <td class="disabled"><a href="check-your-answers-health-read-only.html">View</a></td>
       <td class="todo"><a href="offences.html">Start</a></td>
       <td class="print change-answer"> <a href="#"></a></td>
     </tr>
@@ -83,7 +83,7 @@ table th {
       <td><span class="surname">Not confirmed or reuse</span></td>
       <td>St Alban's Crown Court</td>
       <td class="review"><a href="check-your-answers-risk-review.html">Review</a></td>
-      <td class="disabled">On review</td>
+      <td class="disabled"><a href="check-your-answers-health-read-only.html">View</a></td>
       <td class="review"><a href="offences.html">Review</a></td>
       <td class="print change-answer"> <a href="#"></a></td>
     </tr>
@@ -91,21 +91,18 @@ table th {
       <td class="prisonnumber"><a href="profile_done.html">A1234AB</a></td>
       <td><span class="surname">Confirmed</span> </td>
       <td>St Alban's Crown Court</td>
-      <td class="done">Done</td>
-      <td class="done">Done</td>
-      <td class="done">Done</td>
+      <td class="done"><a href="check-your-answers-risk-done.html">Done</a></td>
+      <td class="done"><a href="check-your-answers-health-done.html">Done</a></td>
+      <td class="done"><a href="#">Done</a></td>
       <td class="print change-answer"> <a href="profile_done.html">Print</a></td>
     </tr>
     <tr>
       <td class="prisonnumber"><a href="profile_done.html">A1234AB</a></td>
       <td><span class="surname">Issued</span></td>
       <td>St Alban's Crown Court</td>
-      <td></td>
-      <td></td>
-      <td></td>
-            <td>
-              <span class="issued">Printed</span>
-            </td>
+      <td colspan="4">
+        <span class="issued">Printed</span>
+      </td>
     </tr>
     <tr>
       <td>A1234AB</td>
@@ -123,7 +120,7 @@ table th {
     </tr>
     <tr>
       <td class="prisonnumber"><a href="profile.html">A1234AB</a></td>
-      <td><span class="surname">To start first MPS PER</span></td>
+      <td><span class="surname">Not started first MPS PER</span></td>
       <td>St Alban's Crown Court</td>
       <td class="todo disabled">To start</td>
       <td class="todo"><a href="health_01.html">Start</a></td>
@@ -134,37 +131,34 @@ table th {
       <td class="prisonnumber"><a href="profile.html">A1234AB</a></td>
       <td><span class="surname">Incomplete</span></td>
       <td>St Alban's Crown Court</td>
-      <td class="disabled">On review</td>
+      <td class="disabled"><a href="check-your-answers-risk-review.html">View</a></td>
       <td class="review"><a href="check-your-answers-health-review.html">Review</a></td>
-      <td class="disabled">To start</td>
+      <td class="disabled"><a href="#">View</a></td>
       <td class="print change-answer"> <a href="#"></a></td>
     </tr>
     <tr>
       <td class="prisonnumber"><a href="profile.html">A1234AB</a></td>
       <td><span class="surname">Not confirmed or reuse</span></td>
       <td>St Alban's Crown Court</td>
-      <td class="disabled">On review</td>
+      <td class="disabled"><a href="check-your-answers-risk-review.html">View</a></td>
       <td class="review"><a href="check-your-answers-health-review.html">Review</a></td>
-      <td class="disabled">On review</td>
+      <td class="disabled"><a href="#">View</a></td>
       <td class="print change-answer"> <a href="#"></a></td>
     </tr>
     <tr>
       <td class="prisonnumber"><a href="profile_done.html">A1234AB</a></td>
       <td><span class="surname">Confirmed</span> </td>
       <td>St Alban's Crown Court</td>
-      <td class="done">Done</td>
-      <td class="done">Done</td>
-      <td class="done">Done</td>
+      <td class="done"><a href="check-your-answers-risk-done.html">Done</a></td>
+      <td class="done"><a href="check-your-answers-health-done.html">Done</a></td>
+      <td class="done"><a href="#">Done</a></td>
       <td class="print change-answer"> <a href="profile_done.html">Print</a></td>
     </tr>
     <tr>
       <td class="prisonnumber"><a href="profile_done.html">A1234AB</a></td>
       <td><span class="surname">Issued</span></td>
       <td>St Alban's Crown Court</td>
-      <td></td>
-      <td></td>
-      <td></td>
-      <td>
+      <td colspan="4">
         <span class="issued">Printed</span>
       </td>
     </tr>
