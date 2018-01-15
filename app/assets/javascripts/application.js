@@ -28,6 +28,16 @@ function clearDetails2(target1,target2){
   target2 = document.getElementById(target2);
   target2.value = "";
 }
+
+//
+function hideAnsweredQuestions(){
+  console.log('hideAnsweredQuestions');
+  var collection = document.getElementsByClassName('answered');
+  for (var i = 0; i < collection.length; i++) {
+    collection[i].style='display:none'
+    console.log('collection[i] = ' + collection[i]);
+  }
+}
 // function to set value to missing and style for questions with no answer//
 function getColumn(table_id, col) {
   var tab = document.getElementById(table_id);

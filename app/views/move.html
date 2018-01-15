@@ -16,183 +16,178 @@ Question page
   {% include "includes/breadcrumb_move.html" %}
 
   <div class="grid-row">
-    <form action="health_02" method="get" class="column-two-thirds" class="form">
+    <form action="profile" method="post" class="column-two-thirds" class="form">
 
       <h1 class="heading-large">
         Move information
       </h1>
-      <div class="form-group"><label class="form-label-bold">From</label>HMP Bedford</div>
-      <label class="form-label-bold" style="margin-bottom:10px">To</label>
       <div class="form-group">
         <fieldset>
-          <legend class="visuallyhidden">
-          </legend>
+          <label class="form-label-bold">From</label>HMP Bedford</div>
 
-          <label for="radio-part-1" class="block-label" data-target="court-crown-info">
-            <input id="radio-part-1" type="radio" name="radio-inline-group" value="Crown Court">
-            Crown Court
-          </label>
-
-          <div class="panel panel-border-narrow js-hidden" id="court-crown-info">
-            <div class="form-group">
-              <label class="form-label" for="input-court-name">
-                Enter name of Crown Court
-              </label>
-              <input class="form-control" id="input-court-name" type="text" name="input-court-name">
-            </div>
-          </div>
-
-          <label for="radio-part-2" class="block-label" data-target="court-mag-info">
-            <input id="radio-part-2" type="radio" name="radio-inline-group" value="Magistrates Court">
-            Magistrates Court
-          </label>
-
-          <div class="panel panel-border-narrow js-hidden" id="court-mag-info">
-            <div class="form-group">
-
-              <label class="form-label" for="input-mag-name">
-                Start typing name of Magistrates Court
-              </label>
-              <input class="form-control" id="input-mag-name" type="text" name="input-mag-name">
-            </div>
-          </div>
-
-
-
-          <label for="radio-part-3" class="block-label" data-target="prison-info">
-            <input id="radio-part-3" type="radio" name="radio-inline-group" value="Prison Transfer">
-            Prison
-          </label>
-          <div class="panel panel-border-narrow js-hidden" id="prison-info">
-            <div class="form-group">
-              <label class="form-label" for="input-prison">
-                Enter name of prison
-              </label>
-              <input class="form-control" id="input-prison" type="text" name="input-prison">
-            </div>
-            <!-- <select class="form-control-select" name="prisons" id="prisons" style="font-size:19px">
-            <option>-- Select a prison --</option>
-            <option value="1">Option 1</option>
-            <option value="2">Option 2</option>
-            <option value="3">Option 3</option>
-            <option value="4">Option 4</option>
-          </select> -->
-        </div>
-
-        <label for="radio-part-4" class="block-label" data-target="hospital-info">
-          <input id="radio-part-4" type="radio" name="radio-inline-group" value="Hospital">
-          Hospital
-        </label>
-        <div class="panel panel-border-narrow js-hidden" id="hospital-info">
+          <label class="form-label-bold" style="margin-bottom:10px">To</label>
           <div class="form-group">
-            <label class="form-label" for="input-hospital">
-              Enter name of hospital
-            </label>
-            <input class="form-control" id="hospital" type="text" name="input-hospital">
-          </div>
-        </div>
+            <div class="multiple-choice" data-target="court-crown-info">
+              <input id="radio-1" type="radio" name="radio-group" value="Crown Court">
+              <label for="radio-1">Crown Court</label>
+            </div>
 
-        <label for="radio-part-5" class="block-label" data-target="other-destination-info">
-          <input id="radio-part-5" type="radio" name="radio-inline-group" value="Hospital">
-          A different destination
-        </label>
-        <div class="panel panel-border-narrow js-hidden" id="other-destination-info">
+            <div class="panel panel-border-narrow js-hidden" id="court-crown-info">
+              <div class="form-group">
+                <label class="form-label" for="input-court-name">
+                  Enter name of Crown Court
+                </label>
+                <input class="form-control" id="input-court-name" type="text" name="input-court-name">
+              </div>
+            </div>
+
+            <div class="multiple-choice" data-target="court-mag-info">
+              <input id="radio-part-2" type="radio" name="radio-group" value="Magistrates Court">
+              <label for="radio-part-2" class="block-label">Magistrates Court</label>
+            </div>
+
+            <div class="panel panel-border-narrow js-hidden" id="court-mag-info">
+              <div class="form-group">
+
+                <label class="form-label" for="input-mag-name">
+                  Start typing name of Magistrates Court
+                </label>
+                <input class="form-control" id="input-mag-name" type="text" name="input-mag-name">
+              </div>
+            </div>
+
+            <div class="multiple-choice" data-target="prison-info">
+              <input id="radio-part-3" type="radio" name="radio-group" value="Prison Transfer">
+              <label for="radio-part-3">Prison</label>
+            </div>
+
+            <div class="panel panel-border-narrow js-hidden" id="prison-info">
+              <div class="form-group">
+                <label class="form-label" for="input-prison">
+                  Enter name of prison
+                </label>
+                <input class="form-control" id="input-prison" type="text" name="input-prison">
+              </div>
+            </div>
+
+
+            <div class="multiple-choice" data-target="hospital-info">
+              <input id="radio-part-4" type="radio" name="radio-group" value="Hospital">
+              <label for="radio-part-4" class="block-label">Hospital</label>
+            </div>
+
+            <div class="panel panel-border-narrow js-hidden" id="hospital-info">
+              <div class="form-group">
+                <label class="form-label" for="input-hospital">
+                  Enter name of hospital
+                </label>
+                <input class="form-control" id="hospital" type="text" name="input-hospital">
+              </div>
+            </div>
+
+            <div class="multiple-choice" data-target="other-destination-info">
+              <input id="radio-part-5" type="radio" name="radio-group" value="Hospital">
+              <label for="radio-part-5" class="block-label">A different destination</label>
+            </div>
+
+            <div class="panel panel-border-narrow js-hidden" id="other-destination-info">
+              <div class="form-group">
+                <label class="form-label" for="input-other-destination">
+                  Enter name of destination
+                </label>
+                <input class="form-control" id="other-destination" type="text" name="input-other-destination">
+              </div>
+            </div>
+          </div>
           <div class="form-group">
-            <label class="form-label" for="input-other-destination">
-              Enter name of destination
+            <label class="form-label-bold" for="datedummy">
+              Date of travel
+              <p class="form-hint">
+                DD/MM/YYYY
+              </p>
             </label>
-            <input class="form-control" id="other-destination" type="text" name="input-other-destination">
+            <input class="form-control" id="datedummy" type="text" name="datedummy">
           </div>
-        </div>
-      </div>
-      <div class="form-group">
-        <label class="form-label-bold" for="datedummy">
-          Date of travel
-          <p class="form-hint">
-            DD/MM/YYYY
-          </p>
-        </label>
-        <input class="form-control" id="datedummy" type="text" name="datedummy">
-      </div>
-
-      <!-- question -->
-      <h2 class="form-label-bold">
-        Not for release?
-      </h2>
-      <p class="form-hint">
-        Is there a known reason that the detainee is not for release?
-      </p>
-      <div class="form-group">
-        <fieldset class="inline">
-
-          <legend class="visually-hidden"></legend>
-
-          <label class="block-label selection-button-radio" for="radio-inline-211" data-target="all-nfr-radios">
-            <input id="radio-inline-211" type="radio" name="nfr" value="Yes">
-            Yes
-          </label>
-          <label class="block-label selection-button-radio" for="radio-inline-221">
-            <input id="radio-inline-221" type="radio" name="nfr" value="No">
-            No
-          </label>
-
         </fieldset>
-      </div>
-
-      <!-- conditionals -->
-      <div class="panel panel-border-narrow js-hidden" id="all-nfr-radios">
+        <!-- question -->
+        <h2 class="form-label-bold">
+          Not for release?
+        </h2>
+        <p class="form-hint">
+          Is there a known reason that the detainee is not for release?
+        </p>
         <div class="form-group">
-          <fieldset>
+          <fieldset class="inline">
 
-            <legend class="visuallyhidden">
-            </legend>
+            <legend class="visually-hidden"></legend>
 
-            <label for="radio-part-110" class="block-label">
-              <input id="radio-part-110" type="radio" name="nfr_state" value="Serving sentence">
-              Serving sentence
-            </label>
+            <div class="multiple-choice" data-target="all-nfr-radios">
+              <input id="radio-inline-211" type="radio" name="nfr" value="Yes">
+              <label class="block-label selection-button-radio" for="radio-inline-211">Yes</label>
+            </div>
 
-            <label for="radio-part-120" class="block-label">
-              <input id="radio-part-120" type="radio" name="nfr_state" value="Further charges">
-              Further charges
-            </label>
-
-            <label for="radio-part-130" class="block-label">
-              <input id="radio-part-130" type="radio" name="nfr_state" value="Licence revoke">
-              Licence revoke
-            </label>
-
-            <label for="radio-part-140" class="block-label">
-              <input id="radio-part-140" type="radio" name="nfr_state" value="Held for immigration">
-              Held for immigration
-            </label>
-
-            <label for="radio-part-150" class="block-label" data-target="nfr-info">
-              <input id="radio-part-150" type="radio" name="nfr_state" value="Other">
-              Other
-            </label>
+            <div class="multiple-choice">
+              <input id="radio-inline-221" type="radio" name="nfr" value="No">
+              <label class="block-label selection-button-radio" for="radio-inline-221">No</label>
+            </div>
 
           </fieldset>
         </div>
-      </div>
 
-      <div class="panel panel-border-narrow js-hidden" id="nfr-info">
-        <div class="form-group">
-          <label class="form-label" for="textarea-b">
-            Give details of why the detainee is not for release
-          </label>
-          <textarea class="form-control" id="textarea-b" cols="30" rows="3" name="nfr_info"></textarea>
+        <!-- conditionals -->
+        <div class="panel panel-border-narrow js-hidden" id="all-nfr-radios">
+          <div class="form-group">
+            <fieldset>
+
+              <legend class="visuallyhidden">
+              </legend>
+
+              <div class="multiple-choice">
+                <input id="radio-part-110" type="radio" name="nfr_state" value="Serving sentence">
+                <label for="radio-part-110" class="block-label">Serving sentence</label>
+              </div>
+
+              <div class="multiple-choice">
+                <input id="radio-part-120" type="radio" name="nfr_state" value="Further charges">
+                <label for="radio-part-120" class="block-label">Further charges</label>
+              </div>
+
+              <div class="multiple-choice">
+                <input id="radio-part-130" type="radio" name="nfr_state" value="Licence revoke">
+                <label for="radio-part-130" class="block-label">Licence revoke</label>
+              </div>
+
+              <div class="multiple-choice">
+                <input id="radio-part-140" type="radio" name="nfr_state" value="Held for immigration">
+                <label for="radio-part-140" class="block-label">Held for immigration</label>
+              </div>
+
+              <div class="multiple-choice" data-target="nfr-info">
+                <input id="radio-part-150" type="radio" name="nfr_state" value="Other">
+                <label for="radio-part-150" class="block-label">Other</label>
+              </div>
+
+            </fieldset>
+          </div>
         </div>
-      </div>
 
-      <div class="form-group">
-        <a class="button" href="offences.html" role="button" >Save and continue</a>
-        <!-- <input class="button" type="submit" value="Continue"> -->
-      </div>
-    </form>
+        <div class="panel panel-border-narrow js-hidden" id="nfr-info">
+          <div class="form-group">
+            <label class="form-label" for="textarea-b">
+              Give details of why the detainee is not for release
+            </label>
+            <textarea class="form-control" id="textarea-b" cols="30" rows="3" name="nfr_info"></textarea>
+          </div>
+        </div>
 
+        <div class="form-group">
+          <a class="button" href="offences.html" role="button" >Save and continue</a>
+          <!-- <input class="button" type="submit" value="Continue"> -->
+        </div>
+      </form>
+
+    </div>
   </div>
-</div>
 
 </div>
 </main>

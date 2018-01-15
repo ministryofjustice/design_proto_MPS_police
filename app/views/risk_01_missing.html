@@ -6,9 +6,16 @@ Question page
 
 {% block content %}
 <script type="text/javascript">
+window.addEventListener("ready" , onReady);
+function onReady(){
+  console.log('onReady');
+}
 window.addEventListener("load", myFunction);
-function myFunction(){
-  // setState("selfharm", "No")
+function myFunction() {
+  if({{ data['hideAnswered'] == "Yes" }}) {
+    hideAnsweredQuestions();
+    document.getElementsByClassName('buttonToSummary')[0].style = 'display:none;'
+  }
 }
 </script>
 
@@ -17,16 +24,16 @@ function myFunction(){
   {% include "includes/breadcrumb_examples.html" %}
 
   <div class="grid-row">
-    <div class="column-full"><p>1 of 12&emsp;<a href="risk_02.html">Skip</a></p>
-    </div>
-    <div class="column-two-thirds">
-      <!-- <div class="notice">
-      <i class="icon icon-important">
-    </i>
-    <strong class="bold-small">
-    NOMIS alerts and comments that can be safely automated have been. You need to check and complete the rest.
-    <br><span style="font-weight:normal;">Last updated from NOMIS: 02:23 | DD Month YYYY</span>
-  </strong>
+    <!-- <div class="column-full"><p>1 of 12&emsp;<a href="risk_02.html">Skip</a></p>
+  </div> -->
+  <div class="column-two-thirds">
+    <!-- <div class="notice">
+    <i class="icon icon-important">
+  </i>
+  <strong class="bold-small">
+  NOMIS alerts and comments that can be safely automated have been. You need to check and complete the rest.
+  <br><span style="font-weight:normal;">Last updated from NOMIS: 02:23 | DD Month YYYY</span>
+</strong>
 </div> -->
 
 <h1 class="heading-secondary">Risk to self
@@ -36,7 +43,7 @@ function myFunction(){
   What is the prisoner's ACCT status?
 </h2>
 <p class="form-hint">In NOMIS, check the header section of the prisoner’s record for the ACCT status alert. </p>
-<form action="risk_02" method="post" class="form">
+<form action="risk_03_missing" method="post" class="form">
 
   <div class="form-group">
     <legend class="visuallyhidden">
@@ -95,7 +102,7 @@ function myFunction(){
 
 
     <!-- question -->
-    <h2 class="heading-medium">
+    <div class="answered">    <h2 class="heading-medium">
       Is there any other risk of self harm on this journey?
     </h2>
     <p class="form-hint">In NOMIS, check the header section of the prisoner’s record for the Self Harm and Vulnerability alerts.</p>
@@ -103,30 +110,26 @@ function myFunction(){
       <span class="nomis-verified"></span>
       <fieldset class="inline">
 
-        <!-- <div class="multiple-choice" data-target="other-final-info">
-        <input id="other_final_01" name="other_final" type="radio" value="Yes" {{ checked("other_final", "Yes") }}>
-        <label for="other_final_01">Yes</label>
-      </div> -->
+        <legend class="visually-hidden"></legend>
+        <div class="multiple-choice" data-target="selfharm-info">
+          <input id="radio-inline-7" type="radio" name="selfharm" value="Yes" {{ checked("selfharm", "Yes") }}>
+          <label for="radio-inline-7">Yes</label>
+        </div>
+        <div class="multiple-choice">
+          <input id="radio-inline-8" type="radio" name="selfharm" value="No" {{ checked("selfharm", "No")}} onclick="clearDetails('textarea-b');">
+          <label for="radio-inline-8">No</label>
+        </div>
 
-      <legend class="visually-hidden"></legend>
-      <div class="multiple-choice" data-target="selfharm-info">
-        <input id="radio-inline-7" type="radio" name="selfharm" value="Yes" {{ checked("selfharm", "Yes") }}>
-        <label for="radio-inline-7">Yes</label>
+      </fieldset>
+    </div>
+
+    <div class="panel panel-border-narrow js-hidden" id="selfharm-info">
+      <div class="form-group">
+        <label class="form-label" for="textarea-b">
+          Give details
+        </label>
+        <textarea class="form-control form-control-3-4" id="textarea-b" cols="30" rows="3" name="selfharm_info" >{{ data['selfharm_info'] }}</textarea>
       </div>
-      <div class="multiple-choice">
-        <input id="radio-inline-8" type="radio" name="selfharm" value="No" {{ checked("selfharm", "No")}} onclick="clearDetails('textarea-b');">
-        <label for="radio-inline-8">No</label>
-      </div>
-
-    </fieldset>
-  </div>
-
-  <div class="panel panel-border-narrow js-hidden" id="selfharm-info">
-    <div class="form-group">
-      <label class="form-label" for="textarea-b">
-        Give details
-      </label>
-      <textarea class="form-control form-control-3-4" id="textarea-b" cols="30" rows="3" name="selfharm_info" >{{ data['selfharm_info'] }}</textarea>
     </div>
   </div>
 
@@ -140,6 +143,7 @@ function myFunction(){
 <div class="side-profile column-one-third">
   {% include "includes/side-profile.html" %}
 </div>
+
 </main>
 
 {% endblock %}
