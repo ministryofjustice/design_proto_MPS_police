@@ -16,7 +16,7 @@ Question page
   {% include "includes/breadcrumb_move.html" %}
 
   <div class="grid-row">
-    <form action="profile" method="post" class="column-two-thirds" class="form">
+    <form action="profile" method="get" class="column-two-thirds" class="form">
 
       <h1 class="heading-large">
         Move information
@@ -28,10 +28,10 @@ Question page
           <label class="form-label-bold" style="margin-bottom:10px">To</label>
           <div class="form-group">
             <div class="multiple-choice" data-target="court-crown-info">
-              <input id="radio-1" type="radio" name="radio-group" value="Crown Court">
+              <input id="radio-1" type="radio" name="destination" value="Crown Court" {{ checked("destination", "Crown Court") }}>
               <label for="radio-1">Crown Court</label>
             </div>
-
+            <!-- details !-->
             <div class="panel panel-border-narrow js-hidden" id="court-crown-info">
               <div class="form-group">
                 <label class="form-label" for="input-court-name">
@@ -42,13 +42,12 @@ Question page
             </div>
 
             <div class="multiple-choice" data-target="court-mag-info">
-              <input id="radio-part-2" type="radio" name="radio-group" value="Magistrates Court">
-              <label for="radio-part-2" class="block-label">Magistrates Court</label>
+              <input id="radio-part-2" type="radio" name="destination" value="Magistrates Court" {{ checked("destination", "Magistrates Court") }}>
+              <label for="radio-part-2">Magistrates Court</label>
             </div>
-
+            <!-- details !-->
             <div class="panel panel-border-narrow js-hidden" id="court-mag-info">
               <div class="form-group">
-
                 <label class="form-label" for="input-mag-name">
                   Start typing name of Magistrates Court
                 </label>
@@ -57,10 +56,10 @@ Question page
             </div>
 
             <div class="multiple-choice" data-target="prison-info">
-              <input id="radio-part-3" type="radio" name="radio-group" value="Prison Transfer">
+              <input id="radio-part-3" type="radio" name="destination" value="Prison Transfer" {{ checked("destination", "Prison Transfer") }}>
               <label for="radio-part-3">Prison</label>
             </div>
-
+            <!-- details !-->
             <div class="panel panel-border-narrow js-hidden" id="prison-info">
               <div class="form-group">
                 <label class="form-label" for="input-prison">
@@ -72,10 +71,10 @@ Question page
 
 
             <div class="multiple-choice" data-target="hospital-info">
-              <input id="radio-part-4" type="radio" name="radio-group" value="Hospital">
-              <label for="radio-part-4" class="block-label">Hospital</label>
+              <input id="radio-part-4" type="radio" name="destination" value="Hospital" {{ checked("destination", "Hospital") }}>
+              <label for="radio-part-4">Hospital</label>
             </div>
-
+            <!-- details !-->
             <div class="panel panel-border-narrow js-hidden" id="hospital-info">
               <div class="form-group">
                 <label class="form-label" for="input-hospital">
@@ -86,10 +85,10 @@ Question page
             </div>
 
             <div class="multiple-choice" data-target="other-destination-info">
-              <input id="radio-part-5" type="radio" name="radio-group" value="Hospital">
-              <label for="radio-part-5" class="block-label">A different destination</label>
+              <input id="radio-part-5" type="radio" name="destination" value="Other"  {{ checked("destination", "A different destination") }}>
+              <label for="radio-part-5">A different destination</label>
             </div>
-
+            <!-- details !-->
             <div class="panel panel-border-narrow js-hidden" id="other-destination-info">
               <div class="form-group">
                 <label class="form-label" for="input-other-destination">
@@ -122,13 +121,13 @@ Question page
             <legend class="visually-hidden"></legend>
 
             <div class="multiple-choice" data-target="all-nfr-radios">
-              <input id="radio-inline-211" type="radio" name="nfr" value="Yes">
-              <label class="block-label selection-button-radio" for="radio-inline-211">Yes</label>
+              <input id="radio-inline-211" type="radio" name="nfr" value="Yes" {{ checked("nfr", "Yes") }}>
+              <label for="radio-inline-211">Yes</label>
             </div>
 
             <div class="multiple-choice">
-              <input id="radio-inline-221" type="radio" name="nfr" value="No">
-              <label class="block-label selection-button-radio" for="radio-inline-221">No</label>
+              <input id="radio-inline-221" type="radio" name="nfr" value="No" {{ checked("nfr", "No") }} onclick="noNfr()">
+              <label for="radio-inline-221">No</label>
             </div>
 
           </fieldset>
@@ -143,28 +142,28 @@ Question page
               </legend>
 
               <div class="multiple-choice">
-                <input id="radio-part-110" type="radio" name="nfr_state" value="Serving sentence">
-                <label for="radio-part-110" class="block-label">Serving sentence</label>
+                <input id="radio-part-110" type="radio" name="nfr_state" value="Serving sentence" {{ checked("nfr_state", "Serving sentence") }}>
+                <label for="radio-part-110">Serving sentence</label>
               </div>
 
               <div class="multiple-choice">
-                <input id="radio-part-120" type="radio" name="nfr_state" value="Further charges">
-                <label for="radio-part-120" class="block-label">Further charges</label>
+                <input id="radio-part-120" type="radio" name="nfr_state" value="Further charges" {{ checked("nfr_state", "Further charges") }}>
+                <label for="radio-part-120">Further charges</label>
               </div>
 
               <div class="multiple-choice">
-                <input id="radio-part-130" type="radio" name="nfr_state" value="Licence revoke">
-                <label for="radio-part-130" class="block-label">Licence revoke</label>
+                <input id="radio-part-130" type="radio" name="nfr_state" value="Licence revoke" {{ checked("nfr_state", "Licence revoke") }}>
+                <label for="radio-part-130">Licence revoke</label>
               </div>
 
               <div class="multiple-choice">
-                <input id="radio-part-140" type="radio" name="nfr_state" value="Held for immigration">
-                <label for="radio-part-140" class="block-label">Held for immigration</label>
+                <input id="radio-part-140" type="radio" name="nfr_state" value="Held for immigration" {{ checked("nfr_state", "Held for immigration") }}>
+                <label for="radio-part-140">Held for immigration</label>
               </div>
 
               <div class="multiple-choice" data-target="nfr-info">
-                <input id="radio-part-150" type="radio" name="nfr_state" value="Other">
-                <label for="radio-part-150" class="block-label">Other</label>
+                <input id="radio-part-150" type="radio" name="nfr_state" value="Other"  {{ checked("nfr_state", "Other") }}>
+                <label for="radio-part-150">Other</label>
               </div>
 
             </fieldset>
@@ -176,13 +175,12 @@ Question page
             <label class="form-label" for="textarea-b">
               Give details of why the detainee is not for release
             </label>
-            <textarea class="form-control" id="textarea-b" cols="30" rows="3" name="nfr_info"></textarea>
+            <textarea class="form-control" id="textarea-b" cols="30" rows="3" name="nfr_info">{{data['nfr_info']}}</textarea>
           </div>
         </div>
 
         <div class="form-group">
-          <a class="button" href="offences.html" role="button" >Save and continue</a>
-          <!-- <input class="button" type="submit" value="Continue"> -->
+          <input class="button" type="submit" value="Continue">
         </div>
       </form>
 

@@ -5,6 +5,27 @@ Check your answers
 {% endblock %}
 
 {% block content %}
+<script type="text/javascript">
+window.addEventListener("load", loadFunction);
+function loadFunction() {
+  var nfr = {{data['nfr'] | dump | safe }};
+  var initialNfr = {{data['nfr'] | dump | safe }} + ': ';
+  console.log('nfr = ' + nfr);
+  if (nfr == "No") {
+    console.log('nfr inside func = ' + nfr);
+    document.getElementById('nfr').innerHTML = initialNfr + 'No known reason';
+  }
+  if (nfr == "Yes") {
+    document.getElementById('nfr').innerHTML = initialNfr + {{data['nfr_state'] | dump | safe }};
+  }
+  var nfr_state = {{data['nfr_state'] | dump | safe }};
+  if (nfr == "Yes" && nfr_state == "Other") {
+    document.getElementById('nfr').innerHTML = initialNfr + {{data['nfr_info'] | dump | safe }};
+  }
+  document.getElementById('content').style = 'display:normal;'
+}
+
+</script>
 <style media="screen">
 section{
   margin-bottom:20px;
@@ -112,12 +133,12 @@ td:first-child {
 }
 
 </style>
-<main id="content" role="main">
+<main id="content" role="main" style="">
 
   <!-- {% include "includes/breadcrumb_profile.html" %} -->
   <h2 class="heading-large">A1234AB: BARKER <span class="unbold">RONNIE</span></h2>
   <div class="column-two-thirds">
-    <li class="flag">Not for release</li>
+    <li class="flag" id="notforrelease">Not for release</li>
     <li class="flag flag-inactive">ACCT</li>
     <li class="flag flag-inactive">Self harm</li>
     <li class="flag">Rule 45</li>
@@ -165,8 +186,10 @@ td:first-child {
         <h6>
           Not for release
         </h6>
-        <p>
-          Further charges
+        <p id="nfr">
+          <span id="yesno" style="display:none;">{{ data['nfr'] }}</span>
+          <span id="nfrstate">{{ data['nfr_state'] }}</span>
+          <!-- <br> {{ data['nfrDisplay'] }} -->
         </p>
       </div>
     </section>
