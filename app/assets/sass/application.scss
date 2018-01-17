@@ -88,7 +88,7 @@ $path: "/public/images/";
   padding-left: 15px;
   margin-left: 40px;
   max-width: 180px;
-  border-left: solid 5px #005EA5;
+  border-left: solid 3px #0B0C0C;
   position: -webkit-sticky;
   position: sticky;
   top: 10px;
@@ -108,6 +108,9 @@ td.answer p .casenum{
 //
 .missing{
   color: $red;
+}
+.check-your-answers td:first-child + td {
+  font-weight: bold;
 }
 // Dashboard styles
 .cancelled {
