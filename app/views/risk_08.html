@@ -49,7 +49,7 @@ Question page
         <div class="panel panel-border-narrow js-hidden" id="sex_offender_info">
           <div class="form-group">
             <label class="form-label" for="textarea-b">
-              Give details of victim; adult male, adult female or under 18.
+              Give details of victim group (for example, adult male, adult female or under 18) and the date of the most recent incident if known
             </label>
             <textarea class="form-control form-control-3-4" id="textarea-b" rows="3" name="sex_offender_info">{{ data['sex_offender_info'] }}</textarea>
           </div>
@@ -60,7 +60,7 @@ Question page
           {% include "includes/risk-screen-buttons.html" %}
         </div>
       </form>
-      
+
     </div>
     <div class="side-profile column-one-third">
       {% include "includes/side-profile.html" %}

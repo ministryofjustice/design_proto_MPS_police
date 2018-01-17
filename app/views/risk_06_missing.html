@@ -57,7 +57,7 @@ function myFunction() {
         <div class="panel panel-border-narrow js-hidden" id="elistinfo-panel">
           <div class="form-group">
             <label class="form-label" for="textarea-a">
-              Specify E-list category if known; E-list-Standard, E-list-Escort or E-list-Heightened
+              Give details of the E-List category (standard, heightened or escort) if known
             </label>
             <textarea class="form-control form-control-3-4" id="textarea-a" rows="3" name="elist_info">{{ data['elist_info'] }}</textarea>
           </div>
@@ -182,6 +182,9 @@ function myFunction() {
     </div>
   </form>
 
+</div>
+<div class="side-profile column-one-third">
+  {% include "includes/side-profile.html" %}
 </div>
 </div>
 </main>
