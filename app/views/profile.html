@@ -10,9 +10,12 @@ window.addEventListener("load", loadFunction);
 function loadFunction() {
   var nfr = {{data['nfr'] | dump | safe }};
   console.log('nfr = ' + nfr);
+  var nfr_element = document.getElementById('notforrelease')
   if (nfr == "No") {
+    nfr_element.classList.add("flag-inactive");
     nfrNo()
   } else {
+    nfr_element.classList.remove("flag-inactive");
     nfrYes()
   }
   document.getElementById('content').style = 'display:normal;'
