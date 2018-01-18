@@ -5,6 +5,12 @@ Question page
 {% endblock %}
 
 {% block content %}
+<script type="text/javascript">
+function setNfrState(){
+  console.log('setNfrstate');
+  document.getElementById('form').setAttribute('action', 'profile?nfr_state')
+}
+</script>
 <style media="screen">
 .panel{
   margin-bottom: 30px;
@@ -16,7 +22,7 @@ Question page
   {% include "includes/breadcrumb_move.html" %}
 
   <div class="grid-row">
-    <form action="profile" method="get" class="column-two-thirds" class="form">
+    <form action="profile" method="post" class="column-two-thirds" class="form" id="form">
 
       <h1 class="heading-large">
         Move information
@@ -126,7 +132,7 @@ Question page
             </div>
 
             <div class="multiple-choice">
-              <input id="radio-inline-221" type="radio" name="nfr" value="No" {{ checked("nfr", "No") }} onclick="noNfr()">
+              <input id="radio-inline-221" type="radio" name="nfr" value="No" onclick="setNfrState()" {{ checked("nfr", "No") }} >
               <label for="radio-inline-221">No</label>
             </div>
 

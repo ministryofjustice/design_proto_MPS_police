@@ -9,20 +9,27 @@ Check your answers
 window.addEventListener("load", loadFunction);
 function loadFunction() {
   var nfr = {{data['nfr'] | dump | safe }};
-  var initialNfr = {{data['nfr'] | dump | safe }} + ': ';
   console.log('nfr = ' + nfr);
   if (nfr == "No") {
-    console.log('nfr inside func = ' + nfr);
-    document.getElementById('nfr').innerHTML = initialNfr + 'No known reason';
-  }
-  if (nfr == "Yes") {
-    document.getElementById('nfr').innerHTML = initialNfr + {{data['nfr_state'] | dump | safe }};
-  }
-  var nfr_state = {{data['nfr_state'] | dump | safe }};
-  if (nfr == "Yes" && nfr_state == "Other") {
-    document.getElementById('nfr').innerHTML = initialNfr + {{data['nfr_info'] | dump | safe }};
+    nfrNo()
+  } else {
+    nfrYes()
   }
   document.getElementById('content').style = 'display:normal;'
+}
+function nfrNo(){
+  console.log('nfrNo');
+  document.getElementById('nfr').innerHTML = 'No known reason';
+}
+function nfrYes(){
+  console.log('nfrYes');
+  var nfr_state = {{data['nfr_state'] | dump | safe }};
+  console.log('nfr_state = ' + nfr_state);
+  document.getElementById('nfr').innerHTML = nfr_state;
+  if (nfr_state == "Other") {
+    console.log('nfrYes Other');
+    document.getElementById('nfr').innerHTML = {{data['nfr_info'] | dump | safe }};
+  }
 }
 
 </script>
@@ -132,7 +139,7 @@ td:first-child {
   /*padding-left: 10px;*/
 }
 /*.check-your-answers td:first-child + td {
-  font-weight: bold;
+font-weight: bold;
 }*/
 
 </style>
