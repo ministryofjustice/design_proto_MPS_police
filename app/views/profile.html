@@ -149,7 +149,7 @@ font-weight: bold;
 <main id="content" role="main" style="">
 
   <!-- {% include "includes/breadcrumb_profile.html" %} -->
-  <h2 class="heading-large">A1234AB: BARKER <span class="unbold">RONNIE</span></h2>
+  <h2 class="heading-large">{{data['pn']}}: BARKER <span class="unbold">RONNIE</span></h2>
   <div class="column-two-thirds">
     <li class="flag" id="notforrelease">Not for release</li>
     <li class="flag flag-inactive">ACCT</li>
@@ -168,7 +168,7 @@ font-weight: bold;
           <a href="move.html" class="" style="display:inline-block">Edit</a>
         </span>
         <p>
-          Last confirmed: Joes Bloggs, 15:32 | 12 Apr 2017
+          Last confirmed: Joes Bloggs, HH:MM | DD Mon YYYY
         </p>
       </div>
       <div class="tile col-3">
@@ -176,7 +176,7 @@ font-weight: bold;
           Date of travel
         </h6>
         <p>
-          13 April 2017
+          25 Jan 2018
         </p>
       </div>
       <div class="tile col-3">
@@ -184,7 +184,7 @@ font-weight: bold;
           From
         </h6>
         <p>
-          HMP Bedford
+          HMP Chelmsford
         </p>
       </div>
       <div class="tile col-3">
@@ -192,7 +192,7 @@ font-weight: bold;
           To
         </h6>
         <p>
-          St Albans Crown Court
+          Chelmsford Crown Court
         </p>
       </div>
       <div class="tile col-3">
@@ -215,7 +215,7 @@ font-weight: bold;
           <a href="#" class="" style="display:inline-block">Edit</a>
         </span>
         <p>
-          Last confirmed: Joes Bloggs, 15:32 | 12 Apr 2017
+          Last confirmed: Joes Bloggs, HH:MM | DD Mon YYYY
         </p>
       </div>
       <div class="data_container">
@@ -329,7 +329,7 @@ font-weight: bold;
           <a href="#" class="" style="display:inline-block">Edit</a>
         </span>
         <p>
-          Last confirmed: Joes Bloggs, 15:32 | 12 Apr 2017
+          Last confirmed: Joes Bloggs, HH:MM | DD Mon YYYY
         </p>
       </div>
       <table class="check-your-answers">
@@ -355,7 +355,7 @@ font-weight: bold;
             <a href="check-your-answers-risk-review.html" class="reviewLink" style="display:inline-block">Edit</a>
           </span>
           <p>
-            Last confirmed: Joes Bloggs, 15:32 | 12 Apr 2017
+            Last confirmed: Joes Bloggs, HH:MM | DD Mon YYYY
           </p>
         </div>
         <table class="check-your-answers">
@@ -423,7 +423,7 @@ font-weight: bold;
               <a href="check-your-answers-health-done.html" class="" style="display:inline-block">Edit</a>
             </span>
             <p>
-              Last confirmed: Joes Bloggs, 15:32 | 12 Apr 2017
+              Last confirmed: Joes Bloggs, HH:MM | DD Mon YYYY
             </p>
           </div>
           <table class="check-your-answers">
@@ -443,19 +443,12 @@ font-weight: bold;
         <section style="background-color:white">
           <a class="button button-reprint" href="#" role="" >Reprint PER</a>
           <a class="button button-cancel" href="#" role="" >Cancel PER</a>
-          <a href="/dashboard">Return to home</a>
+          <a href="/dashboard_automation">Return to home</a>
         </section>
 
       </div>
-      <div class="column-one-third side-profile">
-        <h1><span class="namebold"> <a href="/profile.html"> A1234AB</a><br/>BARKER</span> RONNIE</h1>
-        <img src="/public/images/ronnie.jpg"/>
-        <p class="font-xsmall info-start">Date of travel</p>
-        <h2>13 Apr 2017</h2>
-        <p class="font-xsmall">From</p>
-        <h2>HMP Bedford</h2>
-        <p class="font-xsmall">To</p>
-        <h2>St Albans Crown Court</h2>
+      <div class="side-profile column-one-third">
+        {% include "includes/side-profile.html" %}
       </div>
     </main>
 

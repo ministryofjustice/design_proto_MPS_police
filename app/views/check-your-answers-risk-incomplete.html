@@ -65,7 +65,7 @@ table th{
       </span>
       <br>
       <span style="margin: 15px 0 0px 0;" class="nomis-verified"></span>
-      <span style="font-weight:normal; padding-left:10px;">NOMIS alerts verified at 02:23 | DD Month YYYY</span>
+    <span style="font-weight:normal; padding-left:10px;">NOMIS alerts verified, HH:MM | DD Mon YYYY</span>
     </p>
 
     <div class="notice" style="width:670px;">
@@ -550,15 +550,8 @@ table th{
                     </div>
                   </div>
 
-                  <div class="column-one-third side-profile">
-                    <h1><span class="namebold"> <a href="/profile.html"> A1234AB</a><br/>BARKER</span> RONNIE</h1>
-                    <img src="/public/images/ronnie.jpg"/>
-                    <p class="font-xsmall info-start">Date of travel</p>
-                    <h2>13 Apr 2017</h2>
-                    <p class="font-xsmall">From</p>
-                    <h2>HMP Bedford</h2>
-                    <p class="font-xsmall">To</p>
-                    <h2>St Albans Crown Court</h2>
+                  <div class="side-profile column-one-third">
+                    {% include "includes/side-profile.html" %}
                   </div>
 
                   <div class="column-two-thirds" style="padding:50px 0px">
