@@ -22,7 +22,7 @@ function loadFunction() {
 }
 function nfrNo(){
   console.log('nfrNo');
-  document.getElementById('nfr').innerHTML = 'No known reason';
+  document.getElementById('nfr').innerHTML = 'No known risk';
 }
 function nfrYes(){
   console.log('nfrYes');
@@ -197,7 +197,7 @@ font-weight: bold;
       </div>
       <div class="tile col-3">
         <h6>
-          Not for release
+          Release status
         </h6>
         <p id="nfr">
           <span id="yesno" style="display:none;">{{ data['nfr'] }}</span>
