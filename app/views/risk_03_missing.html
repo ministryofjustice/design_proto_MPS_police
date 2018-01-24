@@ -12,10 +12,11 @@ function myFunction() {
     hideAnsweredQuestions();
   }
   document.getElementsByClassName('buttonToSummary')[0].style = 'display:none;'
+document.getElementById('content').style = 'display:normal';
 }
 </script>
 
-<main id="content" role="main">
+<main id="content" role="main" style="display:none">
 
   {% include "includes/breadcrumb_examples.html" %}
 
@@ -68,7 +69,7 @@ function myFunction() {
       </div>
 
       <!-- question -->
-      
+
 
       <!-- question -->
       <div class="answered"><h2 class="heading-medium">

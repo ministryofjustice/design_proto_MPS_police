@@ -122,7 +122,7 @@ th{
         <td><span class="disabled">#01 </span><span class="surname">Surname</span> Name<br>
 <!-- Existing app flow</td> -->
         <td>Chelmsford Crown Court</td>
-        <td class="todo"><a href="risk_00.html?nextscreen=risk_01">Start</a></td>
+        <td class="todo"><a href="risk_00.html?nextscreen=risk_01&option=1&viewsummary=check-your-answers-risk-incomplete">Start</a></td>
         <td class="disabled">To start</td>
         <td class="done">Done</td>
         <td class="print change-answer" style="color:white;"> <a href="#"></a>print</td>
@@ -132,7 +132,7 @@ th{
         <td><span class="disabled">#02 </span><span class="surname">Surname</span> Name<br>
 <!-- Straight to summary</td> -->
         <td>Chelmsford Crown Court</td>
-        <td class="todo"><a href="risk_00.html?missing=No&nextscreen=check-your-answers-risk-incomplete">Start</a></td>
+        <td class="todo"><a href="risk_00.html?missing=No&nextscreen=check-your-answers-risk-incomplete&option=2&viewsummary=check-your-answers-risk-incomplete">Start</a></td>
         <td class="disabled">To start</td>
         <td class="done">Done</td>
         <td class="print change-answer"> <a href="#"></a></td>
@@ -142,7 +142,17 @@ th{
         <td><span class="disabled">#03 </span class="disabled"><span class="surname">Surname</span> Name<br>
 <!-- Straight to first missing question.<br>Questions screens show unanswered questions only.<br>Summary shows all.</td> -->
         <td>Chelmsford Crown Court</td>
-        <td class="todo"><a href="risk_01_missing.html?missing=No&hideAnswered=Yes&nextscreen=risk_01_missing">Start</a></td>
+        <td class="todo"><a href="risk_01_missing.html?missing=No&hideAnswered=Yes&nextscreen=risk_01_missing&option=3&viewsummary=check-your-answers-risk-incomplete">Start</a></td>
+        <td class="disabled">To start</td>
+        <td class="done">Done</td>
+        <td class="print change-answer"> <a href="#"></a></td>
+      </tr>
+      <tr>
+        <td class="prisonnumber"><a href="profile.html">{{data['pn']}}</a></td>
+        <td><span class="disabled">#04 </span class="disabled"><span class="surname">Surname</span> Name<br>
+<!-- Straight to first missing question.<br>Questions screens show unanswered questions only.<br>Start screen<br>Summary showing just NOMIS on submit show other question, on answering show, save and confirm</td> -->
+        <td>Chelmsford Crown Court</td>
+        <td class="todo"><a href="risk_01_missing.html?missing=No&hideAnswered=Yes&nextscreen=risk_01_missing&lastscreen=nownomis&option=4&viewsummary=check-your-answers-risk-incomplete_nomis">Start</a></td>
         <td class="disabled">To start</td>
         <td class="done">Done</td>
         <td class="print change-answer"> <a href="#"></a></td>

@@ -9,6 +9,11 @@ Question page
 window.addEventListener("load", myFunction);
 function myFunction() {
   document.getElementsByClassName('buttonToSummary')[0].style = 'display:none;'
+  // lastscreen
+  var lastscreen = {{data['lastscreen'] | dump | safe }};
+  document.getElementById('form').setAttribute('action', lastscreen)
+  console.log('lastscreen = ' + lastscreen);
+  //
 }
 </script>
 
@@ -21,7 +26,7 @@ function myFunction() {
   </div> -->
   <div class="column-two-thirds">
 
-    <form action="check-your-answers-risk-incomplete" method="get" class="form">
+    <form action="check-your-answers-risk-incomplete" method="get" class="form" id="form">
 
       <h1 class="heading-secondary">
         Return instructions
