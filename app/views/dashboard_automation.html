@@ -5,6 +5,14 @@ Check your answers
 {% endblock %}
 
 {% block content %}
+<script type="text/javascript">
+window.addEventListener("load", myFunction);
+function myFunction() {
+  dataDump({{ data | dump | safe}});
+  // document.getElementById('date').innerHTML = getDate();
+}
+</script>
+
 <style media="screen">
 .column-data{
   position: relative;
@@ -53,9 +61,8 @@ th{
 </style>
 
 <main id="content" role="main">
-
   {% include "includes/phase_banner_alpha.html" %}
-  <h1 class="heading-xlarge" style="margin-bottom:40px;"><span class="heading-secondary">PERs from</span>HMP Chelmsford
+  <h1 class="heading-xlarge" style="margin-bottom:40px;"><span class="heading-secondary">PERs from</span>{{data.from}}
     <a class="button button-start" href="search" role="button" style="margin-left:20px">Start a PER</a></h1>
     <!-- <hr style="margin:30px 0px 20px;"> -->
     <div class="newpanel">
@@ -64,22 +71,22 @@ th{
       </div>
       <div class="data column-one-quarter" style="margin-left:-15px !important;">
 
-        <span class="data-item bold-large">25/01/2018</span>
+        <span id="" class="data-item bold-large">{{data.date}}</span>
         <a class="button" href="" role="button" style="background-color:#dee0e2; color:#0b0c0c; margin-top:5px; font-size:16px">Change date</a></h1>
       </div>
       <div class="data column-one-quarter">
-        <span class="data-item bold-large">3</span>
+        <span class="data-item bold-large">4</span>
         <span class="data-item ">Total persons<br>due to move</span>
         <!-- <span class="data-item small">due to move</span> -->
         <!-- <span class="data-item small">Total persons<br>due to move</span> -->
       </div>
       <div class="data column-data">
-        <span class="data-item bold-large red">3</span>
+        <span class="data-item bold-large red">4</span>
         <span class="data-item xsmall red">Risk<br>incomplete</span>
         <!-- <span class="data-item xsmall red">Risk <br>incomplete</span> -->
       </div>
       <div class="data column-data">
-        <span class="data-item bold-large red">3</span>
+        <span class="data-item bold-large red">4</span>
         <span class="data-item xsmall red">Health<br>incomplete</span>
       </div>
       <div class="data column-data">
@@ -120,47 +127,47 @@ th{
       <tr>
         <td class="prisonnumber"><a href="profile.html">{{data['pn']}}</a></td>
         <td><span class="disabled">#01 </span><span class="surname">Surname</span> Name<br>
-<!-- Existing app flow</td> -->
-        <td>Chelmsford Crown Court</td>
-        <td class="todo"><a href="risk_00.html?nextscreen=risk_01&option=1&viewsummary=check-your-answers-risk-incomplete">Start</a></td>
-        <td class="disabled">To start</td>
-        <td class="done">Done</td>
-        <td class="print change-answer" style="color:white;"> <a href="#"></a>print</td>
-      </tr>
-      <tr>
-        <td class="prisonnumber"><a href="profile.html">{{data['pn']}}</a></td>
-        <td><span class="disabled">#02 </span><span class="surname">Surname</span> Name<br>
-<!-- Straight to summary</td> -->
-        <td>Chelmsford Crown Court</td>
-        <td class="todo"><a href="risk_00.html?missing=No&nextscreen=check-your-answers-risk-incomplete&option=2&viewsummary=check-your-answers-risk-incomplete">Start</a></td>
-        <td class="disabled">To start</td>
-        <td class="done">Done</td>
-        <td class="print change-answer"> <a href="#"></a></td>
-      </tr>
-      <tr>
-        <td class="prisonnumber"><a href="profile.html">{{data['pn']}}</a></td>
-        <td><span class="disabled">#03 </span class="disabled"><span class="surname">Surname</span> Name<br>
-<!-- Straight to first missing question.<br>Questions screens show unanswered questions only.<br>Summary shows all.</td> -->
-        <td>Chelmsford Crown Court</td>
-        <td class="todo"><a href="risk_01_missing.html?missing=No&hideAnswered=Yes&nextscreen=risk_01_missing&option=3&viewsummary=check-your-answers-risk-incomplete">Start</a></td>
-        <td class="disabled">To start</td>
-        <td class="done">Done</td>
-        <td class="print change-answer"> <a href="#"></a></td>
-      </tr>
-      <tr>
-        <td class="prisonnumber"><a href="profile.html">{{data['pn']}}</a></td>
-        <td><span class="disabled">#04 </span class="disabled"><span class="surname">Surname</span> Name<br>
-<!-- Straight to first missing question.<br>Questions screens show unanswered questions only.<br>Start screen<br>Summary showing just NOMIS on submit show other question, on answering show, save and confirm</td> -->
-        <td>Chelmsford Crown Court</td>
-        <td class="todo"><a href="risk_01_missing.html?missing=No&hideAnswered=Yes&nextscreen=risk_01_missing&lastscreen=nownomis&option=4&viewsummary=check-your-answers-risk-incomplete_nomis">Start</a></td>
-        <td class="disabled">To start</td>
-        <td class="done">Done</td>
-        <td class="print change-answer"> <a href="#"></a></td>
-      </tr>
+          <!-- Existing app flow</td> -->
+          <td>{{data.to}}</td>
+          <td class="todo"><a href="risk_00.html?nextscreen=risk_01&option=1&viewsummary=check-your-answers-risk-incomplete">Start</a></td>
+          <td class="disabled">To start</td>
+          <td class="done">Done</td>
+          <td class="print change-answer" style="color:white;"> <a href="#"></a>print</td>
+        </tr>
+        <tr>
+          <td class="prisonnumber"><a href="profile.html">{{data['pn']}}</a></td>
+          <td><span class="disabled">#02 </span><span class="surname">Surname</span> Name<br>
+            <!-- Straight to summary</td> -->
+            <td>{{data.to}}</td>
+            <td class="todo"><a href="risk_00.html?missing=No&nextscreen=check-your-answers-risk-incomplete&option=2&viewsummary=check-your-answers-risk-incomplete">Start</a></td>
+            <td class="disabled">To start</td>
+            <td class="done">Done</td>
+            <td class="print change-answer"> <a href="#"></a></td>
+          </tr>
+          <tr>
+            <td class="prisonnumber"><a href="profile.html">{{data['pn']}}</a></td>
+            <td><span class="disabled">#03 </span class="disabled"><span class="surname">Surname</span> Name<br>
+              <!-- Straight to first missing question.<br>Questions screens show unanswered questions only.<br>Summary shows all.</td> -->
+              <td>{{data.to}}</td>
+              <td class="todo"><a href="risk_01_missing.html?missing=No&hideAnswered=Yes&nextscreen=risk_01_missing&option=3&viewsummary=check-your-answers-risk-incomplete">Start</a></td>
+              <td class="disabled">To start</td>
+              <td class="done">Done</td>
+              <td class="print change-answer"> <a href="#"></a></td>
+            </tr>
+            <tr>
+              <td class="prisonnumber"><a href="profile.html">{{data['pn']}}</a></td>
+              <td><span class="disabled">#04 </span class="disabled"><span class="surname">Surname</span> Name<br>
+                <!-- Straight to first missing question.<br>Questions screens show unanswered questions only.<br>Start screen<br>Summary showing just NOMIS on submit show other question, on answering show, save and confirm</td> -->
+                <td>{{data.to}}</td>
+                <td class="todo"><a href="risk_01_missing.html?missing=No&hideAnswered=Yes&nextscreen=risk_01_missing&lastscreen=nownomis&option=4&viewsummary=check-your-answers-risk-incomplete_nomis">Start</a></td>
+                <td class="disabled">To start</td>
+                <td class="done">Done</td>
+                <td class="print change-answer"> <a href="#"></a></td>
+              </tr>
 
-    </tbody>
-  </table>
+            </tbody>
+          </table>
 
-</main>
+        </main>
 
-{% endblock %}
+        {% endblock %}

@@ -10,6 +10,7 @@ window.addEventListener("load", loadFunction);
 function loadFunction() {
   var nextscreen = {{data['nextscreen'] | dump | safe }};
   document.getElementById('form').setAttribute('action', nextscreen)
+  console.log('nextscreen: ' + nextscreen);
   // var missing = {{data['missing'] | dump | safe }};
   // console.log('missing = ' + missing);
   // if (missing == "No"){
@@ -18,6 +19,7 @@ function loadFunction() {
   // console.log('missing = ' + missing);
   console.log('nextscreen = ' + nextscreen);
   // document.getElementById('form').setAttribute('action', nextscreen)
+  dataDump({{ data | dump | safe}});
 }
 // var nextscreen = "risk_01_missing"
 </script>

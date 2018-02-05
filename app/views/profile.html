@@ -8,31 +8,23 @@ Check your answers
 <script type="text/javascript">
 window.addEventListener("load", loadFunction);
 function loadFunction() {
-  var nfr = {{data['nfr'] | dump | safe }};
-  console.log('nfr = ' + nfr);
-  var nfr_element = document.getElementById('notforrelease')
-  if (nfr == "No") {
-    nfr_element.classList.add("flag-inactive");
-    nfrNo()
-  } else {
-    nfr_element.classList.remove("flag-inactive");
-    nfrYes()
-  }
+  dataDump({{ data | dump | safe}});
+  document.getElementById('date').innerHTML = getDate();
   document.getElementById('content').style = 'display:normal;'
 }
 function nfrNo(){
-  console.log('nfrNo');
-  document.getElementById('nfr').innerHTML = 'No known risk';
+  // console.log('nfrNo');
+  // document.getElementById('nfr').innerHTML = 'No known risk';
 }
 function nfrYes(){
-  console.log('nfrYes');
-  var nfr_state = {{data['nfr_state'] | dump | safe }};
-  console.log('nfr_state = ' + nfr_state);
-  document.getElementById('nfr').innerHTML = nfr_state;
-  if (nfr_state == "Other") {
-    console.log('nfrYes Other');
-    document.getElementById('nfr').innerHTML = {{data['nfr_info'] | dump | safe }};
-  }
+  // console.log('nfrYes');
+  // var nfr_state = {{data['nfr_state'] | dump | safe }};
+  // console.log('nfr_state = ' + nfr_state);
+  // document.getElementById('nfr').innerHTML = nfr_state;
+  // if (nfr_state == "Other") {
+  //   console.log('nfrYes Other');
+  //   document.getElementById('nfr').innerHTML = {{data['nfr_info'] | dump | safe }};
+  // }
 }
 
 </script>
@@ -147,7 +139,8 @@ font-weight: bold;
 
 </style>
 <main id="content" role="main" style="">
-
+  <p id="testp">
+  </p>
   <!-- {% include "includes/breadcrumb_profile.html" %} -->
   <h2 class="heading-large">{{data['pn']}}: BARKER <span class="unbold">RONNIE</span></h2>
   <div class="column-two-thirds">
@@ -175,8 +168,8 @@ font-weight: bold;
         <h6>
           Date of travel
         </h6>
-        <p>
-          25 Jan 2018
+        <p id='date'>
+
         </p>
       </div>
       <div class="tile col-3">
@@ -184,7 +177,7 @@ font-weight: bold;
           From
         </h6>
         <p>
-          HMP Chelmsford
+          {{data.from}}
         </p>
       </div>
       <div class="tile col-3">
@@ -192,7 +185,7 @@ font-weight: bold;
           To
         </h6>
         <p>
-          Chelmsford Crown Court
+          {{data.to}}
         </p>
       </div>
       <div class="tile col-3">
@@ -430,26 +423,26 @@ font-weight: bold;
             <col width="30%">
             <col width="70%">
             <!-- <tr>
-              <td>Allergies and intolerances</td>
-              <td>Calcitonin (pork)</td>
-            </tr>
-            <tr>
-              <td>Medical contact</td>
-              <td>01234373138</td>
-            </tr> -->
-          </table>
-        </section>
-        &nbsp;
-        <section style="background-color:white">
-          <a class="button button-reprint" href="#" role="" >Reprint PER</a>
-          <a class="button button-cancel" href="#" role="" >Cancel PER</a>
-          <a href="/dashboard_automation">Return to home</a>
-        </section>
+            <td>Allergies and intolerances</td>
+            <td>Calcitonin (pork)</td>
+          </tr>
+          <tr>
+          <td>Medical contact</td>
+          <td>01234373138</td>
+        </tr> -->
+      </table>
+    </section>
+    &nbsp;
+    <section style="background-color:white">
+      <a class="button button-reprint" href="#" role="" >Reprint PER</a>
+      <a class="button button-cancel" href="#" role="" >Cancel PER</a>
+      <a href="/dashboard_automation">Return to home</a>
+    </section>
 
-      </div>
-      <div class="side-profile column-one-third">
-        {% include "includes/side-profile.html" %}
-      </div>
-    </main>
+  </div>
+  <div class="side-profile column-one-third">
+    {% include "includes/side-profile.html" %}
+  </div>
+</main>
 
-    {% endblock %}
+{% endblock %}

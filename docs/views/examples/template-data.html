@@ -5,6 +5,12 @@
 {% endblock %}
 
 {% block content %}
+<script type="text/javascript">
+window.addEventListener("load", loadFunction);
+function loadFunction() {
+console.log({{name | dump | safe }});
+}
+</script>
 <main id="content" role="main">
 
   {% include "includes/breadcrumb_examples.html" %}
@@ -13,7 +19,7 @@
     <div class="column-two-thirds">
 
       <h1 class="heading-xlarge">
-        Passing data into pages
+        Passing data into pages {{ name }}
       </h1>
 
       <p>
