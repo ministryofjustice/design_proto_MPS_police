@@ -9,6 +9,7 @@ Check your answers
 window.addEventListener("load", myFunction);
 function myFunction() {
   dataDump({{ data | dump | safe}});
+  document.getElementById('date').innerHTML = getDate();
   // document.getElementById('date').innerHTML = getDate();
 }
 </script>
@@ -71,7 +72,7 @@ th{
       </div>
       <div class="data column-one-quarter" style="margin-left:-15px !important;">
 
-        <span id="" class="data-item bold-large">{{data.date}}</span>
+        <span id="date" class="data-item bold-large"></span>
         <a class="button" href="" role="button" style="background-color:#dee0e2; color:#0b0c0c; margin-top:5px; font-size:16px">Change date</a></h1>
       </div>
       <div class="data column-one-quarter">
