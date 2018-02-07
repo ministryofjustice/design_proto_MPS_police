@@ -9,8 +9,8 @@ Check your answers
 window.addEventListener("load", myFunction);
 function myFunction() {
   dataDump({{ data | dump | safe}});
-  document.getElementById('date').innerHTML = getDate();
-  // document.getElementById('date').innerHTML = getDate();
+  var date = getDate();
+  document.getElementById('date').innerHTML = date;
 }
 </script>
 

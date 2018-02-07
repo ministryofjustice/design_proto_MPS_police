@@ -11,10 +11,13 @@ function loadFunction() {
   dataDump({{ data | dump | safe}});
   document.getElementById('date').innerHTML = getDate();
   document.getElementById('content').style = 'display:normal;'
+  nfrNo();
 }
 function nfrNo(){
-  // console.log('nfrNo');
-  // document.getElementById('nfr').innerHTML = 'No known risk';
+  console.log('nfrNo');
+  if({{data.nfr == 'No'}}){
+    document.getElementById('nfr').innerHTML = 'No known risk';
+  }
 }
 function nfrYes(){
   // console.log('nfrYes');
@@ -193,8 +196,8 @@ font-weight: bold;
           Release status
         </h6>
         <p id="nfr">
-          <span id="yesno" style="display:none;">{{ data['nfr'] }}</span>
-          <span id="nfrstate">{{ data['nfr_state'] }}</span>
+          <!-- <span id="yesno" style="display:none;">{{ data['nfr'] }}</span> -->
+          <span>{{ data['nfr_state'] }}</span>
           <!-- <br> {{ data['nfrDisplay'] }} -->
         </p>
       </div>
@@ -291,6 +294,22 @@ font-weight: bold;
           </h6>
           <p>
             W1
+          </p>
+        </div>
+        <div class="tile col-4">
+          <h6>
+            Preferred language
+          </h6>
+          <p>
+            English
+          </p>
+        </div>
+        <div class="tile col-4">
+          <h6>
+            Interpretor
+          </h6>
+          <p>
+            Not required
           </p>
         </div>
         <div class="tile col-full">
