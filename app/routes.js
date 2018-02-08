@@ -8,15 +8,32 @@ var path = require('path')
 var router = express.Router()
 var utils = require('../lib/utils.js')
 
+//
+function getDate(){
+  var today = new Date();
+  var dd = today.getDate();
+  var mm = today.getMonth()+1; //January is 0!
+  var yyyy = today.getFullYear();
+  if(dd<10) {
+    dd = '0'+dd
+  }
+  if(mm<10) {
+    mm = '0'+mm
+  }
+  today = dd + '/' + mm + '/' + yyyy;
+  return today;
+}
 
 // Route index page
 router.get('/', function (req, res) {
-  res.render('index')
+  res.render('index');
 })
 // add your routes here
 
 // router.get('/dashboard_automation', function (req, res) {
-//   res.render('dashboard_automation', { 'date': '02/02/2020'} );
+//   var test = getDate();
+//   req.session.data.test = test;
+//   res.render('dashboard_automation', { 'date': test} );
 // })
 
 // Passing data into a page

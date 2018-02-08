@@ -5,12 +5,19 @@ Index MPS
 {% endblock %}
 
 {% block content %}
+<script type="text/javascript">
+window.addEventListener("load", loadFunction);
+function loadFunction(){
+  dataDump({{ data | dump | safe}});
+}
+</script>
+
 <main id="content" role="main">
   <div class="grid-row">
     <div class="column-two-thirds">
 
       <h1 class="heading-xlarge">
-        Moving People Safely
+        Moving People Safely {{data.test}}
       </h1>
 
       <h2 class="heading-medium">Version 2.0 iterations and vision and automation</h2>
