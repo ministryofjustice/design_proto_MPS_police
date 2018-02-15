@@ -1,0 +1,67 @@
+{% extends "layout.html" %}
+
+{% block page_title %}
+Index MPS
+{% endblock %}
+
+{% block content %}
+<main role="main" id="content" lang="en">
+
+  {% include "includes/phase_banner_alpha.html" %}
+
+  <!-- Page title and contact -->
+  <div class="grid-row">
+
+    <div class="column-two-thirds">
+      <h1 class="heading-xlarge">
+        Guide to using this service
+      </h1>
+    </div>
+  </div>
+
+  <div class="grid-row" data-module="highlight-active-section-heading">
+    <div class="column-third" style="position: sticky; top:0;">
+
+      <!--  Page contents -->
+      <div class="" >&nbsp;
+        <div class="" style="width: 269px;">
+          <h2 class="">Page contents:</h2>
+          <ul class="">
+            <li><a href="#start a PER" class="">Starting a PER</a></li>
+            <li><a href="#" class="">Task 2</a></li>
+            <li><a href="#" class="">Task 3</a></li>
+            <li><a href="#" class="">Task 4</a></li>
+          </ul>
+        </div>
+      </div>
+
+    </div>
+    <div class="column-two-thirds">
+
+      <div class="govspeak-wrapper">
+
+        <div class="govuk-govspeak ">
+          <h2 id="start a PER" class="heading-medium">Starting a PER</h2>
+
+          <ul class="list list-bullet">
+            <li>Starting a PER</li>
+            <li>Completing prisoner details</li>
+            <li>Entering destination and date of move</li>
+          </ul>
+
+          <video width="100%" height="auto" controls>
+            <source src="/public/images/MPS_subtitled_example_high.mp4" type="video/mp4">
+              <!-- <source src="movie.ogg" type="video/ogg"> -->
+              Your browser does not support the video tag.
+            </video>
+          </div>
+
+        </div>
+
+
+      </div>
+    </div>
+
+  </main>
+
+  {% endblock %}
