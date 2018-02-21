@@ -130,6 +130,33 @@ GOV.UK prototype kit
 
       </fieldset>
     </div>
+
+    <div class="form-group">
+      <fieldset class="inline">
+        <label class="form-label-bold">
+          Do they have a Personal Emergency Evacuation Plan?
+        </label>
+        <legend class="visually-hidden"></legend>
+        <div class="multiple-choice" data-target="peep-info">
+          <input id="radio-inline-17" type="radio" name="peep" value="Yes">
+          <label for="radio-inline-17">Yes</label>
+        </div>
+        <div class="multiple-choice">
+          <input id="radio-inline-18" type="radio" name="peep" value="No" >
+          <label for="radio-inline-18">No</label>
+        </div>
+      </fieldset>
+    </div>
+
+    <div class="panel panel-border-narrow js-hidden" id="peep-info">
+      <div class="form-group">
+        <label class="form-label" for="textarea-b">
+          Give details
+        </label>
+        <textarea class="form-control form-control-3-4" id="textarea-b" cols="30" rows="3" name="peep_info">{{data['vulnerable_info']}}</textarea>
+      </div>
+    </div>
+
     <div class="form-group">
       <label class="form-label-bold" for="datedummy">
         Dietary requirements
