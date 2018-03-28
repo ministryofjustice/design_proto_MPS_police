@@ -1,4 +1,4 @@
-0{% extends "layout.html" %}
+{% extends "layout.html" %}
 
 {% block page_title %}
 Question page
@@ -11,52 +11,91 @@ Question page
   {% include "includes/breadcrumb_examples.html" %}
 
   <div class="grid-row">
-    <div class="column-full"><p><a href="risk_11.html">Back</a>&emsp;12 of 12</p>
+    <div class="column-full"><p><a href="risk_11.html">Back</a>&emsp;12 of 13 &emsp;<a href="risk_13.html">Skip</a></p>
     </div>
     <div class="column-two-thirds">
-      <form action="check-your-answers-risk-incomplete" method="post" class="form">
+
+      <form action="risk_13" method="get" class="form">
+
         <h1 class="heading-secondary">
-          Other risk on this journey
+          Return instructions
         </h1>
+
         <!-- question -->
         <h2 class="heading-medium">
-          Is there any other information related to risk on this journey you would like to include?
+          Must they return to a specific prison at the end of this journey?
         </h2>
-        <p class="form-hint">
-          Include relevant adjudications or case notes not already included
-        </p>
+
         <div class="form-group">
           <fieldset class="inline">
 
             <legend class="visually-hidden"></legend>
 
-            <div class="multiple-choice" data-target="other-final-info">
-              <input id="other_final_01" name="other_final" type="radio" value="Yes" {{ checked("other_final", "Yes") }}>
-              <label for="other_final_01">Yes</label>
+            <div class="multiple-choice" data-target="mustreturn-info">
+              <input id="radio-inline-1" type="radio" name="mustreturn" value="Yes" {{ checked("mustreturn", "Yes") }}>
+              <label for="radio-inline-1">Yes</label>
             </div>
-
             <div class="multiple-choice">
-              <input id="other_final_02" name="other_final" type="radio" value="No" {{ checked("other_final", "No") }} onclick="clearDetails('textarea');">
-              <label for="other_final_02">No</label>
+              <input id="radio-inline-2" type="radio" name="mustreturn" value="None specified" {{ checked("mustreturn", "No") }} onclick="clearDetails2('mustreturn-name','textarea-a');">
+              <label for="radio-inline-2">No</label>
             </div>
 
           </fieldset>
         </div>
-        <div class="panel panel-border-narrow js-hidden" id="other-final-info" >
-          <!-- Give details -->
+
+        <div class="panel panel-border-narrow js-hidden" id="mustreturn-info">
           <div class="form-group">
-            <label class="form-label" for="textarea">
-              Give details
-            </label>
-            <textarea class="form-control form-control-3-4" name="other_final_info" id="textarea" rows="5">{{data['other_final_info']}}</textarea>
+            <label class="form-label" for="mustreturn-name">Prison name: </label>
+            <input class="form-control" id="mustreturn-name" name="mustreturn_name" type="text" value="{{ data['mustreturn_name'] }}">
+          </div>
+          <label class="form-label" for="textarea-a">
+            Give details of why they must return here:
+          </label>
+          <textarea class="form-control form-control-3-4" id="textarea-a" rows="3" name="mustreturn_info">{{ data['mustreturn_info'] }}</textarea>
+        </div>
+
+        <!-- question -->
+        <h2 class="heading-medium">
+          Is there any establishment they must not be sent to at the end of this journey?
+        </h2>
+
+        <div class="form-group">
+          <fieldset class="inline">
+
+            <legend class="visually-hidden"></legend>
+
+            <div class="multiple-choice" data-target="mustnotreturn-info">
+              <input id="radio-inline-3" type="radio" name="mustnotreturn" value="Yes" {{ checked("mustnotreturn", "Yes") }}>
+              <label for="radio-inline-3">Yes</label>
+            </div>
+            <div class="multiple-choice">
+              <input id="radio-inline-4" type="radio" name="mustnotreturn" value="None specified" {{ checked("mustnotreturn", "No") }} onclick="clearDetails2('mustnotreturn-name','textarea-b');">
+              <label for="radio-inline-4">No</label>
+            </div>
+
+          </fieldset>
+        </div>
+
+        <div class="panel panel-border-narrow js-hidden" id="mustnotreturn-info">
+          <div class="form-group">
+            <label class="form-label" for="mustnotreturn-name">Establishment name: </label>
+            <input class="form-control" id="mustnotreturn-name" name="mustnotreturn_name" type="text" value="{{data['mustnotreturn_name']}}">
+          </div>
+          <label class="form-label" for="textarea-b">
+            Give details of why they must not be sent here:
+          </label>
+          <textarea class="form-control form-control-3-4" id="textarea-b" rows="3" name="mustnotreturn_info">{{ data['mustnotreturn_info'] }}</textarea>
+          <div>
+            <br>
+            <a href="">Add another prison</a>
           </div>
         </div>
+
+
 
         <!-- button -->
         <div class="form-group">
           {% include "includes/risk-screen-buttons.html" %}
-
-          <!-- <input class="button" type="submit" value="Save and continue"> -->
         </div>
       </form>
 
