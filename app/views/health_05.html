@@ -16,7 +16,7 @@ Question page
     </div>
     <div class="column-two-thirds">
 
-      <form action="health_06" method="get" class="form">
+      <form action="health_06" method="post" class="form">
 
         <h1 class="heading-secondary">
           Essential medication
@@ -36,52 +36,57 @@ Question page
 
             <legend class="visually-hidden"></legend>
 
-            <label class="block-label selection-button-radio" for="radio-inline-1" data-target="medicine-info">
-              <input id="radio-inline-1" type="radio" name="medicine" value="Yes">
-              Yes
-            </label>
-            <label class="block-label selection-button-radio" for="radio-inline-2">
-              <input id="radio-inline-2" type="radio" name="medicine" value="No">
-              No
-            </label>
+            <div class="multiple-choice" data-target="medicine_info">
+              <input id="radio-inline-1" type="radio" name="medicine" value="Yes" {{ checked("medicine", "Yes") }}>
+              <label for="radio-inline-1">Yes</label>
+            </div>
+
+            <div class="multiple-choice">
+              <input id="radio-inline-2" type="radio" name="medicine" value="No" {{ checked("medicine", "No") }}>
+              <label for="radio-inline-2">No</label>
+            </div>
 
           </fieldset>
         </div>
 
-        <div class="js-hidden" id="medicine-info">
+        <div class="js-hidden" id="medicine_info">
           <div>
             <h2 class="heading-medium">
               Medicine
             </h2>
             <div class="form-group">
               <label class="form-label" for="medicine-name">Medicine name</label>
-              <input class="form-control" id="medicine-name" name="medicine_name" type="text">
+              <input class="form-control" id="medicine-name" name="medicine_name" type="text" value="{{ data['medicine_name'] }}">
             </div>
             <div class="form-group">
               <label class="form-label" for="howgiven">How is it given?</label>
-              <input class="form-control" id="howgiven" name="medicine_howgiven" type="text">
+              <input class="form-control" id="howgiven" name="medicine_howgiven" type="text" value="{{ data['medicine_howgiven'] }}">
             </div>
             <div class="form-group">
               <label class="form-label" for="dosage">Dosage</label>
-              <input class="form-control" id="dosage" name="medicine_dosage" type="text">
+              <input class="form-control" id="dosage" name="medicine_dosage" type="text" value="{{ data['medicine_dosage'] }}">
             </div>
             <div class="form-group">
               <label class="form-label" for="dosagefrequency">When is it given?</label>
-              <input class="form-control" id="dosagefrequency" name="medicine_dosagefrequency" type="text">
+              <input class="form-control" id="dosagefrequency" name="medicine_dosagefrequency" type="text" value="{{ data['medicine_dosagefrequency'] }}">
             </div>
             <p>
               Who will carry the medicine?
             </p>
             <fieldset class="inline">
-              <label for="radio-part-1" class="block-label">
-                <input id="radio-part-1" type="radio" name="medicine_carriedby" value="Escort">
-                Escort
-              </label>
 
-              <label for="radio-part-2" class="block-label">
-                <input id="radio-part-2" type="radio" name="medicine_carriedby" value="Prisoner">
-                Prisoner
-              </label>
+              <div class="multiple-choice">
+                <input id="radio-inline-1" type="radio" name="medicine_carriedby" value="Escort" {{ checked("medicine_carriedby", "Escort") }}>
+                <label for="radio-inline-1">Escort</label>
+              </div>
+
+              <div class="multiple-choice">
+                <input id="radio-inline-2" type="radio" name="medicine_carriedby" value="Prisoner" {{ checked("medicine_carriedby", "Prisoner") }}>
+                <label for="radio-inline-2">Prisoner</label>
+              </div>
+
+
+
             </fieldset>
             <hr>
             <input class="button button-add-another-vertical" type="" value="Add another medicine">

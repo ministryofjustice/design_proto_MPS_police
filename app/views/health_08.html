@@ -34,24 +34,27 @@ Question page
 
             <legend class="visually-hidden"></legend>
 
-            <label class="block-label selection-button-radio" for="radio-inline-1" data-target="personalcare-info">
-              <input id="radio-inline-1" type="radio" name="personalcare" value="Yes">
-              Yes
-            </label>
-            <label class="block-label selection-button-radio" for="radio-inline-2">
-              <input id="radio-inline-2" type="radio" name="personalcare" value="No">
-              No
-            </label>
+            <div class="multiple-choice" data-target="personalcare_info">
+              <input id="radio-inline-1" type="radio" name="personalcare" value="Yes" {{ checked("personalcare", "Yes") }}>
+              <label for="radio-inline-1">Yes</label>
+            </div>
+
+            <div class="multiple-choice">
+              <input id="radio-inline-2" type="radio" name="personalcare" value="No" {{ checked("personalcare", "No") }} onclick="clearDetails('textarea-b');">
+              <label for="radio-inline-2">No</label>
+            </div>
+
+
 
           </fieldset>
         </div>
 
-        <div class="panel panel-border-narrow js-hidden" id="personalcare-info">
+        <div class="panel panel-border-narrow js-hidden" id="personalcare_info">
           <div class="form-group">
             <label class="form-label" for="textarea-b">
               Please explain what they may need help with:
             </label>
-            <textarea class="form-control" id="textarea-b" cols="30" rows="3" name="personalcare_info"></textarea>
+            <textarea class="form-control" id="textarea-b" cols="30" rows="3" name="personalcare_info">{{data['personalcare_info']}}</textarea>
           </div>
         </div>
 

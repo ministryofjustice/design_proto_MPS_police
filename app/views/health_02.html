@@ -7,6 +7,7 @@ Question page
 {% block content %}
 
 <main id="content" role="main">
+
   {% include "includes/breadcrumb_health.html" %}
 
   <div class="grid-row">
@@ -15,7 +16,7 @@ Question page
     </div>
     <div class="column-two-thirds">
 
-      <form action="health_03" method="get" class="form">
+      <form action="health_03" method="post" class="form">
         <h1 class="heading-secondary">
           Physical health issues
         </h1>
@@ -37,30 +38,36 @@ Question page
 
               <legend class="visually-hidden"></legend>
 
-              <label class="block-label selection-button-radio" for="radio-inline-1" data-target="physical-health-info">
-                <input id="radio-inline-1" type="radio" name="physical_health" value="Yes">
-                Yes
-              </label>
-              <label class="block-label selection-button-radio" for="radio-inline-2">
-                <input id="radio-inline-2" type="radio" name="physical_health" value="No">
-                No
-              </label>
+              <div class="multiple-choice" data-target="physical_health_info">
+                <input id="radio-inline-1" type="radio" name="physical_health" value="Yes" {{ checked("physical_health", "Yes") }}>
+                <label for="radio-inline-1">Yes</label>
+              </div>
+
+              <div class="multiple-choice">
+                <input id="radio-inline-2" type="radio" name="physical_health" value="No" {{ checked("physical_health", "No") }} onclick="clearDetails('textarea-b');">
+                <label for="radio-inline-2">No</label>
+              </div>
 
             </fieldset>
           </div>
 
-          <div class="panel panel-border-narrow js-hidden" id="physical-health-info">
+          <!-- conditionals -->
+          <div class="panel panel-border-narrow js-hidden" id="physical_health_info">
+            <!-- Give details -->
             <div class="form-group">
-              <label class="form-label" for="textarea-b">
-                Please explain how these issues might affect the journey and how they should be managed:
-              </label>
-              <textarea class="form-control" id="textarea-b" cols="30" rows="3" name="physical_health_info"></textarea>
-            </div>
+              <fieldset>
+                <legend class="visuallyhidden"></legend>
+                <label class="form-label" for="textarea-b">
+                  Please explain how these issues might affect the journey and how they should be managed:
+                </label>
+                <textarea class="form-control" id="textarea-b" cols="30" rows="3" name="physical_health_info">{{data['physical_health_info']}}</textarea>
+              </div>
+            </fieldset>
           </div>
 
           <!-- button -->
           <div class="form-group">
-            <input class="button" type="submit" value="Save and continue">
+          {% include "includes/health-screen-buttons.html" %}
           </div>
         </form>
 

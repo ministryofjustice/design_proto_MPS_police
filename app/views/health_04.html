@@ -16,7 +16,7 @@ Question page
     </div>
     <div class="column-two-thirds">
 
-      <form action="health_05" method="get" class="form">
+      <form action="health_05" method="post" class="form">
 
         <h1 class="heading-secondary">
           Special vehicles
@@ -35,24 +35,25 @@ Question page
 
             <legend class="visually-hidden"></legend>
 
-            <label class="block-label selection-button-radio" for="radio-inline-1" data-target="special-vehicle-info">
-              <input id="radio-inline-1" type="radio" name="special_vehicle" value="Yes">
-              Yes
-            </label>
-            <label class="block-label selection-button-radio" for="radio-inline-2">
-              <input id="radio-inline-2" type="radio" name="special_vehicle" value="No">
-              No
-            </label>
+            <div class="multiple-choice" data-target="special_vehicle_info">
+              <input id="radio-inline-1" type="radio" name="special_vehicle" value="Yes" {{ checked("special_vehicle", "Yes") }}>
+              <label for="radio-inline-1">Yes</label>
+            </div>
+
+            <div class="multiple-choice">
+              <input id="radio-inline-2" type="radio" name="special_vehicle" value="No" {{ checked("special_vehicle", "No") }} onclick="clearDetails('textarea-b');">
+              <label for="radio-inline-2">No</label>
+            </div>
 
           </fieldset>
         </div>
 
-        <div class="panel panel-border-narrow js-hidden" id="special-vehicle-info">
+        <div class="panel panel-border-narrow js-hidden" id="special_vehicle_info">
           <div class="form-group">
             <label class="form-label" for="textarea-b">
               Please explain why you feel they need a special vehicle:
             </label>
-            <textarea class="form-control" id="textarea-b" cols="30" rows="3" name="special_vehicle_info"></textarea>
+            <textarea class="form-control" id="textarea-b" cols="30" rows="3" name="special_vehicle_info">{{data['special_vehicle_info']}}</textarea>
           </div>
         </div>
 

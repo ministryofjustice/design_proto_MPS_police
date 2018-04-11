@@ -16,7 +16,7 @@ Question page
     </div>
     <div class="column-two-thirds">
 
-      <form action="health_04" method="get" class="form">
+      <form action="health_04" method="post" class="form">
 
         <h1 class="heading-secondary">
           Mental health issues
@@ -35,24 +35,25 @@ Question page
 
             <legend class="visually-hidden"></legend>
 
-            <label class="block-label selection-button-radio" for="radio-inline-1" data-target="mental-health-info">
-              <input id="radio-inline-1" type="radio" name="mental_health" value="Yes">
-              Yes
-            </label>
-            <label class="block-label selection-button-radio" for="radio-inline-2">
-              <input id="radio-inline-2" type="radio" name="mental_health" value="No">
-              No
-            </label>
+            <div class="multiple-choice" data-target="mental_health_info">
+              <input id="radio-inline-1" type="radio" name="mental_health" value="Yes" {{ checked("mental_health", "Yes") }}>
+              <label for="radio-inline-1">Yes</label>
+            </div>
+
+            <div class="multiple-choice">
+              <input id="radio-inline-2" type="radio" name="mental_health" value="No" {{ checked("mental_health", "No") }} onclick="clearDetails('textarea-b');">
+              <label for="radio-inline-2">No</label>
+            </div>
 
           </fieldset>
         </div>
 
-        <div class="panel panel-border-narrow js-hidden" id="mental-health-info">
+        <div class="panel panel-border-narrow js-hidden" id="mental_health_info">
           <div class="form-group">
             <label class="form-label" for="textarea-b">
               Please explain how these issues might affect the journey and how they should be managed. Do not give details of medical conditions:
             </label>
-            <textarea class="form-control" id="textarea-b" cols="30" rows="3" name="mental_health_info"></textarea>
+            <textarea class="form-control" id="textarea-b" cols="30" rows="3" name="mental_health_info">{{data['mental_health_info']}}</textarea>
           </div>
         </div>
 
