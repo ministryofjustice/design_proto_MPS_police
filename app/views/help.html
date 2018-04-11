@@ -5,6 +5,31 @@ Index MPS
 {% endblock %}
 
 {% block content %}
+<style media="screen">
+
+.page_contents_list h2 {
+  font-weight: bold;
+  padding-bottom: 0.5em;
+}
+.page_contents_list a {
+  text-decoration:none;
+}
+.page_contents_list a:hover{
+  text-decoration: underline;
+}
+.page_contents_list li:before{
+  content: "–";
+  float: left;
+  display: block;
+  width: 15px;
+  color: black;
+}
+.page_contents_list li{
+  line-height: 1.5em;
+  text-decoration: none;
+}
+</style>
+
 <main role="main" id="content" lang="en">
 
   {% include "includes/phase_banner_alpha.html" %}
@@ -26,15 +51,14 @@ Index MPS
     <div class="column-third" style="position: sticky; top:0;">
 
       <!--  Page contents -->
-      <div class="" >&nbsp;
-        <div class="" style="width: 269px;">
-          <h2 class="">Page contents:</h2>
+      <div class="page_contents_list" >&nbsp;
+        <div style="width: 269px; font-size:16px !important">
+          <h2 >Page contents:</h2>
           <ul class="">
             <li><a href="#overview" class="">Introducing the ePER</a></li>
             <li><a href="#start" class="">Create an ePER</a></li>
             <li><a href="#risk" class="">Complete the risk section</a></li>
             <li><a href="#health" class="">Complete the health section</a></li>
-            <!-- Print_a_PER.mp4 -->
             <li><a href="#print" class="">Print an ePER</a></li>
             <li><a href="#reprint" class="">Reprint an ePER</a></li>
             <li><a href="#cancel" class="">Cancel an ePER</a></li>
@@ -114,6 +138,7 @@ Index MPS
 
 <div class="govspeak-wrapper">
   <div class="govuk-govspeak ">
+    <hr>
     <h2 id="start" class="heading-medium">How to create an ePER</h2>
     <video width="100%" height="auto" controls>
       <source src="/public/images/Create_a_PER.mp4" type="video/mp4">
@@ -155,6 +180,7 @@ Index MPS
 
   <div class="govspeak-wrapper">
     <div class="govuk-govspeak ">
+<hr>
       <h2 id="risk" class="heading-medium">How to complete the risk section of the ePER</h2>
       <video width="100%" height="auto" controls>
         <source src="/public/images/Risk.mp4" type="video/mp4">
@@ -192,6 +218,7 @@ Index MPS
 
     <div class="govspeak-wrapper">
       <div class="govuk-govspeak">
+<hr>
         <h2 id="health" class="heading-medium">Complete the health section</h2>
         <video width="100%" height="auto" controls>
           <source src="/public/images/Healthcare.mp4" type="video/mp4">
@@ -230,6 +257,7 @@ Index MPS
 
       <div class="govspeak-wrapper">
         <div class="govuk-govspeak">
+<hr>
           <h2 id="print" class="heading-medium">How to print an ePER</h2>
           <video width="100%" height="auto" controls>
             <source src="/public/images/Print_a_PER.mp4" type="video/mp4">
@@ -263,6 +291,7 @@ Index MPS
 
           <div class="govspeak-wrapper">
             <div class="govuk-govspeak">
+<hr>
               <h2 id="reprint" class="heading-medium">How to reprint a PER</h2>
               <video width="100%" height="auto" controls>
                 <source src="/public/images/Reprint_a_PER.mp4" type="video/mp4">
@@ -297,6 +326,7 @@ Index MPS
 
             <div class="govspeak-wrapper">
               <div class="govuk-govspeak">
+<hr>
                 <h2 id="cancel" class="heading-medium">How to cancel a PER</h2>
                 <video width="100%" height="auto" controls>
                   <source src="/public/images/Cancel_a_PER.mp4" type="video/mp4">
