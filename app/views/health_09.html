@@ -30,18 +30,30 @@ Question page
             <fieldset>
 
               <label class="form-label form-hint" for="contact_details">This is the default contact number for HMP Bedford Healthcare. <br>To use a different number, enter it below:</label>
-              <input class="form-control" id="contact_details" name="contact_details" type="text" placeholder="01234 373 138">
+
+              <input class="form-control" id="contact_details" name="contact_details" type="text" value="{{ data['contact_details'] }}">
+              <!-- placeholder="01234 373 138" -->
             </div>
 
 
-          <!-- button -->
-          <div class="form-group">
-            <input class="button" type="submit" value="Save and continue">
-          </div>
-        </form>
+            <!-- button -->
+            <div class="form-group">
+              {% include "includes/health-screen-buttons.html" %}
+            </div>
+          </form>
 
+        </div>
+        <div class="column-one-third side-profile">
+          <h1><span class="namebold"> <a href="/profile.html"> A1234AB</a><br/>BARKER</span> RONNIE</h1>
+          <img src="/public/images/ronnie.jpg"/>
+          <p class="font-xsmall info-start">Date of travel</p>
+          <h2>13 Apr 2017</h2>
+          <p class="font-xsmall">From</p>
+          <h2>HMP Bedford</h2>
+          <p class="font-xsmall">To</p>
+          <h2>St Albans Crown Court</h2>
+        </div>
       </div>
-    </div>
-  </main>
+    </main>
 
-  {% endblock %}
+    {% endblock %}

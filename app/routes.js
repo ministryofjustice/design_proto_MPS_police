@@ -26,7 +26,17 @@ function getDate(){
 
 // Route index page
 router.get('/', function (req, res) {
-  res.render('index');
+  var data = {
+      pn: 'Andy',
+      lastName: 'Neale'
+    } ;
+  res.render('index', { data });
+})
+router.get('/health_09', function (req, res) {
+  var data = {
+      contact_details: '0123456789'
+    } ;
+  res.render('health_09', { data });
 })
 // add your routes here
 

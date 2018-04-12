@@ -5,12 +5,32 @@ Check your answers
 {% endblock %}
 
 {% block content %}
+<script type="text/javascript">
+window.addEventListener("load", myFunction);
+function myFunction(){
+  loadFunction()
+  showMissing()
+}
+function loadFunction(){
+  dataDump({{ data | dump | safe}});
+}
+function showMissing(){
+  console.log('showMissing');
+  getColumn("myTable", "1");
+  //onlyShowMissing("myTable");
+}
+</script>
 
 <main id="content" role="main">
 <style media="screen">
 .column-two-thirds{
   width: 75%;
 }
+
+table th{
+  font-weight: bold;
+}
+
 </style>
 
 {% include "includes/breadcrumb_health_summary.html" %}
@@ -22,7 +42,7 @@ Check your answers
       Incomplete
     </span>
   </p>
-  <table class="check-your-answers column-two-thirds">
+  <table class="check-your-answers column-two-thirds" id="myTable">
     <col width="30%">
     <col width="20%">
     <col width="auto">
@@ -38,10 +58,10 @@ Check your answers
             Physical health issues
           </td>
           <td>
-            {{ session.physical_health }}
+            {{ data['physical_health'] }}
           </td>
           <td>
-            {{ session.physical_health_info }}
+            {{ data['physical_health_info'] }}
           </td>
         </tr>
 
@@ -57,10 +77,10 @@ Check your answers
                 Mental health issues
               </td>
               <td>
-                {{ session.mental_health }}
+                {{ data['mental_health'] }}
               </td>
               <td>
-                {{ session.mental_health_info }}
+                {{ data['mental_health_info'] }}
               </td>
             </tr>
 
@@ -76,10 +96,10 @@ Check your answers
                     Special vehicles
                   </td>
                   <td>
-                    {{ session.special_vehicle }}
+                    {{ data['special_vehicle'] }}
                   </td>
                   <td>
-                    {{ session.special_vehicle_info }}
+                    {{ data['special_vehicle_info'] }}
                   </td>
                 </tr>
 
@@ -95,14 +115,14 @@ Check your answers
                         Essential medication
                       </td>
                       <td>
-                        {{ session.medicine }}
+                        {{ data['medicine'] }}
                       </td>
                       <td>
-                        {{ session.medicine_name }} |
-                        {{ session.medicine_howgiven }} |
-                        {{ session.medicine_dosage }} |
-                        {{ session.medicine_dosagefrequency }}
-                        {{ session.medicine_carriedby }}
+                        {{ data['medicine_name'] }} |
+                        {{ data['medicine_howgiven'] }} |
+                        {{ data['medicine_dosage'] }} |
+                        {{ data['medicine_dosagefrequency'] }}
+                        {{ data['medicine_carriedby'] }}
                       </td>
                     </tr>
 
@@ -118,10 +138,10 @@ Check your answers
                             Dependencies
                           </td>
                           <td>
-                            {{ session.dependencies }}
+                            {{ data['dependencies'] }}
                           </td>
                           <td>
-                            {{ session.dependencies_info }}
+                            {{ data['dependencies_info'] }}
                           </td>
                         </tr>
 
@@ -137,10 +157,10 @@ Check your answers
                                 Allergies and intolerances
                               </td>
                               <td>
-                                {{ session.allergies }}
+                                {{ data['allergies'] }}
                               </td>
                               <td>
-                                {{ session.allergies_info }}
+                                {{ data['allergies_info'] }}
                               </td>
                             </tr>
 
@@ -156,10 +176,10 @@ Check your answers
                                     Personal care
                                   </td>
                                   <td>
-                                    {{ session.personalcare }}
+                                    {{ data['personalcare'] }}
                                   </td>
                                   <td>
-                                    {{ session.personalcare_info }}
+                                    {{ data['personalcare_info'] }}
                                   </td>
                                 </tr>
 
@@ -177,7 +197,7 @@ Check your answers
                                       <td>
                                       </td>
                                       <td>
-                                        {{ session.contact_details }}
+                                        {{ data['contact_details'] }}
                                       </td>
                                     </tr>
 
