@@ -11,163 +11,163 @@ GOV.UK prototype kit
 }
 
 </script>
+<style media="screen">
+.optional:after{
+  font-weight: normal;
+  content: " (optional)";
+}
+
+</style>
+
 <main id="content">
 
   <h1 class="heading-large">
     Personal details</h1>
-    <div class="form-group">
-      <img src="/public/images/ronnie.jpg" alt="" style="width:128px; height:auto"/>
+<p>
+  Check the detainee’s arrest record for this information.
+</p>
+    <form action="move" method="post" class="form">
+      <img src="/public/images/photo_unavailable.jpg" alt="" style="width:128px; height:auto"/>
     </div>
     <div class="form-group">
-      <label class="form-label-bold">Prisoner number</label>A1234AB
+&nbsp;
+      <label class="form-label-bold" for="pn">
+        PNC number
+      </label>
+      <input class="form-control" id="pn" type="text" name="pn" value="{{data['pn']}}">
     </div>
     <div class="form-group">
-      <label class="form-label-bold" for="datedummy">
+      <label class="form-label-bold" for="surname">
         Surname
       </label>
-      <input class="form-control" id="datedummy" type="text" name="datedummy" value="Barker">
+      <input class="form-control" id="surname" type="text" name="surname" value="{{data['surname']}}">
     </div>
     <div class="form-group">
-      <label class="form-label-bold" for="datedummy">
+      <label class="form-label-bold" for="firstname">
         First name(s)
       </label>
-      <input class="form-control" id="datedummy" type="text" name="datedummy" value="Ronnie">
+      <input class="form-control" id="firstname" type="text" name="firstname" value="{{data['firstname']}}">
     </div>
     <div class="form-group">
-      <label class="form-label-bold" for="datedummy">
+      <label class="form-label-bold" for="dob">
         Date of birth
         <p class="form-hint">
           DD/MM/YYYY
         </p>
       </label>
-      <input class="form-control" id="datedummy" type="text" name="datedummy" value="11/09/74">
+      <input class="form-control" id="dob" type="text" name="dob" value="{{data['dob']}}">
     </div>
     <div class="form-group">
-      <label class="form-label-bold" for="datedummy">
+      <label class="form-label-bold" for="nationality">
         Nationalities
       </label>
-      <input class="form-control" id="datedummy" type="text" name="datedummy" value="English">
+      <input class="form-control" id="nationality" type="text" name="nationality" {{data['nationality']}}>
     </div>
     <!-- question -->
     <h2 class="form-label-bold">
       Gender
     </h2>
     <div class="form-group">
-      <fieldset class="inline">
+      <fieldset class="">
 
         <legend class="visually-hidden"></legend>
 
         <div class="multiple-choice">
-          <input id="radio-inline-211" type="radio" name="gender" value="Yes" checked="checked">
+          <input id="radio-inline-211" type="radio" name="gender" value="Male">
           <label class="selection-button-radio" for="radio-inline-211">
             Male
           </label>
         </div>
         <div class="multiple-choice">
-          <input id="radio-inline-221" type="radio" name="gender" value="No">
-          <label class="selection-button-radio" for="radio-inline-221">Female</label>
+          <input id="radio-inline-222" type="radio" name="gender" value="Female">
+          <label class="selection-button-radio" for="radio-inline-222">Female</label>
+        </div>
+        <div class="multiple-choice">
+          <input id="radio-inline-223" type="radio" name="gender" value="Unknown">
+          <label class="selection-button-radio" for="radio-inline-223">Unknown</label>
+        </div>
+        <div class="multiple-choice">
+          <input id="radio-inline-224" type="radio" name="gender" value="Indeterminate">
+          <label class="selection-button-radio" for="radio-inline-224">Indeterminate</label>
         </div>
 
       </fieldset>
     </div>
     <div class="form-group">
-      <label class="form-label-bold" for="datedummy">
+      <label class="form-label-bold" for="ethnicity">
         Ethnicity
       </label>
-      <input class="form-control" id="datedummy" type="text" name="datedummy" value="">
+      <input class="form-control" id="ethnicity" type="text" name="ethnicity" value="{{data['ethnicity']}}">
     </div>
     <div class="form-group">
-      <label class="form-label-bold" for="datedummy">
+      <label class="form-label-bold" for="religion">
         Religion
       </label>
-      <input class="form-control" id="datedummy" type="text" name="datedummy" value="">
+      <input class="form-control" id="religion" type="text" name="religion" value="{{data['religion']}}">
     </div>
     <div class="form-group">
-      <label class="form-label-bold" for="datedummy">
-        PNC number
-      </label>
-      <input class="form-control" id="datedummy" type="text" name="datedummy" value="">
-    </div>
-    <div class="form-group">
-      <label class="form-label-bold" for="datedummy">
+      <label class="form-label-bold" for="cro">
         CRO number
       </label>
-      <input class="form-control" id="datedummy" type="text" name="datedummy" value="">
+      <input class="form-control" id="cro" type="text" name="cro" value={{data['cro']}}>
     </div>
     <div class="form-group">
-      <label class="form-label-bold" for="datedummy">
+      <label class="form-label-bold" for="alias">
         Aliases
       </label>
-      <input class="form-control" id="datedummy" type="text-area" name="datedummy" value="">
+      <input class="form-control" id="alias" type="text-area" name="alias" value="{{data['alias']}}">
     </div>
-    <div class="form-group">
-      <label class="form-label-bold" for="datedummy">
-        Category
+    <!-- <div class="form-group">
+    <label class="form-label-bold" for="datedummy">
+    Category
+  </label>
+  <input class="form-control" id="datedummy" type="text-area" name="datedummy" value="">
+</div> -->
+<div class="form-group">
+  <label class="form-label-bold" for="language">
+    Preferred language
+  </label>
+  <input class="form-control" id="language" type="text-area" name="language" value="{{data['language']}}">
+</div>
+<div class="form-group">
+  <fieldset class="inline">
+    <legend>
+      <label class="form-label-bold">
+        Do they require an interpreter?
       </label>
-      <input class="form-control" id="datedummy" type="text-area" name="datedummy" value="">
+    </legend>
+    <div class="multiple-choice">
+      <input id="radio-inline-1" type="radio" name="radio-inline-group" value="Yes">
+      <label for="radio-inline-1">Yes</label>
     </div>
-    <div class="form-group">
-      <label class="form-label-bold" for="datedummy">
-        Preferred language
-      </label>
-      <input class="form-control" id="datedummy" type="text-area" name="datedummy" value="">
-    </div>
-    <div class="form-group">
-      <fieldset class="inline">
-        <legend>
-          <label class="form-label-bold">
-            Do they require an interpreter?
-          </label>
-        </legend>
-        <div class="multiple-choice">
-          <input id="radio-inline-1" type="radio" name="radio-inline-group" value="Yes">
-          <label for="radio-inline-1">Yes</label>
-        </div>
-        <div class="multiple-choice">
-          <input id="radio-inline-2" type="radio" name="radio-inline-group" value="No">
-          <label for="radio-inline-2">No</label>
-        </div>
-
-      </fieldset>
+    <div class="multiple-choice">
+      <input id="radio-inline-2" type="radio" name="radio-inline-group" value="No">
+      <label for="radio-inline-2">No</label>
     </div>
 
-    <div class="form-group">
-      <fieldset class="inline">
-        <label class="form-label-bold">
-          Do they have a Personal Emergency Evacuation Plan?
-        </label>
-        <legend class="visually-hidden"></legend>
-        <div class="multiple-choice" data-target="peep-info">
-          <input id="radio-inline-17" type="radio" name="peep" value="Yes">
-          <label for="radio-inline-17">Yes</label>
-        </div>
-        <div class="multiple-choice">
-          <input id="radio-inline-18" type="radio" name="peep" value="No" >
-          <label for="radio-inline-18">No</label>
-        </div>
-      </fieldset>
-    </div>
+  </fieldset>
+</div>
 
-    <div class="panel panel-border-narrow js-hidden" id="peep-info">
-      <div class="form-group">
-        <label class="form-label" for="textarea-b">
-          Give details
-        </label>
-        <textarea class="form-control form-control-3-4" id="textarea-b" cols="30" rows="3" name="peep_info">{{data['vulnerable_info']}}</textarea>
-      </div>
-    </div>
-
-    <div class="form-group">
-      <label class="form-label-bold" for="datedummy">
-        Dietary requirements
-      </label>
-      <input class="form-control" id="datedummy" type="text-area" name="datedummy" value="">
-    </div>
-  </div>
+<!-- <div class="panel panel-border-narrow js-hidden" id="peep-info">
   <div class="form-group">
-    <a class="button" href="move.html" role="button" >Save and continue</a>
-    <!-- <input class="button" type="submit" value="Continue"> -->
+    <label class="form-label" for="textarea-b">
+      Give details
+    </label>
+    <textarea class="form-control form-control-3-4" id="textarea-b" cols="30" rows="3" name="peep_info">{{data['vulnerable_info']}}</textarea>
   </div>
+</div> -->
+
+<div class="form-group">
+  <label class="form-label-bold" for="diet">
+    Dietary requirements
+  </label>
+  <input class="form-control" id="diet" type="text-area" name="diet" value="{{data['diet']}}">
+</div>
+</div>
+<div class="form-group">
+  <input class="button" type="submit" value="Continue">
+  <!-- <input class="button" type="submit" value="Continue"> -->
+</div>
 </main>
 
 {% endblock %}

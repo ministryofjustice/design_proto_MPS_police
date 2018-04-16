@@ -30,58 +30,44 @@ function myFunction(){
 
         <!-- question -->
         <h2 class="heading-medium">
-          What is their Cell Sharing Risk Assessment (CSRA) risk level?
+          Is there any reason they should not share a cell with another person?
         </h2>
-        <p class="form-hint">In NOMIS, check the header section of the prisoner’s record for the CSRA risk level.</p>
-        <span class="nomis-verified"></span>
+        <p class="form-hint">For example, sharing a cell at court or prison.</p>
+
         <div class="form-group">
           <fieldset class="inline">
 
             <legend class="visually-hidden"></legend>
 
-            <div class="multiple-choice">
-              <input id="radio-inline-11" type="radio" name="csra" value="High" {{ checked("csra", "High") }}>
-              <label for="radio-inline-11">High</label>
+            <div class="multiple-choice" data-target="csra-info">
+              <input id="radio-inline-11" type="radio" name="csra" value="Yes" {{ checked("csra", "Yes") }}>
+              <label for="radio-inline-11">Yes</label>
             </div>
 
             <div class="multiple-choice">
-              <input id="radio-inline-12" type="radio" name="csra" value="Standard" {{ checked("csra", "Standard") }}>
-              <label for="radio-inline-12">Standard</label>
+              <input id="radio-inline-12" type="radio" name="csra" value="No" {{ checked("csra", "No") }}>
+              <label for="radio-inline-12">No</label>
             </div>
 
           </fieldset>
         </div>
 
-
-        <!-- question -->
-        <h2 class="heading-medium">Are they held under Rule 45?</h2>
-        <p class="form-hint">In NOMIS, check the header section of the prisoner’s record for the Rule 45 alert.</p>
-        <span class="nomis-verified"></span>
-        <div class="form-group">
-          <fieldset class="inline">
-
-            <legend class="visually-hidden"></legend>
-
-            <div class="multiple-choice">
-              <input id="radio-inline-1" type="radio" name="rule45" value="Yes" {{ checked("rule45", "Yes") }}>
-              <label for="radio-inline-1">Yes</label>
-            </div>
-
-            <div class="multiple-choice">
-              <input id="radio-inline-2" type="radio" name="rule45" value="No" {{ checked("rule45", "No") }}>
-              <label for="radio-inline-2">No</label>
-            </div>
-
-          </fieldset>
+        <div class="panel panel-border-narrow js-hidden" id="csra-info">
+          <div class="form-group">
+            <label class="form-label" for="textarea-b">
+              Give details
+            </label>
+            <textarea class="form-control form-control-3-4" id="textarea-b" cols="30" rows="3" name="csra_info">{{data['csra_info']}}</textarea>
+          </div>
         </div>
 
         <!-- question -->
         <h2 class="heading-medium">
-          Are they a vulnerable prisoner?
+          Are they a vulnerable detainee?
         </h2>
-        <p class="form-hint">In NOMIS, check the header section of the prisoner’s record for the Rule 46, Rule 49, Victim, Isolated prisoner or Poor Coper alerts. Include any other reasons you think they may be vulnerable (for example, transgender prisoners or young adults in an adult establishment).</p>
+        <p class="form-hint">Check the <i>Vulnerable/At risk detainee alert</i>. In the arrest record, check for the Vulnerable person flag or any information under Risk of attack by others. </p>
         <div class="form-group">
-          <span class="nomis-verified"></span>
+
           <fieldset class="inline">
 
             <legend class="visually-hidden"></legend>

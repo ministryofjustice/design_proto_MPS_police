@@ -12,7 +12,7 @@ Question page
 
   <div class="grid-row">
     <div class="column-full">
-      <p><a href="health_03.html">Back</a>&emsp;3 of 8&emsp;<a href="health_05.html">Skip</a></p>
+      <p><a href="health_03.html">Back</a>&emsp;3 of 7&emsp;<a href="health_05.html">Skip</a></p>
     </div>
     <div class="column-two-thirds">
 
@@ -26,7 +26,7 @@ Question page
         <h2 class="heading-medium">
           Do they need to travel in a special vehicle on this journey?
         </h2>
-        <p>
+        <p class="form-hint">
           This could be a specially-adapted prison van (for example, to accommodate wheelchairs) or a taxi.
         </p>
 
@@ -65,15 +65,8 @@ Question page
       </form>
 
     </div>
-    <div class="column-one-third side-profile">
-      <h1><span class="namebold"> <a href="/profile.html"> A1234AB</a><br/>BARKER</span> RONNIE</h1>
-      <img src="/public/images/ronnie.jpg"/>
-      <p class="font-xsmall info-start">Date of travel</p>
-      <h2>13 Apr 2017</h2>
-      <p class="font-xsmall">From</p>
-      <h2>HMP Bedford</h2>
-      <p class="font-xsmall">To</p>
-      <h2>St Albans Crown Court</h2>
+    <div class="side-profile column-one-third">
+      {% include "includes/side-profile.html" %};
     </div>
   </div>
 </main>

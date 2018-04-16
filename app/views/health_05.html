@@ -12,7 +12,7 @@ Question page
 
   <div class="grid-row">
     <div class="column-full">
-      <p><a href="health_04.html">Back</a>&emsp;4 of 8&emsp;<a href="health_06.html">Skip</a></p>
+      <p><a href="health_04.html">Back</a>&emsp;4 of 7&emsp;<a href="health_06.html">Skip</a></p>
     </div>
     <div class="column-two-thirds">
 
@@ -24,11 +24,10 @@ Question page
 
         <!-- question -->
         <h2 class="heading-medium">
-          Will they need to be given medication during this journey?
+          Will they need to be given medication when they leave police custody?
         </h2>
-        <p>
-          This is any regular medication that will need to be administered while they are out of prison.
-          Full medication history can be given in a sealed envelope to be opened by a healthcare professional in case of an emergency.
+        <p class="form-hint">
+          This is any regular medication that will need to be administered when they leave police custody. Full medication history can be given in a sealed envelope to be opened by a healthcare professional in case of an emergency.
         </p>
 
         <div class="form-group">
@@ -101,15 +100,8 @@ Question page
       </form>
 
     </div>
-    <div class="column-one-third side-profile">
-      <h1><span class="namebold"> <a href="/profile.html"> A1234AB</a><br/>BARKER</span> RONNIE</h1>
-      <img src="/public/images/ronnie.jpg"/>
-      <p class="font-xsmall info-start">Date of travel</p>
-      <h2>13 Apr 2017</h2>
-      <p class="font-xsmall">From</p>
-      <h2>HMP Bedford</h2>
-      <p class="font-xsmall">To</p>
-      <h2>St Albans Crown Court</h2>
+    <div class="side-profile column-one-third">
+      {% include "includes/side-profile.html" %};
     </div>
   </div>
 </main>

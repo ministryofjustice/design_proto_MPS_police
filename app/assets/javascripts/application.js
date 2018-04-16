@@ -58,7 +58,7 @@ function hideAnsweredQuestions(){
   }
 }
 // function to set value to missing and style for questions with no answer//
-function getColumn(table_id, col) {
+function getColumn(table_id, col, checkscreen) {
   var tab = document.getElementById(table_id);
   var n = tab.rows.length;
   console.log('n = ' + n);
@@ -74,7 +74,7 @@ function getColumn(table_id, col) {
     tr = tab.rows[i];
     if (tr.cells.length > col) { // Check that cell exists before you try
       td = tr.cells[col];
-      if(td.innerText == "" && td.tagName != 'TH'){     // to access it.
+      if(td.innerText == "" && td.tagName != 'TH' && td.id != 'ignor'){     // to access it.
         td.innerHTML = 'Missing';
         td.className="missing"
         td.style="font-weight:normal;"
@@ -90,7 +90,7 @@ function getColumn(table_id, col) {
   console.log('miss = ' + miss);
   if (i == n && miss == true) {
     console.log('---------------------- miss is true = ' + miss);
-    window.location = "check-your-answers-risk-check.html";
+    window.location = checkscreen;
   }
 }
 //

@@ -6,11 +6,17 @@ Question page
 
 {% block content %}
 <script type="text/javascript">
+window.addEventListener("load", loadFunction);
+function loadFunction() {
+  dataDump({{ data | dump | safe}});
+}
+
 function setNfrState(){
   console.log('setNfrstate');
   document.getElementById('form').setAttribute('action', 'profile?nfr_state')
 }
 </script>
+
 <style media="screen">
 .panel{
   margin-bottom: 30px;
@@ -29,7 +35,7 @@ function setNfrState(){
       </h1>
       <div class="form-group">
         <fieldset>
-          <label class="form-label-bold">From</label>HMP Bedford</div>
+          <label class="form-label-bold">From</label>{{data['from']}}</div>
 
           <label class="form-label-bold" style="margin-bottom:10px">To</label>
           <div class="form-group">
@@ -43,7 +49,7 @@ function setNfrState(){
                 <label class="form-label" for="input-court-name">
                   Enter name of Crown Court
                 </label>
-                <input class="form-control" id="input-court-name" type="text" name="input-court-name">
+                <input class="form-control" id="input-court-name" type="text" name="to" value="{{data['to']}}">
               </div>
             </div>
 
@@ -57,7 +63,7 @@ function setNfrState(){
                 <label class="form-label" for="input-mag-name">
                   Start typing name of Magistrates Court
                 </label>
-                <input class="form-control" id="input-mag-name" type="text" name="input-mag-name">
+                <input class="form-control" id="input-mag-name" type="text" name="to" value="{{data['to']}}">
               </div>
             </div>
 
@@ -71,127 +77,122 @@ function setNfrState(){
                 <label class="form-label" for="input-prison">
                   Enter name of prison
                 </label>
-                <input class="form-control" id="input-prison" type="text" name="input-prison">
+                <input class="form-control" id="input-prison" type="text" name="to" value="{{data['to']}}">
               </div>
             </div>
 
 
-            <div class="multiple-choice" data-target="hospital-info">
-              <input id="radio-part-4" type="radio" name="destination" value="Hospital" {{ checked("destination", "Hospital") }}>
-              <label for="radio-part-4">Hospital</label>
-            </div>
-            <!-- details !-->
-            <div class="panel panel-border-narrow js-hidden" id="hospital-info">
-              <div class="form-group">
-                <label class="form-label" for="input-hospital">
-                  Enter name of hospital
-                </label>
-                <input class="form-control" id="hospital" type="text" name="input-hospital">
-              </div>
-            </div>
-
-            <div class="multiple-choice" data-target="other-destination-info">
-              <input id="radio-part-5" type="radio" name="destination" value="Other"  {{ checked("destination", "A different destination") }}>
-              <label for="radio-part-5">A different destination</label>
+            <div class="multiple-choice" data-target="court-civil-info">
+              <input id="radio-part-4" type="radio" name="destination" value="Civil Court" {{ checked("destination", "Civil Court") }}>
+              <label for="radio-part-4">Civil Court</label>
             </div>
             <!-- details !-->
-            <div class="panel panel-border-narrow js-hidden" id="other-destination-info">
+            <div class="panel panel-border-narrow js-hidden" id="court-civil-info">
               <div class="form-group">
-                <label class="form-label" for="input-other-destination">
-                  Enter name of destination
+                <label class="form-label" for="input-civil-name">
+                  Enter name of Civil Court
                 </label>
-                <input class="form-control" id="other-destination" type="text" name="input-other-destination">
+                <input class="form-control" id="civil-name" type="text" name="to" value="{{data['to']}}">
               </div>
             </div>
+
+            <!-- <div class="multiple-choice" data-target="other-destination-info">
+            <input id="radio-part-5" type="radio" name="destination" value="Other"  {{ checked("destination", "A different destination") }}>
+            <label for="radio-part-5">A different destination</label>
           </div>
+          <div class="panel panel-border-narrow js-hidden" id="other-destination-info">
           <div class="form-group">
-            <label class="form-label-bold" for="datedummy">
-              Date of travel
-              <p class="form-hint">
-                DD/MM/YYYY
-              </p>
-            </label>
-            <input class="form-control" id="datedummy" type="text" name="datedummy">
-          </div>
-        </fieldset>
-        <!-- question -->
-        <h2 class="form-label-bold">
-          Is there a reason they should not be released?
-        </h2>
-        <p class="form-hint">
-          In NOMIS, check the header section of the prisoner’s record for the Not For Release alert.
-        </p>
-        <div class="form-group">
-          <fieldset class="inline">
-
-            <legend class="visually-hidden"></legend>
-
-            <div class="multiple-choice" data-target="all-nfr-radios">
-              <input id="radio-inline-211" type="radio" name="nfr" value="Yes" {{ checked("nfr", "Yes") }}>
-              <label for="radio-inline-211">Yes</label>
-            </div>
-
-            <div class="multiple-choice">
-              <input id="radio-inline-221" type="radio" name="nfr" value="No" onclick="setNfrState()" {{ checked("nfr", "No") }} >
-              <label for="radio-inline-221">No</label>
-            </div>
-
-          </fieldset>
-        </div>
-
-        <!-- conditionals -->
-        <div class="panel panel-border-narrow js-hidden" id="all-nfr-radios">
-          <div class="form-group">
-            <fieldset>
-
-              <legend class="visuallyhidden">
-              </legend>
-
-              <div class="multiple-choice">
-                <input id="radio-part-110" type="radio" name="nfr_state" value="Serving sentence" {{ checked("nfr_state", "Serving sentence") }}>
-                <label for="radio-part-110">Serving sentence</label>
-              </div>
-
-              <div class="multiple-choice">
-                <input id="radio-part-120" type="radio" name="nfr_state" value="Further charges" {{ checked("nfr_state", "Further charges") }}>
-                <label for="radio-part-120">Further charges</label>
-              </div>
-
-              <div class="multiple-choice">
-                <input id="radio-part-130" type="radio" name="nfr_state" value="Licence revoke" {{ checked("nfr_state", "Licence revoke") }}>
-                <label for="radio-part-130">Licence revoke</label>
-              </div>
-
-              <div class="multiple-choice">
-                <input id="radio-part-140" type="radio" name="nfr_state" value="Held for immigration" {{ checked("nfr_state", "Held for immigration") }}>
-                <label for="radio-part-140">Held for immigration</label>
-              </div>
-
-              <div class="multiple-choice" data-target="nfr-info">
-                <input id="radio-part-150" type="radio" name="nfr_state" value="Other"  {{ checked("nfr_state", "Other") }}>
-                <label for="radio-part-150">Other</label>
-              </div>
-
-            </fieldset>
-          </div>
-        </div>
-
-        <div class="panel panel-border-narrow js-hidden" id="nfr-info">
-          <div class="form-group">
-            <label class="form-label" for="textarea-b">
-              Give details of why the detainee is not for release
-            </label>
-            <textarea class="form-control" id="textarea-b" cols="30" rows="3" name="nfr_info">{{data['nfr_info']}}</textarea>
-          </div>
-        </div>
-
-        <div class="form-group">
-          <input class="button" type="submit" value="Continue">
-        </div>
-      </form>
-
-    </div>
+          <label class="form-label" for="input-other-destination">
+          Enter name of destination
+        </label>
+        <input class="form-control" id="other-destination" type="text" name="input-other-destination">
+      </div>
+    </div> -->
   </div>
+  <div class="form-group">
+    <label class="form-label-bold" for="dateoftravel">
+      Date of travel
+      <p class="form-hint">
+        DD/MM/YYYY
+      </p>
+    </label>
+    <input class="form-control" id="dateoftravel" type="text" name="dateoftravel" value="{{data['dateoftravel']}}">
+  </div>
+</fieldset>
+<!-- question -->
+<h2 class="form-label-bold">
+  Is there a reason they should not be released?
+</h2>
+<p class="form-hint">
+  In NOMIS, check the header section of the prisoner’s record for the Not For Release alert.
+</p>
+<div class="form-group">
+  <fieldset class="inline">
+
+    <legend class="visually-hidden"></legend>
+
+    <div class="multiple-choice" data-target="all-nfr-radios">
+      <input id="radio-inline-211" type="radio" name="nfr" value="Yes" {{ checked("nfr", "Yes") }}>
+      <label for="radio-inline-211">Yes</label>
+    </div>
+
+    <div class="multiple-choice">
+      <input id="radio-inline-221" type="radio" name="nfr" value="No" onclick="setNfrState()" {{ checked("nfr", "No") }} >
+      <label for="radio-inline-221">No</label>
+    </div>
+
+  </fieldset>
+</div>
+
+<!-- conditionals -->
+<div class="panel panel-border-narrow js-hidden" id="all-nfr-radios">
+  <div class="form-group">
+    <fieldset>
+
+      <legend class="visuallyhidden">
+      </legend>
+
+      <div class="multiple-choice">
+        <input id="radio-part-110" type="radio" name="nfr_state" value="Prison production" {{ checked("nfr_state", "Prison production") }}>
+        <label for="radio-part-110">Prison production</label>
+      </div>
+
+      <div class="multiple-choice">
+        <input id="radio-part-120" type="radio" name="nfr_state" value="Recall to prison" {{ checked("nfr_state", "Recall to prison") }}>
+        <label for="radio-part-120">Recall to prison</label>
+      </div>
+
+
+      <div class="multiple-choice">
+        <input id="radio-part-140" type="radio" name="nfr_state" value="Held for immigration" {{ checked("nfr_state", "Held for immigration") }}>
+        <label for="radio-part-140">Held for immigration</label>
+      </div>
+
+      <div class="multiple-choice" data-target="nfr-info">
+        <input id="radio-part-150" type="radio" name="nfr_state" value="Other"  {{ checked("nfr_state", "Other") }}>
+        <label for="radio-part-150">Other</label>
+      </div>
+
+    </fieldset>
+  </div>
+</div>
+
+<div class="panel panel-border-narrow js-hidden" id="nfr-info">
+  <div class="form-group">
+    <label class="form-label" for="textarea-b">
+      Give details of why the detainee is not for release
+    </label>
+    <textarea class="form-control" id="textarea-b" cols="30" rows="3" name="nfr_info">{{data['nfr_info']}}</textarea>
+  </div>
+</div>
+
+<div class="form-group">
+  <input class="button" type="submit" value="Continue">
+</div>
+</form>
+
+</div>
+</div>
 
 </div>
 </main>

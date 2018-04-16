@@ -23,13 +23,10 @@ Question page
 
         <!-- question -->
         <h2 class="heading-medium">
-          Are they a known public harasser or witness intimidator?
+          Are they a known harasser or intimidator?
         </h2>
-        <p class="form-hint">
-          In NOMIS, check the header section of the prisoner’s record for relevant alerts. Check alert comments and case notes for details.
-        </p>
         <div class="form-group">
-          <span class="nomis-verified"></span>
+
           <fieldset class="inline">
 
             <legend class="visually-hidden"></legend>
@@ -54,59 +51,19 @@ Question page
             <fieldset>
               <legend class="visuallyhidden">Intimidator/bully</legend>
               <label class="form-label" for="textarea-a">
-                Give details of targets, including any relevant court orders
+                Give details:
               </label>
               <textarea class="form-control" id="textarea-a" cols="30" rows="3" name="intimidator_public_info">{{data['intimidator_public_info']}}</textarea>
             </div>
           </fieldset>
         </div>
 
-        <!-- question -->
         <h2 class="heading-medium">
-          Do they bully or intimidate other prisoners?
+          Are they a gang member or involved in organised crime?
         </h2>
-        <p class="form-hint">
-          In NOMIS, check the header section of the prisoner’s record for relevant alerts. Check alert comments and case notes for details and and <em>Security> Non-association</em> for known risks to named prisoners.
-        </p>
+
         <div class="form-group">
-          <span class="nomis-verified"></span>
-          <fieldset class="inline">
 
-            <legend class="visually-hidden"></legend>
-
-            <div class="multiple-choice" data-target="intimidator_prisoners">
-              <input id="radio-inline-5" type="radio" name="intimidator_prisoners" value="Yes" {{ checked("intimidator_prisoners", "Yes") }}>
-              <label for="radio-inline-5">Yes</label>
-            </div>
-
-            <div class="multiple-choice">
-              <input id="radio-inline-6" type="radio" name="intimidator_prisoners" value="No" {{ checked("intimidator_prisoners", "No") }}>
-              <label for="radio-inline-6">No</label>
-            </dic>
-
-          </fieldset>
-        </div>
-
-        <!-- conditionals -->
-        <div class="panel panel-border-narrow js-hidden" id="intimidator_prisoners">
-          <!-- Give details -->
-          <div class="form-group">
-            <fieldset>
-              <legend class="visuallyhidden">Intimidator/bully</legend>
-              <label class="form-label" for="textarea-a">
-                Give details of targets, including any relevant court orders
-              </label>
-              <textarea class="form-control" id="textarea-a" cols="30" rows="3" name="intimidator_prisoners_info"></textarea>{{data['intimidator_prisoners_info']}}
-            </div>
-          </fieldset>
-        </div>
-
-        <h2 class="heading-medium">
-          Are they a gang member?
-        </h2>
-        <p class="form-hint">In NOMIS, check the header section of the prisoner’s record for relevant alerts. Check alert comments and case notes for details and and Security > Non-association for known risks to named prisoners.</p>
-        <div class="form-group">
-          <span class="nomis-verified"></span>
           <fieldset class="inline">
 
             <legend class="visually-hidden"></legend>

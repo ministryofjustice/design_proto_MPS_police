@@ -12,7 +12,7 @@ Question page
 
   <div class="grid-row">
     <div class="column-full">
-      <p><a href="health_05.html">Back</a>&emsp;5 of 8&emsp;<a href="health_07.html">Skip</a></p>
+      <p><a href="health_05.html">Back</a>&emsp;5 of 7&emsp;<a href="health_07.html">Skip</a></p>
     </div>
     <div class="column-two-thirds">
 
@@ -24,8 +24,11 @@ Question page
 
         <!-- question -->
         <h2 class="heading-medium">
-          Do they have any addictions or dependencies that may affect this journey?
+          Do they have any addictions or dependencies that might affect them when they leave police custody?
         </h2>
+        <p class="form-hint">
+          In the arrest record, check the pre-release assessment and detainee section for relevant comments.
+        </p>
 
         <div class="form-group">
           <fieldset class="inline">
@@ -48,7 +51,7 @@ Question page
         <div class="panel panel-border-narrow js-hidden" id="dependencies_info">
           <div class="form-group">
             <label class="form-label" for="textarea-b">
-              Please explain how these issues might affect the journey and how they should be managed:
+              Give details:
             </label>
             <textarea class="form-control" id="textarea-b" cols="30" rows="3" name="dependencies_info">{{data['dependencies_info']}}</textarea>
           </div>
@@ -62,15 +65,8 @@ Question page
       </form>
 
     </div>
-    <div class="column-one-third side-profile">
-      <h1><span class="namebold"> <a href="/profile.html"> A1234AB</a><br/>BARKER</span> RONNIE</h1>
-      <img src="/public/images/ronnie.jpg"/>
-      <p class="font-xsmall info-start">Date of travel</p>
-      <h2>13 Apr 2017</h2>
-      <p class="font-xsmall">From</p>
-      <h2>HMP Bedford</h2>
-      <p class="font-xsmall">To</p>
-      <h2>St Albans Crown Court</h2>
+    <div class="side-profile column-one-third">
+      {% include "includes/side-profile.html" %};
     </div>
   </div>
 </main>

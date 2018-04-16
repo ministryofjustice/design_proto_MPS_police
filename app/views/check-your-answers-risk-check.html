@@ -20,6 +20,7 @@ table th{
 
 <main id="content" role="main" >
   <!-- <a href="check_print_out.html" style="font-weight:bold;">View Print out (for testing only)</a> -->
+  {% include "includes/breadcrumb_risk_summary.html" %}
 
   <h1 class="heading-large">
     Check all answers, then confirm and save
@@ -28,19 +29,7 @@ table th{
     <span class="status" style="margin-right:10px;">
       Confirm
     </span>
-    <!-- Last confirmed: Firstname Surname, 01:32 | 24 Jan 2018 -->
-    <br>
-    <span style="margin: 15px 0 0px 0;" class="nomis-verified"></span>
-    <span style="font-weight:normal; padding-left:10px;">NOMIS alerts verified, HH:MM | DD Mon YYYY</span>
   </p>
-
-  <div class="notice" style="width:670px;">
-    <i class="icon icon-important">
-    </i>
-    <strong class="bold-small">
-      Some questions have been automatically answered based on active NOMIS alerts.<br>Check all answers and complete any missing questions.
-    </strong>
-  </div>
 
   <table id="myTable" class="check-your-answers column-two-thirds" style="">
     <col width="35%">
@@ -50,20 +39,10 @@ table th{
     <th></th>
     <th class="change-answer"><a href="risk_01.html">Change <span class="visuallyhidden">change question 1</span></th>
       <tbody>
+
         <tr>
           <td>
-            ACCT status
-          </td>
-          <td>
-            {{ data['acct'] }}
-          </td>
-          <td>
-            {{ data['acct_date'] }}<br>{{ data['acct_info'] }}
-          </td>
-        </tr>
-        <tr>
-          <td>
-            Risk of self harm
+            Suicide or self harm risk
           </td>
           <td>
             {{ data['selfharm'] }}
@@ -83,22 +62,13 @@ table th{
       <tbody>
         <tr>
           <td>
-            CSRA level
+            Cell sharing risk
           </td>
           <td>
             {{ data['csra'] }}
           </td>
           <td>
-          </td>
-        </tr>
-        <tr>
-          <td>
-            Rule 45
-          </td>
-          <td>
-            {{ data['rule45'] }}
-          </td>
-          <td>
+            {{ data['csra_info'] }}
           </td>
         </tr>
         <tr>
@@ -167,372 +137,307 @@ table th{
           </tr>
         </tbody>
 
-      <th>Harassment and gangs</th>
-      <th></th>
-      <th class="change-answer">
-        <a href="risk_05.html">
-          Change <span class="visuallyhidden">change question 5</span>
-        </th>
-        <tbody>
-          <tr>
-            <td>
-              Public harasser
-            </td>
-            <td>
-              {{ data['intimidator_public'] }}
-            </td>
-            <td>
-              {{ data['intimidator_public_info'] }}
-            </td>
-          </tr>
-          <tr>
-            <td>
-              Prisoner harasser
-            </td>
-            <td>
-              {{ data['intimidator_prisoners'] }}
-            </td>
-            <td>
-              {{ data['intimidator_prisoners_info'] }}
-            </td>
-          </tr>
-          <tr>
-            <td>Gang member</td>
-            <td>{{ data['gangs'] }}</td>
-            <td>{{ data['gangs_info'] }}</td>
-          </tr>
-        </tbody>
-
-        <th>Discrimination against others</th>
+        <th>Harassment and gangs</th>
         <th></th>
         <th class="change-answer">
-          <a href="risk_06.html">
-            Change <span class="visuallyhidden">change question 6</span>
+          <a href="risk_05.html">
+            Change <span class="visuallyhidden">change question 5</span>
           </th>
           <tbody>
             <tr>
               <td>
-                Violent to staff
+                Public harasser
               </td>
               <td>
-                {{ data['violent_to_staff'] }}
+                {{ data['intimidator_public'] }}
               </td>
               <td>
-                {{ data['violent_to_staff_info'] }}
-              </td>
-            </tr>
-            <tr>
-              <td>
-                Risk to females
-              </td>
-              <td>
-                {{ data['risktofemales'] }}
-              </td>
-              <td>
-                {{ data['risktofemales_info'] }}
+                {{ data['intimidator_public_info'] }}
               </td>
             </tr>
+            <!-- <tr>
+            <td>
+            Prisoner harasser
+          </td>
+          <td>
+          {{ data['intimidator_prisoners'] }}
+        </td>
+        <td>
+        {{ data['intimidator_prisoners_info'] }}
+      </td>
+    </tr> -->
+    <tr>
+      <td>Gang member</td>
+      <td>{{ data['gangs'] }}</td>
+      <td>{{ data['gangs_info'] }}</td>
+    </tr>
+  </tbody>
+
+  <th>Discrimination against others</th>
+  <th></th>
+  <th class="change-answer">
+    <a href="risk_06.html">
+      Change <span class="visuallyhidden">change question 6</span>
+    </th>
+    <tbody>
+      <tr>
+        <td>
+          Violent to staff
+        </td>
+        <td>
+          {{ data['violent_to_staff'] }}
+        </td>
+        <td>
+          {{ data['violent_to_staff_info'] }}
+        </td>
+      </tr>
+      <tr>
+        <td>
+          Risk to females
+        </td>
+        <td>
+          {{ data['risktofemales'] }}
+        </td>
+        <td>
+          {{ data['risktofemales_info'] }}
+        </td>
+      </tr>
+      <tr>
+        <td>
+          Risk to LGBT people
+        </td>
+        <td>
+          {{ data['homosexuals'] }}
+        </td>
+        <td>
+          {{ data['homosexuals_info'] }}
+        </td>
+      </tr>
+      <tr>
+        <td>
+          Racist
+        </td>
+        <td>
+          {{ data['racist'] }}
+        </td>
+        <td>
+          {{ data['racist_info'] }}
+        </td>
+      </tr>
+      <tr>
+        <td>
+          Risk to other religions
+        </td>
+        <td>
+          {{ data['religions'] }}
+        </td>
+        <td>
+          {{ data['religions_info'] }}
+        </td>
+      </tr>
+      <tr>
+        <td>
+          Risk to other groups
+        </td>
+        <td>
+          {{ data['violent_risk_to_othergroups'] }}
+        </td>
+        <td>
+          {{ data['violent_risk_to_othergroups_info'] }}
+        </td>
+      </tr>
+    </tbody>
+
+    <th>Escape status/history</th>
+    <th></th>
+    <th class="change-answer">
+      <a href="risk_07.html">
+        Change <span class="visuallyhidden">change question 7</span>
+      </th>
+      <tbody>
+
+
+        <tr>
+          <td>
+            Escape risk
+          </td>
+          <td>
+            {{ data['escape_attempts'] }}
+          </td>
+          <td>
+            {{ data['escape_risk_info'] }}
+          </td>
+        </tr>
+      </tbody>
+
+      <th>Hostage taker</th>
+      <th></th>
+      <th class="change-answer">
+        <a href="risk_08.html">
+          Change <span class="visuallyhidden">change question 8</span>
+        </th>
+        <tbody>
+          <tr>
+            <td>
+              Hostage taker
+            </td>
+            <td>
+              {{ data['hostage_taker'] }}
+            </td>
+            <td>
+              {{ data['hostage_taker_info'] }}
+            </td>
+          </tr>
+        </tbody>
+
+        <th>Sex offender</th>
+        <th></th>
+        <th class="change-answer">
+          <a href="risk_09.html">
+            Change <span class="visuallyhidden">change question 9</span>
+          </th>
+          <tbody>
             <tr>
               <td>
-                Risk to LGBT people
+                Sex offender
               </td>
               <td>
-                {{ data['homosexuals'] }}
+                {{ data['sex_offender'] }}
               </td>
               <td>
-                {{ data['homosexuals_info'] }}
-              </td>
-            </tr>
-            <tr>
-              <td>
-                Racist
-              </td>
-              <td>
-                {{ data['racist'] }}
-              </td>
-              <td>
-                {{ data['racist_info'] }}
-              </td>
-            </tr>
-            <tr>
-              <td>
-                Risk to other religions
-              </td>
-              <td>
-                {{ data['religions'] }}
-              </td>
-              <td>
-                {{ data['religions_info'] }}
-              </td>
-            </tr>
-            <tr>
-              <td>
-                Risk to other groups
-              </td>
-              <td>
-                {{ data['violent_risk_to_othergroups'] }}
-              </td>
-              <td>
-                {{ data['violent_risk_to_othergroups_info'] }}
+                {{ data['sex_offender_info'] }}
               </td>
             </tr>
           </tbody>
 
-          <th>Escape status/history</th>
+          <th>Weapons, drugs or other items</th>
           <th></th>
           <th class="change-answer">
-            <a href="risk_07.html">
-              Change <span class="visuallyhidden">change question 7</span>
+            <a href="risk_10.html">
+              Change <span class="visuallyhidden">change question 10</span>
             </th>
             <tbody>
               <tr>
                 <td>
-                  Currently on E list
+                  Creates or uses weapons
                 </td>
                 <td>
-                  {{ data['elist'] }}
-                </td>
-                <td>
-                  {{ data['elist_info'] }}
-                </td>
-              </tr>
-
-              <tr>
-                <td>
-                  Escape risk
-                </td>
-                <td>
-                  {{ data['escape_attempts'] }}
-                </td>
-                <td>
-                  {{ data['escape_risk_info'] }}
-                </td>
-              </tr>
-              <tr>
-                <td>
-                  Escort Risk Assessment needed
-                </td>
-                <td>
-                  {{ data['escort_risk_assessment'] }}
-                </td>
-                <!-- <td>
-                {{ data['escort_risk_assessment'] }}
-              </td> -->
-              <td>
-              </td>
-            </tr>
-            <tr>
-              <td>
-                Escort Pack needed
-              </td>
-              <td>
-                {{ data['escape_pack'] }}
-              </td>
-              <td>
-              </td>
-            </tr>
-          </tbody>
-
-          <th>Hostage taker</th>
-          <th></th>
-          <th class="change-answer">
-            <a href="risk_08.html">
-              Change <span class="visuallyhidden">change question 8</span>
-            </th>
-            <tbody>
-              <tr>
-                <td>
-                  Hostage taker
-                </td>
-                <td>
-                  {{ data['hostage_taker'] }}
-                </td>
-                <td>
-                  {{ data['hostage_taker_info'] }}
-                </td>
-              </tr>
-            </tbody>
-
-            <th>Sex offender</th>
-            <th></th>
-            <th class="change-answer">
-              <a href="risk_09.html">
-                Change <span class="visuallyhidden">change question 9</span>
-              </th>
-              <tbody>
+                  {{ data['creates_uses_weapons'] }}
+                  <td>
+                    {{ data['creates_uses_weapons_info'] }}
+                  </td>
+                </tr>
                 <tr>
                   <td>
-                    Sex offender
+                    Conceals weapons
                   </td>
                   <td>
-                    {{ data['sex_offender'] }}
+                    {{ data['conceals_weapons'] }}
                   </td>
                   <td>
-                    {{ data['sex_offender_info'] }}
+                    {{ data['conceals_weapons_info'] }}
+                  </td>
+                </tr>
+                <tr>
+                  <td>
+                    Conceals drugs
+                  </td>
+                  <td>
+                    {{ data['conceals_drugs'] }}
+                  </td>
+                  <td>
+                    {{ data['conceals_drugs_info'] }}
+                  </td>
+                </tr>
+                <tr>
+                  <td>
+                    Conceals mobile phones. SIM cards or other items
+                  </td>
+                  <td>
+                    {{data['conceals_mobiles_et_al']}}
+                  </td>
+                  <td>
+                    {{ data['conceals_mobiles_et_al_info'] }}
+                  </td>
+                </tr>
+                <tr>
+                  <td>
+                    Drug trafficking risk
+                  </td>
+                  <td>
+                    {{ data['trafficdrugs'] }}
+                  </td>
+                  <td>
+                    {{ data['trafficdrugs_info'] }}
                   </td>
                 </tr>
               </tbody>
 
-              <th>Weapons, drugs or other items</th>
+              <th>Arson</th>
               <th></th>
               <th class="change-answer">
-                <a href="risk_10.html">
-                  Change <span class="visuallyhidden">change question 10</span>
+                <a href="risk_11.html">
+                  Change <span class="visuallyhidden">change question 11</span>
                 </th>
                 <tbody>
                   <tr>
                     <td>
-                      Creates or uses weapons
+                      Arsonist
                     </td>
                     <td>
-                      {{ data['creates_uses_weapons'] }}
-                      <td>
-                        {{ data['creates_uses_weapons_info'] }}
-                      </td>
-                    </tr>
+                      {{ data['arson'] }}
+                    </td>
+                    <td>
+                    </td>
+                  </tr>
+                </tbody>
+
+
+                <th>Other risk information</th>
+                <th></th>
+                <th class="change-answer">
+                  <a href="risk_13.html">
+                    Change <span class="visuallyhidden">change question 13</span>
+                  </th>
+                  <tbody>
                     <tr>
                       <td>
-                        Conceals weapons
+                        Other risk information
                       </td>
                       <td>
-                        {{ data['conceals_weapons'] }}
+                        {{ data['other_final'] }}
                       </td>
-                      <td>
-                        {{ data['conceals_weapons_info'] }}
-                      </td>
-                    </tr>
-                    <tr>
-                      <td>
-                        Conceals drugs
-                      </td>
-                      <td>
-                        {{ data['conceals_drugs'] }}
-                      </td>
-                      <td>
-                        {{ data['conceals_drugs_info'] }}
-                      </td>
-                    </tr>
-                    <tr>
-                      <td>
-                        Conceals mobile phones. SIM cards or other items
-                      </td>
-                      <td>
-                        {{data['conceals_mobiles_et_al']}}
-                      </td>
-                      <td>
-                        {{ data['conceals_mobiles_et_al_info'] }}
-                      </td>
-                    </tr>
-                    <tr>
-                      <td>
-                        Drug trafficking risk
-                      </td>
-                      <td>
-                        {{ data['trafficdrugs'] }}
-                      </td>
-                      <td>
-                      </td>
-                    </tr>
-                  </tbody>
+                      <!-- <td>
+                      {{ data['other_final'] }}
+                    </td> -->
+                    <td>
+                      {{ data['other_final_info'] }}
+                      <!-- {{ session.other_final_info }} -->
+                    </td>
+                  </tr>
 
-                  <th>Arson</th>
-                  <th></th>
-                  <th class="change-answer">
-                    <a href="risk_11.html">
-                      Change <span class="visuallyhidden">change question 11</span>
-                    </th>
-                    <tbody>
-                      <tr>
-                        <td>
-                          Arsonist
-                        </td>
-                        <td>
-                          {{ data['arson'] }}
-                        </td>
-                        <td>
-                        </td>
-                      </tr>
-                    </tbody>
+                </tbody>
 
-                    <th>Return instructions
-                      <th></th>
-                      <th class="change-answer">
-                        <a href="risk_12.html">
-                          Change <span class="visuallyhidden">change question 12</span>
-                        </th>
-                        <tbody>
-                          <tr>
-                            <td>
-                              Must return to
-                            </td>
-                            <td>
-                              {{ data['mustreturn'] }}
-                            </td>
-                            <!-- <td>
-                            {{ data['mustreturn'] }}
-                          </td> -->
-                          <td>
-                            {{ data['mustreturn_name'] }}{{ data['mustreturn_info'] }}
-                          </td>
-                        </tr>
-                        <tr>
-                          <td>
-                            Must not be sent to
-                          </td>
-                          <td>
-                            {{ data['mustnotreturn'] }}
-                          </td>
-                          <td>
-                            {{ data['mustnotreturn_name'] }}{{ data['mustnotreturn_info'] }}
-                          </td>
-                        </tr>
-                      </tbody>
+              </table>
 
-                      <th>Other risk information</th>
-                      <th></th>
-                      <th class="change-answer">
-                        <a href="risk_13.html">
-                          Change <span class="visuallyhidden">change question 13</span>
-                        </th>
-                        <tbody>
-                          <tr>
-                            <td>
-                              Other risk information
-                            </td>
-                            <td>
-                              {{ data['other_final'] }}
-                            </td>
-                            <!-- <td>
-                            {{ data['other_final'] }}
-                          </td> -->
-                          <td>
-                            {{ data['other_final_info'] }}
-                            <!-- {{ session.other_final_info }} -->
-                          </td>
-                        </tr>
+            </div>
+          </div>
 
-                      </tbody>
+          <div class="side-profile column-one-third">
+            {% include "includes/side-profile.html" %}
+          </div>
+          <div style="background-color:rgba(255, 191, 71, 0.3); padding:20px; margin: 60px 0px; border:1px solid rgba(255, 191, 71, 1);" class="column-two-thirds">
+            <p style="font-weight:bold;">
+              Click 'confirm and save' to confirm that, to the best of your knowledge all information in this section is correct.
+            </p>
 
-                    </table>
-
-                  </div>
-                </div>
-
-                <div class="side-profile column-one-third">
-                  {% include "includes/side-profile.html" %}
-                </div>
-                <div style="background-color:rgba(255, 191, 71, 0.3); padding:20px; margin: 60px 0px; border:1px solid rgba(255, 191, 71, 1);" class="column-two-thirds">
-                  <p style="font-weight:bold;">
-                    Click 'confirm and save' to confirm that, to the best of your knowledge all information in this section is correct.
-                  </p>
-
-                  <div class="">
-                    <a href="profile" class="button">Confirm and save</a>
-                  </div>
-                </div>
-              </div>
+            <div class="">
+              <a href="profile" class="button">Confirm and save</a>
+            </div>
+          </div>
+        </div>
 
 
-            </main>
+      </main>
 
-            {% endblock %}
+      {% endblock %}

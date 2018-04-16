@@ -9,6 +9,7 @@ Check your answers
 <script>
 window.addEventListener("load", loadFunction);
 function loadFunction() {
+  dataDump({{ data | dump | safe}});
   if( {{ data['missing'] == "Yes" }}) {
     showMissing();
     // console.log('loadFunction showMissing');
@@ -17,17 +18,15 @@ function loadFunction() {
     setState('missing', 'No');
     // console.log('loadFunction showAll');
   }
-  if( {{ data['option']}} == '4'){
-    document.getElementById('radioForm').style.display='none';
-  }
+
 }
 function showAll() {
   console.log('showAll');
-  getColumn("myTable", "1");
+  getColumn("myTable", "1", "check-your-answers-risk-check.html");
 }
 function showMissing(){
   console.log('showMissing');
-  getColumn("myTable", "1");
+  getColumn("myTable", "1", "check-your-answers-risk-check.html");
   onlyShowMissing("myTable");
 }
 function formSubmit(radioObj){
@@ -66,36 +65,8 @@ table th{
       <span class="status" style="margin-right:10px;">
         Incomplete
       </span>
-      <br>
-      <span style="margin: 15px 0 0px 0;" class="nomis-verified"></span>
-      <span style="font-weight:normal; padding-left:10px;">NOMIS alerts verified, HH:MM | DD Mon YYYY</span>
     </p>
 
-    <div class="notice" style="width:670px;">
-      <i class="icon icon-important">
-      </i>
-      <strong class="bold-small">
-        Some questions have been automatically answered based on active NOMIS alerts.<br>Check all answers and complete any missing questions.
-      </strong>
-      <!-- <strong class="bold-small">
-      NOMIS alerts and comments that can be safely automated have been. Check and complete all questions.
-    </strong> -->
-  </div>
-  &nbsp;
-  <form id="radioForm">
-    <div class="form-group">
-      <fieldset class="inline">
-        <div class="multiple-choice">
-          <input id="radio-inline-1" type="radio" name="missing" value="No" {{ checked("missing", "No") }} onchange="formSubmit(this)">
-          <label for="radio-inline-1">Show all answers</label>
-        </div>
-        <div class="multiple-choice">
-          <input id="radio-inline-2" type="radio" name="missing" value="Yes" {{ checked("missing", "Yes") }} onchange="formSubmit(this)">
-          <label for="radio-inline-2">Show missing answers only</label>
-        </div>
-      </fieldset>
-    </div>
-  </form>
   <table id="myTable" class="check-your-answers column-two-thirds" style="">
     <col width="35%">
     <col width="20%">
@@ -104,20 +75,10 @@ table th{
     <th></th>
     <th class="change-answer"><a href="risk_01.html">Change <span class="visuallyhidden">change question 1</span></th>
       <tbody>
+
         <tr>
           <td>
-            ACCT status
-          </td>
-          <td>
-            {{ data['acct'] }}
-          </td>
-          <td>
-            {{ data['acct_date'] }}<br>{{ data['acct_info'] }}
-          </td>
-        </tr>
-        <tr>
-          <td>
-            Risk of self harm
+            Suicide or self harm risk
           </td>
           <td>
             {{ data['selfharm'] }}
@@ -137,22 +98,13 @@ table th{
       <tbody>
         <tr>
           <td>
-            CSRA level
+            Cell sharing risk
           </td>
           <td>
             {{ data['csra'] }}
           </td>
           <td>
-          </td>
-        </tr>
-        <tr>
-          <td>
-            Rule 45
-          </td>
-          <td>
-            {{ data['rule45'] }}
-          </td>
-          <td>
+{{ data['csra_info'] }}
           </td>
         </tr>
         <tr>
@@ -239,7 +191,7 @@ table th{
               {{ data['intimidator_public_info'] }}
             </td>
           </tr>
-          <tr>
+          <!-- <tr>
             <td>
               Prisoner harasser
             </td>
@@ -249,7 +201,7 @@ table th{
             <td>
               {{ data['intimidator_prisoners_info'] }}
             </td>
-          </tr>
+          </tr> -->
           <tr>
             <td>Gang member</td>
             <td>{{ data['gangs'] }}</td>
@@ -339,17 +291,7 @@ table th{
               Change <span class="visuallyhidden">change question 7</span>
             </th>
             <tbody>
-              <tr>
-                <td>
-                  Currently on E list
-                </td>
-                <td>
-                  {{ data['elist'] }}
-                </td>
-                <td>
-                  {{ data['elist_info'] }}
-                </td>
-              </tr>
+
 
               <tr>
                 <td>
@@ -362,29 +304,6 @@ table th{
                   {{ data['escape_risk_info'] }}
                 </td>
               </tr>
-              <tr>
-                <td>
-                  Escort Risk Assessment needed
-                </td>
-                <td>
-                  {{ data['escort_risk_assessment'] }}
-                </td>
-                <!-- <td>
-                {{ data['escort_risk_assessment'] }}
-              </td> -->
-              <td>
-              </td>
-            </tr>
-            <tr>
-              <td>
-                Escort Pack needed
-              </td>
-              <td>
-                {{ data['escape_pack'] }}
-              </td>
-              <td>
-              </td>
-            </tr>
           </tbody>
 
           <th>Hostage taker</th>
@@ -485,6 +404,7 @@ table th{
                         {{ data['trafficdrugs'] }}
                       </td>
                       <td>
+                        {{ data['trafficdrugs_info'] }}
                       </td>
                     </tr>
                   </tbody>
@@ -508,45 +428,12 @@ table th{
                       </tr>
                     </tbody>
 
-                    <th>Return instructions
-                      <th></th>
-                      <th class="change-answer">
-                        <a href="risk_12.html">
-                          Change <span class="visuallyhidden">change question 12</span>
-                        </th>
-                        <tbody>
-                          <tr>
-                            <td>
-                              Must return to
-                            </td>
-                            <td>
-                              {{ data['mustreturn'] }}
-                            </td>
-                            <!-- <td>
-                            {{ data['mustreturn'] }}
-                          </td> -->
-                          <td>
-                            {{ data['mustreturn_name'] }}{{ data['mustreturn_info'] }}
-                          </td>
-                        </tr>
-                        <tr>
-                          <td>
-                            Must not be sent to
-                          </td>
-                          <td>
-                            {{ data['mustnotreturn'] }}
-                          </td>
-                          <td>
-                            {{ data['mustnotreturn_name'] }}{{ data['mustnotreturn_info'] }}
-                          </td>
-                        </tr>
-                      </tbody>
 
                       <th>Other risk information</th>
                       <th></th>
                       <th class="change-answer">
-                        <a href="risk_13.html">
-                          Change <span class="visuallyhidden">change question 13</span>
+                        <a href="risk_12.html">
+                          Change <span class="visuallyhidden">change question 12</span>
                         </th>
                         <tbody>
                           <tr>
@@ -567,6 +454,26 @@ table th{
 
                       </tbody>
 
+                      <th>Custody contact details</th>
+                      <th></th>
+                      <th class="change-answer">
+                        <a href="risk_13.html">
+                          Change <span class="visuallyhidden">change question 13</span>
+                        </th>
+                        <tbody>
+                          <tr>
+                            <td>
+                              Medical contact
+                            </td>
+                            <td id='ignor'>
+                            </td>
+                            <td>
+                              {{ data['contact_details'] }}
+                            </td>
+                          </tr>
+
+                        </tbody>
+
                     </table>
 
                   </div>
@@ -577,8 +484,8 @@ table th{
                 </div>
 
                 <div class="column-two-thirds" style="padding:50px 0px">
-                  <a href="profile_done" class="button">View PER</a>
-                  <a href="dashboard_automation" class="linkstylebutton">Return to home</a>
+                  <a href="profile" class="button">View PER</a>
+                  <a href="index" class="linkstylebutton">Return to home</a>
                 </div>
               </div>
 

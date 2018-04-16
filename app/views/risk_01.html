@@ -8,7 +8,6 @@ Question page
 <script type="text/javascript">
 window.addEventListener("load", myFunction);
 function myFunction(){
-  // setState("selfharm", "No")
 }
 </script>
 
@@ -20,127 +19,52 @@ function myFunction(){
     <div class="column-full"><p>1 of 13&emsp;<a href="risk_02.html">Skip</a></p>
     </div>
     <div class="column-two-thirds">
-      <!-- <div class="notice">
-      <i class="icon icon-important">
-    </i>
-    <strong class="bold-small">
-    NOMIS alerts and comments that can be safely automated have been. You need to check and complete the rest.
-    <br><span style="font-weight:normal;">Last updated from NOMIS: 02:23 | DD Month YYYY</span>
-  </strong>
-</div> -->
+      <form action="risk_02" method="post" class="form">
 
-<h1 class="heading-secondary">Risk to self
-</h1>
-<!-- question -->
-<h2 class="heading-medium">
-  What is the prisoner's ACCT status?
-</h2>
-<p class="form-hint">In NOMIS, check the header section of the prisoner’s record for the ACCT status alert. </p>
-<form action="risk_02" method="post" class="form">
+        <h1 class="heading-secondary">Risk to self
+        </h1>
 
-  <div class="form-group">
-    <legend class="visuallyhidden">
-    </legend>
+        <!-- question -->
+        <h2 class="heading-medium">
+          Is there a risk of suicide or self harm?
+        </h2>
+        <p class="form-hint">In the arrest record, check the pre-release assessment for relevant comments.</p>
+        <div class="form-group">
 
-    <div>
-      <fieldset>
-        <div class="multiple-choice">
-          <input id="radio-part-1" type="radio" name="acct" value="Open" {{ checked("acct", "Open") }}>
-          <label for="radio-part-1">Open</label>
-        </div>
-        <div class="multiple-choice">
-          <input id="radio-part-2" type="radio" name="acct" value="Post Closure" {{ checked("acct", "Post Closure") }}>
-          <label for="radio-part-2">Post Closure</label>
-        </div>
-        <div class="multiple-choice" data-target="most-recent-ACCT-info">
-          <input id="radio-part-3" type="radio" name="acct" value="Closed" {{ checked("acct", "Closed") }}>
-          <label for="radio-part-3">Closed</label>
-        </div>
-        <div class="multiple-choice">
-          <input id="radio-part-4" type="radio" name="acct" value="No ACCT history" {{ checked("acct", "No ACCT history") }}>
-          <label for="radio-part-4" >No ACCT history</label></div>
-        </div>
-      </fieldset>
-
-      <div class="panel panel-border-narrow js-hidden" id="most-recent-ACCT-info">
-        <fieldset>
-
-          <legend class="visuallyhidden">
-            Date of most recently closed ACCT
-          </legend>
-
-          <!-- Date of most recently closed ACCT -->
-          <div class="form-group">
-
-            <legend class="form-label-bold">Date of most recently closed ACCT</legend>
-
-            <div class="form-date">
-
-              <p class="form-hint">For example, 31 3 1980</p>
-              <input class="form-control" id="acct_date" type="text" name="acct_date" value="{{data['acct_date']}}">
-
+          <fieldset class="inline">
+            <legend class="visually-hidden"></legend>
+            <div class="multiple-choice" data-target="selfharm-info">
+              <input id="radio-inline-7" type="radio" name="selfharm" value="Yes" {{ checked('selfharm', "Yes") }}>
+              <label for="radio-inline-7">Yes</label>
             </div>
+            <div class="multiple-choice">
+              <input id="radio-inline-8" type="radio" name="selfharm" value="No" {{ checked('selfharm', "No")}} onclick="clearDetails('textarea-b');">
+              <label for="radio-inline-8">No</label>
+            </div>
+
           </fieldset>
-          <!-- Give details -->
-          <div style="margin-top:20px;">
-            <div class="form-group">
-              <label class="form-label" for="textarea-a">
-                Give details of methods and triggers recorded on NOMIS if entered
-              </label>
-              <textarea class="form-control form-control-3-4" id="textarea-a" cols="30" rows="3" name="acct_info">{{data['acct_info']}}</textarea>
-            </div>
+        </div>
+
+        <div class="panel panel-border-narrow js-hidden" id="selfharm-info">
+          <div class="form-group">
+            <label class="form-label" for="textarea-b">
+              Give details
+            </label>
+            <textarea class="form-control form-control-3-4" id="textarea-b" cols="30" rows="3" name="selfharm_info" >{{ data['selfharm_info'] }}</textarea>
           </div>
         </div>
-      </div>
 
 
+        <!-- button -->
+        <div class="form-group">
 
-      <!-- question -->
-      <h2 class="heading-medium">
-        Is there any other risk of self harm on this journey?
-      </h2>
-      <p class="form-hint">In NOMIS, check the header section of the prisoner’s record for the Self Harm and Vulnerability alerts.</p>
-      <div class="form-group">
-        <span class="nomis-verified"></span>
-        <fieldset class="inline">
-
-          <!-- <div class="multiple-choice" data-target="other-final-info">
-          <input id="other_final_01" name="other_final" type="radio" value="Yes" {{ checked("other_final", "Yes") }}>
-          <label for="other_final_01">Yes</label>
-        </div> -->
-
-        <legend class="visually-hidden"></legend>
-        <div class="multiple-choice" data-target="selfharm-info">
-          <input id="radio-inline-7" type="radio" name="selfharm" value="Yes" {{ checked('selfharm', "Yes") }}>
-          <label for="radio-inline-7">Yes</label>
+          {% include "includes/risk-screen-buttons.html" %}
         </div>
-        <div class="multiple-choice">
-          <input id="radio-inline-8" type="radio" name="selfharm" value="No" {{ checked('selfharm', "No")}} onclick="clearDetails('textarea-b');">
-          <label for="radio-inline-8">No</label>
-        </div>
-
-      </fieldset>
+      </form>
     </div>
-
-    <div class="panel panel-border-narrow js-hidden" id="selfharm-info">
-      <div class="form-group">
-        <label class="form-label" for="textarea-b">
-          Give details
-        </label>
-        <textarea class="form-control form-control-3-4" id="textarea-b" cols="30" rows="3" name="selfharm_info" >{{ data['selfharm_info'] }}</textarea>
-      </div>
+    <div class="side-profile column-one-third">
+      {% include "includes/side-profile.html" %};
     </div>
+  </main>
 
-
-    <!-- button -->
-    <div class="form-group">
-      {% include "includes/risk-screen-buttons.html" %}
-    </div>
-  </form>
-</div>
-<div class="side-profile column-one-third">
-  {% include "includes/side-profile.html" %}
-</div>
-</main>
-
-{% endblock %}
+  {% endblock %}

@@ -11,6 +11,11 @@ Check your answers
 .column-two-thirds{
   width: 75%;
 }
+
+table th{
+  font-weight: bold;
+}
+
 </style>
 
 {% include "includes/breadcrumb_health_summary.html" %}
@@ -18,7 +23,12 @@ Check your answers
 <h1 class="heading-large">
   Check all answers, then confirm and save
 </h1>
-<table class="check-your-answers column-two-thirds">
+<p>
+  <span class="status" style="margin-right:10px;">
+    Confirm
+  </span>
+</p>
+<table class="check-your-answers column-two-thirds" id="myTable">
   <col width="30%">
   <col width="20%">
   <col width="auto">
@@ -34,10 +44,10 @@ Check your answers
           Physical health issues
         </td>
         <td>
-          {{ session.physical_health }}
+          {{ data['physical_health'] }}
         </td>
         <td>
-          {{ session.physical_health_info }}
+          {{ data['physical_health_info'] }}
         </td>
       </tr>
 
@@ -53,10 +63,10 @@ Check your answers
               Mental health issues
             </td>
             <td>
-              {{ session.mental_health }}
+              {{ data['mental_health'] }}
             </td>
             <td>
-              {{ session.mental_health_info }}
+              {{ data['mental_health_info'] }}
             </td>
           </tr>
 
@@ -72,10 +82,10 @@ Check your answers
                   Special vehicles
                 </td>
                 <td>
-                  {{ session.special_vehicle }}
+                  {{ data['special_vehicle'] }}
                 </td>
                 <td>
-                  {{ session.special_vehicle_info }}
+                  {{ data['special_vehicle_info'] }}
                 </td>
               </tr>
 
@@ -91,14 +101,14 @@ Check your answers
                       Essential medication
                     </td>
                     <td>
-                      {{ session.medicine }}
+                      {{ data['medicine'] }}
                     </td>
                     <td>
-                      {{ session.medicine_name }} |
-                      {{ session.medicine_howgiven }} |
-                      {{ session.medicine_dosage }} |
-                      {{ session.medicine_dosagefrequency }}
-                      {{ session.medicine_carriedby }}
+                      {{ data['medicine_name'] }} |
+                      {{ data['medicine_howgiven'] }} |
+                      {{ data['medicine_dosage'] }} |
+                      {{ data['medicine_dosagefrequency'] }}
+                      {{ data['medicine_carriedby'] }}
                     </td>
                   </tr>
 
@@ -114,10 +124,10 @@ Check your answers
                           Dependencies
                         </td>
                         <td>
-                          {{ session.dependencies }}
+                          {{ data['dependencies'] }}
                         </td>
                         <td>
-                          {{ session.dependencies_info }}
+                          {{ data['dependencies_info'] }}
                         </td>
                       </tr>
 
@@ -133,10 +143,10 @@ Check your answers
                               Allergies and intolerances
                             </td>
                             <td>
-                              {{ session.allergies }}
+                              {{ data['allergies'] }}
                             </td>
                             <td>
-                              {{ session.allergies_info }}
+                              {{ data['allergies_info'] }}
                             </td>
                           </tr>
 
@@ -152,56 +162,30 @@ Check your answers
                                   Personal care
                                 </td>
                                 <td>
-                                  {{ session.personalcare }}
+                                  {{ data['personalcare'] }}
                                 </td>
                                 <td>
-                                  {{ session.personalcare_info }}
+                                  {{ data['personalcare_info'] }}
                                 </td>
                               </tr>
 
-                              <th>Medical contact details</th>
-                              <th></th>
-                              <th class="change-answer">
-                                <a href="health_09.html">
-                                  Change <span class="visuallyhidden">change question 8</span>
-                                </th>
-                                <tbody>
-                                  <tr>
-                                    <td>
-                                      Medical contact
-                                    </td>
-                                    <td>
-                                    </td>
-                                    <td>
-                                      {{ session.contact_details }}
-                                    </td>
-                                  </tr>
+                            </table>
 
-                                </tbody>
+                            <div class="side-profile column-one-third">
+                              {% include "includes/side-profile.html" %}
+                            </div>
 
-                              </table>
-                              <div class="column-one-third side-profile">
-                                <h1><span class="namebold"> <a href="/profile.html"> A1234AB</a><br/>BARKER</span> RONNIE</h1>
-                                <img src="/public/images/ronnie.jpg"/>
-                                <p class="font-xsmall info-start">Date of travel</p>
-                                <h2>13 Apr 2017</h2>
-                                <p class="font-xsmall">From</p>
-                                <h2>HMP Bedford</h2>
-                                <p class="font-xsmall">To</p>
-                                <h2>St Albans Crown Court</h2>
+                            <div style="background-color:rgba(255, 191, 71, 0.3); padding:20px; margin: 60px 0px; border:1px solid rgba(255, 191, 71, 1);" class="column-two-thirds">
+                              <p style="font-weight:bold;">
+                                Click 'confirm and save' to confirm that, to the best of your knowledge all information in this section is correct.
+                              </p>
+
+                              <div class="">
+                                <a href="profile" class="button">Confirm and save</a>
                               </div>
-
-                              <div style="background-color:rgba(255, 191, 71, 0.3); padding:20px; margin: 60px 0px; border:1px solid rgba(255, 191, 71, 1);" class="column-two-thirds">
-                                <p style="font-weight:bold;">
-                                  Click 'confirm and save' to confirm that, to the best of your knowledge all information in this section is correct.
-                                </p>
-
-                                <div class="">
-                                  <a href="profile" class="button">Confirm and save</a>
-                                </div>
-                              </div>
+                            </div>
 
 
-                            </main>
+                          </main>
 
-                            {% endblock %}
+                          {% endblock %}

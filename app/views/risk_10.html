@@ -23,9 +23,7 @@ Question page
         <h2 class="heading-medium">
           Have they created or used weapons in custody?
         </h2>
-        <p class="form-hint">
-          Check Mercury for intelligence or NOMIS adjudications for details.
-        </p>
+
         <div class="form-group">
           <fieldset class="inline">
 
@@ -47,7 +45,7 @@ Question page
           <!-- Give details -->
           <div class="form-group">
             <label class="form-label" for="textarea-a">
-              Give details of previous incidents:
+              Give details:
             </label>
             <textarea class="form-control form-control-3-4" id="textarea-a" rows="3" name="creates_uses_weapons_info">{{ data['creates_uses_weapons_info'] }}</textarea>
           </div>
@@ -58,9 +56,6 @@ Question page
         <h2 class="heading-medium">
           Have they concealed weapons in custody?
         </h2>
-        <p class="form-hint">
-          Check Mercury for intelligence or NOMIS adjudications for details.
-        </p>
         <div class="form-group">
           <fieldset class="inline">
 
@@ -82,7 +77,7 @@ Question page
           <!-- Give details -->
           <div class="form-group">
             <label class="form-label" for="textarea-b">
-              Give details of previous incidents:
+              Give details:
             </label>
             <textarea class="form-control form-control-3-4" id="textarea-b" rows="3" name="conceals_weapons_info">{{ data['conceals_weapons_info'] }}</textarea>
           </div>
@@ -93,9 +88,6 @@ Question page
         <h2 class="heading-medium">
           Have they concealed drugs in custody?
         </h2>
-        <p class="form-hint">
-          Check Mercury for intelligence or NOMIS adjudications for details.
-        </p>
         <div class="form-group">
           <fieldset class="inline">
 
@@ -118,7 +110,7 @@ Question page
           <!-- Give details -->
           <div class="form-group">
             <label class="form-label" for="textarea-c">
-              Give details of previous incidents:
+              Give details:
             </label>
             <textarea class="form-control form-control-3-4" id="textarea-c" rows="3" name="conceals_drugs_info">{{ data['conceals_drugs_info'] }}</textarea>
           </div>
@@ -128,9 +120,6 @@ Question page
         <h2 class="heading-medium">
           Have they concealed mobile phones, SIMs or other items in custody?
         </h2>
-        <p class="form-hint">
-          Check Mercury for intelligence or NOMIS adjudications for details.
-        </p>
         <div class="form-group">
           <fieldset class="inline">
 
@@ -152,7 +141,7 @@ Question page
           <!-- Give details -->
           <div class="form-group">
             <label class="form-label" for="textarea-z">
-              Give details of previous incidents:
+              Give details:
             </label>
             <textarea class="form-control form-control-3-4" id="textarea-z" rows="3" name="conceals_mobiles_et_al_info">{{ data['conceals_mobiles_et_al_info'] }}</textarea>
           </div>
@@ -163,15 +152,12 @@ Question page
         <h2 class="heading-medium">
           Is there a risk that they might traffic drugs on this journey?
         </h2>
-        <p class="form-hint">
-          Check Mercury for intelligence or NOMIS adjudications for past history of trafficking drugs.
-        </p>
         <div class="form-group">
           <fieldset class="inline">
 
             <legend class="visually-hidden"></legend>
 
-            <div class="multiple-choice">
+            <div class="multiple-choice" data-target="trafficdrugs_info">
               <input id="radio-inline-1" type="radio" name="trafficdrugs" value="Yes"  {{ checked("trafficdrugs", "Yes") }}>
               <label for="radio-inline-1">Yes</label>
             </div>
@@ -181,6 +167,16 @@ Question page
             </div>
 
           </fieldset>
+        </div>
+
+        <div class="panel panel-border-narrow js-hidden" id="trafficdrugs_info">
+          <!-- Give details -->
+          <div class="form-group">
+            <label class="form-label" for="textarea-z">
+              Give details:
+            </label>
+            <textarea class="form-control form-control-3-4" id="textarea-z" rows="3" name="trafficdrugs_info">{{ data['trafficdrugs_info'] }}</textarea>
+          </div>
         </div>
 
         <!-- button -->

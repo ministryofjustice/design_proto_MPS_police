@@ -145,15 +145,15 @@ font-weight: bold;
   <p id="testp">
   </p>
   <!-- {% include "includes/breadcrumb_profile.html" %} -->
-  <h2 class="heading-large">{{data['pn']}}: BARKER <span class="unbold">RONNIE</span></h2>
+  <h2 class="heading-large">{{data['pn']}}: {{data['surname']}} <span class="unbold">{{data['firstname']}}</span></h2>
   <div class="column-two-thirds">
     <li class="flag" id="notforrelease">Not for release</li>
-    <li class="flag flag-inactive">ACCT</li>
-    <li class="flag flag-inactive">Self harm</li>
-    <li class="flag">Rule 45</li>
-    <li class="flag flag-inactive">Escape risk</li>
-    <li class="flag flag-inactive">CSRA</li>
-    <li class="flag flag-inactive">Cat A</li>
+    <!-- <li class="flag flag-inactive">ACCT</li> -->
+    <li class="flag flag-inactive" id="selfharm">Self harm</li>
+    <!-- <li class="flag">Rule 45</li> -->
+    <li class="flag flag-inactive" id="escaperisk">Escape risk</li>
+    <li class="flag flag-inactive" id="cellsharingrisk">Cell sharing risk</li>
+    <!-- <li class="flag flag-inactive">Cat A</li> -->
     <!-- <hr style="margin: 0px 0px 0px 0px"> -->
     <section>
       <div class="newpanel newpanel_link">
@@ -188,7 +188,7 @@ font-weight: bold;
           To
         </h6>
         <p>
-          {{data.to}}
+          Destination name
         </p>
       </div>
       <div class="tile col-3">
@@ -220,7 +220,7 @@ font-weight: bold;
             Prison Number
           </h6>
           <p>
-            A1234AB
+            n/a
           </p>
         </div>
         <div class="tile col-4">
@@ -228,7 +228,7 @@ font-weight: bold;
             CRO number
           </h6>
           <p>
-            596835/08K
+            {{data['cro']}}
           </p>
         </div>
         <div class="tile col-4">
@@ -236,7 +236,7 @@ font-weight: bold;
             PNC Number
           </h6>
           <p>
-            08/783296E
+            {{data['pn']}}
           </p>
         </div>
         <div class="tile col-4">
@@ -244,7 +244,7 @@ font-weight: bold;
             Date of birth
           </h6>
           <p>
-            24 May 1973
+            {{data['dob']}}
           </p>
         </div>
         <div class="tile col-8">
@@ -260,7 +260,7 @@ font-weight: bold;
             Sex
           </h6>
           <p>
-            M
+            {{data['gender']}}
           </p>
         </div>
         <div class="tile col-4">
@@ -268,7 +268,7 @@ font-weight: bold;
             Category
           </h6>
           <p>
-            Cat B
+            n/a
           </p>
         </div>
         <!-- <div class="tile col-4"></div> -->
@@ -277,7 +277,7 @@ font-weight: bold;
             Nationality
           </h6>
           <p>
-            Jamaican
+            {{data['nationality']}}
           </p>
         </div>
         <div class="tile col-4">
@@ -285,7 +285,7 @@ font-weight: bold;
             Religion
           </h6>
           <p>
-            Hindu
+            {{data['religion']}}
           </p>
         </div>
         <div class="tile col-4">
@@ -293,7 +293,7 @@ font-weight: bold;
             Ethnicity
           </h6>
           <p>
-            W1
+            {{data['ethnicity']}}
           </p>
         </div>
         <div class="tile col-4">
@@ -301,7 +301,7 @@ font-weight: bold;
             Preferred language
           </h6>
           <p>
-            English
+            {{data['language']}}
           </p>
         </div>
         <div class="tile col-4">
@@ -317,7 +317,7 @@ font-weight: bold;
             Diet
           </h6>
           <p>
-            Medical - Diabetic
+            {{data['diet']}}
           </p>
         </div>
         <div class="tile col-full">
@@ -325,7 +325,7 @@ font-weight: bold;
             Personal Emergency Evacuation Plan
           </h6>
           <p>
-            Double amputie and hearing impaired. To be alerted and assisted with evacuation.
+            n/a
           </p>
         </div>
       </div>
@@ -334,9 +334,7 @@ font-weight: bold;
           Aliases
         </h6>
         <p>
-          FLETCH,<br>
-          ARKWRIGHT,<br>
-          Norman Stanley Fletcher
+          {{data['alias']}}
         </p>
       </div>
     </section>
@@ -346,7 +344,7 @@ font-weight: bold;
         <span style="float:right">
           <span class="status" style="display:inline-block">Completed</span>
           &nbsp;
-          <a href="#" class="" style="display:inline-block">Edit</a>
+          <a href="/offences" class="" style="display:inline-block">Edit</a>
         </span>
         <p>
           Last confirmed: Joes Bloggs, HH:MM | DD Mon YYYY
@@ -359,9 +357,6 @@ font-weight: bold;
           <td>Current Offences</td>
           <td class="answer">
             <p>Possessing ammunition without certificate <span class="casenum"><br>(T12345678)</span></p>
-            <p>Possess with intent to supply a controlled drug of Class B - cannabis <span class="casenum"><br>(T12345678)</span></p>
-            <p>Possessing firearm with intent to endanger life  <span class="casenum"><br>(T12345678)</span></p>
-            <p>Attempted murder (potential victim one year old or over) <span class="casenum"><br>(T12345678)</span></p></td>
           </tr>
         </table>
 
@@ -372,7 +367,7 @@ font-weight: bold;
           <span style="float:right">
             <span class="status statusReview">Review</span>
             &nbsp;
-            <a href="check-your-answers-risk-review.html" class="reviewLink" style="display:inline-block">Edit</a>
+            <a href="check-your-answers-risk-incomplete.html" class="reviewLink" style="display:inline-block">Edit</a>
           </span>
           <p>
             Last confirmed: Joes Bloggs, HH:MM | DD Mon YYYY
@@ -381,10 +376,6 @@ font-weight: bold;
         <table class="check-your-answers">
           <col width="30%">
           <col width="70%">
-          <tr>
-            <td>Rule 45</td>
-            <td>Yes</td>
-          </tr>
           <tr>
             <td>
               Risk to females
@@ -411,15 +402,6 @@ font-weight: bold;
             </td>
             <td>
               Victim of current offences is named person according to mg5 case summary
-            </td>
-          </tr>
-
-          <tr>
-            <td>
-              Currently on E list
-            </td>
-            <td>
-              E-List-Escort
             </td>
           </tr>
           <tr>
@@ -463,7 +445,7 @@ font-weight: bold;
     <section style="background-color:white">
       <a class="button button-reprint" href="#" role="" >Reprint PER</a>
       <a class="button button-cancel" href="#" role="" >Cancel PER</a>
-      <a href="/dashboard_automation">Return to home</a>
+      <a href="/index">Return to home</a>
     </section>
 
   </div>

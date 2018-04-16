@@ -1,12 +1,12 @@
 <div class="">
-  <h1><span class="namebold"> <a href="/profile.html"> {{data['pn']}}</a><br/>BARKER</span> RONNIE</h1>
-  <img src="/public/images/ronnie.jpg"/>
+  <h1><span class="namebold"> <a href="/profile.html"> {{data['pn']}}</a><br/>{{data['surname']}}<br></span>{{data['firstname']}}</h1>
+  <img src="/public/images/photo_unavailable.jpg"/>
   <p class="font-xsmall info-start">Date of travel</p>
-  <h2 id="hedy">25 Jan 2018</h2>
+  <h2>{{data.dateoftravel}}</h2>
   <p class="font-xsmall">From</p>
   <h2>{{data.from}}</h2>
   <p class="font-xsmall">To</p>
-  <h2>{{data.to}}</h2>
+  <h2>Destination name</h2>
 </div>
 <script type="text/javascript">
 function getDate(){
@@ -15,14 +15,14 @@ function getDate(){
   var mm = today.getMonth()+1; //January is 0!
   var yyyy = today.getFullYear();
   if(dd<10) {
-    dd = '0'+dd
+    dd = '0'+ dd
   }
   if(mm<10) {
-    mm = '0'+mm
+    mm = '0'+ mm
   }
   today = dd + '/' + mm + '/' + yyyy;
   return today;
-}
+};
 var date = getDate();
 document.getElementById('hedy').innerHTML = date;
 console.log('date = ' + document.getElementById('hedy').innerHTML);

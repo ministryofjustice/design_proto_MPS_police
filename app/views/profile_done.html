@@ -115,15 +115,15 @@ td:first-child {
 <main id="content" role="main">
 
   <!-- {% include "includes/breadcrumb_profile.html" %} -->
-  <h2 class="heading-large">A1234AB: BARKER <span class="unbold">RONNIE</span></h2>
+  <h2 class="heading-large">PNC number: BARKER <span class="unbold">RONNIE</span></h2>
   <div class="column-two-thirds">
     <li class="flag">Not for release</li>
-    <li class="flag flag-inactive">ACCT</li>
+    <!-- <li class="flag flag-inactive">ACCT</li> -->
     <li class="flag flag-inactive">Self harm</li>
-    <li class="flag">Rule 45</li>
+    <!-- <li class="flag">Rule 45</li> -->
     <li class="flag flag-inactive">Escape risk</li>
-    <li class="flag flag-inactive">CSRA</li>
-    <li class="flag flag-inactive">Cat A</li>
+    <li class="flag flag-inactive">Cell sharing risk</li>
+    <!-- <li class="flag flag-inactive">Cat A</li> -->
     <!-- <hr style="margin: 0px 0px 0px 0px"> -->
     <section>
       <div class="newpanel">
@@ -150,7 +150,7 @@ td:first-child {
           From
         </h6>
         <p>
-          HMP Bedford
+          Station name
         </p>
       </div>
       <div class="tile col-3">
@@ -158,7 +158,7 @@ td:first-child {
           To
         </h6>
         <p>
-          St Albans Crown Court
+          Destination name
         </p>
       </div>
       <div class="tile col-3">
@@ -188,7 +188,7 @@ td:first-child {
             Prison Number
           </h6>
           <p>
-            A1234AB
+            PNC number
           </p>
         </div>
         <div class="tile col-4">
@@ -254,6 +254,30 @@ td:first-child {
           </h6>
           <p>
             W1
+          </p>
+        </div>
+        <div class="tile col-4">
+          <h6>
+            Preferred language
+          </h6>
+          <p>
+            English
+          </p>
+        </div>
+        <div class="tile col-4">
+          <h6>
+            Interpreter
+          </h6>
+          <p>
+            Not required
+          </p>
+        </div>
+        <div class="tile col-full">
+          <h6>
+            Diet
+          </h6>
+          <p>
+            Medical - Diabetic
           </p>
         </div>
       </div>
@@ -392,15 +416,8 @@ td:first-child {
         </section>
 
       </div>
-      <div class="column-one-third side-profile">
-        <h1><span class="namebold">A1234AB<br/>BARKER</span> RONNIE</h1>
-        <img src="/public/images/ronnie.jpg"/>
-        <p class="font-xsmall info-start">Date of travel</p>
-        <h2>13 Apr 2017</h2>
-        <p class="font-xsmall">From</p>
-        <h2>HMP Bedford</h2>
-        <p class="font-xsmall">To</p>
-        <h2>St Albans Crown Court</h2>
+      <div class="side-profile column-one-third">
+        {% include "includes/side-profile.html" %}
       </div>
     </main>
 

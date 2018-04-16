@@ -16,7 +16,7 @@ function loadFunction(){
 }
 function showMissing(){
   console.log('showMissing');
-  getColumn("myTable", "1");
+  getColumn("myTable", "1", "check-your-answers-health-check.html");
   //onlyShowMissing("myTable");
 }
 </script>
@@ -183,41 +183,15 @@ table th{
                                   </td>
                                 </tr>
 
-                                <th>Medical contact details</th>
-                                <th></th>
-                                <th class="change-answer">
-                                  <a href="health_09.html">
-                                    Change <span class="visuallyhidden">change question 8</span>
-                                  </th>
-                                  <tbody>
-                                    <tr>
-                                      <td>
-                                        Medical contact
-                                      </td>
-                                      <td>
-                                      </td>
-                                      <td>
-                                        {{ data['contact_details'] }}
-                                      </td>
-                                    </tr>
-
-                                  </tbody>
-
                                 </table>
-                                <div class="column-one-third side-profile">
-                                  <h1><span class="namebold"> <a href="/profile.html"> A1234AB</a><br/>BARKER</span> RONNIE</h1>
-                                  <img src="/public/images/ronnie.jpg"/>
-                                  <p class="font-xsmall info-start">Date of travel</p>
-                                  <h2>13 Apr 2017</h2>
-                                  <p class="font-xsmall">From</p>
-                                  <h2>HMP Bedford</h2>
-                                  <p class="font-xsmall">To</p>
-                                  <h2>St Albans Crown Court</h2>
+
+                                <div class="side-profile column-one-third">
+                                  {% include "includes/side-profile.html" %}
                                 </div>
 
                                 <div class="column-two-thirds" style="padding:50px 0px">
-                                  <a href="profile_done" class="button">View PER</a>
-                                  <a href="dashboard_receiver_court" class="linkstylebutton">Return to home</a>
+                                  <a href="profile" class="button">View PER</a>
+                                  <a href="index" class="linkstylebutton">Return to home</a>
                                 </div>
 
                               </div>
