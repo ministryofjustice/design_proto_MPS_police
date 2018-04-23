@@ -10,8 +10,8 @@ Question page
   margin-bottom: 30px;
 }
 .removelink{
-float:right;
-/*background-color: red;*/
+  float:right;
+  /*background-color: red;*/
 }
 </style>
 
@@ -19,10 +19,10 @@ float:right;
 
   {% include "includes/breadcrumb_move.html" %}
   <div class="grid-row">
-    <form action="health_02" method="get" class="column-two-thirds" class="form">
+    <form action="profile?offences=done" method="post" class="column-two-thirds" class="form">
 
       <h1 class="heading-large">
-                  Current offences
+        Current offences
       </h1>
 
       <div>
@@ -35,12 +35,14 @@ float:right;
           <h2 class="heading-medium">Offence</h2>
           <div class="form-group">
             <label class="form-label" for="offence-name">Offence name</label>
-            <textarea class="form-control form-control-3-4" name="textarea" id="textarea" rows="2"></textarea>
+            <textarea class="form-control form-control-3-4" name="offencename" id="textarea" rows="2">{{data['offencename']}}</textarea>
           </div>
+
           <div class="form-group">
             <label class="form-label" for="casenumber">Unique reference number</label>
-            <input class="form-control" style="width:30%" id="casenumber" name="casenumber" type="text" value="">
+            <input class="form-control" style="width:30%" id="casenumber" name="offencenumber" type="text" value="{{data['offencenumber']}}">
           </div>
+
         </div>
         <!-- offence -->
 
@@ -59,7 +61,8 @@ float:right;
     <input class="button button-add-another-vertical" style="width:140px" type="" value="Add another">
   </div>
   <div class="form-group">
-    <a class="button" href="profile.html" role="button" >Save and continue</a>
+    <input class="button" type="submit" value="Save and continue" style="margin-right:20px">
+    <!-- <a class="button" href="profile.html?offences=done" role="button" >Save and continue</a> -->
   </div>
 </form>
 

@@ -8,14 +8,14 @@ GOV.UK prototype kit
 
 <main id="content">
   <p class="error-summary js-hidden">You need to sign in or sign up before continuing.</p>
-
+  <form action="detainee_info" method="post" class="form">
   <h1 class="heading-large">Start a PER</h1>
   <div class="form-group" style="width:50%;">
     <label class="form-label-bold" for="user_email">Enter a PNC number</label>
     <div class="form-hint">For example 01/234567A</div>
-    <input class="form-control" type="email" value="" name="user[email]" id="user_email">
+    <input class="form-control" type="text" value="{{data.pn}}" name="pn" id="user_email">
     <span class="actions" style="display:inline-block !important;">
-      <a class="button" href="detainee_info" role="button" style="vertical-align:middle;">Search</a>
+      <input class="button" type="submit" value="Search" style="vertical-align:middle;">
     </span>
   </div>
 

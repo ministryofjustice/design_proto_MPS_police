@@ -57,6 +57,42 @@ function hideAnsweredQuestions(){
     console.log('collection[i] = ' + collection[i]);
   }
 }
+// show only yes
+function showOnlyYes(table_id, col) {
+  var tab = document.getElementById(table_id);
+  console.log('tab = ' + tab);
+  var n = tab.rows.length;
+  console.log('n = ' + n);
+  var i, s = null, tr, td;
+  var miss = true;
+
+  // First check that col is not less then 0
+  if (col < 0) {
+    return null;
+  }
+  var count = 0;
+  for (i = 0; i < n; i++) {
+    tr = tab.rows[i];
+    if (tr.cells.length > col) { // Check that cell exists before you try
+      td = tr.cells[col];
+      if(td.innerText != "Yes"){     // to access it.
+        tr.style='display:none;'
+        // td.innerHTML = 'Missing';
+        // td.className="missing"
+        // td.style="font-weight:normal;"
+        count = count + 1;
+        miss = false;
+      } else {
+        td.style="display:none;"
+      }
+      // console.log('window should open count = ' + count);
+      // console.log('miss = ' + miss);
+    }
+  }
+  console.log('n = ' + n);
+  console.log('i = ' + i);
+
+}
 // function to set value to missing and style for questions with no answer//
 function getColumn(table_id, col, checkscreen) {
   var tab = document.getElementById(table_id);
@@ -74,7 +110,7 @@ function getColumn(table_id, col, checkscreen) {
     tr = tab.rows[i];
     if (tr.cells.length > col) { // Check that cell exists before you try
       td = tr.cells[col];
-      if(td.innerText == "" && td.tagName != 'TH' && td.id != 'ignor'){     // to access it.
+      if(td.innerText == "hide" || td.innerText == "" && td.tagName != 'TH' && td.id != 'ignor'){     // to access it.
         td.innerHTML = 'Missing';
         td.className="missing"
         td.style="font-weight:normal;"

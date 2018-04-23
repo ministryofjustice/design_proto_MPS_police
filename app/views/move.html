@@ -10,11 +10,38 @@ window.addEventListener("load", loadFunction);
 function loadFunction() {
   dataDump({{ data | dump | safe}});
 }
-
+function cleanTo(){
+return 'profile.html';
+}
 function setNfrState(){
   console.log('setNfrstate');
   document.getElementById('form').setAttribute('action', 'profile?nfr_state')
 }
+function setdateToday(){
+  var today = new Date();
+  var dd = today.getDate();
+  var mm = today.getMonth()+1;
+  var yyyy = today.getFullYear();
+
+  today = dd+'/'+mm+'/'+yyyy;
+
+  console.log('today = ' + today);
+  document.getElementById('dateoftravel').value = today;
+}
+function setdateTomorrow(){
+  var today = new Date();
+  today.setDate(today.getDate() + 1);
+  var dd = today.getDate();
+  var mm = today.getMonth()+1;
+  var yyyy = today.getFullYear();
+
+  today = dd+'/'+mm+'/'+yyyy;
+
+  console.log('tomorrow = ' + today);
+  document.getElementById('dateoftravel').value = today;
+}
+
+
 </script>
 
 <style media="screen">
@@ -28,14 +55,14 @@ function setNfrState(){
   {% include "includes/breadcrumb_move.html" %}
 
   <div class="grid-row">
-    <form action="profile" method="post" class="column-two-thirds" class="form" id="form">
+    <form action='profile' method="post" class="column-two-thirds" class="form" id="form">
 
       <h1 class="heading-large">
         Move information
       </h1>
       <div class="form-group">
         <fieldset>
-          <label class="form-label-bold">From</label>{{data['from']}}</div>
+          <label class="form-label-bold" value="Police Station name">From</label>{{data['from']}}</div>
 
           <label class="form-label-bold" style="margin-bottom:10px">To</label>
           <div class="form-group">
@@ -109,7 +136,7 @@ function setNfrState(){
       </div>
     </div> -->
   </div>
-  <div class="form-group">
+  <div class="form-group" style="margin-bottom:15px !important">
     <label class="form-label-bold" for="dateoftravel">
       Date of travel
       <p class="form-hint">
@@ -119,6 +146,23 @@ function setNfrState(){
     <input class="form-control" id="dateoftravel" type="text" name="dateoftravel" value="{{data['dateoftravel']}}">
   </div>
 </fieldset>
+<div class="form-group">
+  <fieldset class="inline">
+
+    <legend class="visually-hidden"></legend>
+
+    <div class="multiple-choice">
+      <input id="radio-inline-30" type="radio" name="day" value="Today" onclick="setdateToday()"  {{ checked("day", "Today") }}>
+      <label for="radio-inline-30">Today</label>
+    </div>
+
+    <div class="multiple-choice">
+      <input id="radio-inline-31" type="radio" name="day" value="Tomorrow" onclick="setdateTomorrow()" {{ checked("day", "Tomorrow") }} >
+      <label for="radio-inline-31">Tomorrow</label>
+    </div>
+
+  </fieldset>
+</div>
 <!-- question -->
 <h2 class="form-label-bold">
   Is there a reason they should not be released?

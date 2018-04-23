@@ -24,18 +24,22 @@ function loadFunction(){
       </p>
 
       <h2 class="heading-medium">Risk and health questions</h2>
-<p>
-  Click 'set dummy data' before viewing risk and health questions.<br>The page will then reload.<br>(This adds dummy info to the PER and side panel)
-</p>
-      <a class="button" href="/index?pn=01/234567A&from=Police Station name&to=Destination name&surname=Barker&firstname=Ronnie&dateoftravel=DDMMYYYY" role="button" style="background-color:#dee0e2; color:#0b0c0c;">Set dummy data</a>
+      <p>
+        Click 'set dummy data' before viewing risk and health questions.<br>The page will then reload.<br>(This adds dummy info to the PER and side panel)
+      </p>
+      <a class="button" href="/index?pn=01/234567A&from=Police Station name&to=Destination name&surname=Barker&firstname=Ronnie&dateoftravel=DDMMYYYY&offences=incomplete&risk=incomplete role="button" style="background-color:#dee0e2; color:#0b0c0c;">Set dummy questions  data</a>
 
       <ul class="list list-bullet" style="margin-top:20px;">
-        <li><a href="/risk_01">Risk Questions</a></li>
-        <li><a href="/health_02">Healthcare Questions</a></li>
+        <li><a href="/risk_01">Answer risk questions</a></li>
+        <li><a href="/health_02">Answer healthcare questions</a></li>
       </ul>
       <h2 class="heading-medium">Starting a PER</h2>
-      <ul class="list list-bullet">
-        <li><a href="/dashboard_police">Home screen</a></li>
+      <!-- <p>
+        Click 'set dummy start data' before viewing home screen questions.<br>The page will then reload.<br>(This adds dummy info to the PER and side panel)
+      </p>
+      <a class="button" href="/index?nfr=hide&selfharm=hide&escaperisk=hide&cellsharingrisk=hide&offences=incomplete&risk=incomplete" role="button" style="background-color:#dee0e2; color:#0b0c0c;">Set dummy start data</a> -->
+      <ul class="list list-bullet" style="margin-top:20px;">
+        <li><a href="/dashboard_police?from=Police Station name&offences=incomplete&risk=incomplete">Start a PER</a></li>
       </ul>
     </div>
   </div>
