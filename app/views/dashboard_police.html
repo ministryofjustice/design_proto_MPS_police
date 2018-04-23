@@ -17,7 +17,7 @@ function myFunction() {
 <style media="screen">
 .column-data{
   position: relative;
-  left:66px;
+  left:34px;
   display: inline-block;
   min-width: 128px !important;
 }
@@ -45,7 +45,7 @@ function myFunction() {
   text-decoration: none;
 }
 th{
-  font-size: 16px !important;
+  font-size: 19px !important;
   font-weight: bold !important;*/
 }
 .newpanel {
@@ -153,11 +153,33 @@ th{
               <td class="done">Done</td>
               <td class="done">Done</td>
               <td class="done">Done</td>
+              <td class="print change-answer"> <a href="">Print</a></td>
             </tr>
+            <tr>
+              <td class="prisonnumber"><a href="profile.html">01/234567X</a></td>
+              <td><span class="surname">Barker</span> Ronnie<br>
+                <!-- Existing app flow</td> -->
+                <td>Destination name</td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td>
+                  <span class="issued">Printed</span>
+                </td>
+              </tr>
+              <tr>
+                <td class="prisonnumber"><a href="profile.html">01/234567X</a></td>
+                <td><span class="surname">Barker</span> Ronnie<br>
+                  <!-- Existing app flow</td> -->
+                  <td>Destination name</td>
+                <td colspan="4">
+                  <span class="cancelled">Cancelled</span> <span class="disabled">by: Joe Bloggs. Changed to video link.</span>
+                </td>
+              </tr>
 
-          </tbody>
-        </table>
+            </tbody>
+          </table>
 
-      </main>
+        </main>
 
-      {% endblock %}
+        {% endblock %}

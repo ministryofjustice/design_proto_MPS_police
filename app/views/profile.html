@@ -31,7 +31,16 @@ function loadFunction() {
     console.log('risk incomplete')
     document.getElementById('riskincomplete').style = 'display.normal;'
   }
+  //heathcare
+  if ({{data.healthcare | dump | safe}} == "done"){
+    console.log('healthcare done')
+    document.getElementById('healthcaredone').style = 'display.normal;'
+  } else {
+    console.log('healthcare incomplete')
+    document.getElementById('healthcareincomplete').style = 'display.normal;'
+  }
   showOnlyYes('risktable', '1');
+  showOnlyYes('healthcaretable', '1');
 }
 function nfrCheck(){
   console.log('nfrCheck');
@@ -742,7 +751,7 @@ font-weight: bold;
           </table>
         </section>
 
-        <section id="healthdone">
+        <section id="healthcareincomplete" style="display:none">
           <div class="newpanel newpanel_link">
             <span class="heading-medium">Healthcare</span>
             <span style="float:right">
@@ -751,35 +760,130 @@ font-weight: bold;
               <a href="check-your-answers-health-incomplete.html" class="" style="display:inline-block">Edit</a>
             </span>
             <p>
-
             </p>
           </div>
-          <table class="check-your-answers">
+          <p><i>No known healthcare risks</i></p>
+        </section>
+
+        <section id="healthcaredone" style="display:none">
+          <div class="newpanel newpanel_link">
+            <span class="heading-medium">Healthcare</span>
+            <span style="float:right">
+              <span class="status statusReview" style="display:inline-block">Incomplete</span>
+              &nbsp;
+              <a href="check-your-answers-health-incomplete.html" class="" style="display:inline-block">Edit</a>
+            </span>
+            <p>
+              Last confirmed: Joes Bloggs, HH:MM | DD Mon YYYY
+            </p>
+          </div>
+          <table id="healthcaretable">
             <col width="30%">
+            <col width="auto">
             <col width="70%">
-            <!-- <tr>
-            <td>Allergies and intolerances</td>
-            <td>Calcitonin (pork)</td>
-          </tr>
-          <tr>
-          <td>Medical contact</td>
-          <td>01234373138</td>
-        </tr> -->
-      </table>
-      <p><i>No known healthcare risks</i></p>
-    </section>
-    &nbsp;
-    <section style="background-color:white">
-      <!-- <a class="button button-reprint" href="#" role="" >Reprint PER</a> -->
-      <a class="button button-cancel" href="#" role="" >Cancel PER</a>
-      <a href="/dashboard_police">Return to home</a>
-    </section>
+            <tr>
+              <td>
+                Physical health issues
+              </td>
+              <td>
+                {{ data['physical_health'] }}
+              </td>
+              <td>
+                {{ data['physical_health_info'] }}
+              </td>
+            </tr>
 
-  </div>
-  <div class="side-profile column-one-third">
-    {% include "includes/side-profile.html" %}
-  </div>
-</main>
+            <tr>
+              <td>
+                Mental health issues
+              </td>
+              <td>
+                {{ data['mental_health'] }}
+              </td>
+              <td>
+                {{ data['mental_health_info'] }}
+              </td>
+            </tr>
+
+            <tr>
+              <td>
+                Special vehicles
+              </td>
+              <td>
+                {{ data['special_vehicle'] }}
+              </td>
+              <td>
+                {{ data['special_vehicle_info'] }}
+              </td>
+            </tr>
+
+            <tr>
+              <td>
+                Essential medication
+              </td>
+              <td>
+                {{ data['medicine'] }}
+              </td>
+              <td>
+                {{ data['medicine_name'] }} |
+                {{ data['medicine_howgiven'] }} |
+                {{ data['medicine_dosage'] }} |
+                {{ data['medicine_dosagefrequency'] }}
+                {{ data['medicine_carriedby'] }}
+              </td>
+            </tr>
+
+            <tr>
+              <td>
+                Dependencies
+              </td>
+              <td>
+                {{ data['dependencies'] }}
+              </td>
+              <td>
+                {{ data['dependencies_info'] }}
+              </td>
+            </tr>
+
+            <tr>
+              <td>
+                Allergies and intolerances
+              </td>
+              <td>
+                {{ data['allergies'] }}
+              </td>
+              <td>
+                {{ data['allergies_info'] }}
+              </td>
+            </tr>
+
+            <tr>
+              <td>
+                Personal care
+              </td>
+              <td>
+                {{ data['personalcare'] }}
+              </td>
+              <td>
+                {{ data['personalcare_info'] }}
+              </td>
+            </tr>
+
+          </table>
+        </section>
+
+        &nbsp;
+        <section style="background-color:white">
+          <!-- <a class="button button-reprint" href="#" role="" >Reprint PER</a> -->
+          <a class="button button-cancel" href="#" role="" >Cancel PER</a>
+          <a href="/dashboard_police">Return to home</a>
+        </section>
+
+      </div>
+      <div class="side-profile column-one-third">
+        {% include "includes/side-profile.html" %}
+      </div>
+    </main>
 
 
-{% endblock %}
+    {% endblock %}
