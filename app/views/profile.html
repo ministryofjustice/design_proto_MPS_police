@@ -24,7 +24,7 @@ function loadFunction() {
     document.getElementById('offencesincomplete').style = 'display.normal;'
   }
   //risks
-  if ({{data.risk | dump | safe }} == "done"){
+  if ({{data.risk | dump | safe}} == "done"){
     console.log('risk done')
     document.getElementById('riskdone').style = 'display.normal;'
   } else {
@@ -451,7 +451,7 @@ font-weight: bold;
         <div class="newpanel newpanel_link">
           <span class="heading-medium">Risk</span>
           <span style="float:right">
-            <span class="status">Completed</span>
+            <span class="status statusReview">Incomplete</span>
             &nbsp;
             <a href="check-your-answers-risk-incomplete.html" class="reviewLink" style="display:inline-block">Edit</a>
           </span>
