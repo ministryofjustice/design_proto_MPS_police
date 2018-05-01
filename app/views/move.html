@@ -11,7 +11,7 @@ function loadFunction() {
   dataDump({{ data | dump | safe}});
 }
 function cleanTo(){
-return 'profile.html';
+  return 'profile.html';
 }
 function setNfrState(){
   console.log('setNfrstate');
@@ -94,6 +94,20 @@ function setdateTomorrow(){
               </div>
             </div>
 
+            <div class="multiple-choice" data-target="court-civil-info">
+              <input id="radio-part-4" type="radio" name="destination" value="Civil Court" {{ checked("destination", "Civil Court") }}>
+              <label for="radio-part-4">Civil Court</label>
+            </div>
+            <!-- details !-->
+            <div class="panel panel-border-narrow js-hidden" id="court-civil-info">
+              <div class="form-group">
+                <label class="form-label" for="input-civil-name">
+                  Enter name of Civil Court
+                </label>
+                <input class="form-control" id="civil-name" type="text" name="to" value="{{data['to']}}">
+              </div>
+            </div>
+
             <div class="multiple-choice" data-target="prison-info">
               <input id="radio-part-3" type="radio" name="destination" value="Prison Transfer" {{ checked("destination", "Prison Transfer") }}>
               <label for="radio-part-3">Prison</label>
@@ -108,18 +122,46 @@ function setdateTomorrow(){
               </div>
             </div>
 
-
-            <div class="multiple-choice" data-target="court-civil-info">
-              <input id="radio-part-4" type="radio" name="destination" value="Civil Court" {{ checked("destination", "Civil Court") }}>
-              <label for="radio-part-4">Civil Court</label>
+            <div class="multiple-choice" data-target="immigration-info">
+              <input id="radio-part-5" type="radio" name="destination" value="immigration" {{ checked("destination", "immigration") }}>
+              <label for="radio-part-5">Immigration center</label>
             </div>
             <!-- details !-->
-            <div class="panel panel-border-narrow js-hidden" id="court-civil-info">
+            <div class="panel panel-border-narrow js-hidden" id="immigration-info">
               <div class="form-group">
-                <label class="form-label" for="input-civil-name">
-                  Enter name of Civil Court
+                <label class="form-label" for="immigration-name">
+                  Enter name of Immigration center
                 </label>
-                <input class="form-control" id="civil-name" type="text" name="to" value="{{data['to']}}">
+                <input class="form-control" id="immigration-name" type="text" name="to" value="{{data['to']}}">
+              </div>
+            </div>
+
+            <div class="multiple-choice" data-target="force-info">
+              <input id="radio-part-6" type="radio" name="destination" value="force" {{ checked("destination", "force") }}>
+              <label for="radio-part-6">Another Police force</label>
+            </div>
+            <!-- details !-->
+            <div class="panel panel-border-narrow js-hidden" id="force-info">
+              <div class="form-group">
+                <label class="form-label" for="force-name">
+                  Enter name of Police force
+                </label>
+                <input class="form-control" id="force-name" type="text" name="to" value="{{data['to']}}">
+              </div>
+            </div>
+
+
+            <div class="multiple-choice" data-target="other-info">
+              <input id="radio-part-7" type="radio" name="destination" value="other" {{ checked("destination", "other") }}>
+              <label for="radio-part-7">Other destination</label>
+            </div>
+            <!-- details !-->
+            <div class="panel panel-border-narrow js-hidden" id="other-info">
+              <div class="form-group">
+                <label class="form-label" for="other-name">
+                  Enter name of destination
+                </label>
+                <input class="form-control" id="other-name" type="text" name="to" value="{{data['to']}}">
               </div>
             </div>
 
@@ -167,9 +209,7 @@ function setdateTomorrow(){
 <h2 class="form-label-bold">
   Is there a reason they should not be released?
 </h2>
-<p class="form-hint">
-  In NOMIS, check the header section of the prisoner’s record for the Not For Release alert.
-</p>
+
 <div class="form-group">
   <fieldset class="inline">
 

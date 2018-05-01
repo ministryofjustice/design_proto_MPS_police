@@ -121,10 +121,10 @@ function loadFunction() {
       <input class="form-control" id="cro" type="text" name="cro" value={{data['cro']}}>
     </div>
     <div class="form-group">
-      <label class="form-label-bold" for="alias">
+      <label class="form-label-bold" for="textarea">
         Aliases
       </label>
-      <input class="form-control" id="alias" type="text-area" name="alias" value="{{data['alias']}}">
+      <textarea class="form-control form-control-3-4" name="alias" id="textarea" rows="5" value="{{data['alias']}}"></textarea>
     </div>
     <!-- <div class="form-group">
     <label class="form-label-bold" for="datedummy">
@@ -139,7 +139,7 @@ function loadFunction() {
   <input class="form-control" id="language" type="text-area" name="language" value="{{data['language']}}">
 </div>
 <div class="form-group">
-  <fieldset class="inline">
+  <fieldset class=>
     <legend>
       <label class="form-label-bold">
         Do they require an interpreter?
