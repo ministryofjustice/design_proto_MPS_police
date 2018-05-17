@@ -150,10 +150,24 @@ function setdateTomorrow(){
               </div>
             </div>
 
+            <div class="multiple-choice" data-target="hospital-info">
+              <input id="radio-part-7" type="radio" name="destination" value="hospital" {{ checked("destination", "hospital") }}>
+              <label for="radio-part-7">Hospital</label>
+            </div>
+            <!-- details !-->
+            <div class="panel panel-border-narrow js-hidden" id="hospital-info">
+              <div class="form-group">
+                <label class="form-label" for="hospital-name">
+                  Enter name of hospital
+                </label>
+                <input class="form-control" id="hospital-name" type="text" name="to" value="{{data['to']}}">
+              </div>
+            </div>
+
 
             <div class="multiple-choice" data-target="other-info">
-              <input id="radio-part-7" type="radio" name="destination" value="other" {{ checked("destination", "other") }}>
-              <label for="radio-part-7">Other destination</label>
+              <input id="radio-part-8" type="radio" name="destination" value="other" {{ checked("destination", "other") }}>
+              <label for="radio-part-8">Other destination</label>
             </div>
             <!-- details !-->
             <div class="panel panel-border-narrow js-hidden" id="other-info">
@@ -185,26 +199,27 @@ function setdateTomorrow(){
         DD/MM/YYYY
       </p>
     </label>
+    <div class="form-group">
+      <fieldset class="inline" style="margin-bottom:20px">
+
+        <legend class="visually-hidden"></legend>
+
+        <div class="multiple-choice">
+          <input id="radio-inline-30" type="radio" name="day" value="Today" onclick="setdateToday()"  {{ checked("day", "Today") }}>
+          <label for="radio-inline-30">Today</label>
+        </div>
+
+        <div class="multiple-choice">
+          <input id="radio-inline-31" type="radio" name="day" value="Tomorrow" onclick="setdateTomorrow()" {{ checked("day", "Tomorrow") }} >
+          <label for="radio-inline-31">Tomorrow</label>
+        </div>
+
+      </fieldset>
     <input class="form-control" id="dateoftravel" type="text" name="dateoftravel" value="{{data['dateoftravel']}}">
+    </div>
   </div>
 </fieldset>
-<div class="form-group">
-  <fieldset class="inline">
 
-    <legend class="visually-hidden"></legend>
-
-    <div class="multiple-choice">
-      <input id="radio-inline-30" type="radio" name="day" value="Today" onclick="setdateToday()"  {{ checked("day", "Today") }}>
-      <label for="radio-inline-30">Today</label>
-    </div>
-
-    <div class="multiple-choice">
-      <input id="radio-inline-31" type="radio" name="day" value="Tomorrow" onclick="setdateTomorrow()" {{ checked("day", "Tomorrow") }} >
-      <label for="radio-inline-31">Tomorrow</label>
-    </div>
-
-  </fieldset>
-</div>
 <!-- question -->
 <h2 class="form-label-bold">
   Is there a reason they should not be released?
