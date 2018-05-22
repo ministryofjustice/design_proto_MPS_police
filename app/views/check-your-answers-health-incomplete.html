@@ -121,7 +121,7 @@ table th{
                         {{ data['medicine_name'] }} |
                         {{ data['medicine_howgiven'] }} |
                         {{ data['medicine_dosage'] }} |
-                        {{ data['medicine_dosagefrequency'] }} | 
+                        {{ data['medicine_dosagefrequency'] }} |
                         {{ data['medicine_carriedby'] }}
                       </td>
                     </tr>
@@ -182,21 +182,43 @@ table th{
                                     {{ data['personalcare_info'] }}
                                   </td>
                                 </tr>
+                              </tbody>
 
-                                </table>
+                              <th>Custody contact details</th>
+                              <th></th>
+                              <th class="change-answer">
+                                <a href="health_09.html">
+                                  Change <span class="visuallyhidden">change question 13</span>
+                                </th>
+                                <tbody>
+                                  <tr>
+                                    <td>
+                                      Custody contact details
+                                    </td>
+                                    <td id="ignor">
+                                    </td>
+                                    <td>
+                                      {{ data['contact_details'] }}
+                                    </td>
+                                  </tr>
 
-                                <div class="side-profile column-one-third">
-                                  {% include "includes/side-profile.html" %}
-                                </div>
+                                </tbody>
 
-                                <div class="column-two-thirds" style="padding:50px 0px">
-                                  <a href="profile" class="button">View PER</a>
-                                  <a href="index" class="linkstylebutton">Return to home</a>
-                                </div>
+                              </table>
 
+
+                              <div class="side-profile column-one-third">
+                                {% include "includes/side-profile.html" %}
                               </div>
 
+                              <div class="column-two-thirds" style="padding:50px 0px">
+                                <a href="profile" class="button">View PER</a>
+                                <a href="index" class="linkstylebutton">Return to home</a>
+                              </div>
 
-                            </main>
+                            </div>
 
-                            {% endblock %}
+
+                          </main>
+
+                          {% endblock %}

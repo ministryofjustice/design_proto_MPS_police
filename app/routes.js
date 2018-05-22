@@ -32,12 +32,12 @@ router.get('/', function (req, res) {
     } ;
   res.render('index', { data });
 })
-router.get('/health_09', function (req, res) {
-  var data = {
-      contact_details: '0123456789'
-    } ;
-  res.render('health_09', { data });
-})
+// router.get('/health_09', function (req, res) {
+//   var data = {
+//       contact_details: '0123456789'
+//     } ;
+//   res.render('health_09', { data });
+// })
 // add your routes here
 
 // router.get('/dashboard_automation', function (req, res) {

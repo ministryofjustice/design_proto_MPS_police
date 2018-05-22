@@ -169,23 +169,44 @@ table th{
                                 </td>
                               </tr>
 
-                            </table>
 
-                            <div class="side-profile column-one-third">
-                              {% include "includes/side-profile.html" %}
-                            </div>
+                              <th>Custody contact details</th>
+                              <th></th>
+                              <th class="change-answer">
+                                <a href="health_09.html">
+                                  Change <span class="visuallyhidden">change question 13</span>
+                                </th>
+                                <tbody>
+                                  <tr>
+                                    <td>
+                                      Custody contact details
+                                    </td>
+                                    <td>
+                                    </td>
+                                    <td>
+                                      {{ data['contact_details'] }}
+                                    </td>
+                                  </tr>
 
-                            <div style="background-color:rgba(255, 191, 71, 0.3); padding:20px; margin: 60px 0px; border:1px solid rgba(255, 191, 71, 1);" class="column-two-thirds">
-                              <p style="font-weight:bold;">
-                                Click 'confirm and save' to confirm that, to the best of your knowledge all information in this section is correct.
-                              </p>
+                                </tbody>
 
-                              <div class="">
-                                <a href="profile?healthcare=done" class="button">Confirm and save</a>
+                              </table>
+
+                              <div class="side-profile column-one-third">
+                                {% include "includes/side-profile.html" %}
                               </div>
-                            </div>
+
+                              <div style="background-color:rgba(255, 191, 71, 0.3); padding:20px; margin: 60px 0px; border:1px solid rgba(255, 191, 71, 1);" class="column-two-thirds">
+                                <p style="font-weight:bold;">
+                                  Click 'confirm and save' to confirm that, to the best of your knowledge all information in this section is correct.
+                                </p>
+
+                                <div class="">
+                                  <a href="profile?healthcare=done" class="button">Confirm and save</a>
+                                </div>
+                              </div>
 
 
-                          </main>
+                            </main>
 
-                          {% endblock %}
+                            {% endblock %}
