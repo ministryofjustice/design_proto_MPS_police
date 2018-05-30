@@ -27,9 +27,7 @@ function getDate(){
 // Route index page
 router.get('/', function (req, res) {
   var data = {
-      pn: 'Andy',
-      lastName: 'Neale'
-    } ;
+  } ;
   res.render('index', { data });
 })
 // router.get('/health_09', function (req, res) {
@@ -44,6 +42,15 @@ router.get('/', function (req, res) {
 //   var test = getDate();
 //   req.session.data.test = test;
 //   res.render('dashboard_automation', { 'date': test} );
+// })
+
+// router.get('/dashboard_police_empty', function (req, res) {
+//   var date = getDate();
+//   //  req.session.data.test = test;
+//   var data = {
+//     dateoftravel: date
+//   } ;
+//   res.render('dashboard_police_empty', { data });
 // })
 
 // Passing data into a page

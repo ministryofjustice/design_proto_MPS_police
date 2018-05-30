@@ -9,6 +9,7 @@ Index MPS
 window.addEventListener("load", loadFunction);
 function loadFunction(){
   dataDump({{ data | dump | safe}});
+  var date = getDate();
 }
 </script>
 
@@ -39,7 +40,7 @@ function loadFunction(){
       </p>
       <a class="button" href="/index?nfr=hide&selfharm=hide&escaperisk=hide&cellsharingrisk=hide&offences=incomplete&risk=incomplete" role="button" style="background-color:#dee0e2; color:#0b0c0c;">Set dummy start data</a> -->
       <ul class="list list-bullet" style="margin-top:20px;">
-        <li><a href="/wheredoyouwork?offences=incomplete&risk=incomplete&healthcare=incomplete">Start a PER</a></li>
+        <li><a href="/wheredoyouwork?offences=incomplete&risk=incomplete&healthcare=incomplete&dateoftravel=29/05/2018">Start a PER</a></li>
       </ul>
     </div>
   </div>

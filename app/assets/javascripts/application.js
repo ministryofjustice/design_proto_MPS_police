@@ -33,6 +33,30 @@ function getDate(){
   return today;
 }
 
+function setdateToday(){
+  var today = new Date();
+  var dd = today.getDate();
+  var mm = today.getMonth()+1;
+  var yyyy = today.getFullYear();
+
+  today = dd+'/'+mm+'/'+yyyy;
+
+  console.log('today = ' + today);
+  document.getElementById('dateoftravel').value = today;
+}
+function setdateTomorrow(){
+  var today = new Date();
+  today.setDate(today.getDate() + 1);
+  var dd = today.getDate();
+  var mm = today.getMonth()+1;
+  var yyyy = today.getFullYear();
+
+  today = dd+'/'+mm+'/'+yyyy;
+
+  console.log('tomorrow = ' + today);
+  document.getElementById('dateoftravel').value = today;
+}
+
 function dataDump(data) {
   console.log(Object.entries(data));
 }

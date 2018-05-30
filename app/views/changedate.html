@@ -1,0 +1,62 @@
+{% extends "layout.html" %}
+
+{% block page_title %}
+GOV.UK prototype kit
+{% endblock %}
+
+{% block content %}
+
+<script type="text/javascript">
+window.addEventListener("load", myFunction);
+function myFunction() {
+  dataDump({{ data | dump | safe}});
+}
+</script>
+
+<main id="content">
+
+  <div class="grid-row">
+    <div class="column-two-thirds">
+      <form action="dashboard_police_empty" method="post" class="form">
+
+        <h1 class="heading-large">
+          Set date to view moves
+        </h1>
+
+        <div class="form-group" style="margin-bottom:15px !important">
+          <label class="form-label-bold" for="dateoftravel">
+            Date of travel
+            <p class="form-hint">
+              DD/MM/YYYY
+            </p>
+          </label>
+          <div class="form-group">
+            <fieldset class="inline" style="margin-bottom:20px">
+
+              <legend class="visually-hidden"></legend>
+
+              <div class="multiple-choice">
+                <input id="radio-inline-30" type="radio" name="day" value="Today" onclick="setdateToday()"  {{ checked("day", "Today") }}>
+                <label for="radio-inline-30">Today</label>
+              </div>
+
+              <div class="multiple-choice">
+                <input id="radio-inline-31" type="radio" name="day" value="Tomorrow" onclick="setdateTomorrow()" {{ checked("day", "Tomorrow") }} >
+                <label for="radio-inline-31">Tomorrow</label>
+              </div>
+
+            </fieldset>
+            <input class="form-control" id="dateoftravel" type="text" name="dateoftravel" value="{{data['dateoftravel']}}">
+          </div>
+        </div>
+      </fieldset>
+
+      <input class="button" type="submit" value="Save and continue">
+
+    </form>
+  </div>
+</div>
+
+</main>
+
+{% endblock %}

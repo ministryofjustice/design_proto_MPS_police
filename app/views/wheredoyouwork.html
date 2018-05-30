@@ -5,6 +5,13 @@ GOV.UK prototype kit
 {% endblock %}
 
 {% block content %}
+<script type="text/javascript">
+window.addEventListener("load", loadFunction);
+function loadFunction(){
+  dataDump({{ data | dump | safe}});
+  var date = getDate();
+}
+</script>
 
 <main id="content">
 

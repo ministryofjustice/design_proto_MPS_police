@@ -9,8 +9,8 @@ Dashboard police
 window.addEventListener("load", myFunction);
 function myFunction() {
   dataDump({{ data | dump | safe}});
-  var date = getDate();
-  document.getElementById('date').innerHTML = date;
+  // var date = getDate();
+  // document.getElementById('date').innerHTML = date;
 }
 </script>
 
@@ -63,16 +63,18 @@ th{
 
 <main id="content" role="main">
   {% include "includes/phase_banner_alpha.html" %}
-  <h1 class="heading-xlarge" style="margin-bottom:40px;"><span class="heading-secondary">PERs from</span>{{data.from}}
-    <a class="button button-start" href="search" role="button" style="margin-left:20px">Start a PER</a></h1>
-    <!-- <hr style="margin:30px 0px 20px;"> -->
+  <h1 class="heading-xlarge" style="margin:30px 0px 0px 0px"><span class="heading-secondary">PERs from</span>{{data.from}}&nbsp;&nbsp;
+    <a class="button button-start" href="search" role="button" >Start a PER</a></h1>
+
+    <a class="button" href="/wheredoyouwork" role="button" style="background-color:#dee0e2; color:#0b0c0c; margin: 5px 0px 30px; font-size:16px">Change location</a>
+
     <div class="newpanel">
-      <div class="">
-        <span class="heading-secondary" style="">Moves due on</span>
+      <div>
+        <span class="heading-secondary">Moves due on</span>
       </div>
       <div class="data column-one-quarter" style="margin-left:-15px !important;">
 
-        <span id="date" class="data-item bold-large"></span>
+        <span id="date" class="data-item bold-large" value="{{data.dateoftravel}}">{{data.dateoftravel}}</span>
         <a class="button" href="" role="button" style="background-color:#dee0e2; color:#0b0c0c; margin-top:5px; font-size:16px">Change date</a></h1>
       </div>
       <div class="data column-one-quarter">
@@ -172,14 +174,14 @@ th{
                 <td><span class="surname">Barker</span> Ronnie<br>
                   <!-- Existing app flow</td> -->
                   <td>Destination name</td>
-                <td colspan="4">
-                  <span class="cancelled">Cancelled</span> <span class="disabled">by: Joe Bloggs. Changed to video link.</span>
-                </td>
-              </tr>
+                  <td colspan="4">
+                    <span class="cancelled">Cancelled</span> <span class="disabled">by: Joe Bloggs. Changed to video link.</span>
+                  </td>
+                </tr>
 
-            </tbody>
-          </table>
+              </tbody>
+            </table>
 
-        </main>
+          </main>
 
-        {% endblock %}
+          {% endblock %}
