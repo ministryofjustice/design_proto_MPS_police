@@ -11,6 +11,14 @@ function loadFunction(){
   dataDump({{ data | dump | safe}});
   var date = getDate();
 }
+
+function goToPage(){
+  var date = getDate();
+  var href = "/wheredoyouwork?offences=incomplete&risk=incomplete&healthcare=incomplete&dateoftravel=" + date;
+
+  window.location.href = href;
+  return false;
+}
 </script>
 
 <main id="content" role="main">
@@ -35,12 +43,13 @@ function loadFunction(){
         <li><a href="/health_02">Answer healthcare questions</a></li>
       </ul>
       <h2 class="heading-medium">Starting a PER</h2>
-      <!-- <p>
-        Click 'set dummy start data' before viewing home screen questions.<br>The page will then reload.<br>(This adds dummy info to the PER and side panel)
-      </p>
-      <a class="button" href="/index?nfr=hide&selfharm=hide&escaperisk=hide&cellsharingrisk=hide&offences=incomplete&risk=incomplete" role="button" style="background-color:#dee0e2; color:#0b0c0c;">Set dummy start data</a> -->
       <ul class="list list-bullet" style="margin-top:20px;">
-        <li><a href="/wheredoyouwork?offences=incomplete&risk=incomplete&healthcare=incomplete&dateoftravel=29/05/2018">Start a PER</a></li>
+        <li><a onclick="goToPage();" href="#">Start a PER</a></li>
+      </ul>
+      <h2 class="heading-medium">Police dashboards</h2>
+      <ul class="list list-bullet" style="margin-top:20px;">
+        <li><a href="/dashboard_police">Dashboard with moves and user types</a></li>
+        <li><a href="/dashboard_police_empty">Dashboard with no moves</a></li>
       </ul>
     </div>
   </div>

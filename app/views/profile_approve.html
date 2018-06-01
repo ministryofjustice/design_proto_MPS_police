@@ -1,0 +1,910 @@
+{% extends "layout.html" %}
+
+{% block page_title %}
+Check your answers
+{% endblock %}
+
+{% block content %}
+<script type="text/javascript">
+window.addEventListener("load", loadFunction);
+function loadFunction() {
+  dataDump({{ data | dump | safe}});
+  // document.getElementById('date').innerHTML = getDate();
+  document.getElementById('content').style = 'display:normal;'
+  nfrCheck();
+  selfharmCheck();
+  escaperiskCheck();
+  cellsharingriskCheck();
+  //offences
+  if ({{data.offences | dump | safe }} == "done"){
+    console.log('offences done')
+    document.getElementById('offencesdone').style = 'display.normal;'
+  } else {
+    console.log('offences incomplete')
+    document.getElementById('offencesincomplete').style = 'display.normal;'
+  }
+  //risks
+  if ({{data.risk | dump | safe}} == "done"){
+    console.log('risk done')
+    document.getElementById('riskdone').style = 'display.normal;'
+  } else {
+    console.log('risk incomplete')
+    document.getElementById('riskincomplete').style = 'display.normal;'
+  }
+  //heathcare
+  if ({{data.healthcare | dump | safe}} == "done"){
+    console.log('healthcare done')
+    document.getElementById('healthcaredone').style = 'display.normal;'
+  } else {
+    console.log('healthcare incomplete')
+    document.getElementById('healthcareincomplete').style = 'display.normal;'
+  }
+  showOnlyYes('risktable', '1');
+  showOnlyYes('healthcaretable', '1');
+}
+function nfrCheck(){
+  console.log('nfrCheck');
+  if({{data.nfr == 'No'}}){
+    document.getElementById('nfr').innerHTML = 'No known risk';
+    document.getElementById('notforreleaseno').style = 'display.normal;'
+  }
+  if({{data.nfr == 'Yes'}}){
+    document.getElementById('notforreleaseyes').style = 'display.normal;'
+  }
+}
+function selfharmCheck(){
+  console.log('selfharmCheck');
+  if({{data.selfharm == 'No'}}){
+    document.getElementById('selfharmno').style = 'display.normal;'
+  }
+  if({{data.selfharm == 'Yes'}}){
+    document.getElementById('selfharmyes').style = 'display.normal;'
+  }
+}
+function escaperiskCheck(){
+  console.log('escaperiskCheck');
+  if({{data.escape_attempts == 'No'}}){
+    document.getElementById('escaperiskno').style = 'display.normal;'
+  }
+  if({{data.escape_attempts == 'Yes'}}){
+    document.getElementById('escaperiskyes').style = 'display.normal;'
+  }
+}
+//cellsharingrisk
+function cellsharingriskCheck(){
+  console.log('cellsharingriskCheck');
+  if({{data.csra == 'No'}}){
+    document.getElementById('cellsharingriskno').style = 'display.normal;'
+  }
+  if({{data.csra == 'Yes'}}){
+    document.getElementById('cellsharingriskyes').style = 'display.normal;'
+  }
+}
+
+// risk answers
+// function selfharmtrCheck(){
+//   if({{data.selfharm == 'Yes'}}){
+//     document.getElementById('selfharm').style = 'display.normal;'
+//   }
+// }
+
+</script>
+<style media="screen">
+section{
+  margin-bottom:20px;
+  /*background-color: #DEE0E2;*/
+  /*margin-top: 40px*/
+}
+.column-two-thirds{
+  padding: 0px 0px;
+  width: 75%;
+}
+
+.panel .heading-medium{
+  margin: 0px 0px;
+}
+.panel p{
+  font-size: 16px;
+  margin: 5px 0px;
+}
+.amend_link{
+  position: absolute;
+  right: 20px;
+  top: 10px;
+}
+.data_container{
+  width: 66%;
+  display: inline-block;
+}
+.tile {
+  vertical-align: top;
+  box-sizing:border-box;
+  /*float: left;*/
+  display:inline-block;
+  padding:10px 0px 15px 0px;
+}
+.tile h6{
+  font-size: 16px;
+}
+.tile p{
+  font-weight: bold;
+  font-size: 19px;
+  margin: 0px 0px;
+}
+.col-3{
+  width: 32%;
+}
+.col-4{
+  width: 32%;
+}
+.col-8{
+  width: 15.5%;
+}
+.col-full{
+  width: 95%;
+}
+.col-clear{
+  clear:both;
+}
+.alert{
+  box-sizing: border-box;;
+  float: left;
+  margin: 0px 5px 10px 0px;
+  font-weight: bold;;
+}
+
+.unbold{
+  font-weight:100;
+}
+
+.check-your-answers tr:last-child td {
+  border:0 ;
+}
+.newpanel {
+  border-top: solid 3px #0B0C0C;
+  border-bottom: solid 1px #0B0C0C;
+  padding: 15px 10px 0px 0px;
+  margin-bottom: 0px;
+  margin-top: 40px;
+  background-color: white;
+}
+.newpanel_link:hover {
+  background-color: #FFFFD4;
+  cursor: pointer;
+}
+.newpanel p {
+  margin: 0px 0px 15px;
+  font-size: 16px;
+}
+.newpanel .heading-medium{
+  font-size: 28px;
+  /*font-weight:500;*/
+}
+.status{
+  color: green;
+  border-color: green;
+}
+.statusReview{
+  color: #B10E1E;
+  border-color: #B10E1E;
+}
+.reviewLink{
+  color: #B10E1E;
+}
+td:nth-child(3){
+  font-weight: bold;
+}
+/*.check-your-answers td:first-child + td {
+font-weight: bold;
+}*/
+
+</style>
+<main id="content" role="main" style="">
+  {% include "includes/breadcrumb_profile.html" %}
+  <p id="testp">
+  </p>
+  <!-- {% include "includes/breadcrumb_profile.html" %} -->
+  <h2 class="heading-large">{{data['pn']}}: {{data['surname']}} <span class="unbold">{{data['firstname']}}</span></h2>
+  <div class="column-two-thirds">
+    <!-- notforrelease -->
+    <li class="flag" id="notforreleaseyes" style="display:none;">Not for release</li>
+    <li class="flag flag-inactive" id="notforreleaseno" style="display:none;">Not for release</li>
+    <!-- selfharm -->
+    <li class="flag" id="selfharmyes" style="display:none;">Suicide / Self harm</li>
+    <li class="flag flag-inactive" id="selfharmno" style="display:none;">Suicide / Self harm</li>
+    <!-- escaperisk -->
+    <li class="flag" id="escaperiskyes" style="display:none;">Escape risk</li>
+    <li class="flag flag-inactive" id="escaperiskno" style="display:none;">Escape risk</li>
+    <!-- cellsharingrisk -->
+    <li class="flag" id="cellsharingriskyes" style="display:none;">Cell sharing risk</li>
+    <li class="flag flag-inactive" id="cellsharingriskno" style="display:none;">Cell sharing risk</li>
+    <section>
+      <div class="newpanel newpanel_link">
+        <span class="heading-medium">Move information</span>
+        <span style="float:right">
+          <!-- <span class="status" style="display:inline-block">Completed</span> -->
+          &nbsp;
+          <a href="move.html" class="" style="display:inline-block">Edit</a>
+        </span>
+        <p>
+          Last confirmed: Joes Bloggs, HH:MM | DD Mon YYYY
+        </p>
+      </div>
+      <div class="tile col-3">
+        <h6>
+          Date of travel
+        </h6>
+        <p>
+          {{data.dateoftravel}}
+        </p>
+      </div>
+      <div class="tile col-3">
+        <h6>
+          From
+        </h6>
+        <p>
+          {{data.from}}
+        </p>
+      </div>
+      <div class="tile col-3">
+        <h6>
+          To
+        </h6>
+        <p>
+          Destination name
+          <!-- {{data.to}} -->
+        </p>
+      </div>
+      <div class="tile col-3">
+        <h6>
+          Release status
+        </h6>
+        <p id="nfr">
+          <!-- <span id="yesno" style="display:none;">{{ data['nfr'] }}</span> -->
+          <span>{{ data['nfr_state'] }}</span>
+          <!-- <br> {{ data['nfrDisplay'] }} -->
+        </p>
+      </div>
+    </section>
+
+    <section>
+      <div class="newpanel newpanel_link">
+        <span class="heading-medium">Personal details</span>
+        <span style="float:right">
+          <!-- <span class="status" style="display:inline-block">Completed</span>
+          &nbsp; -->
+          <a href="detainee_info.html" class="" style="display:inline-block">Edit</a>
+        </span>
+        <p>
+          Last confirmed: Joes Bloggs, HH:MM | DD Mon YYYY
+        </p>
+      </div>
+      <div class="data_container">
+        <div class="tile col-4">
+          <h6>
+            Prison Number
+          </h6>
+          <p>
+            n/a
+          </p>
+        </div>
+        <div class="tile col-4">
+          <h6>
+            CRO number
+          </h6>
+          <p>
+            {{data['cro']}}
+          </p>
+        </div>
+        <div class="tile col-4">
+          <h6>
+            PNC Number
+          </h6>
+          <p>
+            {{data['pn']}}
+          </p>
+        </div>
+        <div class="tile col-4">
+          <h6>
+            Date of birth
+          </h6>
+          <p>
+            {{data['dob']}}
+          </p>
+        </div>
+        <div class="tile col-8">
+          <h6>
+            Age
+          </h6>
+          <p>
+            53
+          </p>
+        </div>
+        <div class="tile col-8">
+          <h6>
+            Sex
+          </h6>
+          <p>
+            {{data['gender']}}
+          </p>
+        </div>
+        <div class="tile col-4">
+          <h6>
+            Category
+          </h6>
+          <p>
+            n/a
+          </p>
+        </div>
+        <!-- <div class="tile col-4"></div> -->
+        <div class="tile col-4">
+          <h6>
+            Nationality
+          </h6>
+          <p>
+            {{data['nationality']}}
+          </p>
+        </div>
+        <div class="tile col-4">
+          <h6>
+            Religion
+          </h6>
+          <p>
+            {{data['religion']}}
+          </p>
+        </div>
+        <div class="tile col-4">
+          <h6>
+            Ethnicity
+          </h6>
+          <p>
+            {{data['ethnicity']}}
+          </p>
+        </div>
+        <div class="tile col-4">
+          <h6>
+            Preferred language
+          </h6>
+          <p>
+            {{data['language']}}
+          </p>
+        </div>
+        <div class="tile col-4">
+          <h6>
+            Interpreter
+          </h6>
+          <p>
+            Not required
+          </p>
+        </div>
+        <div class="tile col-full">
+          <h6>
+            Diet
+          </h6>
+          <p>
+            {{data['diet']}}
+          </p>
+        </div>
+        <div class="tile col-full">
+          <h6>
+            Personal Emergency Evacuation Plan
+          </h6>
+          <p>
+            n/a
+          </p>
+        </div>
+      </div>
+      <div class="tile col-4">
+        <h6>
+          Aliases
+        </h6>
+        <p>
+          {{data['alias']}}
+        </p>
+      </div>
+    </section>
+
+    <section id="offencesincomplete" style="display:none;">
+      <div class="newpanel newpanel_link">
+        <span class="heading-medium">Offences</span>
+        <span style="float:right">
+          <span class="status statusReview" style="display:inline-block">Incomplete</span>
+          &nbsp;
+          <a href="/offences" class="" style="display:inline-block">Edit</a>
+        </span>
+        <p></p>
+      </div>
+
+      <p><i>No known offences</i></p>
+
+    </section>
+
+    <section id="offencesdone" style="display:none;">
+      <div class="newpanel newpanel_link">
+        <span class="heading-medium">Offences</span>
+        <span style="float:right">
+          <span class="status" style="display:inline-block">Completed</span>
+          &nbsp;
+          <a href="/offences" class="" style="display:inline-block">Edit</a>
+        </span>
+        <p>
+          Last confirmed: Joes Bloggs, HH:MM | DD Mon YYYY
+        </p>
+      </div>
+      <table class="check-your-answers">
+        <col width="30%">
+        <col width="70%">
+        <tr>
+          <td>Current Offences</td>
+          <td class="answer">
+            <p>{{data['offencename']}} <span class="casenum"><br>({{data['offencenumber']}})</span></p>
+          </tr>
+        </table>
+      </section>
+
+      <section id="riskincomplete" style="display:none;">
+        <div class="newpanel newpanel_link">
+          <span class="heading-medium">Risk</span>
+          <span style="float:right">
+            <span class="status statusReview">Incomplete</span>
+            &nbsp;
+            <a href="risk_01.html" class="reviewLink" style="display:inline-block">Edit</a>
+          </span>
+          <p>
+          </p>
+        </div>
+        <p><i>No known risks</i></p>
+      </section>
+
+      <section id="riskdone" style="display:none;">
+        <div class="newpanel newpanel_link">
+          <span class="heading-medium">Risk</span>
+          <span style="float:right">
+            <span class="status statusReview">Incomplete</span>
+            &nbsp;
+            <a href="check-your-answers-risk-incomplete.html" class="reviewLink" style="display:inline-block">Edit</a>
+          </span>
+          <p>
+            Last confirmed: Joes Bloggs, HH:MM | DD Mon YYYY
+          </p>
+        </div>
+        <table id="risktable">
+          <col width="30%">
+          <col width="auto">
+          <col width="70%">
+          <tr id="" >
+            <td>
+              Suicide or self harm risk
+            </td>
+            <td>
+              {{ data['selfharm'] }}
+            </td>
+            <td>
+              {{ data['selfharm_info'] }}
+            </td>
+          </tr>
+
+          <tr>
+            <td>
+              Cell sharing risk
+            </td>
+            <td>
+              {{ data['csra'] }}
+            </td>
+            <td>
+              {{ data['csra'] }}
+            </td>
+          </tr>
+
+          <tr>
+            <td>Vulnerable prisoner</td>
+            <td>{{data['vulnerable']}}</td>
+            <td>{{data['vulnerable_info']}}</td>
+          </tr>
+
+          <tr>
+            <td>
+              Multiple officer unlock/escort
+            </td>
+            <td>
+              {{ data['controlledunlock'] }}
+            </td>
+            <td>
+              {{ data['controlledunlock_info'] }}
+            </td>
+          </tr>
+
+          <tr>
+            <td>
+              High public interest
+            </td>
+            <td>
+              {{ data['publicInterest'] }}
+            </td>
+            <td>
+              {{ data["publicInterest_info"] }}
+            </td>
+          </tr>
+
+          <tr>
+            <td>PNC warnings</td>
+            <td>
+              {{ data['pnc'] }}
+            </td>
+            <td>{{data['pnc_info'] }}</td>
+          </tr>
+
+          <tr>
+            <td>
+              Violent or dangerous
+            </td>
+            <td>
+              {{ data['violent_dangerous'] }}
+            </td>
+            <td>
+              {{ data['violent_dangerous_info'] }}
+            </td>
+          </tr>
+
+          <tr>
+            <td>
+              Public harasser
+            </td>
+            <td>
+              {{ data['intimidator_public'] }}
+            </td>
+            <td>
+              {{ data['intimidator_public_info'] }}
+            </td>
+          </tr>
+
+          <tr>
+            <td>Gang member</td>
+            <td>{{ data['gangs'] }}</td>
+            <td>{{ data['gangs_info'] }}</td>
+          </tr>
+
+          <tr>
+            <td>
+              Violent to staff
+            </td>
+            <td>
+              {{ data['violent_to_staff'] }}
+            </td>
+            <td>
+              {{ data['violent_to_staff_info'] }}
+            </td>
+          </tr>
+
+          <tr>
+            <td>
+              Risk to females
+            </td>
+            <td>
+              {{ data['risktofemales'] }}
+            </td>
+            <td>
+              {{ data['risktofemales_info'] }}
+            </td>
+          </tr>
+          <tr>
+            <td>
+              Risk to LGBT people
+            </td>
+            <td>
+              {{ data['homosexuals'] }}
+            </td>
+            <td>
+              {{ data['homosexuals_info'] }}
+            </td>
+          </tr>
+          <tr>
+            <td>
+              Racist
+            </td>
+            <td>
+              {{ data['racist'] }}
+            </td>
+            <td>
+              {{ data['racist_info'] }}
+            </td>
+          </tr>
+          <tr>
+            <td>
+              Risk to other religions
+            </td>
+            <td>
+              {{ data['religions'] }}
+            </td>
+            <td>
+              {{ data['religions_info'] }}
+            </td>
+          </tr>
+          <tr>
+            <td>
+              Risk to other groups
+            </td>
+            <td>
+              {{ data['violent_risk_to_othergroups'] }}
+            </td>
+            <td>
+              {{ data['violent_risk_to_othergroups_info'] }}
+            </td>
+          </tr>
+
+          <tr>
+            <td>
+              Escape risk
+            </td>
+            <td>
+              {{ data['escape_attempts'] }}
+            </td>
+            <td>
+              {{ data['escape_risk_info'] }}
+            </td>
+          </tr>
+
+          <tr>
+            <td>
+              Hostage taker
+            </td>
+            <td>
+              {{ data['hostage_taker'] }}
+            </td>
+            <td>
+              {{ data['hostage_taker_info'] }}
+            </td>
+          </tr>
+
+          <tr>
+            <td>
+              Sex offender
+            </td>
+            <td>
+              {{ data['sex_offender'] }}
+            </td>
+            <td>
+              {{ data['sex_offender_info'] }}
+            </td>
+          </tr>
+
+          <tr>
+            <td>
+              Creates or uses weapons
+            </td>
+            <td>
+              {{ data['creates_uses_weapons'] }}
+              <td>
+                {{ data['creates_uses_weapons_info'] }}
+              </td>
+            </tr>
+            <tr>
+              <td>
+                Conceals weapons
+              </td>
+              <td>
+                {{ data['conceals_weapons'] }}
+              </td>
+              <td>
+                {{ data['conceals_weapons_info'] }}
+              </td>
+            </tr>
+            <tr>
+              <td>
+                Conceals drugs
+              </td>
+              <td>
+                {{ data['conceals_drugs'] }}
+              </td>
+              <td>
+                {{ data['conceals_drugs_info'] }}
+              </td>
+            </tr>
+            <tr>
+              <td>
+                Conceals mobile phones. SIM cards or other items
+              </td>
+              <td>
+                {{data['conceals_mobiles_et_al']}}
+              </td>
+              <td>
+                {{ data['conceals_mobiles_et_al_info'] }}
+              </td>
+            </tr>
+            <tr>
+              <td>
+                Drug trafficking risk
+              </td>
+              <td>
+                {{ data['trafficdrugs'] }}
+              </td>
+              <td>
+                {{ data['trafficdrugs_info'] }}
+              </td>
+            </tr>
+
+            <tr>
+              <td>
+                Arsonist
+              </td>
+              <td>
+                {{ data['arson'] }}
+              </td>
+              <td>
+              </td>
+            </tr>
+
+            <tr>
+              <td>
+                Other risk information
+              </td>
+              <td>
+                {{ data['other_final'] }}
+              </td>
+
+              <td>
+                {{ data['other_final_info'] }}
+
+              </td>
+            </tr>
+
+          </table>
+        </section>
+
+        <section id="healthcareincomplete" style="display:none">
+          <div class="newpanel newpanel_link">
+            <span class="heading-medium">Healthcare</span>
+            <span style="float:right">
+              <span class="status statusReview" style="display:inline-block">Incomplete</span>
+              &nbsp;
+              <a href="check-your-answers-health-incomplete.html" class="" style="display:inline-block">Edit</a>
+            </span>
+            <p>
+            </p>
+          </div>
+          <p><i>No known healthcare risks</i></p>
+        </section>
+
+        <section id="healthcaredone" style="display:none">
+          <div class="newpanel newpanel_link">
+            <span class="heading-medium">Healthcare</span>
+            <span style="float:right">
+              <span class="status statusReview" style="display:inline-block">Incomplete</span>
+              &nbsp;
+              <a href="check-your-answers-health-incomplete.html" class="" style="display:inline-block">Edit</a>
+            </span>
+            <p>
+              Last confirmed: Joes Bloggs, HH:MM | DD Mon YYYY
+            </p>
+          </div>
+          <table id="healthcaretable">
+            <col width="30%">
+            <col width="auto">
+            <col width="70%">
+            <tr>
+              <td>
+                Physical health issues
+              </td>
+              <td>
+                {{ data['physical_health'] }}
+              </td>
+              <td>
+                {{ data['physical_health_info'] }}
+              </td>
+            </tr>
+
+            <tr>
+              <td>
+                Mental health issues
+              </td>
+              <td>
+                {{ data['mental_health'] }}
+              </td>
+              <td>
+                {{ data['mental_health_info'] }}
+              </td>
+            </tr>
+
+            <tr>
+              <td>
+                Special vehicles
+              </td>
+              <td>
+                {{ data['special_vehicle'] }}
+              </td>
+              <td>
+                {{ data['special_vehicle_info'] }}
+              </td>
+            </tr>
+
+            <tr>
+              <td>
+                Essential medication
+              </td>
+              <td>
+                {{ data['medicine'] }}
+              </td>
+              <td>
+                {{ data['medicine_name'] }} |
+                {{ data['medicine_howgiven'] }} |
+                {{ data['medicine_dosage'] }} |
+                {{ data['medicine_dosagefrequency'] }}
+                {{ data['medicine_carriedby'] }}
+              </td>
+            </tr>
+
+            <tr>
+              <td>
+                Dependencies
+              </td>
+              <td>
+                {{ data['dependencies'] }}
+              </td>
+              <td>
+                {{ data['dependencies_info'] }}
+              </td>
+            </tr>
+
+            <tr>
+              <td>
+                Allergies and intolerances
+              </td>
+              <td>
+                {{ data['allergies'] }}
+              </td>
+              <td>
+                {{ data['allergies_info'] }}
+              </td>
+            </tr>
+
+            <tr>
+              <td>
+                Personal care
+              </td>
+              <td>
+                {{ data['personalcare'] }}
+              </td>
+              <td>
+                {{ data['personalcare_info'] }}
+              </td>
+            </tr>
+
+            <tr>
+              <td>
+                Custody contact details
+              </td>
+              <td>
+                Yes
+              </td>
+              <td>
+                {{ data['contact_details'] }}
+              </td>
+            </tr>
+
+          </table>
+        </section>
+
+        <div style="background-color:rgba(255, 191, 71, 0.3); padding:20px; margin: 60px 0px 40px; border:1px solid rgba(255, 191, 71, 1);" class="">
+          <p style="font-weight:bold;">
+            Click 'Approve PER' to confirm that, to the best of your knowledge, all information in this PER is correct.
+          </p>
+
+          <div class="">
+            <a href="confirmation" class="button">Approve PER</a>
+          </div>
+        </div>
+        <section style="background-color:white">
+          <!-- <a class="button button-reprint" href="#" role="" >Reprint PER</a> -->
+          <a class="button button-cancel" href="#" role="" >Cancel PER</a>
+          <!-- <a class="button" href="approval_confirm.html">Approve PER</a> -->
+          <a href="/dashboard_police" style="margin-left:10px;" >Return to home</a>
+        </section>
+
+      </div>
+      <div class="side-profile column-one-third">
+        {% include "includes/side-profile.html" %}
+      </div>
+    </main>
+
+
+    {% endblock %}

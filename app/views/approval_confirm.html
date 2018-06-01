@@ -1,0 +1,43 @@
+{% extends "layout.html" %}
+
+{% block page_title %}
+GOV.UK prototype kit
+{% endblock %}
+
+{% block content %}
+
+<script type="text/javascript">
+window.addEventListener("load", myFunction);
+function myFunction() {
+  dataDump({{ data | dump | safe}});
+}
+</script>
+
+<main id="content">
+  {% include "includes/breadcrumb_profile_confirm.html" %}
+  <div class="grid-row">
+    <div class="column-two-thirds">
+      <form action="dashboard_police" method="post" class="form">
+
+        <h1 class="heading-large">
+          Confirm approval of PER for <br>
+          {{data.pn}}: {{data.surname}} {{data.firstname}}
+        </h1>
+
+        <div class="form-group" style="margin-bottom:15px !important">
+          <label class="form-label" for="dateoftravel">
+            Date of travel
+            <div class="heading-medium" style="margin-top:0px">
+              {{data.dateoftravel}}
+            </div>
+          </label>
+        </div>
+        <input class="button" type="submit" value="Confirm approval" style="margin-right:20px">
+        <input class="button buttonToSummary" type="submit" formaction="profile_approve" value="Go back" style="background-color:#dee0e2; color:#0b0c0c;">
+      </form>
+    </div>
+  </div>
+
+</main>
+
+{% endblock %}

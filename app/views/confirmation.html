@@ -1,0 +1,69 @@
+{% extends "layout.html" %}
+
+{% block page_title %}
+GOV.UK prototype kit
+{% endblock %}
+
+{% block content %}
+
+<script type="text/javascript">
+window.addEventListener("load", myFunction);
+function myFunction() {
+  dataDump({{ data | dump | safe}});
+}
+</script>
+<style media="screen">
+.govuk-panel {
+  font-family: "nta",Arial,sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  font-weight: 400;
+  font-size: 16px;
+  line-height: 20px;
+  -webkit-box-sizing: border-box;
+  box-sizing: border-box;
+  margin-bottom: 15px;
+  padding: 35px;
+  border: 5px solid transparent;
+  text-align: center;
+}
+.govuk-panel--confirmation {
+  color: #fff;
+  background: #28a197;
+}
+.govuk-panel__title {
+  margin-top: 0;
+  margin-bottom: 30px;
+  font-family: "nta",Arial,sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  font-weight: 700;
+  font-size: 32px;
+  line-height: 35px;
+}
+.govuk-panel__body {
+  font-family: "nta",Arial,sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  font-weight: 400;
+  font-size: 24px;
+  line-height: 25px;
+}
+</style>
+
+<main id="content">
+  {% include "includes/breadcrumb_profile_confirm.html" %}
+  <div class="grid-row">
+    <div class="govuk-panel govuk-panel--confirmation">
+      <h2 class="govuk-panel__title">
+        {{data.pn}}: {{data.surname}} {{data.firstname}}<br>
+        PER approved
+      </h2>
+      <!-- <div class="govuk-panel__body"> Approved by: User Name
+      </div> -->
+    </div>
+  </div>
+  <div style="text-align:center"><a href="/dashboard_police" >Return to home</a></div>
+</main>
+
+{% endblock %}

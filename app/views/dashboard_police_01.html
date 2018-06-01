@@ -22,10 +22,10 @@ function myFunction() {
   min-width: 128px !important;
 }
 .col-width {
-  width: 110px;
+  width: 115px;
 }
 .col-width-print {
-  /*width: 10px;*/
+  width: 10px;
 }
 .button-start{
   /*float: right;*/
@@ -59,41 +59,24 @@ th{
 .xsmall{
   padding-bottom: 5px !important;
 }
-
 .todo span {
   display: inline-block;
-  padding: 7px 30px;
-  /*width: 30px;*/
+  padding: 0px 16px;
   border-width: 2px;
   border-style: solid;
-  /*background-color: #B10E1E;*/
-  /*vertical-align: top;*/
+  /*vertical-align: middle;*/
   /*text-transform: uppercase;*/
-  /*font-size: 16px;*/
+  font-size: 16px;
   /*font-weight: bold;*/
 }
-/*.todo span:hover{
-
+.todo span:hover{
+  background-color: #FFFFD4;
 }
-.todo span {
-text-decoration: none;
+.todo span{
+  text-decoration: none;
 }
 .todo span:after{
-content: "Start";
-color: white;
-}
-.todo a {
-text-decoration: none;
-}*/
-.done span{
-  background-color: #00823b;
-  color: #00823b;
-}
-.done:before{
-  display: none;
-}
-.signoff a{
-  /*color: #B10E1E;*/
+  content: "Start";
 }
 </style>
 
@@ -111,7 +94,7 @@ text-decoration: none;
       <div class="data column-one-quarter" style="margin-left:-15px !important;">
 
         <span id="date" class="data-item bold-large" value="{{data.dateoftravel}}">{{data.dateoftravel}}</span>
-        <a class="button" href="changedate.html" role="button" style="background-color:#dee0e2; color:#0b0c0c; margin-top:5px; font-size:16px">Change date</a></h1>
+        <a class="button" href="" role="button" style="background-color:#dee0e2; color:#0b0c0c; margin-top:5px; font-size:16px">Change date</a></h1>
       </div>
       <div class="data column-one-quarter">
         <span class="data-item bold-large">3</span>
@@ -161,34 +144,36 @@ text-decoration: none;
         </th>
       </tr>
     </thead>
+
     <tbody>
       <tr>
         <td class="prisonnumber"><a href="profile.html">01/234567X</a></td>
         <td><span class="surname">Barker</span> Ronnie<br>
           <!-- Existing app flow</td> -->
           <td>Destination name</td>
-          <td class="todo"><span></span></td>
-          <td class="todo"><span></span></td><td class="todo"><span></span></td>
+          <td class="todo"><a href="risk_01.html"><span></span></a></td>
+          <td class="todo"><a href="health_02.html">Start</a></td>
+          <td class="todo"><a href="offences.html">Start</a></td>
           <td class="print change-answer" style="color:white;"> <a href="#"></a>print</td>
         </tr>
         <tr>
-          <td class="prisonnumber"><a href="approval_options.html">01/234567X</a></td>
+          <td class="prisonnumber"><a href="profile.html">01/234567X</a></td>
           <td><span class="surname">Barker</span> Ronnie<br>
             <!-- Existing app flow</td> -->
             <td>Destination name</td>
-            <td class="todo done"><span></span></td>
-            <td class="todo done"><span></span></td>
-            <td class="todo done"><span></span></td>
-            <td class="change-answer" style="color:grey; line-height:1em !important">Awaiting<br>approval</a></td>
+            <td class="todo"><a href="check-your-answers-risk-incomplete.html">Review</a></td>
+            <td class="todo"><a href="check-your-answers-health-incomplete.html">Review</a></td>
+            <td class="todo"><a href="offences.html">Review</a></td>
+            <td class="print change-answer" style="color:white;"> <a href="#"></a>print</td>
           </tr>
           <tr>
-            <td class="prisonnumber"><a href="profile_approved.html">01/234567X</a></td>
+            <td class="prisonnumber"><a href="profile.html">01/234567X</a></td>
             <td><span class="surname">Barker</span> Ronnie<br>
               <!-- Existing app flow</td> -->
               <td>Destination name</td>
-              <td colspan="3">
-                <span style="font-weight:bold">Approved</span> <span style="color:grey"> by User Name</span>
-              </td>
+              <td class="done">Done</td>
+              <td class="done">Done</td>
+              <td class="done">Done</td>
               <td class="print change-answer"> <a href="">Print</a></td>
             </tr>
             <tr>
@@ -196,8 +181,11 @@ text-decoration: none;
               <td><span class="surname">Barker</span> Ronnie<br>
                 <!-- Existing app flow</td> -->
                 <td>Destination name</td>
-                <td colspan="4">
-                  <span class="issued">Issued</span> <span style="color:grey">approved by User Name</span>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td>
+                  <span class="issued">Printed</span>
                 </td>
               </tr>
               <tr>
@@ -206,74 +194,13 @@ text-decoration: none;
                   <!-- Existing app flow</td> -->
                   <td>Destination name</td>
                   <td colspan="4">
-                    <span class="cancelled">Cancelled</span> <span class="disabled">by Joe Bloggs. Changed to video link.</span>
+                    <span class="cancelled">Cancelled</span> <span class="disabled">by: Joe Bloggs. Changed to video link.</span>
                   </td>
                 </tr>
 
               </tbody>
             </table>
 
-            <table class="">
-              <thead>
-                <tr>
-                  &nbsp;
-                  <p>
-                    <em>States for a user with approval role</em>
-                  </p>
-                </tr>
-              </thead>
+          </main>
 
-              <tbody>
-                <tr>
-                  <td class="prisonnumber"><a href="profile.html">01/234567X</a></td>
-                  <td><span class="surname">Barker</span> Ronnie<br>
-                    <!-- Existing app flow</td> -->
-                    <td>Destination name</td>
-                    <td class="todo"><span></span></td>
-                    <td class="todo"><span></span></td><td class="todo"><span></span></td>
-                    <td class="print change-answer" style="color:white;"> <a href="#"></a>print</td>
-                  </tr>
-                  <tr>
-                    <td class="prisonnumber"><a href="profile.html">01/234567X</a></td>
-                    <td><span class="surname">Barker</span> Ronnie<br>
-                      <!-- Existing app flow</td> -->
-                      <td>Destination name</td>
-                      <td class="todo done"><span></span></td>
-                      <td class="todo done"><span></span></td>
-                      <td class="todo done"><span></span></td>
-                      <td class="signoff change-answer"> <a href="approval_options.html">Approve</a></td>
-                    </tr>
-                    <tr>
-                      <td class="prisonnumber"><a href="profile.html">01/234567X</a></td>
-                      <td><span class="surname">Barker</span> Ronnie<br>
-                        <!-- Existing app flow</td> -->
-                        <td>Destination name</td>
-                        <td colspan="3">
-                          <span style="font-weight:bold">Approved</span> <span style="color:grey"> by User Name</span>
-                        </td>
-                        <td class="print change-answer"> <a href="">Print</a></td>
-                      </tr>
-                      <tr>
-                        <td class="prisonnumber"><a href="profile.html">01/234567X</a></td>
-                        <td><span class="surname">Barker</span> Ronnie<br>
-                          <!-- Existing app flow</td> -->
-                          <td>Destination name</td>
-                          <td colspan="4">
-                            <span class="issued">Issued</span> <span style="color:grey">Approved by: User Name</span>
-                          </td>
-                        </tr>
-                        <tr>
-                          <td class="prisonnumber"><a href="profile.html">01/234567X</a></td>
-                          <td><span class="surname">Barker</span> Ronnie<br>
-                            <td>Destination name</td>
-                            <td colspan="4">
-                              <span class="cancelled">Cancelled</span> <span class="disabled">by: Joe Bloggs. Changed to video link.</span>
-                            </td>
-                          </tr>
-
-                        </tbody>
-                      </table>
-
-                    </main>
-
-                    {% endblock %}
+          {% endblock %}
