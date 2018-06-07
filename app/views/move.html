@@ -41,133 +41,136 @@ function setNfrState(){
           <label class="form-label-bold" value="Police Station name">From</label>{{data['from']}}</div>
 
           <label class="form-label-bold" style="margin-bottom:10px">To</label>
-          <div class="form-group">
-            <div class="multiple-choice" data-target="court-crown-info">
-              <input id="radio-1" type="radio" name="destination" value="Crown Court" {{ checked("destination", "Crown Court") }}>
-              <label for="radio-1">Crown Court</label>
-            </div>
-            <!-- details !-->
-            <div class="panel panel-border-narrow js-hidden" id="court-crown-info">
-              <div class="form-group">
-                <label class="form-label" for="input-court-name">
-                  Enter name of Crown Court
-                </label>
-                <input class="form-control" id="input-court-name" type="text" name="to" value="{{data['to']}}">
-              </div>
-            </div>
+                    <div class="form-group">
 
-            <div class="multiple-choice" data-target="court-mag-info">
-              <input id="radio-part-2" type="radio" name="destination" value="Magistrates Court" {{ checked("destination", "Magistrates Court") }}>
-              <label for="radio-part-2">Magistrates Court</label>
-            </div>
-            <!-- details !-->
-            <div class="panel panel-border-narrow js-hidden" id="court-mag-info">
-              <div class="form-group">
-                <label class="form-label" for="input-mag-name">
-                  Enter name of Magistrates Court
-                </label>
-                <input class="form-control" id="input-mag-name" type="text" name="to" value="{{data['to']}}">
-              </div>
-            </div>
+                      <div class="multiple-choice" data-target="court-civil-info">
+                        <input id="radio-part-4" type="radio" name="destination" value="Civil Court" {{ checked("destination", "Civil Court") }}>
+                        <label for="radio-part-4">Civil Court</label>
+                      </div>
+                      <!-- details !-->
+                      <div class="panel panel-border-narrow js-hidden" id="court-civil-info">
+                        <div class="form-group">
+                          <label class="form-label" for="input-civil-name">
+                            Enter name of Civil Court
+                          </label>
+                          <input class="form-control" id="civil-name" type="text" name="to" value="{{data['to']}}">
+                        </div>
+                      </div>
 
-            <div class="multiple-choice" data-target="court-civil-info">
-              <input id="radio-part-4" type="radio" name="destination" value="Civil Court" {{ checked("destination", "Civil Court") }}>
-              <label for="radio-part-4">Civil Court</label>
-            </div>
-            <!-- details !-->
-            <div class="panel panel-border-narrow js-hidden" id="court-civil-info">
-              <div class="form-group">
-                <label class="form-label" for="input-civil-name">
-                  Enter name of Civil Court
-                </label>
-                <input class="form-control" id="civil-name" type="text" name="to" value="{{data['to']}}">
-              </div>
-            </div>
+                      <div class="multiple-choice" data-target="court-crown-info">
+                        <input id="radio-1" type="radio" name="destination" value="Crown Court" {{ checked("destination", "Crown Court") }}>
+                        <label for="radio-1">Crown Court</label>
+                      </div>
+                      <!-- details !-->
+                      <div class="panel panel-border-narrow js-hidden" id="court-crown-info">
+                        <div class="form-group">
+                          <label class="form-label" for="input-court-name">
+                            Enter name of Crown Court
+                          </label>
+                          <input class="form-control" id="input-court-name" type="text" name="to" value="{{data['to']}}">
+                        </div>
+                      </div>
 
-            <div class="multiple-choice" data-target="prison-info">
-              <input id="radio-part-3" type="radio" name="destination" value="Prison Transfer" {{ checked("destination", "Prison Transfer") }}>
-              <label for="radio-part-3">Prison</label>
-            </div>
-            <!-- details !-->
-            <div class="panel panel-border-narrow js-hidden" id="prison-info">
-              <div class="form-group">
-                <label class="form-label" for="input-prison">
-                  Enter name of Prison
-                </label>
-                <input class="form-control" id="input-prison" type="text" name="to" value="{{data['to']}}">
-              </div>
-            </div>
+                      <div class="multiple-choice" data-target="hospital-info">
+                        <input id="radio-part-7" type="radio" name="destination" value="hospital" {{ checked("destination", "hospital") }}>
+                        <label for="radio-part-7">Hospital</label>
+                      </div>
+                      <!-- details !-->
+                      <div class="panel panel-border-narrow js-hidden" id="hospital-info">
+                        <div class="form-group">
+                          <label class="form-label" for="hospital-name">
+                            Enter name of hospital
+                          </label>
+                          <input class="form-control" id="hospital-name" type="text" name="to" value="{{data['to']}}">
+                        </div>
+                      </div>
 
-            <div class="multiple-choice" data-target="immigration-info">
-              <input id="radio-part-5" type="radio" name="destination" value="immigration" {{ checked("destination", "immigration") }}>
-              <label for="radio-part-5">Immigration removal centre</label>
-            </div>
-            <!-- details !-->
-            <div class="panel panel-border-narrow js-hidden" id="immigration-info">
-              <div class="form-group">
-                <label class="form-label" for="immigration-name">
-                  Enter name of immigration removal centre
-                </label>
-                <input class="form-control" id="immigration-name" type="text" name="to" value="{{data['to']}}">
-              </div>
-            </div>
+                      <div class="multiple-choice" data-target="immigration-info">
+                        <input id="radio-part-5" type="radio" name="destination" value="immigration" {{ checked("destination", "immigration") }}>
+                        <label for="radio-part-5">Immigration removal centre</label>
+                      </div>
+                      <!-- details !-->
+                      <div class="panel panel-border-narrow js-hidden" id="immigration-info">
+                        <div class="form-group">
+                          <label class="form-label" for="immigration-name">
+                            Enter name of immigration removal centre
+                          </label>
+                          <input class="form-control" id="immigration-name" type="text" name="to" value="{{data['to']}}">
+                        </div>
+                      </div>
 
-            <div class="multiple-choice" data-target="force-info">
-              <input id="radio-part-6" type="radio" name="destination" value="force" {{ checked("destination", "force") }}>
-              <label for="radio-part-6">Police custody suite</label>
-            </div>
-            <!-- details !-->
-            <div class="panel panel-border-narrow js-hidden" id="force-info">
-              <div class="form-group">
-                <label class="form-label" for="force-name">
-                  Enter name of Police custody suite
-                </label>
-                <input class="form-control" id="force-name" type="text" name="to" value="{{data['to']}}">
-              </div>
-            </div>
+                      <div class="multiple-choice" data-target="court-mag-info">
+                        <input id="radio-part-2" type="radio" name="destination" value="Magistrates Court" {{ checked("destination", "Magistrates Court") }}>
+                        <label for="radio-part-2">Magistrates' Court</label>
+                      </div>
+                      <!-- details !-->
+                      <div class="panel panel-border-narrow js-hidden" id="court-mag-info">
+                        <div class="form-group">
+                          <label class="form-label" for="input-mag-name">
+                            Enter name of Magistrates' Court
+                          </label>
+                          <input class="form-control" id="input-mag-name" type="text" name="to" value="{{data['to']}}">
+                        </div>
+                      </div>
 
-            <div class="multiple-choice" data-target="hospital-info">
-              <input id="radio-part-7" type="radio" name="destination" value="hospital" {{ checked("destination", "hospital") }}>
-              <label for="radio-part-7">Hospital</label>
-            </div>
-            <!-- details !-->
-            <div class="panel panel-border-narrow js-hidden" id="hospital-info">
-              <div class="form-group">
-                <label class="form-label" for="hospital-name">
-                  Enter name of hospital
-                </label>
-                <input class="form-control" id="hospital-name" type="text" name="to" value="{{data['to']}}">
-              </div>
-            </div>
+                      <div class="multiple-choice" data-target="force-info">
+                        <input id="radio-part-6" type="radio" name="destination" value="force" {{ checked("destination", "force") }}>
+                        <label for="radio-part-6">Police custody suite</label>
+                      </div>
+                      <!-- details !-->
+                      <div class="panel panel-border-narrow js-hidden" id="force-info">
+                        <div class="form-group">
+                          <label class="form-label" for="force-name">
+                            Enter name of police custody suite
+                          </label>
+                          <input class="form-control" id="force-name" type="text" name="to" value="{{data['to']}}">
+                        </div>
+                      </div>
+
+                      <div class="multiple-choice" data-target="prison-info">
+                        <input id="radio-part-3" type="radio" name="destination" value="Prison Transfer" {{ checked("destination", "Prison Transfer") }}>
+                        <label for="radio-part-3">Prison</label>
+                      </div>
+                      <!-- details !-->
+                      <div class="panel panel-border-narrow js-hidden" id="prison-info">
+                        <div class="form-group">
+                          <label class="form-label" for="input-prison">
+                            Enter name of prison
+                          </label>
+                          <input class="form-control" id="input-prison" type="text" name="to" value="{{data['to']}}">
+                        </div>
+                      </div>
+
+                      <div class="multiple-choice" data-target="youth-info">
+                        <input id="radio-part-8" type="radio" name="destination" value="Youth secure estate" {{ checked("destination", "Youth secure estate") }}>
+                        <label for="radio-part-8">Youth secure estate</label>
+                      </div>
+                      <!-- details !-->
+                      <div class="panel panel-border-narrow js-hidden" id="youth-info">
+                        <div class="form-group">
+                          <label class="form-label" for="input-youth">
+                            Enter name of youth establishment
+                          </label>
+                          <input class="form-control" id="input-youth" type="text" name="to" value="{{data['to']}}">
+                        </div>
+                      </div>
+
+                      <div class="multiple-choice" data-target="other-info">
+                        <input id="radio-part-9" type="radio" name="destination" value="other" {{ checked("destination", "other") }}>
+                        <label for="radio-part-9">Other destination</label>
+                      </div>
+                      <!-- details !-->
+                      <div class="panel panel-border-narrow js-hidden" id="other-info">
+                        <div class="form-group">
+                          <label class="form-label" for="other-name">
+                            Enter name of destination
+                          </label>
+                          <input class="form-control" id="other-name" type="text" name="to" value="{{data['to']}}">
+                        </div>
+                      </div>
+                    </div>
 
 
-            <div class="multiple-choice" data-target="other-info">
-              <input id="radio-part-8" type="radio" name="destination" value="other" {{ checked("destination", "other") }}>
-              <label for="radio-part-8">Other destination</label>
-            </div>
-            <!-- details !-->
-            <div class="panel panel-border-narrow js-hidden" id="other-info">
-              <div class="form-group">
-                <label class="form-label" for="other-name">
-                  Enter name of destination
-                </label>
-                <input class="form-control" id="other-name" type="text" name="to" value="{{data['to']}}">
-              </div>
-            </div>
-
-            <!-- <div class="multiple-choice" data-target="other-destination-info">
-            <input id="radio-part-5" type="radio" name="destination" value="Other"  {{ checked("destination", "A different destination") }}>
-            <label for="radio-part-5">A different destination</label>
-          </div>
-          <div class="panel panel-border-narrow js-hidden" id="other-destination-info">
-          <div class="form-group">
-          <label class="form-label" for="input-other-destination">
-          Enter name of destination
-        </label>
-        <input class="form-control" id="other-destination" type="text" name="input-other-destination">
-      </div>
-    </div> -->
-  </div>
   <div class="form-group" style="margin-bottom:15px !important">
     <label class="form-label-bold" for="dateoftravel">
       Date of travel
