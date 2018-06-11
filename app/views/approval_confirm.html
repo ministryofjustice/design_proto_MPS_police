@@ -20,7 +20,7 @@ function myFunction() {
       <form action="dashboard_police" method="post" class="form">
 
         <h1 class="heading-large">
-          Confirm approval of PER for <br>
+          You are approving a PER for <br>
           {{data.pn}}: {{data.surname}} {{data.firstname}}
         </h1>
 
@@ -37,11 +37,10 @@ function myFunction() {
             <span class="visually-hidden">Warning</span>
           </i>
           <strong class="bold-small">
-            Approved PERs can not be edited.
+            Please note: you cannot edit a PER once it has been approved.
           </strong>
         </div>
-<!-- <p>Approved PERs can not be edited.</p> -->
-        <input class="button" type="submit" value="Confirm approval" style="margin-right:20px">
+        <input class="button" type="submit" value="Approve PER" style="margin-right:20px">
         <input class="button buttonToSummary" type="submit" formaction="profile_approve_02" value="Go back" style="background-color:#dee0e2; color:#0b0c0c;">
       </form>
     </div>
