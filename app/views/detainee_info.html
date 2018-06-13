@@ -22,114 +22,120 @@ function loadFunction() {
 }
 </style>
 
-<main id="content">
+<main id="content" class="">
 
   <h1 class="heading-large">
     Personal details</h1>
     <!-- <div class="notice column-two-thirds">
-      <strong class="bold-small" style="padding-left:20px !important">
-        There is no record of this person on this system yet
-      </strong>
-    </div> -->
-    <p style="display:inline-block;">
-      Check the detainee’s arrest record for this information.
-    </p>
-    <form action="move" method="post" class="form">
-      <!-- <img src="/public/images/photo_unavailable.jpg" alt="" style="width:128px; height:auto"/> -->
-    </div>
-    <div class="form-group">
-      &nbsp;
-      <label class="form-label-bold" for="pn">
-        PNC number
-      </label>
-      <input class="form-control" id="pn" type="text" name="pn" value="{{data['pn']}}">
-    </div>
-    <div class="form-group">
-      <label class="form-label-bold" for="surname">
-        Surname
-      </label>
-      <input class="form-control" id="surname" type="text" name="surname" value="{{data['surname']}}">
-    </div>
-    <div class="form-group">
-      <label class="form-label-bold" for="firstname">
-        First name(s)
-      </label>
-      <input class="form-control" id="firstname" type="text" name="firstname" value="{{data['firstname']}}">
-    </div>
-    <div class="form-group">
-      <label class="form-label-bold" for="dob">
-        Date of birth
-        <p class="form-hint">
-          DD/MM/YYYY
-        </p>
-      </label>
-      <input class="form-control" id="dob" type="text" name="dob" value="{{data['dob']}}">
-    </div>
-    <div class="form-group">
-      <label class="form-label-bold" for="nationality">
-        Nationalities
-      </label>
-      <input class="form-control" id="nationality" type="text" name="nationality" {{data['nationality']}}>
-    </div>
-    <!-- question -->
-    <h2 class="form-label-bold">
-      Gender
-    </h2>
-    <div class="form-group">
-      <fieldset class="">
-
-        <legend class="visually-hidden"></legend>
-
-        <div class="multiple-choice">
-          <input id="radio-inline-211" type="radio" name="gender" value="Male">
-          <label class="selection-button-radio" for="radio-inline-211">
-            Male
-          </label>
-        </div>
-        <div class="multiple-choice">
-          <input id="radio-inline-222" type="radio" name="gender" value="Female">
-          <label class="selection-button-radio" for="radio-inline-222">Female</label>
-        </div>
-        <div class="multiple-choice">
-          <input id="radio-inline-223" type="radio" name="gender" value="Unknown">
-          <label class="selection-button-radio" for="radio-inline-223">Unknown</label>
-        </div>
-        <div class="multiple-choice">
-          <input id="radio-inline-224" type="radio" name="gender" value="Indeterminate">
-          <label class="selection-button-radio" for="radio-inline-224">Indeterminate</label>
-        </div>
-
-      </fieldset>
-    </div>
-    <div class="form-group">
-      <label class="form-label-bold" for="ethnicity">
-        Ethnicity
-      </label>
-      <input class="form-control" id="ethnicity" type="text" name="ethnicity" value="{{data['ethnicity']}}">
-    </div>
-    <div class="form-group">
-      <label class="form-label-bold" for="religion">
-        Religion
-      </label>
-      <input class="form-control" id="religion" type="text" name="religion" value="{{data['religion']}}">
-    </div>
-    <div class="form-group">
-      <label class="form-label-bold" for="cro">
-        CRO number
-      </label>
-      <input class="form-control" id="cro" type="text" name="cro" value={{data['cro']}}>
-    </div>
-    <div class="form-group">
-      <label class="form-label-bold" for="textarea">
-        Aliases
-      </label>
-      <textarea class="form-control form-control-3-4" name="alias" id="textarea" rows="5" value="{{data['alias']}}"></textarea>
-    </div>
-    <!-- <div class="form-group">
-    <label class="form-label-bold" for="datedummy">
-    Category
+    <strong class="bold-small" style="padding-left:20px !important">
+    There is no record of this person on this system yet
+  </strong>
+</div> -->
+<p style="display:inline-block;">
+  Check the detainee’s arrest record for this information.
+</p>
+<form action="move" method="post" class="form">
+  <img src="/public/images/photo_unavailable.jpg" alt="" style="width:128px; height:auto"/>
+</div>
+<div class="form-group">
+  &nbsp;
+  <label class="form-label-bold" for="pn">
+    PNC number
   </label>
-  <input class="form-control" id="datedummy" type="text-area" name="datedummy" value="">
+  <input class="form-control" id="pn" type="text" name="pn" value="{{data['pn']}}">
+</div>
+<div class="form-group">
+  <label class="form-label-bold" for="surname">
+    Surname
+  </label>
+  <input class="form-control" id="surname" type="text" name="surname" value="{{data['surname']}}">
+</div>
+<div class="form-group">
+  <label class="form-label-bold" for="firstname">
+    First name(s)
+  </label>
+  <input class="form-control" id="firstname" type="text" name="firstname" value="{{data['firstname']}}">
+</div>
+<div class="form-group">
+  <label class="form-label-bold" for="dob">
+    Date of birth
+    <p class="form-hint">
+      DD/MM/YYYY
+    </p>
+  </label>
+  <input class="form-control" id="dob" type="text" name="dob" value="{{data['dob']}}">
+</div>
+<div class="form-group">
+  <label class="form-label-bold" for="nationality">
+    Nationalities
+  </label>
+  <input class="form-control" id="nationality" type="text" name="nationality" {{data['nationality']}}>
+</div>
+<!-- question -->
+<h2 class="form-label-bold">
+  Gender
+</h2>
+<div class="form-group">
+  <fieldset class="">
+
+    <legend class="visually-hidden"></legend>
+
+    <div class="multiple-choice">
+      <input id="radio-inline-211" type="radio" name="gender" value="Male">
+      <label class="selection-button-radio" for="radio-inline-211">
+        Male
+      </label>
+    </div>
+    <div class="multiple-choice">
+      <input id="radio-inline-222" type="radio" name="gender" value="Female">
+      <label class="selection-button-radio" for="radio-inline-222">Female</label>
+    </div>
+    <div class="multiple-choice">
+      <input id="radio-inline-223" type="radio" name="gender" value="Unknown">
+      <label class="selection-button-radio" for="radio-inline-223">Unknown</label>
+    </div>
+    <div class="multiple-choice">
+      <input id="radio-inline-224" type="radio" name="gender" value="Indeterminate">
+      <label class="selection-button-radio" for="radio-inline-224">Indeterminate</label>
+    </div>
+
+  </fieldset>
+</div>
+<div class="form-group">
+  <label class="form-label-bold" for="ethnicity">
+    Ethnicity
+  </label>
+  <input class="form-control" id="ethnicity" type="text" name="ethnicity" value="{{data['ethnicity']}}">
+</div>
+<div class="form-group">
+  <label class="form-label-bold" for="religion">
+    Religion
+  </label>
+  <input class="form-control" id="religion" type="text" name="religion" value="{{data['religion']}}">
+</div>
+<div class="form-group">
+  <label class="form-label-bold" for="prisonnum">
+    Prison number
+  </label>
+  <input class="form-control" id="prisonnum" type="text" name="prisonnum" value={{data['prisonnum']}}>
+</div>
+<div class="form-group">
+  <label class="form-label-bold" for="cro">
+    CRO number
+  </label>
+  <input class="form-control" id="cro" type="text" name="cro" value={{data['cro']}}>
+</div>
+<div class="form-group">
+  <label class="form-label-bold" for="textarea">
+    Aliases
+  </label>
+  <textarea class="form-control form-control-3-4" name="alias" id="textarea" rows="5" value="{{data['alias']}}"></textarea>
+</div>
+<!-- <div class="form-group">
+<label class="form-label-bold" for="datedummy">
+Category
+</label>
+<input class="form-control" id="datedummy" type="text-area" name="datedummy" value="">
 </div> -->
 <div class="form-group">
   <label class="form-label-bold" for="language">
@@ -138,43 +144,43 @@ function loadFunction() {
   <input class="form-control" id="language" type="text-area" name="language" value="{{data['language']}}">
 </div>
 <div class="form-group">
-  <fieldset class=>
+  <fieldset class="inline">
     <legend>
       <label class="form-label-bold">
         Do they require an interpreter?
       </label>
     </legend>
-    <div class="multiple-choice">
-      <input id="radio-inline-1" type="radio" name="radio-inline-group" value="Yes">
+    <div class="multiple-choice" data-target="interpreter_info">
+      <input id="radio-inline-1" type="radio" name="interpreter" value="Yes" {{ checked("interpreter", "Yes") }}>
       <label for="radio-inline-1">Yes</label>
     </div>
     <div class="multiple-choice">
-      <input id="radio-inline-2" type="radio" name="radio-inline-group" value="No">
+      <input id="radio-inline-2" type="radio" name="interpreter" value="Not required" {{ checked("interpreter", "Not required") }}>
       <label for="radio-inline-2">No</label>
     </div>
-
   </fieldset>
+
+  <div class="panel panel-border-narrow js-hidden" id="interpreter_info" style="margin-top:10px">
+    <div class="form-group">
+      <label class="form-label" for="textarea-b">
+        Enter contact details of booked interpreter
+      </label>
+      <textarea class="form-control form-control-3-4" id="textarea-b" cols="30" rows="3" name="interpreter_info">{{data['interpreter_info']}}</textarea>
+    </div>
+  </div>
+
 </div>
 
-<!-- <div class="panel panel-border-narrow js-hidden" id="peep-info">
-<div class="form-group">
-<label class="form-label" for="textarea-b">
-Give details
-</label>
-<textarea class="form-control form-control-3-4" id="textarea-b" cols="30" rows="3" name="peep_info">{{data['vulnerable_info']}}</textarea>
-</div>
-</div> -->
 
 <div class="form-group">
   <label class="form-label-bold" for="diet">
     Dietary requirements
   </label>
-  <!-- <input class="form-control" id="diet" type="text-area" name="diet" value="{{data['diet']}}"> -->
-      <textarea class="form-control form-control-3-4" name="diet" id="textarea" rows="3" value="{{data['diet']}}"></textarea>
+  <textarea class="form-control form-control-3-4" name="diet" id="textarea" rows="3" value="{{data['diet']}}"></textarea>
 </div>
 </div>
 <div class="form-group">
-  <input class="button" type="submit" value="Continue">
+  <input class="button" type="submit" value="Save and continue">
   <!-- <input class="button" type="submit" value="Continue"> -->
 </div>
 </main>

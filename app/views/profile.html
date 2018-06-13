@@ -374,7 +374,15 @@ font-weight: bold;
             Interpreter
           </h6>
           <p>
-            Not required
+            {{data.interpreter}}
+          </p>
+        </div>
+        <div class="tile col-4">
+          <h6>
+            Interpreter details
+          </h6>
+          <p>
+            {{data.interpreter_info}}
           </p>
         </div>
         <div class="tile col-full">
@@ -437,7 +445,7 @@ font-weight: bold;
         <tr>
           <td>Current Offences</td>
           <td class="answer">
-            <p>{{data['offencename']}} <span class="casenum"><br>({{data['offencenumber']}})</span></p>
+            <p>{{data['offencename']}} <span class="casenum"><br>(Unique Reference Number: {{data['offencenumber']}})</span></p>
           </tr>
         </table>
       </section>
