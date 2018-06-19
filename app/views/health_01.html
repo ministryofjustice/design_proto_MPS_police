@@ -11,43 +11,74 @@ Question page
   {% include "includes/breadcrumb_health.html" %}
 
   <div class="grid-row">
-    <form action="health_02" method="get" class="column-two-thirds" class="form">
-
-      <h1 class="heading-large">
-        Before you start
-      </h1>
-      <p>
-        The following questions are designed to ensure the safety of the person moving and anyone they come into contact with during their time out of prison.
-      </p>
-      <p>
-        In line with the <b>Caldicott principles</b>, you will not be asked to give details of any specific medical conditions, but rather, provide information that will help keep the prisoner and anyone around them safe on their journey.
-      </p>
-      <div class="panel panel-border-wide">
-        <p>
-          You can include any other personal medical details in a sealed envelope to be opened by a healthcare professional in case of an emergency.
-        </p>
-      </div>
-      <br>
-
-      <!-- button -->
-      <div class="form-group">
-        <!-- <a class="button" href="check-your-answers.html" role="button" >Save and continue</a> -->
-        <input class="button" type="submit" value="Continue">
-      </div>
-    </form>
-    <div class="column-one-third side-profile">
-      <h1><span class="namebold"> <a href="/profile.html"> A1234AB</a><br/>BARKER</span> RONNIE</h1>
-      <img src="/public/images/ronnie.jpg"/>
-      <p class="font-xsmall info-start">Date of travel</p>
-      <h2>13 Apr 2017</h2>
-      <p class="font-xsmall">From</p>
-      <h2>HMP Bedford</h2>
-      <p class="font-xsmall">To</p>
-      <h2>St Albans Crown Court</h2>
+    <div class="column-full">
+      <p>1 of 8&emsp;<a href="health_03.html">Skip</a></p>
     </div>
-  </div>
+    <div class="column-two-thirds">
 
-</div>
-</main>
+      <form action="health_03" method="post" class="form">
+        <h1 class="heading-secondary">
+          Physical health issues
+        </h1>
 
-{% endblock %}
+        <!-- question -->
+        <h2 class="heading-medium">
+          Do they have any physical health needs that might affect them on this journey?
+        </h2>
+        <p class="form-hint">
+          In the arrest record, check the risk assessment, pre-release assessment and care plan for relevant comments.
+        </p>
+        <p class="form-hint">
+          For example, issues that mean they can’t:
+          <ul class="list list-bullet form-hint">
+            <li>be handcuffed </li>
+            <li>travel in a standard van cell</li>
+            <li>sit for long periods of time</li>
+          </ul>
+
+          <div class="form-group">
+            <fieldset class="inline">
+
+              <legend class="visually-hidden"></legend>
+
+              <div class="multiple-choice" data-target="physical_health_info">
+                <input id="radio-inline-1" type="radio" name="physical_health" value="Yes" {{ checked("physical_health", "Yes") }}>
+                <label for="radio-inline-1">Yes</label>
+              </div>
+
+              <div class="multiple-choice">
+                <input id="radio-inline-2" type="radio" name="physical_health" value="No" {{ checked("physical_health", "No") }} onclick="clearDetails('textarea-a');">
+                <label for="radio-inline-2">No</label>
+              </div>
+
+            </fieldset>
+          </div>
+
+          <!-- conditionals -->
+          <div class="panel panel-border-narrow js-hidden" id="physical_health_info">
+            <!-- Give details -->
+            <div class="form-group">
+              <fieldset>
+                <legend class="visuallyhidden"></legend>
+                <label class="form-label" for="textarea-a">
+                  Give details:
+                </label>
+                <textarea class="form-control" id="textarea-a" cols="30" rows="3" name="physical_health_info">{{data['physical_health_info']}}</textarea>
+              </div>
+            </fieldset>
+          </div>
+
+          <!-- button -->
+          <div class="form-group">
+            {% include "includes/health-screen-buttons.html" %}
+          </div>
+        </form>
+
+      </div>
+      <div class="side-profile column-one-third">
+        {% include "includes/side-profile.html" %};
+      </div>
+    </div>
+  </main>
+
+  {% endblock %}

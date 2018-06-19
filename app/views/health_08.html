@@ -40,21 +40,52 @@ Question page
             </div>
 
             <div class="multiple-choice">
-              <input id="radio-inline-2" type="radio" name="personalcare" value="No" {{ checked("personalcare", "No") }} onclick="clearDetails('textarea-b');">
+              <input id="radio-inline-2" type="radio" name="personalcare" value="No" {{ checked("personalcare", "No") }} onclick="clearDetails('textarea-a');">
               <label for="radio-inline-2">No</label>
             </div>
-
-
 
           </fieldset>
         </div>
 
         <div class="panel panel-border-narrow js-hidden" id="personalcare_info">
           <div class="form-group">
+            <label class="form-label" for="textarea-a">
+              Give details:
+            </label>
+            <textarea class="form-control" id="textarea-a" cols="30" rows="3" name="personalcare_info">{{data['personalcare_info']}}</textarea>
+          </div>
+        </div>
+
+        <!-- question -->
+        <h2 class="heading-medium">
+          Do they need a female hygiene kit?
+        </h2>
+        <p class="form-hint">
+          In the arrest record, check the pre-release assessment and detainee section for relevant comments.
+        </p>
+        <div class="form-group">
+          <fieldset class="inline">
+
+            <legend class="visually-hidden"></legend>
+
+            <div class="multiple-choice" data-target="female_kit_info">
+              <input id="radio-inline-3" type="radio" name="female_kit" value="Yes" {{ checked("female_kit", "Yes") }}>
+              <label for="radio-inline-3">Yes</label>
+            </div>
+
+            <div class="multiple-choice">
+              <input id="radio-inline-4" type="radio" name="female_kit" value="No" {{ checked("female_kit", "No") }} onclick="clearDetails('textarea-b');">
+              <label for="radio-inline-4">No</label>
+            </div>
+          </fieldset>
+        </div>
+
+        <div class="panel panel-border-narrow js-hidden" id="female_kit_info">
+          <div class="form-group">
             <label class="form-label" for="textarea-b">
               Give details:
             </label>
-            <textarea class="form-control" id="textarea-b" cols="30" rows="3" name="personalcare_info">{{data['personalcare_info']}}</textarea>
+            <textarea class="form-control" id="textarea-b" cols="30" rows="3" name="female_kit_info">{{data['female_kit_info']}}</textarea>
           </div>
         </div>
 

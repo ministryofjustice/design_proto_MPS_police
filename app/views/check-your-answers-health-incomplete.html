@@ -55,6 +55,17 @@ table th{
       <tbody>
         <tr>
           <td>
+            Pregnant
+          </td>
+          <td>
+            {{ data['pregnant'] }}
+          </td>
+          <td>
+            {{ data['pregnant_info'] }}
+          </td>
+        </tr>
+        <tr>
+          <td>
             Physical health issues
           </td>
           <td>
@@ -126,13 +137,24 @@ table th{
                       </td>
                     </tr>
 
-                    <th>Dependencies</th>
+                    <th>Addictions and dependencies</th>
                     <th></th>
                     <th class="change-answer">
                       <a href="health_06.html">
                         Change <span class="visuallyhidden">change question 5</span>
                       </th>
                       <tbody>
+                        <tr>
+                          <td>
+                            Alcohol withdrawal
+                          </td>
+                          <td>
+                            {{ data['alcohol_dependent'] }}
+                          </td>
+                          <td>
+                            {{ data['alcohol_dependent_info'] }}
+                          </td>
+                        </tr>
                         <tr>
                           <td>
                             Dependencies
@@ -180,6 +202,17 @@ table th{
                                   </td>
                                   <td>
                                     {{ data['personalcare_info'] }}
+                                  </td>
+                                </tr>
+                                <tr>
+                                  <td>
+                                    Female hygiene kit
+                                  </td>
+                                  <td>
+                                    {{ data['female_kit'] }}
+                                  </td>
+                                  <td>
+                                    {{ data['female_kit_info'] }}
                                   </td>
                                 </tr>
                               </tbody>

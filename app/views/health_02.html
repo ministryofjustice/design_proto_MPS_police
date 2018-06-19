@@ -23,6 +23,47 @@ Question page
 
         <!-- question -->
         <h2 class="heading-medium">
+          Are they pregnant?
+        </h2>
+        <p class="form-hint">
+          In the arrest record, check the risk assessment, pre-release assessment and care plan for relevant comments.
+        </p>
+
+          <div class="form-group">
+            <fieldset class="inline">
+
+              <legend class="visually-hidden"></legend>
+
+              <div class="multiple-choice" data-target="pregnant_info">
+                <input id="radio-inline-1" type="radio" name="pregnant" value="Yes" {{ checked("pregnant", "Yes") }}>
+                <label for="radio-inline-1">Yes</label>
+              </div>
+
+              <div class="multiple-choice">
+                <input id="radio-inline-2" type="radio" name="pregnant" value="No" {{ checked("pregnant", "No") }} onclick="clearDetails('textarea-a');">
+                <label for="radio-inline-2">No</label>
+              </div>
+
+            </fieldset>
+          </div>
+
+          <!-- conditionals -->
+          <div class="panel panel-border-narrow js-hidden" id="pregnant_info">
+            <!-- Give details -->
+            <div class="form-group">
+              <fieldset>
+                <legend class="visuallyhidden"></legend>
+                <label class="form-label" for="textarea-a">
+                  Give details:
+                </label>
+                <textarea class="form-control" id="textarea-a" cols="30" rows="3" name="pregnant_info">{{data['pregnant_info']}}</textarea>
+              </div>
+            </fieldset>
+          </div>
+
+
+        <!-- question -->
+        <h2 class="heading-medium">
           Do they have any physical health needs that might affect them on this journey?
         </h2>
         <p class="form-hint">
@@ -42,13 +83,13 @@ Question page
               <legend class="visually-hidden"></legend>
 
               <div class="multiple-choice" data-target="physical_health_info">
-                <input id="radio-inline-1" type="radio" name="physical_health" value="Yes" {{ checked("physical_health", "Yes") }}>
-                <label for="radio-inline-1">Yes</label>
+                <input id="radio-inline-3" type="radio" name="physical_health" value="Yes" {{ checked("physical_health", "Yes") }}>
+                <label for="radio-inline-3">Yes</label>
               </div>
 
               <div class="multiple-choice">
-                <input id="radio-inline-2" type="radio" name="physical_health" value="No" {{ checked("physical_health", "No") }} onclick="clearDetails('textarea-b');">
-                <label for="radio-inline-2">No</label>
+                <input id="radio-inline-4" type="radio" name="physical_health" value="No" {{ checked("physical_health", "No") }} onclick="clearDetails('textarea-b');">
+                <label for="radio-inline-4">No</label>
               </div>
 
             </fieldset>
