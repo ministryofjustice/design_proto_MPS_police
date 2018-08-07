@@ -69,7 +69,7 @@ function loadFunction() {
   <label class="form-label-bold" for="nationality">
     Nationalities
   </label>
-  <input class="form-control" id="nationality" type="text" name="nationality" {{data['nationality']}}>
+  <input class="form-control" id="nationality" type="text" name="nationality" value="{{data['nationality']}}">
 </div>
 <!-- question -->
 <h2 class="form-label-bold">
@@ -81,22 +81,24 @@ function loadFunction() {
     <legend class="visually-hidden"></legend>
 
     <div class="multiple-choice">
-      <input id="radio-inline-211" type="radio" name="gender" value="Male">
-      <label class="selection-button-radio" for="radio-inline-211">
+      <input id="radio-inline-211" type="radio" name="gender" value="Male" {{ checked("gender", "Male") }}>
+      <label for="radio-inline-211">
         Male
       </label>
     </div>
+
     <div class="multiple-choice">
-      <input id="radio-inline-222" type="radio" name="gender" value="Female">
-      <label class="selection-button-radio" for="radio-inline-222">Female</label>
+      <input id="radio-inline-222" type="radio" name="gender" value="Female" {{ checked("gender", "Female") }}>
+      <label for="radio-inline-222">Female</label>
+    </div>
+
+    <div class="multiple-choice">
+      <input id="radio-inline-223" type="radio" name="gender" value="Unknown" {{ checked("gender", "Unknown") }}>
+      <label for="radio-inline-223">Unknown</label>
     </div>
     <div class="multiple-choice">
-      <input id="radio-inline-223" type="radio" name="gender" value="Unknown">
-      <label class="selection-button-radio" for="radio-inline-223">Unknown</label>
-    </div>
-    <div class="multiple-choice">
-      <input id="radio-inline-224" type="radio" name="gender" value="Indeterminate">
-      <label class="selection-button-radio" for="radio-inline-224">Indeterminate</label>
+      <input id="radio-inline-224" type="radio" name="gender" value="Indeterminate" {{ checked("gender", "Indeterminate") }}>
+      <label for="radio-inline-224">Indeterminate</label>
     </div>
 
   </fieldset>
@@ -129,7 +131,7 @@ function loadFunction() {
   <label class="form-label-bold" for="textarea">
     Aliases
   </label>
-  <textarea class="form-control form-control-3-4" name="alias" id="textarea" rows="5" value="{{data['alias']}}"></textarea>
+  <textarea class="form-control form-control-3-4" name="alias" id="textarea" rows="5">{{data['alias']}}</textarea>
 </div>
 <!-- <div class="form-group">
 <label class="form-label-bold" for="datedummy">
@@ -176,7 +178,7 @@ Category
   <label class="form-label-bold" for="diet">
     Dietary requirements
   </label>
-  <textarea class="form-control form-control-3-4" name="diet" id="textarea" rows="3" value="{{data['diet']}}"></textarea>
+  <textarea class="form-control form-control-3-4" name="diet" id="textarea" rows="3">{{data['diet']}}</textarea>
 </div>
 </div>
 <div class="form-group">
