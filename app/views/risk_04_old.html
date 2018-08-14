@@ -1,0 +1,77 @@
+{% extends "layout.html" %}
+
+{% block page_title %}
+Question page
+{% endblock %}
+
+{% block content %}
+
+<main id="content" role="main">
+
+  {% include "includes/breadcrumb_examples.html" %}
+
+  <div class="grid-row">
+    <div class="column-full"><p><a href="risk_03.html">Back</a>&emsp;4 of 12&emsp;<a href="risk_05.html">Skip</a></p>
+    </div>
+    <div class="column-two-thirds">
+
+      <form action="risk_05" method="get" class="form">
+
+        <h1 class="heading-secondary">
+          Violence
+        </h1>
+
+        <!-- question -->
+        <h2 class="heading-medium">
+          Are they violent or dangerous?
+        </h2>
+<p class="form-hint">
+  In the arrest record, check for the <i>Violent or Potentially dangerous offender</i> warning markers.
+</p>
+        <div class="form-group">
+          <fieldset class="inline">
+
+            <legend class="visually-hidden"></legend>
+
+            <div class="multiple-choice" data-target="violent_dangerous">
+              <input id="radio-inline-5" type="radio" name="violent_dangerous" value="Yes" {{ checked("violent_dangerous", "Yes") }}>
+              <label for="radio-inline-5">Yes</label>
+            </div>
+
+            <div class="multiple-choice">
+              <input id="radio-inline-6" type="radio" name="violent_dangerous" value="No" {{ checked("violent_dangerous", "No") }}>
+              <label for="radio-inline-6">No</label>
+            </dic>
+
+          </fieldset>
+        </div>
+
+        <!-- conditionals -->
+        <div class="panel panel-border-narrow js-hidden" id="violent_dangerous">
+          <!-- Give details -->
+          <div class="form-group">
+            <fieldset>
+              <legend class="visuallyhidden">Intimidator/bully</legend>
+              <label class="form-label" for="textarea-a">
+                Give details
+              </label>
+              <textarea class="form-control" id="textarea-a" cols="30" rows="3" name="violent_dangerous_info">{{data['violent_dangerous_info']}}</textarea>
+            </div>
+          </fieldset>
+        </div>
+
+
+        <!-- button -->
+        <div class="form-group">
+          {% include "includes/risk-screen-buttons.html" %}
+
+        </div>
+      </form>
+    </div>
+    <div class="side-profile column-one-third">
+      {% include "includes/side-profile.html" %}
+    </div>
+  </div>
+</main>
+
+{% endblock %}

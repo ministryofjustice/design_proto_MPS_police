@@ -1,4 +1,4 @@
-{% extends "layout.html" %}
+0{% extends "layout.html" %}
 
 {% block page_title %}
 Question page
@@ -11,51 +11,83 @@ Question page
   {% include "includes/breadcrumb_examples.html" %}
 
   <div class="grid-row">
-    <div class="column-full"><p><a href="risk_06.html">Back</a>&emsp;7 of 12&emsp;<a href="risk_08.html">Skip</a></p>
+    <div class="column-full"><p><a href="risk_06.html">Back</a>&emsp;7 of 7</p>
     </div>
     <div class="column-two-thirds">
-      <form action="risk_08" method="get" class="form">
-
+      <form action="check-your-answers-risk-incomplete" method="post" class="form">
         <h1 class="heading-secondary">
-          Escape status and history
+          Other risk on this journey
         </h1>
 
         <!-- question -->
+                <h2 class="heading-medium">
+                  Do they have PNC warnings that haven’t been covered by the questions asked?
+                </h2>
+                <div class="form-group">
+                  <fieldset class="inline">
+
+                    <legend class="visually-hidden"></legend>
+
+                    <div class="multiple-choice" data-target="pnc-info">
+                      <input id="radio-inline-17" type="radio" name="pnc" value="Yes" {{ checked("pnc", "Yes") }}>
+                      <label for="radio-inline-17">Yes</label>
+                    </div>
+
+                    <div class="multiple-choice">
+                      <input id="radio-inline-18" type="radio" name="pnc" value="No" {{ checked("pnc", "No") }} onclick="clearDetails('textarea-c');">
+                      <label for="radio-inline-18">No</label>
+                    </div>
+
+                  </fieldset>
+                </div>
+
+                <div class="panel panel-border-narrow js-hidden" id="pnc-info">
+                  <div class="form-group">
+                    <label class="form-label" for="textarea-b">
+                      Give details
+                    </label>
+                    <textarea class="form-control form-control-3-4" id="textarea-b" cols="30" rows="9" name="pnc_info"
+                    >{{ data["pnc_info"] }}</textarea>
+                  </div>
+                </div>
+
+        <!-- question -->
         <h2 class="heading-medium">
-          Are they an escape risk?
+          Is there any other information related to risk on this journey you would like to include?
         </h2>
-        <p class="form-hint">
-          Check PNC warnings for the <i>Escaper</i> marker and any other relevant escape risk information.
-        </p>
 
         <div class="form-group">
           <fieldset class="inline">
 
             <legend class="visually-hidden"></legend>
 
-            <div class="multiple-choice" data-target="escape_risk_details">
-              <input id="radio-inline-3" type="radio" name="escape_attempts" value="Yes" {{ checked("escape_attempts", "Yes") }}>
-              <label for="radio-inline-3">Yes</label>
+            <div class="multiple-choice" data-target="other-final-info">
+              <input id="other_final_01" name="other_final" type="radio" value="Yes" {{ checked("other_final", "Yes") }}>
+              <label for="other_final_01">Yes</label>
             </div>
+
             <div class="multiple-choice">
-              <input id="radio-inline-4" type="radio" name="escape_attempts" value="No" {{ checked("escape_attempts", "No") }} onclick="clearDetails('textarea-b');">
-              <label for="radio-inline-4">No</label>
+              <input id="other_final_02" name="other_final" type="radio" value="No" {{ checked("other_final", "No") }} onclick="clearDetails('textarea');">
+              <label for="other_final_02">No</label>
             </div>
+
           </fieldset>
         </div>
-        <div class="panel panel-border-narrow js-hidden" id="escape_risk_details">
+        <div class="panel panel-border-narrow js-hidden" id="other-final-info" >
+          <!-- Give details -->
           <div class="form-group">
-            <label class="form-label" for="textarea-b">
+            <label class="form-label" for="textarea">
               Give details:
             </label>
-            <textarea class="form-control form-control-3-4" id="textarea-b" rows="3" name="escape_risk_info">{{ data['escape_risk_info'] }}</textarea>
+            <textarea class="form-control form-control-3-4" name="other_final_info" id="textarea" rows="5">{{data['other_final_info']}}</textarea>
           </div>
         </div>
-
 
         <!-- button -->
         <div class="form-group">
           {% include "includes/risk-screen-buttons.html" %}
+
+          <!-- <input class="button" type="submit" value="Save and continue"> -->
         </div>
       </form>
 

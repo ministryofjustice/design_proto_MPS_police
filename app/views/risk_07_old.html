@@ -1,0 +1,69 @@
+{% extends "layout.html" %}
+
+{% block page_title %}
+Question page
+{% endblock %}
+
+{% block content %}
+
+<main id="content" role="main">
+
+  {% include "includes/breadcrumb_examples.html" %}
+
+  <div class="grid-row">
+    <div class="column-full"><p><a href="risk_06.html">Back</a>&emsp;7 of 12&emsp;<a href="risk_08.html">Skip</a></p>
+    </div>
+    <div class="column-two-thirds">
+      <form action="risk_08" method="get" class="form">
+
+        <h1 class="heading-secondary">
+          Escape status and history
+        </h1>
+
+        <!-- question -->
+        <h2 class="heading-medium">
+          Are they an escape risk?
+        </h2>
+        <p class="form-hint">
+          Check PNC warnings for the <i>Escaper</i> marker and any other relevant escape risk information.
+        </p>
+
+        <div class="form-group">
+          <fieldset class="inline">
+
+            <legend class="visually-hidden"></legend>
+
+            <div class="multiple-choice" data-target="escape_risk_details">
+              <input id="radio-inline-3" type="radio" name="escape_attempts" value="Yes" {{ checked("escape_attempts", "Yes") }}>
+              <label for="radio-inline-3">Yes</label>
+            </div>
+            <div class="multiple-choice">
+              <input id="radio-inline-4" type="radio" name="escape_attempts" value="No" {{ checked("escape_attempts", "No") }} onclick="clearDetails('textarea-b');">
+              <label for="radio-inline-4">No</label>
+            </div>
+          </fieldset>
+        </div>
+        <div class="panel panel-border-narrow js-hidden" id="escape_risk_details">
+          <div class="form-group">
+            <label class="form-label" for="textarea-b">
+              Give details:
+            </label>
+            <textarea class="form-control form-control-3-4" id="textarea-b" rows="3" name="escape_risk_info">{{ data['escape_risk_info'] }}</textarea>
+          </div>
+        </div>
+
+
+        <!-- button -->
+        <div class="form-group">
+          {% include "includes/risk-screen-buttons.html" %}
+        </div>
+      </form>
+
+    </div>
+    <div class="side-profile column-one-third">
+      {% include "includes/side-profile.html" %}
+    </div>
+  </div>
+</main>
+
+{% endblock %}
