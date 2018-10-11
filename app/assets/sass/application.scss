@@ -305,3 +305,7 @@ thead th{
   position: relative;
   right: 290px;
 }
+.optional:after{
+  font-weight: normal;
+  content: " (optional)";
+}
