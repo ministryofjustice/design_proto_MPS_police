@@ -59,7 +59,6 @@ function setdateTomorrow(){
 
 function dataDump(data) {
   console.log(Object.entries(data));
-console.log('dataDump done');
 }
 
 function clearDetails(target){
