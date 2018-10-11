@@ -104,31 +104,31 @@ function loadFunction() {
   </fieldset>
 </div>
 <div class="form-group">
-  <label class="form-label-bold" for="ethnicity">
+  <label class="form-label-bold optional" for="ethnicity">
     Ethnicity
   </label>
   <input class="form-control" id="ethnicity" type="text" name="ethnicity" value="{{data['ethnicity']}}">
 </div>
-<div class="form-group">
+<!-- <div class="form-group">
   <label class="form-label-bold" for="religion">
     Religion
   </label>
   <input class="form-control" id="religion" type="text" name="religion" value="{{data['religion']}}">
-</div>
+</div> -->
 <div class="form-group">
-  <label class="form-label-bold" for="prisonnum">
+  <label class="form-label-bold optional" for="prisonnum">
     Prison number
   </label>
   <input class="form-control" id="prisonnum" type="text" name="prisonnum" value={{data['prisonnum']}}>
 </div>
 <div class="form-group">
-  <label class="form-label-bold" for="cro">
+  <label class="form-label-bold optional" for="cro">
     CRO number
   </label>
   <input class="form-control" id="cro" type="text" name="cro" value={{data['cro']}}>
 </div>
 <div class="form-group">
-  <label class="form-label-bold" for="textarea">
+  <label class="form-label-bold optional" for="textarea">
     Aliases
   </label>
   <textarea class="form-control form-control-3-4" name="alias" id="textarea" rows="5">{{data['alias']}}</textarea>
@@ -139,12 +139,7 @@ Category
 </label>
 <input class="form-control" id="datedummy" type="text-area" name="datedummy" value="">
 </div> -->
-<div class="form-group">
-  <label class="form-label-bold" for="language">
-    Preferred language
-  </label>
-  <input class="form-control" id="language" type="text-area" name="language" value="{{data['language']}}">
-</div>
+
 <div class="form-group">
   <fieldset class="inline">
     <legend>
@@ -164,6 +159,12 @@ Category
 
   <div class="panel panel-border-narrow js-hidden" id="interpreter_info" style="margin-top:10px">
     <div class="form-group">
+      <div class="form-group">
+        <label class="form-label" for="language">
+          Preferred language
+        </label>
+        <input class="form-control" id="language" type="text-area" name="language" value="{{data['language']}}">
+      </div>
       <label class="form-label" for="textarea-b">
         Enter contact details of booked interpreter
       </label>
@@ -175,7 +176,7 @@ Category
 
 
 <div class="form-group">
-  <label class="form-label-bold" for="diet">
+  <label class="form-label-bold optional" for="diet">
     Dietary requirements
   </label>
   <textarea class="form-control form-control-3-4" name="diet" id="textarea" rows="3">{{data['diet']}}</textarea>

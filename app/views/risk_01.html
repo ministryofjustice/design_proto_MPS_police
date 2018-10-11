@@ -26,7 +26,7 @@ function myFunction(){
 
         <!-- question -->
         <h2 class="heading-medium">
-          Is there a risk that they might self harm or attempt suicide?
+          Is there any indication that they might self harm or attempt suicide?
         </h2>
         <p class="form-hint">In the arrest record, check the pre-release assessment for relevant comments.</p>
         <div class="form-group">
@@ -48,23 +48,86 @@ function myFunction(){
         <div class="panel panel-border-narrow js-hidden" id="selfharm-info">
           <div class="form-group">
             <label class="form-label" for="textarea-b">
-              Give details, including observation level:
+              Give details:
             </label>
             <textarea class="form-control form-control-3-4" id="textarea-b" cols="30" rows="3" name="selfharm_info" >{{ data['selfharm_info'] }}</textarea>
           </div>
         </div>
 
+        <!-- question -->
+        <h2 class="heading-medium">
+          What observation level have they been assigned while in custody?
+        </h2>
+        <p class="form-hint">In the arrest record, check <i>Observation Level</i>. </p>
 
-        <!-- button -->
         <div class="form-group">
+          <legend class="visuallyhidden">
+          </legend>
 
-          {% include "includes/risk-screen-buttons.html" %}
-        </div>
-      </form>
-    </div>
-    <div class="side-profile column-one-third">
-      {% include "includes/side-profile.html" %};
-    </div>
-  </main>
+          <div>
+            <fieldset>
+              <div class="multiple-choice" data-target="level1-info">
+                <input id="radio-part-1" type="radio" name="obvs_level" value="Yes" {{ checked("obvs_level", "Yes") }}>
+                <label for="radio-part-1">Level 1 (hourly checks)</label>
+              </div>
+              <div class="panel panel-border-narrow js-hidden" id="level1-info">
+                <div class="form-group">
+                  <label class="form-label" for="textarea-a">
+                    Give details, including reasons for assigning observation level:
+                  </label>
+                  <textarea class="form-control form-control-3-4" id="textarea-a" cols="30" rows="3" name="obvs_info_1" >{{ data['obvs_info_1'] }}</textarea>
+                </div>
+              </div>
+              <div class="multiple-choice" data-target="level2-info">
+                <input id="radio-part-2" type="radio" name="obvs_level" value="Yes" {{ checked("obvs_level", "Yes") }}>
+                <label for="radio-part-2">Level 2 (checks every 30 minutes)</label>
+              </div>
+              <div class="panel panel-border-narrow js-hidden" id="level2-info">
+                <div class="form-group">
+                  <label class="form-label" for="textarea-a">
+                    Give details, including reasons for assigning observation level:
+                  </label>
+                  <textarea class="form-control form-control-3-4" id="textarea-a" cols="30" rows="3" name="obvs_info_2" >{{ data['obvs_info_2'] }}</textarea>
+                </div>
+              </div>
+              <div class="multiple-choice" data-target="level3-info">
+                <input id="radio-part-3" type="radio" name="obvs_level" value="No" {{ checked("obvs_level", "No") }}>
+                <label for="radio-part-3">Level 3 (constant watch via CCTV)</label>
+              </div>
+              <div class="panel panel-border-narrow js-hidden" id="level3-info">
+                <div class="form-group">
+                  <label class="form-label" for="textarea-a">
+                    Give details, including reasons for assigning observation level:
+                  </label>
+                  <textarea class="form-control form-control-3-4" id="textarea-a" cols="30" rows="3" name="obvs_info_3" >{{ data['obvs_info_3'] }}</textarea>
+                </div>
+              </div>
+              <div class="multiple-choice" data-target="level4-info">
+                <input id="radio-part-4" type="radio" name="obvs_level" value="No" {{ checked("obvs_level", "No") }}>
+                <label for="radio-part-4" >Level 4 (constant physical watch)</label></div>
+              </div>
+              <div class="panel panel-border-narrow js-hidden" id="level4-info">
+                <div class="form-group">
+                  <label class="form-label" for="textarea-a">
+                    Give details, including reasons for assigning observation level:
+                  </label>
+                  <textarea class="form-control form-control-3-4" id="textarea-a" cols="30" rows="3" name="obvs_info_4" >{{ data['obvs_info_4'] }}</textarea>
+                </div>
+              </div>
+            </fieldset>
+          </div>
 
-  {% endblock %}
+
+          <!-- button -->
+          <div class="form-group">
+
+            {% include "includes/risk-screen-buttons.html" %}
+          </div>
+        </form>
+      </div>
+      <div class="side-profile column-one-third">
+        {% include "includes/side-profile.html" %};
+      </div>
+    </main>
+
+    {% endblock %}

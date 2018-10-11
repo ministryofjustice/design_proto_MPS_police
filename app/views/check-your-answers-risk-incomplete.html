@@ -12,13 +12,12 @@ function loadFunction() {
   dataDump({{ data | dump | safe}});
   if( {{ data['missing'] == "Yes" }}) {
     showMissing();
-    // console.log('loadFunction showMissing');
+    console.log('loadFunction showMissing');
   } else {
     showAll();
     setState('missing', 'No');
-    // console.log('loadFunction showAll');
+    console.log('loadFunction showAll');
   }
-
 }
 function showAll() {
   console.log('showAll');
@@ -85,6 +84,17 @@ table th{
             </td>
             <td>
               {{ data['selfharm_info'] }}
+            </td>
+          </tr>
+          <tr>
+            <td>
+              Police constant watch
+            </td>
+            <td id='obvs_level'>
+              {{data['obvs_level']}}
+            </td>
+            <td id='obvs'>
+              If yes will show police level and level description. Plus manually entered details.
             </td>
           </tr>
         </tbody>
