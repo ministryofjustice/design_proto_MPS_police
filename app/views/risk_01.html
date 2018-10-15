@@ -66,20 +66,13 @@ function myFunction(){
 
           <div>
             <fieldset>
-              <div class="multiple-choice" data-target="level1-info">
+              <div class="multiple-choice">
                 <input id="radio-part-1" type="radio" name="obvs_level" value="No" {{ checked("obvs_level", "No") }}>
                 <label for="radio-part-1">Level 1 (hourly checks)</label>
               </div>
-              <div class="panel panel-border-narrow js-hidden" id="level1-info">
-                <div class="form-group">
-                  <label class="form-label" for="textarea-a">
-                    Give details, including reasons for assigning observation level:
-                  </label>
-                  <textarea class="form-control form-control-3-4" id="textarea-a" cols="30" rows="3" name="obvs_info_1" >{{ data['obvs_info_1'] }}</textarea>
-                </div>
-              </div>
+              
               <div class="multiple-choice" data-target="level2-info">
-                <input id="radio-part-2" type="radio" name="obvs_level" value="No" {{ checked("obvs_level", "No") }}>
+                <input id="radio-part-2" type="radio" name="obvs_level" value="Yes" {{ checked("obvs_level", "Yes") }}>
                 <label for="radio-part-2">Level 2 (checks every 30 minutes)</label>
               </div>
               <div class="panel panel-border-narrow js-hidden" id="level2-info">
