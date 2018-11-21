@@ -15,7 +15,7 @@ function loadFunction() {
   selfharmCheck();
   obvsCheck();
   escaperiskCheck();
-  cellsharingriskCheck();
+  // cellsharingriskCheck();
   //offences
   if ({{data.offences | dump | safe }} == "done"){
     console.log('offences done')
@@ -229,8 +229,8 @@ font-weight: bold;
     <li class="flag" id="escaperiskyes" style="display:none;">Escape risk</li>
     <li class="flag flag-inactive" id="escaperiskno" style="display:none;">Escape risk</li>
     <!-- cellsharingrisk -->
-    <li class="flag" id="cellsharingriskyes" style="display:none;">Cell sharing risk</li>
-    <li class="flag flag-inactive" id="cellsharingriskno" style="display:none;">Cell sharing risk</li>
+    <!-- <li class="flag" id="cellsharingriskyes" style="display:none;">Cell sharing risk</li>
+    <li class="flag flag-inactive" id="cellsharingriskno" style="display:none;">Cell sharing risk</li> -->
     <section>
       <div class="newpanel newpanel_link">
         <span class="heading-medium">Move information</span>

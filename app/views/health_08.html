@@ -68,7 +68,7 @@ Question page
 
             <legend class="visually-hidden"></legend>
 
-            <div class="multiple-choice" data-target="female_kit_info">
+            <div class="multiple-choice">
               <input id="radio-inline-3" type="radio" name="female_kit" value="Yes" {{ checked("female_kit", "Yes") }}>
               <label for="radio-inline-3">Yes</label>
             </div>
@@ -79,16 +79,6 @@ Question page
             </div>
           </fieldset>
         </div>
-
-        <div class="panel panel-border-narrow js-hidden" id="female_kit_info">
-          <div class="form-group">
-            <label class="form-label" for="textarea-b">
-              Give details:
-            </label>
-            <textarea class="form-control" id="textarea-b" cols="30" rows="3" name="female_kit_info">{{data['female_kit_info']}}</textarea>
-          </div>
-        </div>
-
 
         <!-- button -->
         <div class="form-group">
