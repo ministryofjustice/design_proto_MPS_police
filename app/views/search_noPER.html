@@ -20,7 +20,7 @@ GOV.UK prototype kit
         <label for="example-full-name" id="error-full-name">
 
           <span class="form-label-bold">PNC number</span>
-          <span class="form-hint">For example 01/234567A</span>
+          <span class="form-hint">For example 01/234567A or the older format of 01/23456A</span>
 
         </label>
 
@@ -36,6 +36,14 @@ GOV.UK prototype kit
     <div class="search-results">
       <div class="form-label-bold">Search result</div>
       <div class="">There are no previous ePERs for {{data.pn}}</div>
+      <div class="notice">
+        <i class="icon icon-important">
+          <span class="visually-hidden">Warning</span>
+        </i>
+        <strong class="bold-small">
+          Note: you have entered a PNC number in the older format 
+        </strong>
+      </div>
       <a class="button" style="margin-top:20px;" href="/detainee_info.html">Start new PER</a></div>
     </main>
 
