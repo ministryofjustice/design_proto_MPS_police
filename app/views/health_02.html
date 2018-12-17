@@ -29,54 +29,54 @@ Question page
           In the arrest record, check the risk assessment, pre-release assessment and care plan for relevant comments.
         </p>
 
+        <div class="form-group">
+          <fieldset class="inline">
+
+            <legend class="visually-hidden"></legend>
+
+            <div class="multiple-choice" data-target="pregnant_info">
+              <input id="radio-inline-1" type="radio" name="pregnant" value="Yes" {{ checked("pregnant", "Yes") }}>
+              <label for="radio-inline-1">Yes</label>
+            </div>
+
+            <div class="multiple-choice">
+              <input id="radio-inline-2" type="radio" name="pregnant" value="No" {{ checked("pregnant", "No") }} onclick="clearDetails('textarea-a');">
+              <label for="radio-inline-2">No</label>
+            </div>
+
+          </fieldset>
+        </div>
+
+        <!-- conditionals -->
+        <div class="panel panel-border-narrow js-hidden" id="pregnant_info">
+          <!-- Give details -->
           <div class="form-group">
-            <fieldset class="inline">
-
-              <legend class="visually-hidden"></legend>
-
-              <div class="multiple-choice" data-target="pregnant_info">
-                <input id="radio-inline-1" type="radio" name="pregnant" value="Yes" {{ checked("pregnant", "Yes") }}>
-                <label for="radio-inline-1">Yes</label>
-              </div>
-
-              <div class="multiple-choice">
-                <input id="radio-inline-2" type="radio" name="pregnant" value="No" {{ checked("pregnant", "No") }} onclick="clearDetails('textarea-a');">
-                <label for="radio-inline-2">No</label>
-              </div>
-
-            </fieldset>
-          </div>
-
-          <!-- conditionals -->
-          <div class="panel panel-border-narrow js-hidden" id="pregnant_info">
-            <!-- Give details -->
-            <div class="form-group">
-              <fieldset>
-                <legend class="visuallyhidden"></legend>
-                <label class="form-label" for="textarea-a">
-                  Give details:
-                </label>
-                <textarea class="form-control" id="textarea-a" cols="30" rows="3" name="pregnant_info">{{data['pregnant_info']}}</textarea>
-              </div>
-            </fieldset>
-          </div>
+            <fieldset>
+              <legend class="visuallyhidden"></legend>
+              <label class="form-label" for="textarea-a">
+                Give details:
+              </label>
+              <textarea class="form-control" id="textarea-a" cols="30" rows="3" name="pregnant_info">{{data['pregnant_info']}}</textarea>
+            </div>
+          </fieldset>
+        </div>
 
 
         <!-- question -->
         <h2 class="heading-medium">
-          Do they have any physical health needs that might affect them on this journey?
+          Do they have any physical health needs that might affect them when they leave police custody?
         </h2>
         <p class="form-hint">
           In the arrest record, check the risk assessment, pre-release assessment and care plan for relevant comments.
         </p>
         <p class="form-hint">
-          For example, issues that mean they can’t:
+          For example, issues that mean they:
           <ul class="list list-bullet form-hint">
-            <li>be handcuffed </li>
-            <li>travel in a standard van cell</li>
-            <li>sit for long periods of time</li>
+            <li>Can’t be handcuffed </li>
+            <li>Can’t travel in a standard van cell</li>
+            <li>Can’t sit for long periods of time</li>
+<li>Might need treatment for an illness or infection</li>
           </ul>
-
           <div class="form-group">
             <fieldset class="inline">
 
