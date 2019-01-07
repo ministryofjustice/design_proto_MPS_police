@@ -68,7 +68,7 @@ function myFunction(){
             <fieldset>
               <div class="multiple-choice" data-target="level1-info">
                 <input id="radio-part-1" type="radio" name="obvs_level" value="No" {{ checked("obvs_level", "No") }}>
-                <label for="radio-part-1">Level 1 (hourly checks)</label>
+                <label for="radio-part-1">Level 1 (check at least hourly)</label>
               </div>
               <div class="panel panel-border-narrow js-hidden" id="level1-info">
                 <div class="form-group">
@@ -82,7 +82,7 @@ function myFunction(){
 
               <div class="multiple-choice" data-target="level2-info">
                 <input id="radio-part-2" type="radio" name="obvs_level" value="Yes" {{ checked("obvs_level", "Yes") }}>
-                <label for="radio-part-2">Level 2 (checks every 30 minutes)</label>
+                <label for="radio-part-2">Level 2 (wake and check at least every 30 minutes)</label>
               </div>
               <div class="panel panel-border-narrow js-hidden" id="level2-info">
                 <div class="form-group">
