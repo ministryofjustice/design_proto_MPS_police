@@ -273,9 +273,15 @@ font-weight: bold;
           Release status
         </h6>
         <p id="nfr">
-          <!-- <span id="yesno" style="display:none;">{{ data['nfr'] }}</span> -->
           <span>{{ data['nfr_state'] }}</span>
-          <!-- <br> {{ data['nfrDisplay'] }} -->
+        </p>
+      </div>
+      <div class="tile col-3">
+        <h6>
+          Special vehicle requirements
+        </h6>
+        <p>
+          <span id="special_vehicle_info"> {{data.special_vehicle_info}}</span>
         </p>
       </div>
     </section>

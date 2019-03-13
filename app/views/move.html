@@ -43,6 +43,20 @@ function setNfrState(){
           <label class="form-label-bold" style="margin-bottom:10px">To</label>
           <div class="form-group">
 
+            <div class="multiple-choice" data-target="border-force-info">
+              <input id="radio-part-14" type="radio" name="destination" value="Civil Court" {{ checked("destination", "Civil Court") }}>
+              <label for="radio-part-14">Border Force Custody</label>
+            </div>
+            <!-- details !-->
+            <div class="panel panel-border-narrow js-hidden" id="border-force-info">
+              <div class="form-group">
+                <label class="form-label" for="border-force">
+                  Enter name of Border Force Custody
+                </label>
+                <input class="form-control" id="border-force" type="text" name="to" value="{{data['to']}}">
+              </div>
+            </div>
+
             <div class="multiple-choice" data-target="court-civil-info">
               <input id="radio-part-4" type="radio" name="destination" value="Civil Court" {{ checked("destination", "Civil Court") }}>
               <label for="radio-part-4">Civil Court</label>
@@ -85,6 +99,7 @@ function setNfrState(){
               </div>
             </div>
 
+
             <div class="multiple-choice" data-target="immigration-info">
               <input id="radio-part-5" type="radio" name="destination" value="immigration" {{ checked("destination", "immigration") }}>
               <label for="radio-part-5">Immigration removal centre</label>
@@ -110,6 +125,20 @@ function setNfrState(){
                   Enter name of Magistrates' Court
                 </label>
                 <input class="form-control" id="input-mag-name" type="text" name="to" value="{{data['to']}}">
+              </div>
+            </div>
+
+            <div class="multiple-choice" data-target="mental-health-unit-info">
+              <input id="radio-part-17" type="radio" name="destination" value="Mental Health Unit" {{ checked("destination", "Mental Health Unit") }}>
+              <label for="radio-part-17">Mental Health Unit</label>
+            </div>
+            <!-- details !-->
+            <div class="panel panel-border-narrow js-hidden" id="mental-health-unit-info">
+              <div class="form-group">
+                <label class="form-label" for="mental-health-unit-name">
+                  Enter name of Mental Health Unit
+                </label>
+                <input class="form-control" id="mental-health-unit-name" type="text" name="to" value="{{data['to']}}">
               </div>
             </div>
 
@@ -263,58 +292,38 @@ function setNfrState(){
             <textarea class="form-control" id="textarea-b" cols="30" rows="3" name="nfr_info">{{data['nfr_info']}}</textarea>
           </div>
         </div>
-        <!-- <div class="form-group">
+        <!-- question -->
+        <h2 class="form-label-bold">
+          Do they need to travel in a special vehicle on this journey?
+        </h2>
+        <p class="form-hint">
+          This could be a specially-adapted prison van (for example, to accommodate wheelchairs) or a taxi.
+        </p>
+
+        <div class="form-group">
           <fieldset class="inline">
-            <label class="form-label-bold optional">
-              Do they require a special vehicle?
-            </label>
-            <p class="form-hint">
-              This could be a specially-adapted prison van (for example, to accommodate wheelchairs) or a taxi.
-            </p>
+
             <legend class="visually-hidden"></legend>
-            <div class="multiple-choice" data-target="special_vehicle-info">
-              <input id="radio-inline-17" type="radio" name="special_vehicle" value="Yes" {{ checked("special_vehicle", "Yes") }}>
-              <label for="radio-inline-17">Yes</label>
+
+            <div class="multiple-choice" data-target="special_vehicle_info">
+              <input id="radio-inline-1" type="radio" name="special_vehicle" value="Yes" {{ checked("special_vehicle", "Yes") }}>
+              <label for="radio-inline-1">Yes</label>
             </div>
+
             <div class="multiple-choice">
-              <input id="radio-inline-18" type="radio" name="special_vehicle" value="No" {{ checked("special_vehicle", "No") }}>
-              <label for="radio-inline-18">No</label>
+              <input id="radio-inline-2" type="radio" name="special_vehicle" value="No" {{ checked("special_vehicle", "No") }} onclick="clearDetails('textarea-b');">
+              <label for="radio-inline-2">No</label>
             </div>
+
           </fieldset>
         </div>
 
-        <div class="panel panel-border-narrow js-hidden" id="special_vehicle-info">
+        <div class="panel panel-border-narrow js-hidden" id="special_vehicle_info">
           <div class="form-group">
             <label class="form-label" for="textarea-b">
-              Please explain why they need a special vehicle:
+              Please explain why you feel they need a special vehicle:
             </label>
-            <textarea class="form-control form-control-3-4" id="textarea-b" cols="30" rows="3" name="special_vehicle_info">{{data['special_vehicle_info']}}</textarea>
-          </div>
-        </div> -->
-
-        <!-- <div class="form-group">
-          <fieldset class="inline">
-            <label class="form-label-bold optional">
-              Do they have any other special transport requirements?
-            </label>
-            <legend class="visually-hidden"></legend>
-            <div class="multiple-choice" data-target="special_requirements-info">
-              <input id="radio-inline-27" type="radio" name="special_requirements" value="Yes" {{ checked("special_requirements", "Yes") }}>
-              <label for="radio-inline-27">Yes</label>
-            </div>
-            <div class="multiple-choice">
-              <input id="radio-inline-28" type="radio" name="special_requirements" value="No" {{ checked("special_requirements", "No") }}>
-              <label for="radio-inline-28">No</label>
-            </div>
-          </fieldset>
-        </div> -->
-
-        <div class="panel panel-border-narrow js-hidden" id="special_requirements-info">
-          <div class="form-group">
-            <label class="form-label" for="textarea-c">
-              Give details:
-            </label>
-            <textarea class="form-control form-control-3-4" id="textarea-c" cols="30" rows="3" name="special_requirements_info">{{data['special_requirements_info']}}</textarea>
+            <textarea class="form-control" id="textarea-b" cols="30" rows="3" name="special_vehicle_info">{{data['special_vehicle_info']}}</textarea>
           </div>
         </div>
 
